@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+
+<HTML>
+
+<head>
+
+<title>Select is_international</title>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+<script src="jquery-1.11.2.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#status").change(function() {
+                if ($(this).val() == "international") {
+                    $("#interinfo").show();
+                    $("#testinfo").hide();
+                    $("#test_schedule").hide();
+                    $("#disqualified").hide();
+                    $("#autoqualified").hide();
+                    $("#newstudent").hide();
+                    $("#gato").hide();
+                    $("#onita").hide();
+                    $("#click").hide();
+                }
+                else if ($(this).val() == "noninternational")  {
+                    $("#interinfo").hide();
+                    $("#testinfo").hide();
+                    $("#test_schedule").hide();
+                    $("#disqualified").hide();
+                    $("#autoqualified").show();
+                    $("#newstudent").hide();
+                    $("#gato").show();
+                    $("#onita").hide();
+                    $("#click").show();
+                }
+                else{
+                    $("#interinfo").hide();
+                    $("#testinfo").hide();
+                    $("#test_schedule").hide();
+                    $("#disqualified").hide();
+                    $("#autoqualified").hide();
+                    $("#newstudent").hide();
+                    $("#gato").hide();
+                    $("#onita").hide();
+                    $("#click").hide();
+                } 
+            });          
+
+          });
+
+		$(document).ready(function () {
+            $("#speaktest").change(function() {
+                if ($(this).val() == "passed") {
+                    $("#interinfo").show();
+                    $("#testinfo").show();
+                    $("#test_schedule").hide();
+                    $("#disqualified").hide();
+                    $("#autoqualified").hide();
+                    $("#newstudent").show();
+                    $("#gato").show();
+                    $("#onita").show();
+                    $("#click").show();
+                }
+                else if ($(this).val() == "scheduled")  {
+                    $("#interinfo").show();
+                    $("#testinfo").hide();
+                    $("#test_schedule").show();
+                    $("#disqualified").hide();
+                    $("#autoqualified").hide();
+                    $("#newstudent").show();
+                    $("#gato").show();
+                    $("#onita").show();
+                    $("#click").show();
+                }
+				else if ($(this).val() == "notscheduled")  {
+                    $("#interinfo").show();
+                    $("#testinfo").hide();
+                    $("#test_schedule").hide();
+                    $("#disqualified").show();
+                    $("#autoqualified").hide();
+                    $("#newstudent").hide();
+                    $("#gato").hide();
+                    $("#onita").hide();
+                    $("#click").hide();
+                }
+                else{
+                    $("#interinfo").show();
+                    $("#testinfo").hide();
+                    $("#test_schedule").hide();
+                    $("#disqualified").hide();
+                    $("#autoqualified").hide();
+                    $("#newstudent").hide();
+                    $("#gato").hide();
+                    $("#onita").hide();
+                    $("#click").hide();
+                } 
+            });          
+
+          });
+
+    </script>
+  
+</head>
+
+
+
+<body> 
+<h2></br>This section is used to determine if you qualified for TA/PLA with regard to your language skills.</h2>
+
+<form action="is_international.php" method="post">
+
+		<p> <b> Please indicate if you are an international student by selecting the options below.</b><br/></br>
+		    <select id ="status" name="status" style= "width: 200px">
+			       <option value="status">Select</option>
+			       <option value="international">International</option>
+			       <option value="noninternational">Non-International</option>
+		    </select>
+		</p>
+
+	<div id="language">  
+
+		<p id="interinfo" style="display:none"> 
+		    <b> Please indicate if you have passed the English proficiency test (SPEAK test) by selecting the options below.<br/><br/></b>
+		    <select id="speaktest" name="speaktest" border ="2px" style="width:200px">
+		    		<option value="select">Select</option>
+		            <option value="passed">Speak test passed</option>
+		            <option value="scheduled">Speak test scheduled</option>
+		            <option value="notscheduled">Speak test not scheduled</option>
+		    </select>
+		</p>
+
+		<p id="testinfo" style="display:none" >
+			<b> If SPEAK test passed, please provide your last test date and score:<br/><br/></b>
+			Test score:<br/>
+			<input type="text" name="test_score" size="20" maxlength="40" style="width:200px"/><br/><br/>
+			Test date:<br/>
+			<input type="date" name="test_date" size="20" maxlength="40" style="width:200px"/><br/>
+		</p>
+
+		<p id="test_schedule" style="display:none">
+			<b> If you have registered for a test but have not taken one, please provide the scheduled test date:</b><br/><br/>
+			Test date:<br/>
+			<input type="date" name="test_date" size="20" maxlength="40" style="width:200px"/><br/><br/>
+		</p>
+
+		<p id="disqualified" style="display:none">
+			<b> Sorry, you do not qualify for a TA/PLA position!</b><br/><br/>
+		</p>
+
+		<p id="autoqualified" style="display:none">
+		    <b> Your language automatically qualifies you for a TA/PLA position.</b><br/><br/>
+		</p>
+
+	</div>
+
+	<div id="newstudent" >
+		<p id="newstudent" style="display:none">
+		    <b> Please indicate if you have finished at least one semester at MU:</b><br/><br/>
+		    <input type="radio" name="answer" value="Yes" />Yes
+		    <input type="radio" name="answer" value="No" /> No
+		</p>
+	</div>       
+
+	<div id="GATO">
+		<p id="gato" style="display: none">
+		    <b> Please indicate if you have participated in the GATO (Graduate Assistant Teaching Orientation):</b><br/><br/>
+		    <input type="radio" name="answer" value="Yes" />Yes
+		    <input type="radio" name="answer" value="No" /> No
+		    <input type="radio" name="answer" value="Will_attend" />Will attend in Aug./Jan      
+		</p>
+	</div>     
+
+	<div id="ONITA">
+		<p id="onita" style="display:none">
+		    <b> Please indicate if you have participated in the ONITA (Orientation for New International Teaching Assistant):</b><br/><br/>
+		    <input type="radio" name="answer" value="Yes" />Yes
+		    <input type="radio" name="answer" value="No" /> No
+		    <input type="radio" name="answer" value="Will_attend" />Will attend in Aug./Jan
+		</p>
+	</div>     
+
+	<h3>
+		<p id="click" style="display: none">
+			Click here to save your info:
+			<input type="submit" name = "submit" value="Save current info" /><br/><br/>
+			Click here to go to the next page:
+			<a href="nextpage.html"> Next Page </a>
+		</p>
+	</h3>
+
+
+</form>
+
+</body>
+
+</HTML>
