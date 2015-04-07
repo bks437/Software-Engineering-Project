@@ -21,7 +21,7 @@ CREATE TABLE Person(
 	fname varchar(32),
 	lname varchar(32),
 	PRIMARY KEY(sso),
-	FOREIGN KEY(sso) REFERENCES Login(sso)
+	FOREIGN KEY(sso) REFERENCES Login(sso) ON DELETE CASCADE
 
 );
 
@@ -38,7 +38,7 @@ CREATE TABLE is_an_applicant(
 	employer varchar(255),
 	ta_rank char(2),
 	PRIMARY KEY(sso),
-	FOREIGN KEY(sso) REFERENCES Person(sso)
+	FOREIGN KEY(sso) REFERENCES Person(sso) ON DELETE CASCADE
 
 );
 
@@ -49,7 +49,7 @@ CREATE TABLE is_a_grad(
 	degree char(3),
 	advisor varchar(32),
 	PRIMARY KEY(sso),
-	FOREIGN KEY(sso) REFERENCES is_an_applicant(sso)
+	FOREIGN KEY(sso) REFERENCES is_an_applicant(sso) ON DELETE CASCADE
 
 );
 
@@ -60,7 +60,7 @@ CREATE TABLE is_an_undergrad(
 	degree_program varchar(32),
 	level varchar(10),
 	PRIMARY KEY(sso),
-	FOREIGN KEY(sso) REFERENCES is_an_applicant(sso)
+	FOREIGN KEY(sso) REFERENCES is_an_applicant(sso) ON DELETE CASCADE
 
 );
 
@@ -73,7 +73,7 @@ CREATE TABLE is_international(
 	test_date date,
 	onita char,
 	PRIMARY KEY(sso),
-	FOREIGN KEY(sso) REFERENCES is_an_applicant(sso)
+	FOREIGN KEY(sso) REFERENCES is_an_applicant(sso) ON DELETE CASCADE
 
 );
 
@@ -82,7 +82,7 @@ DROP TABLE IF EXISTS is_a_faculty;
 CREATE TABLE is_a_faculty(
 	sso integer,
 	PRIMARY KEY(sso),
-	FOREIGN KEY(sso) REFERENCES Person(sso)
+	FOREIGN KEY(sso) REFERENCES Person(sso) ON DELETE CASCADE
 
 );
 
@@ -94,7 +94,7 @@ CREATE TABLE Comments(
 	comment varchar(1024),
 	PRIMARY KEY(professor,ta_sso),
 	FOREIGN KEY(professor) REFERENCES is_a_faculty(sso),
-	FOREIGN KEY(ta_sso) REFERENCES is_an_applicant(sso)
+	FOREIGN KEY(ta_sso) REFERENCES is_an_applicant(sso) ON DELETE CASCADE
 
 );
 
@@ -107,7 +107,7 @@ CREATE TABLE Course(
 	section char(2),
 	professor integer,
 	PRIMARY KEY(c_id),
-	FOREIGN KEY(professor) REFERENCES is_a_faculty(sso)
+	FOREIGN KEY(professor) REFERENCES is_a_faculty(sso) ON DELETE CASCADE
 
 );
 
@@ -117,8 +117,8 @@ CREATE TABLE has_taught(
 	ta_sso integer,
 	c_id integer,
 	PRIMARY KEY(ta_sso,c_id),
-	FOREIGN KEY(ta_sso) REFERENCES is_an_applicant(sso),
-	FOREIGN KEY(c_id) REFERENCES Course(c_id)
+	FOREIGN KEY(ta_sso) REFERENCES is_an_applicant(sso) ON DELETE CASCADE,
+	FOREIGN KEY(c_id) REFERENCES Course(c_id) ON DELETE CASCADE
 
 );
 
@@ -128,8 +128,8 @@ CREATE TABLE wants_to_teach(
 	ta_sso integer,
 	c_id integer,
 	PRIMARY KEY(ta_sso,c_id),
-	FOREIGN KEY(ta_sso) REFERENCES is_an_applicant(sso),
-	FOREIGN KEY(c_id) REFERENCES Course(c_id)
+	FOREIGN KEY(ta_sso) REFERENCES is_an_applicant(sso) ON DELETE CASCADE,
+	FOREIGN KEY(c_id) REFERENCES Course(c_id) ON DELETE CASCADE
 );
 
 DROP TABLE IF EXISTS has_taken;
@@ -138,8 +138,8 @@ CREATE TABLE has_taken(
 	ta_sso integer,
 	c_id integer,
 	PRIMARY KEY(ta_sso,c_id),
-	FOREIGN KEY(ta_sso) REFERENCES is_an_applicant(sso),
-	FOREIGN KEY(c_id) REFERENCES Course(c_id)
+	FOREIGN KEY(ta_sso) REFERENCES is_an_applicant(sso) ON DELETE CASCADE,
+	FOREIGN KEY(c_id) REFERENCES Course(c_id) ON DELETE CASCADE
 );
 
 DROP TABLE IF EXISTS assigned_to;
@@ -148,6 +148,6 @@ CREATE TABLE assigned_to(
 	ta_sso integer,
 	c_id integer,
 	PRIMARY KEY(ta_sso),
-	FOREIGN KEY(ta_sso) REFERENCES is_an_applicant(sso),
-	FOREIGN KEY(c_id) REFERENCES Course(c_id)
+	FOREIGN KEY(ta_sso) REFERENCES is_an_applicant(sso) ON DELETE CASCADE,
+	FOREIGN KEY(c_id) REFERENCES Course(c_id) ON DELETE CASCADE
 );
