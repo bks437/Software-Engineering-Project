@@ -18,7 +18,6 @@
                     $("#disqualified").hide();
                     $("#autoqualified").hide();
                     $("#newstudent").hide();
-                    $("#gato").hide();
                     $("#onita").hide();
                     $("#click").hide();
                 }
@@ -29,7 +28,6 @@
                     $("#disqualified").hide();
                     $("#autoqualified").show();
                     $("#newstudent").hide();
-                    $("#gato").show();
                     $("#onita").hide();
                     $("#click").show();
                 }
@@ -40,7 +38,6 @@
                     $("#disqualified").hide();
                     $("#autoqualified").hide();
                     $("#newstudent").hide();
-                    $("#gato").hide();
                     $("#onita").hide();
                     $("#click").hide();
                 } 
@@ -57,7 +54,6 @@
                     $("#disqualified").hide();
                     $("#autoqualified").hide();
                     $("#newstudent").show();
-                    $("#gato").show();
                     $("#onita").show();
                     $("#click").show();
                 }
@@ -68,7 +64,6 @@
                     $("#disqualified").hide();
                     $("#autoqualified").hide();
                     $("#newstudent").show();
-                    $("#gato").show();
                     $("#onita").show();
                     $("#click").show();
                 }
@@ -79,7 +74,6 @@
                     $("#disqualified").show();
                     $("#autoqualified").hide();
                     $("#newstudent").hide();
-                    $("#gato").hide();
                     $("#onita").hide();
                     $("#click").hide();
                 }
@@ -90,7 +84,6 @@
                     $("#disqualified").hide();
                     $("#autoqualified").hide();
                     $("#newstudent").hide();
-                    $("#gato").hide();
                     $("#onita").hide();
                     $("#click").hide();
                 } 
@@ -131,15 +124,15 @@
 
 		<p id="testinfo" style="display:none" >
 			<b> If SPEAK test passed, please provide your last test date and score:<br/><br/></b>
-			Test score:<br/>
+			<label for="test_score">Test score:</label><br/>
 			<input type="text" name="test_score" size="20" maxlength="40" style="width:200px"/><br/><br/>
-			Test date:<br/>
+			<label for="test_date">Test date:</label><br/>
 			<input type="date" name="test_date" size="20" maxlength="40" style="width:200px"/><br/>
 		</p>
 
 		<p id="test_schedule" style="display:none">
 			<b> If you have registered for a test but have not taken one, please provide the scheduled test date:</b><br/><br/>
-			Test date:<br/>
+			<label for="test_date">Test date:</label><br/>
 			<input type="date" name="test_date" size="20" maxlength="40" style="width:200px"/><br/><br/>
 		</p>
 
@@ -161,15 +154,6 @@
 		</p>
 	</div>       
 
-	<div id="GATO">
-		<p id="gato" style="display: none">
-		    <b> Please indicate if you have participated in the GATO (Graduate Assistant Teaching Orientation):</b><br/><br/>
-		    <input type="radio" name="answer" value="Yes" />Yes
-		    <input type="radio" name="answer" value="No" /> No
-		    <input type="radio" name="answer" value="Will_attend" />Will attend in Aug./Jan      
-		</p>
-	</div>     
-
 	<div id="ONITA">
 		<p id="onita" style="display:none">
 		    <b> Please indicate if you have participated in the ONITA (Orientation for New International Teaching Assistant):</b><br/><br/>
@@ -181,9 +165,9 @@
 
 	<h3>
 		<p id="click" style="display: none">
-			Click here to save your info:
+			<label for="submit">Click here to save your info:</label>
 			<input type="submit" name = "submit" value="Save current info" /><br/><br/>
-			Click here to go to the next page:
+			<label for"nextpage">Click here to go to the next page:</label>
 			<a href="nextpage.html"> Next Page </a>
 		</p>
 	</h3>
