@@ -1,0 +1,143 @@
+/* ADD ANY USEFUL TIPS, otherwise ... DO NOT FUCK WITH THE COMMENTS. please and thank you. */
+
+/* SPECIFICITY: p=1  div=1  .=10  #=100    (all <p> elements,div,class,id) */
+/* PADDING/MARGIN: top, right,bottom,left   OR    top, right and left, bottom   OR   top and bottom, right and left   OR   all */
+html {
+	position: relative;
+	min-height: 100%;
+	background-color: white;
+	font-family: "Century Gothic"; /* http://en.wikipedia.org/wiki/List_of_typefaces_included_with_Microsoft_Windows */
+}	
+body {
+	margin: 0 0 50px; /* bottom = footer height */
+}
+.header {
+	background-color: gold;
+	color: #444;
+	text-align: center;
+	padding: 1px;
+	position: relative;
+	z-index: 1; /* All divs start with zero, this allows the header to stay above other divs for the shadow effect */
+}
+.footer {
+    background-color: gold;
+    color: #444;
+	text-align: center;
+	vertical-align: text-top;
+    position: absolute;
+	left: 0;
+	bottom: 0;
+	height: 50px;
+	width: 100%;
+	overflow: hidden;  
+	padding-bottom: 5px;
+	/*z-index: 1;*/
+}	
+/*.nav {
+    line-height:30px;
+    background-color:#4B4B4B;
+	color: #F6F6F6;	
+    height:700px;
+    width:150px;
+    float:left;
+    padding:5px;	
+}*/
+.nav ul { /* <ul> is the target here */
+  list-style: none;
+  background-color: #444;
+  text-align: center;
+  padding: 0px;
+  margin: 0px;
+}
+.nav li { /* <li> is the target here */    
+    border-bottom: none;
+    height: 50px;
+    line-height: 50px;
+    font-size: 1.4em;
+	display: inline-block;
+	margin: auto;
+} 
+.home {
+	width: 80px;
+}
+.basicinformation {
+	width: 200px;
+}
+.international {
+	width: 150px;
+}
+.gradundergrad {
+	width: 300px;
+}
+.courses {
+	width: 100px;
+}
+.logout {
+	color: red;
+	width: 90px;
+}
+.nav a { /* <a> is the target here */
+  text-decoration: none;
+  color: #fff;
+  display: block;
+  /*transition: .3s background-color;*/ /* Gives fade effect, kinda stupid in my opinion */
+} 
+.nav a:hover {
+  background-color: orange;
+  color: black;
+}
+.nav a.active {
+  background-color: white;
+  color: #444;
+  cursor: default;
+}
+.personal {
+	background-color: white;
+	padding: 5px;  			
+}
+.studentinfo {
+	background-color: white;
+	padding: 5px;  			
+}
+.gato {
+	background-color: white;
+	padding: 5px;  			
+}
+.onemp {
+	margin: 1px;
+	padding: 1px;
+}
+.leftlabel {
+	display: inline-block;
+    float: left;
+	margin: 0 0 0 10px;
+    width: 350px;
+    text-align: left;
+}
+.centerdisplay {
+	margin-left: 29%;
+}
+.centerpls {
+	width: auto;
+	margin-left: auto ;
+	margin-right: auto ;
+}
+.niceinput {
+	display: inline-block;
+}
+.niceradio {	
+	display: inline-block;
+}
+.tempradiofix {
+	margin: 0 0 0 365px; /* temp fix until I can properly align the radio buttons */
+}
+.shadowfooter {
+	-moz-box-shadow:    0px 7px 20px 5px black;
+	-webkit-box-shadow: 0px 7px 20px 5px black;
+	box-shadow:         0px 7px 20px 5px black;
+}
+.shadowheader {
+	-moz-box-shadow:    0px -7px 20px 5px black;
+	-webkit-box-shadow: 0px -7px 20px 5px black;
+	box-shadow:         0px -7px 20px 5px black;
+}
