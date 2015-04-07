@@ -26,7 +26,7 @@
 						<option value = "blank"> </option>
 				</select><br>
 				<label for="advisor">Advisor's Name: </label>
-				<input type="text" name="advisor" id="advisor" placeholder="Andrianna">(ie: 05/2016)</input> <br>
+				<input type="text" name="advisor" id="advisor" placeholder="Andrianna"></input> <br>
 			</div>
 		</div>
 	</body>
