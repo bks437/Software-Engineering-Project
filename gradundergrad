@@ -14,18 +14,18 @@
 
 			<div>
 				<label for="graduate">If graduate: </label>
-				<label for="MS">MS: </label>
+				<label for="MS"> MS: </label>
 				<select name = "MS">
 						<option value = "yes">YES</option>
 						<option value = "blank"> </option>
-				</select><br>
+				</select>
 				
-				<label for="PhD">Phd: </label>
+				<label for="PhD"> Phd: </label>
 				<select name = "Phd">
 						<option value = "yes">YES</option>
 						<option value = "blank"> </option>
-				</select><br>
-				<label for="advisor">Advisor's Name: </label>
+				</select>
+				<label for="advisor"> Advisor's Name: </label>
 				<input type="text" name="advisor" id="advisor" placeholder="Andrianna"></input> <br>
 			</div>
 		</div>
