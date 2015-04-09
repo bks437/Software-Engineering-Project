@@ -6,93 +6,7 @@
 
 <title>Select is_international</title>
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
-<script src="jquery-1.11.2.js"></script>
-    <script>
-        $(document).ready(function () {
-            $("#status").change(function() {
-                if ($(this).val() == "international") {
-                    $("#interinfo").show();
-                    $("#testinfo").hide();
-                    $("#test_schedule").hide();
-                    $("#disqualified").hide();
-                    $("#autoqualified").hide();
-                    $("#newstudent").hide();
-                    $("#onita").hide();
-                    $("#click").hide();
-                }
-                else if ($(this).val() == "noninternational")  {
-                    $("#interinfo").hide();
-                    $("#testinfo").hide();
-                    $("#test_schedule").hide();
-                    $("#disqualified").hide();
-                    $("#autoqualified").show();
-                    $("#newstudent").hide();
-                    $("#onita").hide();
-                    $("#click").show();
-                }
-                else{
-                    $("#interinfo").hide();
-                    $("#testinfo").hide();
-                    $("#test_schedule").hide();
-                    $("#disqualified").hide();
-                    $("#autoqualified").hide();
-                    $("#newstudent").hide();
-                    $("#onita").hide();
-                    $("#click").hide();
-                } 
-            });          
 
-          });
-
-		$(document).ready(function () {
-            $("#speaktest").change(function() {
-                if ($(this).val() == "passed") {
-                    $("#interinfo").show();
-                    $("#testinfo").show();
-                    $("#test_schedule").hide();
-                    $("#disqualified").hide();
-                    $("#autoqualified").hide();
-                    $("#newstudent").show();
-                    $("#onita").show();
-                    $("#click").show();
-                }
-                else if ($(this).val() == "scheduled")  {
-                    $("#interinfo").show();
-                    $("#testinfo").hide();
-                    $("#test_schedule").show();
-                    $("#disqualified").hide();
-                    $("#autoqualified").hide();
-                    $("#newstudent").show();
-                    $("#onita").show();
-                    $("#click").show();
-                }
-				else if ($(this).val() == "notscheduled")  {
-                    $("#interinfo").show();
-                    $("#testinfo").hide();
-                    $("#test_schedule").hide();
-                    $("#disqualified").show();
-                    $("#autoqualified").hide();
-                    $("#newstudent").hide();
-                    $("#onita").hide();
-                    $("#click").hide();
-                }
-                else{
-                    $("#interinfo").show();
-                    $("#testinfo").hide();
-                    $("#test_schedule").hide();
-                    $("#disqualified").hide();
-                    $("#autoqualified").hide();
-                    $("#newstudent").hide();
-                    $("#onita").hide();
-                    $("#click").hide();
-                } 
-            });          
-
-          });
-
-    </script>
-  
 </head>
 
 
@@ -185,6 +99,91 @@
 
 </form>
 
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#status").change(function() {
+                if ($(this).val() == "international") {
+                    $("#interinfo").show();
+                    $("#testinfo").hide();
+                    $("#test_schedule").hide();
+                    $("#disqualified").hide();
+                    $("#autoqualified").hide();
+                    $("#newstudent").hide();
+                    $("#onita").hide();
+                    $("#click").hide();
+                }
+                else if ($(this).val() == "noninternational")  {
+                    $("#interinfo").hide();
+                    $("#testinfo").hide();
+                    $("#test_schedule").hide();
+                    $("#disqualified").hide();
+                    $("#autoqualified").show();
+                    $("#newstudent").hide();
+                    $("#onita").hide();
+                    $("#click").show();
+                }
+                else{
+                    $("#interinfo").hide();
+                    $("#testinfo").hide();
+                    $("#test_schedule").hide();
+                    $("#disqualified").hide();
+                    $("#autoqualified").hide();
+                    $("#newstudent").hide();
+                    $("#onita").hide();
+                    $("#click").hide();
+                } 
+            });          
+
+            $("#speaktest").change(function() {
+                if ($(this).val() == "passed") {
+                    $("#interinfo").show();
+                    $("#testinfo").show();
+                    $("#test_schedule").hide();
+                    $("#disqualified").hide();
+                    $("#autoqualified").hide();
+                    $("#newstudent").show();
+                    $("#onita").show();
+                    $("#click").show();
+                }
+                else if ($(this).val() == "scheduled")  {
+                    $("#interinfo").show();
+                    $("#testinfo").hide();
+                    $("#test_schedule").show();
+                    $("#disqualified").hide();
+                    $("#autoqualified").hide();
+                    $("#newstudent").show();
+                    $("#onita").show();
+                    $("#click").show();
+                }
+                else if ($(this).val() == "notscheduled")  {
+                    $("#interinfo").show();
+                    $("#testinfo").hide();
+                    $("#test_schedule").hide();
+                    $("#disqualified").show();
+                    $("#autoqualified").hide();
+                    $("#newstudent").hide();
+                    $("#onita").hide();
+                    $("#click").hide();
+                }
+                else{
+                    $("#interinfo").show();
+                    $("#testinfo").hide();
+                    $("#test_schedule").hide();
+                    $("#disqualified").hide();
+                    $("#autoqualified").hide();
+                    $("#newstudent").hide();
+                    $("#onita").hide();
+                    $("#click").hide();
+                } 
+            });
+
+          });
+
+        
+    </script>
+  
 </body>
 
 </HTML>
