@@ -63,7 +63,7 @@
 
 			<p class="centerpls" id="test_schedule" style="display:none">
 				<label class="leftlabel">Please provide the scheduled test date:</label>
-				<input type="date" name="test_date" size="20" maxlength="40"></input>
+				<input type="date" name="schedule_date" size="20" maxlength="40"></input>
 				<br>
 			</p>
 
@@ -86,8 +86,8 @@
 		<div class="centerdisplay">
 			<p class="centerpls" id="newstudent" style="display:none">
 				<label class="leftlabel">Have you finished at least one semester?</label>
-				<input type="radio" name="answer" value="Yes" checked>Yes</input>
-				<input type="radio" name="answer" value="No"> No</input>
+				<input type="radio" name="not_new" value="Yes" checked>Yes</input>
+				<input type="radio" name="not_new" value="No"> No</input>
 			</p>
 		</div>       
 
@@ -97,9 +97,9 @@
 		<div class="centerdisplay">
 			<p class="centerpls" id="onita" style="display:none">
 				<label class="leftlabel">Have you attended the ONITA?</label>
-				<input type="radio" name="answer" value="Yes">Yes</input>
-				<input type="radio" name="answer" value="No"> No</input>
-				<input type="radio" name="answer" value="Will_attend">Will attend in Aug/Jan</input>
+				<input type="radio" name="onita" value="Yes" checked>Yes</input>
+				<input type="radio" name="onita" value="No"> No</input>
+				<input type="radio" name="onita" value="Will_attend">Will attend in Aug/Jan</input>
 			</p>
 		</div>     
 
@@ -107,8 +107,8 @@
 
 		<h3>
 			<p class="centerdisplay" id="click" style="display: none">
-				<label for="submit">Click here to save your info:</label>
-				<input type="submit" name = "submit" value="Save current info" /><br/><br/>
+				<label for="save_inter_info">Click here to save your info:</label>
+				<input type="submit" name = "save_inter_info" value="Save current info" /><br/><br/>
 				<label for"nextpage">Click here to go to the next page:</label>
 				<input  type="submit" name="submit" value="Proceed to next step">
 			</p>
