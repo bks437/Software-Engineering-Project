@@ -1,189 +1,120 @@
 <!DOCTYPE html>
-
-<HTML>
-
+<html>
+	<!--ADD ANY USEFUL TIPS, otherwise ... DO NOT FUCK WITH THE COMMENTS. please and thank you.-->
 <head>
-
-<title>Select is_international</title>
-
-
+	<title>CS4320 - Group G</title>
+	<link rel="stylesheet" type="text/css" href="../css/style.css">	
+	<script src="../js/jquery-1.11.2.min.js"></script>
+	<script type="text/javascript" src="../js/isinter.js"></script>
 </head>
+<body>
+
+	<!-- Header/Footer -->
+		
+		<div class="header shadowheader">			
+			<h1>Step 2: International</h1>		
+		</div>			
+		
+		<div class="footer shadowfooter">			
+			<h4>Copyright &copy; Group G - Computer Science Department</h4>		
+		</div>			
+
+		
+	<!-- International/Non-International -->
+	
+	<form action="something.php" method="post">
+		
+		<div class="toppadding5 centerdisplay">
+			<p class="centerpls">
+				<label class="leftlabel">What type of student are you?</label>
+				<select id="status" name="status">
+					<option value="status">Select</option>
+					<option value="international">International</option>
+					<option value="noninternational">Non-International</option>
+				</select>
+			</p>
+		</div>
+
+	 <!-- Language Test part -->
+
+		<div class="centerdisplay">
+			<p class="centerpls" id="interinfo" style="display:none"> 
+				<label class="leftlabel">Have you passed the SPEAK Test?</label>
+				<select id="speaktest" name="speaktest">
+						<option value="select">Select</option>
+						<option value="passed">Speak test passed</option>
+						<option value="scheduled">Speak test scheduled</option>
+						<option value="notscheduled">Speak test not scheduled</option>
+				</select>
+				<label>(English proficiency Test)</label>
+			</p>
+
+			<p class="centerpls" id="testinfo" style="display:none">
+				<label class="leftlabel" for="test_score">Test score:</label>
+				<input type="text" name="test_score" maxlength="5" placeholder="100"></input>
+				<br>
+			</p>
+			
+			<p class="centerpls" id="testinfo2" style="display:none">
+				<label class="leftlabel" for="test_date">Test date:</label>
+				<input type="date" name="test_date" maxlength="40"></input>
+				<br>
+			</p>
+
+			<p class="centerpls" id="test_schedule" style="display:none">
+				<label class="leftlabel">Please provide the scheduled test date:</label>
+				<input type="date" name="test_date" size="20" maxlength="40"></input>
+				<br>
+			</p>
+
+			<p class="centerpls" id="disqualified" style="display:none">
+				<br><br><br><br>
+				<b> Sorry, you do not qualify for a TA/PLA position!</b><br/><br/>
+				<br><br><br><br><br><br><br>
+			</p>
+
+			<p class="centerpls" id="autoqualified" style="display:none">
+				<br><br><br><br>
+				<b>Your language automatically qualifies you for a TA/PLA position!</b>
+				<br><br><br><br><br><br><br>
+			</p>
+		</div>
 
 
+	 <!-- At least one semester part -->
 
-<body> 
-<h2></br>This section is used to determine if you qualified for TA/PLA with regard to your language skills.</h2>
-
-<form action="is_international.php" method="post">
-
-		<p> <b> Please indicate if you are an international student by selecting the options below.</b><br/></br>
-		    <select id ="status" name="status" style= "width: 200px">
-			       <option value="status">Select</option>
-			       <option value="international">International</option>
-			       <option value="noninternational">Non-International</option>
-		    </select>
-		</p>
-
- <!-- Language Test part -->
-
-	<div id="LANGUAGE">  
-
-		<p id="interinfo" style="display:none"> 
-		    <b> Please indicate if you have passed the English proficiency test (SPEAK test) by selecting the options below.<br/><br/></b>
-		    <select id="speaktest" name="speaktest" border ="2px" style="width:200px">
-		    		<option value="select">Select</option>
-		            <option value="passed">Speak test passed</option>
-		            <option value="scheduled">Speak test scheduled</option>
-		            <option value="notscheduled">Speak test not scheduled</option>
-		    </select>
-		</p>
-
-		<p id="testinfo" style="display:none" >
-			<b> If SPEAK test passed, please provide your last test date and score:<br/><br/></b>
-			<label for="test_score">Test score:</label><br/>
-			<input type="text" name="test_score" size="20" maxlength="40" style="width:200px"/><br/><br/>
-			<label for="test_date">Test date:</label><br/>
-			<input type="date" name="test_date" size="20" maxlength="40" style="width:200px"/><br/>
-		</p>
-
-		<p id="test_schedule" style="display:none">
-			<b> If you have registered for a test but have not taken one, please provide the scheduled test date:</b><br/><br/>
-			<label for="test_date">Test date:</label><br/>
-			<input type="date" name="test_date" size="20" maxlength="40" style="width:200px"/><br/><br/>
-		</p>
-
-		<p id="disqualified" style="display:none">
-			<b> Sorry, you do not qualify for a TA/PLA position!</b><br/><br/>
-		</p>
-
-		<p id="autoqualified" style="display:none">
-		    <b> Your language automatically qualifies you for a TA/PLA position.</b><br/><br/>
-		</p>
-
-	</div>
+		<div class="centerdisplay">
+			<p class="centerpls" id="newstudent" style="display:none">
+				<label class="leftlabel">Have you finished at least one semester?</label>
+				<input type="radio" name="answer" value="Yes" checked>Yes</input>
+				<input type="radio" name="answer" value="No"> No</input>
+			</p>
+		</div>       
 
 
- <!-- At least one semester part -->
+	 <!-- Onita part -->
 
- 	<div id="NEWSTUDENT" >
-		<p id="newstudent" style="display:none">
-		    <b> Please indicate if you have finished at least one semester at MU:</b><br/><br/>
-		    <input type="radio" name="answer" value="Yes" />Yes
-		    <input type="radio" name="answer" value="No" /> No
-		</p>
-	</div>       
+		<div class="centerdisplay">
+			<p class="centerpls" id="onita" style="display:none">
+				<label class="leftlabel">Have you attended the ONITA?</label>
+				<input type="radio" name="answer" value="Yes">Yes</input>
+				<input type="radio" name="answer" value="No"> No</input>
+				<input type="radio" name="answer" value="Will_attend">Will attend in Aug/Jan</input>
+			</p>
+		</div>     
 
+	 <!-- Go to nextpage or save data part -->
 
- <!-- Onita part -->
-
-	<div id="ONITA">
-		<p id="onita" style="display:none">
-		    <b> Please indicate if you have participated in the ONITA (Orientation for New International Teaching Assistant):</b><br/><br/>
-		    <input type="radio" name="answer" value="Yes" />Yes
-		    <input type="radio" name="answer" value="No" /> No
-		    <input type="radio" name="answer" value="Will_attend" />Will attend in Aug./Jan
-		</p>
-	</div>     
-
- <!-- Go to nextpage or save data part -->
-
-	<h3>
-		<p id="click" style="display: none">
-			<label for="submit">Click here to save your info:</label>
-			<input type="submit" name = "submit" value="Save current info" /><br/><br/>
-			<label for"nextpage">Click here to go to the next page:</label>
-			<a href="nextpage.html"> Next Page </a>
-		</p>
-	</h3>
+		<h3>
+			<p class="centerdisplay" id="click" style="display: none">
+				<label for="submit">Click here to save your info:</label>
+				<input type="submit" name = "submit" value="Save current info" /><br/><br/>
+				<label for"nextpage">Click here to go to the next page:</label>
+				<input  type="submit" name="submit" value="Proceed to next step">
+			</p>
+		</h3>
 
 
-</form>
-
-
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            $("#status").change(function() {
-                if ($(this).val() == "international") {
-                    $("#interinfo").show();
-                    $("#testinfo").hide();
-                    $("#test_schedule").hide();
-                    $("#disqualified").hide();
-                    $("#autoqualified").hide();
-                    $("#newstudent").hide();
-                    $("#onita").hide();
-                    $("#click").hide();
-                }
-                else if ($(this).val() == "noninternational")  {
-                    $("#interinfo").hide();
-                    $("#testinfo").hide();
-                    $("#test_schedule").hide();
-                    $("#disqualified").hide();
-                    $("#autoqualified").show();
-                    $("#newstudent").hide();
-                    $("#onita").hide();
-                    $("#click").show();
-                }
-                else{
-                    $("#interinfo").hide();
-                    $("#testinfo").hide();
-                    $("#test_schedule").hide();
-                    $("#disqualified").hide();
-                    $("#autoqualified").hide();
-                    $("#newstudent").hide();
-                    $("#onita").hide();
-                    $("#click").hide();
-                } 
-            });          
-
-            $("#speaktest").change(function() {
-                if ($(this).val() == "passed") {
-                    $("#interinfo").show();
-                    $("#testinfo").show();
-                    $("#test_schedule").hide();
-                    $("#disqualified").hide();
-                    $("#autoqualified").hide();
-                    $("#newstudent").show();
-                    $("#onita").show();
-                    $("#click").show();
-                }
-                else if ($(this).val() == "scheduled")  {
-                    $("#interinfo").show();
-                    $("#testinfo").hide();
-                    $("#test_schedule").show();
-                    $("#disqualified").hide();
-                    $("#autoqualified").hide();
-                    $("#newstudent").show();
-                    $("#onita").show();
-                    $("#click").show();
-                }
-                else if ($(this).val() == "notscheduled")  {
-                    $("#interinfo").show();
-                    $("#testinfo").hide();
-                    $("#test_schedule").hide();
-                    $("#disqualified").show();
-                    $("#autoqualified").hide();
-                    $("#newstudent").hide();
-                    $("#onita").hide();
-                    $("#click").hide();
-                }
-                else{
-                    $("#interinfo").show();
-                    $("#testinfo").hide();
-                    $("#test_schedule").hide();
-                    $("#disqualified").hide();
-                    $("#autoqualified").hide();
-                    $("#newstudent").hide();
-                    $("#onita").hide();
-                    $("#click").hide();
-                } 
-            });
-
-          });
-
-        
-    </script>
-  
+	</form>
+		
 </body>
-
-</HTML>
