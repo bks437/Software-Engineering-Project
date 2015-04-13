@@ -1,4 +1,5 @@
 <?php
+	// openshift website: http://sweapplication-groupg.rhcloud.com/
 	include("database.php");
 	$conn=pg_connect(HOST." ".DBNAME." ".USERNAME." ".PASSWORD)or die('Could not connect: ' . pg_last_error());
 	$result=pg_query('SELECT * FROM ddl.Person;')or die('Query failed: '. pg_last_error());
