@@ -32,64 +32,6 @@ body {
 	overflow: hidden;  
 	padding-bottom: 5px;
 	/*z-index: 1;*/
-}	
-/*.nav {
-    line-height:30px;
-    background-color:#4B4B4B;
-	color: #F6F6F6;	
-    height:700px;
-    width:150px;
-    float:left;
-    padding:5px;	
-}*/
-.nav ul { /* <ul> is the target here */
-  list-style: none;
-  background-color: #444;
-  text-align: center;
-  padding: 0px;
-  margin: 0px;
-}
-.nav li { /* <li> is the target here */    
-    border-bottom: none;
-    height: 50px;
-    line-height: 50px;
-    font-size: 1.4em;
-	display: inline-block;
-	margin: auto;
-} 
-.home {
-	width: 80px;
-}
-.basicinformation {
-	width: 200px;
-}
-.international {
-	width: 150px;
-}
-.gradundergrad {
-	width: 300px;
-}
-.courses {
-	width: 100px;
-}
-.logout {
-	color: red;
-	width: 90px;
-}
-.nav a { /* <a> is the target here */
-  text-decoration: none;
-  color: #fff;
-  display: block;
-  /*transition: .3s background-color;*/ /* Gives fade effect, kinda stupid in my opinion */
-} 
-.nav a:hover {
-  background-color: orange;
-  color: black;
-}
-.nav a.active {
-  background-color: white;
-  color: #444;
-  cursor: default;
 }
 .personal {
 	background-color: white;
@@ -102,6 +44,9 @@ body {
 .gato {
 	background-color: white;
 	padding: 5px;  			
+}
+.displaynone {
+	display: none;
 }
 .onemp {
 	margin: 1px;
@@ -121,6 +66,12 @@ body {
 	width: auto;
 	margin-left: auto ;
 	margin-right: auto ;
+}
+.toppadding5 {
+	padding: 5px 0 0 0;
+}
+.nextbutton {
+	margin-left: 59%;
 }
 .niceinput {
 	display: inline-block;
