@@ -35,7 +35,7 @@ SET search_path = DDL, public;
 --    username   - The user whose action generated this log entry.
 --    ip_address - The IP address of the user at the time the log was entered.
 --    log_date   - The date of the log entry. Set automatically by a default value.
---    action     - What the user did to generate a log entry (i.e., "logged in").
+-- --    action     - What the user did to generate a log entry (i.e., "logged in").
 -- CREATE TABLE DDL.log (
 -- 	log_id  	SERIAL PRIMARY KEY,
 -- 	username 	VARCHAR(30) NOT NULL REFERENCES DDL.user_info,
@@ -48,7 +48,6 @@ SET search_path = DDL, public;
 DROP TABLE IF EXISTS Login;
 
 CREATE TABLE Login(
-	sso serial UNIQUE,
 	username varchar(32),
 	password_hash char(40),
 	salt char(40),
@@ -70,11 +69,12 @@ CREATE INDEX log_log_id_index ON DDL.log (username);
 DROP TABLE IF EXISTS Person;
 
 CREATE TABLE Person(
-	sso integer,
+	sso SERIAL,
+	username varchar(32),
 	fname varchar(32),
 	lname varchar(32),
 	PRIMARY KEY(sso),
-	FOREIGN KEY(sso) REFERENCES Login(sso) ON DELETE CASCADE
+	FOREIGN KEY(username) REFERENCES Login(username) ON DELETE CASCADE
 
 );
 
