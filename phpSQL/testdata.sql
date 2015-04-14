@@ -1,20 +1,20 @@
-INSERT INTO Login values (0,'admin','password','salt');
-INSERT INTO Login values (1,'app1','password','salt');
-INSERT INTO Login values (2,'app2','password','salt');
-INSERT INTO Login values (3,'app3','password','salt');
-INSERT INTO Login values (4,'app4','password','salt');
-INSERT INTO Login values (5,'app5','password','salt');
-INSERT INTO Login values (6,'fac1','password','salt');
-INSERT INTO Login values (7,'fac2','password','salt');
+INSERT INTO Login values ('admin','9125eacc8ca11b06ec8f285a765ed3523dee033e','2985d19a820626e05198d0f475abc17e0762a41b');
+INSERT INTO Login values ('app1','password','salt');
+INSERT INTO Login values ('app2','password','salt');
+INSERT INTO Login values ('app3','password','salt');
+INSERT INTO Login values ('app4','password','salt');
+INSERT INTO Login values ('app5','password','salt');
+INSERT INTO Login values ('fac1','password','salt');
+INSERT INTO Login values ('fac2','password','salt');
 
 
-INSERT INTO Person values(1,'Steve','Rodgers');
-INSERT INTO Person values(2,'Tony','Stark');
-INSERT INTO Person values(3,'Bruce','Banner');
-INSERT INTO Person values(4,'Natasha','Romanoff');
-INSERT INTO Person values(5,'Clint','Barton');
-INSERT INTO Person values(6,'Grant','Scott');
-INSERT INTO Person values(7,'Nick','Fury');
+INSERT INTO Person(username,fname,lname) values('app1','Steve','Rodgers');
+INSERT INTO Person(username,fname,lname) values('app2','Tony','Stark');
+INSERT INTO Person(username,fname,lname) values('app3','Bruce','Banner');
+INSERT INTO Person(username,fname,lname) values('app4','Natasha','Romanoff');
+INSERT INTO Person(username,fname,lname) values('app5','Clint','Barton');
+INSERT INTO Person(username,fname,lname) values('fac1','Grant','Scott');
+INSERT INTO Person(username,fname,lname) values('fac2','Nick','Fury');
 
 INSERT INTO is_a_faculty values (6);
 INSERT INTO is_a_faculty values (7);
