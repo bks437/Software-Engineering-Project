@@ -3,31 +3,31 @@ DROP SCHEMA IF EXISTS DDL CASCADE;
 CREATE SCHEMA DDL;
 SET search_path = DDL, public;
 
-DROP TABLE IF EXISTS DDL.log;
-DROP TABLE IF EXISTS DDL.authentication;
-DROP TABLE IF EXISTS DDL.user_info;
+-- DROP TABLE IF EXISTS DDL.log;
+-- DROP TABLE IF EXISTS DDL.authentication;
+-- DROP TABLE IF EXISTS DDL.user_info;
 -- Table: DDL.user_info
 -- Columns:
 --    username          - The username for the account, supplied during registration.
 --    registration_date - The date the user registered. Set automatically.
 --    description       - A user-supplied description.
-CREATE TABLE DDL.user_info (
-	username 		VARCHAR(30) PRIMARY KEY,
-	registration_date 	TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-	description 		VARCHAR(500)
-);
+-- CREATE TABLE DDL.user_info (
+-- 	username 		VARCHAR(30) PRIMARY KEY,
+-- 	registration_date 	TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+-- 	description 		VARCHAR(500)
+-- );
 
 -- Table: DDL.authentication
 -- Columns:
 --    username      - The username tied to the authentication info.
 --    password_hash - The hash of the user's password + salt. Expected to be SHA1.
 --    salt          - The salt to use. Expected to be a SHA1 hash of a random input.
-CREATE TABLE DDL.authentication (
-	username 	VARCHAR(30) PRIMARY KEY,
-	password_hash 	CHAR(40) NOT NULL,
-	salt 		CHAR(40) NOT NULL,
-	FOREIGN KEY (username) REFERENCES DDL.user_info(username)
-);
+-- CREATE TABLE DDL.authentication (
+-- 	username 	VARCHAR(30) PRIMARY KEY,
+-- 	password_hash 	CHAR(40) NOT NULL,
+-- 	salt 		CHAR(40) NOT NULL,
+-- 	FOREIGN KEY (username) REFERENCES DDL.user_info(username)
+-- );
 
 -- Table: DDL.log
 -- Columns:
@@ -36,26 +36,36 @@ CREATE TABLE DDL.authentication (
 --    ip_address - The IP address of the user at the time the log was entered.
 --    log_date   - The date of the log entry. Set automatically by a default value.
 --    action     - What the user did to generate a log entry (i.e., "logged in").
-CREATE TABLE DDL.log (
-	log_id  	SERIAL PRIMARY KEY,
-	username 	VARCHAR(30) NOT NULL REFERENCES DDL.user_info,
-	ip_address 	VARCHAR(15) NOT NULL,
-	log_date 	TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-	action 		VARCHAR(50) NOT NULL
-);
+-- CREATE TABLE DDL.log (
+-- 	log_id  	SERIAL PRIMARY KEY,
+-- 	username 	VARCHAR(30) NOT NULL REFERENCES DDL.user_info,
+-- 	ip_address 	VARCHAR(15) NOT NULL,
+-- 	log_date 	TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+-- 	action 		VARCHAR(50) NOT NULL
+-- );
 
-CREATE INDEX log_log_id_index ON DDL.log (username);
 
 DROP TABLE IF EXISTS Login;
 
 CREATE TABLE Login(
 	sso serial UNIQUE,
 	username varchar(32),
-	password char(40),
+	password_hash char(40),
 	salt char(40),
+	registration_date 	TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	PRIMARY KEY(username)
 
 );
+DROP TABLE IF EXISTS log;
+
+CREATE TABLE log (
+	log_id  	SERIAL PRIMARY KEY,
+	username 	VARCHAR(30) NOT NULL REFERENCES Login,
+	ip_address 	VARCHAR(15) NOT NULL,
+	log_date 	TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	action 		VARCHAR(50) NOT NULL
+);
+CREATE INDEX log_log_id_index ON DDL.log (username);
 
 DROP TABLE IF EXISTS Person;
 

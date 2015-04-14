@@ -1,13 +1,16 @@
 <?PHP 		
 	//connect to database
-		$dbconn = pg_connect("host=dbhost-pgsql.cs.missouri.edu dbname=bks437 user=bks437 password=Cocacola1") or die('Could not connect: ' . pg_last_error());
+		include("test/database.php");
+		//if cannot connect return error
+		$dbconn=pg_connect(HOST." ".DBNAME." ".USERNAME." ".PASSWORD)
+				or die('Could not connect: ' . pg_last_error());
 		session_start();
 	
 		if(isset($_POST['submit'])){
 			$username = $_POST['username'];
 			$password = $_POST['password'];
 
-			$result = pg_prepare($dbconn, "auth", 'SELECT * FROM DDL.authentication WHERE username = $1' );
+			$result = pg_prepare($dbconn, "auth", 'SELECT * FROM DDL.Login WHERE username = $1' );
 			$result = pg_execute($dbconn, "auth", array($username));
 			
 			$row = pg_fetch_array($result);
