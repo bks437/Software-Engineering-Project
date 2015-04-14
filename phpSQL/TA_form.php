@@ -161,13 +161,13 @@
 				fwrite ($data, $key." : ".$info." \n");
 			}
 		}
-		//This part is for courses info 
+		//This part is for undergraduate student info 
 
 		if ($_POST['status'] == "save_undergrad_info"){
 
 			echo '<h3>You are undergraduate student: </h3>';
 
-			$array_courses_info = array("Your are undergraduate student\n",
+			$array_undergrad_info = array("Your are undergraduate student\n",
 			"Your current level: "=>$_POST['year'], 
 			"You degree program: "=>$_POST['program']);
 
@@ -176,7 +176,28 @@
 
 			$data = fopen(".\stu_data.txt", "a+");
 		
-			foreach ($array_courses_info AS $key=>$info){
+			foreach ($array_undergrad_info AS $key=>$info){
+				echo $key.' is: '.$info.'<br/>';
+				fwrite ($data, $key." : ".$info." \n");
+			}
+		}
+		
+		//This part is for graduate student info 
+
+		if ($_POST['status'] == "save_grad_info"){
+
+			echo '<h3>You are graduate student: </h3>';
+
+			$array_grad_info = array("Your are graduate student\n", 
+			"Your degree program: "=>$_POST['programs'],
+			"Your advisor: "=>$_POST['advisors']);
+
+
+			//  Write data into a txt file: data.txt. Eventually data will be inserted into database.
+
+			$data = fopen(".\stu_data.txt", "a+");
+		
+			foreach ($array_grad_info AS $key=>$info){
 				echo $key.' is: '.$info.'<br/>';
 				fwrite ($data, $key." : ".$info." \n");
 			}
