@@ -1,6 +1,6 @@
 <?PHP 
 	if(!isset($_SERVER['HTTPS']) || !$_SERVER['HTTPS']){
-		header("Location: https://babbage.cs.missouri.edu/~bks437/cs3380/regis/index.php");
+		header("Location: https://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
 	}
 ?>	
 <html>
@@ -28,7 +28,10 @@
 	</div>	
 <?PHP
 	//connect to database
-		$dbconn = pg_connect("host=dbhost-pgsql.cs.missouri.edu dbname=bks437 user=bks437 password=Cocacola1") or die('Could not connect: ' . pg_last_error());
+		include("test/database.php");
+		//if cannot connect return error
+		$dbconn=pg_connect(HOST." ".DBNAME." ".USERNAME." ".PASSWORD)
+				or die('Could not connect: ' . pg_last_error());
 
 	
 	if (isset($_POST['submit'])){

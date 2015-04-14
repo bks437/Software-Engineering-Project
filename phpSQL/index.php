@@ -3,7 +3,7 @@
 	<head>
 		<?php
 			if(!isset($_SERVER['HTTPS']) || !$_SERVER['HTTPS']){
-				header("Location: https://babbage.cs.missouri.edu/~bks437/cs3380/regis/index.php");
+				header("Location: https://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
 			}
 			if($_SESSION['login']=false){
 				echo "Failed to login";
@@ -20,7 +20,7 @@
 <body>
 	<div align="center">
 		<div id'"login">
-			<p>Please Login			
+			<p>Please Login!		
 				<form name="Login" action="process.php" method="POST">
 					<input type="hidden" name="action" value="do_login">					
 					<label for="username">Username:</label>
