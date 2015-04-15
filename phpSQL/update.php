@@ -13,11 +13,14 @@
 						header("Location: index.php");
 					}
 					
-				//include('../../secure/database.php');
-					$dbconn = pg_connect("host=dbhost-pgsql.cs.missouri.edu dbname=bks437 user=bks437 password=Cocacola1") or die('Could not connect: ' . pg_last_error());
+				//connect to database
+				include("test/database.php");
+				//if cannot connect return error
+				$dbconn=pg_connect(HOST." ".DBNAME." ".USERNAME." ".PASSWORD)
+						or die('Could not connect: ' . pg_last_error());
 
 				//prepare and execute query
-					$result = pg_prepare($dbconn, "display", 'SELECT DDL.user_info.username, DDL.user_info.description FROM DDL.user_info WHERE username = $1');
+					$result = pg_prepare($dbconn, "display", 'SELECT ui.username, ui.description FROM DDL.user_info ui WHERE username = $1');
 					$result = pg_execute($dbconn, "display", array($_SESSION['username']));
 					
 				echo '<div align="center">';

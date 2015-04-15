@@ -20,7 +20,7 @@
 <body>
 	<div align="center">
 		<div id"login">
-			<p>Please Login!		
+			<p>Please Login		
 				<form name="Login" action="process.php" method="POST">
 					<input type="hidden" name="action" value="do_login">					
 					<label for="username">Username:</label>

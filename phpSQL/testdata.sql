@@ -4,10 +4,10 @@ INSERT INTO Login values ('app2','password','salt');
 INSERT INTO Login values ('app3','password','salt');
 INSERT INTO Login values ('app4','password','salt');
 INSERT INTO Login values ('app5','password','salt');
-INSERT INTO Login values ('fac1','password','salt');
+INSERT INTO Login values ('fac1','9125eacc8ca11b06ec8f285a765ed3523dee033e','2985d19a820626e05198d0f475abc17e0762a41b');
 INSERT INTO Login values ('fac2','password','salt');
 
-
+INSERT INTO Person values(0,'admin','Steve','Rodgers');
 INSERT INTO Person(username,fname,lname) values('app1','Steve','Rodgers');
 INSERT INTO Person(username,fname,lname) values('app2','Tony','Stark');
 INSERT INTO Person(username,fname,lname) values('app3','Bruce','Banner');

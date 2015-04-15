@@ -134,6 +134,7 @@ DROP TABLE IF EXISTS is_a_faculty;
 
 CREATE TABLE is_a_faculty(
 	sso integer,
+	admin char DEFAULT 'n',
 	PRIMARY KEY(sso),
 	FOREIGN KEY(sso) REFERENCES Person(sso) ON DELETE CASCADE
 
