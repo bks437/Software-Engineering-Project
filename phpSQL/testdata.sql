@@ -16,8 +16,9 @@ INSERT INTO Person(username,fname,lname) values('app5','Clint','Barton');
 INSERT INTO Person(username,fname,lname) values('fac1','Grant','Scott');
 INSERT INTO Person(username,fname,lname) values('fac2','Nick','Fury');
 
-INSERT INTO is_a_faculty values (6);
-INSERT INTO is_a_faculty values (7);
+INSERT INTO is_a_faculty values (0,'y');
+INSERT INTO is_a_faculty(sso) values (6);
+INSERT INTO is_a_faculty(sso) values (7);
 
 INSERT INTO is_an_applicant values (1,1,3.2,'5/20/16','thecapt@gmail.com','5732637422','y','SHIELD');
 INSERT INTO is_an_applicant values (2,2,4.0,'5/20/16','ironman@jarvis.com','5735559837','y','Stark Ind');
