@@ -91,6 +91,7 @@
 
 					fwrite ($data, "\n\n");
 					fclose ($data);	
+					header("Location: gradundergrad.php");
 				}
 
 				else {
