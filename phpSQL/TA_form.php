@@ -26,6 +26,7 @@
 
 		fwrite ($data, "\n\n");
 		fclose ($data);
+		header("Location: isinter.php");
 	}	
 
 
@@ -202,7 +203,6 @@
 				fwrite ($data, $key." : ".$info." \n");
 			}
 		}
-	}
-
-
+	};
+	
 ?>
