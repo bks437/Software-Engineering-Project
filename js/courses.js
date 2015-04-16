@@ -1,22 +1,22 @@
-$(document).ready(function () {   /* We may not need js for courses. keeping this page blank just incase we do */
-    $("#").change(function() {
-        if ($(this).val() == "") {
-            $("#").hide();
-            $("#").hide();
-            $("#").show();
-            $("#").show();
+$(document).ready(function () {
+    $("#type").change(function() {
+        if ($(this).val() == "graduate") {
+            $("#years").hide();
+            $("#degrees").hide();
+            $("#programs").show();
+            $("#advisors").show();
 		}
-		else if ($(this).val() == "")  {
-			$("#").show();
-            $("#").show();
-            $("#").hide();
-            $("#").hide();
+		else if ($(this).val() == "undergraduate")  {
+			$("#years").show();
+            $("#degrees").show();
+            $("#programs").hide();
+            $("#advisors").hide();
 		}
 		else {
-			$("#").hide();
-            $("#").hide();
-            $("#").hide();
-            $("#").hide();
+			$("#years").hide();
+            $("#degrees").hide();
+            $("#programs").hide();
+            $("#advisors").hide();
 		} 
 	}); 
 });

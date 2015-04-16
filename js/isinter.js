@@ -9,6 +9,7 @@ $(document).ready(function () {
             $("#newstudent").hide();
             $("#onita").hide();
             $("#click").hide();
+			$("#home").hide();
 		}
 		else if ($(this).val() == "noninternational")  {
 			$("#interinfo").hide();
@@ -19,6 +20,7 @@ $(document).ready(function () {
 			$("#newstudent").hide();
 			$("#onita").hide();
 			$("#click").show();
+			$("#home").hide();
 		}
 		else{
 			$("#interinfo").hide();
@@ -30,6 +32,7 @@ $(document).ready(function () {
 			$("#newstudent").hide();
 			$("#onita").hide();
 			$("#click").hide();
+			$("#home").hide();
 		} 
 	}); 
 });
@@ -45,6 +48,7 @@ $(document).ready(function () {
             $("#newstudent").show();
             $("#onita").show();
             $("#click").show();
+			$("#home").hide();
         }
         else if ($(this).val() == "scheduled")  {
 	        $("#interinfo").show();
@@ -56,6 +60,7 @@ $(document).ready(function () {
 			$("#newstudent").show();
 			$("#onita").show();
 			$("#click").show();
+			$("#home").hide();
         }
 	    else if ($(this).val() == "notscheduled")  {
             $("#interinfo").show();
@@ -67,6 +72,7 @@ $(document).ready(function () {
             $("#newstudent").hide();
             $("#onita").hide();
             $("#click").hide();
+			$("#home").show();
         }
         else{
             $("#interinfo").show();
@@ -78,6 +84,7 @@ $(document).ready(function () {
             $("#newstudent").hide();
             $("#onita").hide();
             $("#click").hide();
+			$("#home").hide();
         } 
     });
 });
