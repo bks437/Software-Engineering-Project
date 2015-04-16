@@ -7,7 +7,7 @@ INSERT INTO Login values ('app5','password','salt');
 INSERT INTO Login values ('fac1','9125eacc8ca11b06ec8f285a765ed3523dee033e','2985d19a820626e05198d0f475abc17e0762a41b');
 INSERT INTO Login values ('fac2','password','salt');
 
-INSERT INTO Person values(0,'admin','Steve','Rodgers');
+INSERT INTO Person(username,fname,lname) values('admin','Steve','Rodgers');
 INSERT INTO Person(username,fname,lname) values('app1','Steve','Rodgers');
 INSERT INTO Person(username,fname,lname) values('app2','Tony','Stark');
 INSERT INTO Person(username,fname,lname) values('app3','Bruce','Banner');
@@ -16,24 +16,24 @@ INSERT INTO Person(username,fname,lname) values('app5','Clint','Barton');
 INSERT INTO Person(username,fname,lname) values('fac1','Grant','Scott');
 INSERT INTO Person(username,fname,lname) values('fac2','Nick','Fury');
 
-INSERT INTO is_a_faculty values (0,'y');
-INSERT INTO is_a_faculty(sso) values (6);
+INSERT INTO is_a_faculty values (1,'y');
 INSERT INTO is_a_faculty(sso) values (7);
+INSERT INTO is_a_faculty(sso) values (8);
 
-INSERT INTO is_an_applicant values (1,1,3.2,'5/20/16','thecapt@gmail.com','5732637422','y','SHIELD');
-INSERT INTO is_an_applicant values (2,2,4.0,'5/20/16','ironman@jarvis.com','5735559837','y','Stark Ind');
-INSERT INTO is_an_applicant values (3,3,3.2,'5/20/16','hulk@greengiant.com','5735559372','y',' ');
-INSERT INTO is_an_applicant values (4,4,3.2,'5/20/16','blackwidow@shield.com','5735556281','y','SHIELD');
-INSERT INTO is_an_applicant values (5,5,3.2,'5/20/16','hawkeye@shield.com','6365550395','y','SHIELD');
+INSERT INTO is_an_applicant values (2,2,3.2,'5/20/16','thecapt@gmail.com','5732637422','y','SHIELD');
+INSERT INTO is_an_applicant values (3,3,4.0,'5/20/16','ironman@jarvis.com','5735559837','y','Stark Ind');
+INSERT INTO is_an_applicant values (4,4,3.2,'5/20/16','hulk@greengiant.com','5735559372','y',' ');
+INSERT INTO is_an_applicant values (5,5,3.2,'5/20/16','blackwidow@shield.com','5735556281','y','SHIELD');
+INSERT INTO is_an_applicant values (6,6,3.2,'5/20/16','hawkeye@shield.com','6365550395','y','SHIELD');
 
-INSERT INTO is_a_grad values (1,'md','Shang');
-INSERT INTO is_a_grad values (2,'phd','Shang');
+INSERT INTO is_a_grad values (2,'md','Shang');
 INSERT INTO is_a_grad values (3,'phd','Shang');
+INSERT INTO is_a_grad values (4,'phd','Shang');
 
-INSERT INTO is_an_undergrad values(4,'Computer Science','Junior');
-INSERT INTO is_an_undergrad values(5,'Information Technology','Senior');
+INSERT INTO is_an_undergrad values(5,'Computer Science','Junior');
+INSERT INTO is_an_undergrad values(6,'Information Technology','Senior');
 
-INSERT INTO is_international values(4,76,'y','4/16/13','y');
+INSERT INTO is_international values(5,76,'y','4/16/13','y');
 
 INSERT INTO Course values (0,'Software Engineering 1','CS4320','01',6);
 INSERT INTO Course values (1,'Algorithm Design & Programing 2','CS2050','01',7);
