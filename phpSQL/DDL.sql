@@ -180,6 +180,7 @@ DROP TABLE IF EXISTS wants_to_teach;
 CREATE TABLE wants_to_teach(
 	ta_username varchar(32),
 	c_id integer,
+	grade CHAR,
 	PRIMARY KEY(ta_username,c_id),
 	FOREIGN KEY(ta_username) REFERENCES is_an_applicant(username) ON DELETE CASCADE,
 	FOREIGN KEY(c_id) REFERENCES Course(c_id) ON DELETE CASCADE
@@ -187,7 +188,7 @@ CREATE TABLE wants_to_teach(
 
 DROP TABLE IF EXISTS has_taken;
 
-CREATE TABLE has_taken(
+CREATE TABLE are_teaching(
 	ta_username varchar(32),
 	c_id integer,
 	PRIMARY KEY(ta_username,c_id),

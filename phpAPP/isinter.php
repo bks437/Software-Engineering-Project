@@ -1,3 +1,40 @@
+<?php
+	session_start();
+	//Redirect if user is not logged in to login page
+	if(!isset($_SESSION['username'])){
+		header("Location: index.php");
+	}	
+	//if data has been submitted
+	if(isset($_POST['submit'])){
+		//connect to database
+		echo $_POST[test_date];
+		include("test/database.php");
+		//if cannot connect return error
+		$dbconn=pg_connect(HOST." ".DBNAME." ".USERNAME." ".PASSWORD)
+				or die('Could not connect: ' . pg_last_error());
+		if(strcmp($_POST[status],"international")==0){
+			if(strcmp($_POST[speaktest],"passed")==0){
+				$taken='y ';
+				$test_date=$_POST[test_date1];
+			}
+			elseif(strcmp($_POST[speaktest],"scheduled")==0){
+				$taken='n ';
+				$test_date=$_POST[test_date];
+			}
+			pg_prepare($dbconn, 'basicinfo', 'INSERT INTO DDL.is_international (username,speak,speak_taken,test_date,onita) 
+				VALUES ($1,$2,$3,$4,$5)');
+			$result = pg_execute($dbconn, 'basicinfo', array($_SESSION['username'],(int)$_POST[test_score],$taken,$test_date,$_POST[onita]))or die("error: ".pg_last_error()); 
+			if($result==false){
+				$_SESSION[insert]=false;
+			}
+			else
+				header("Location: gradundergrad.php");
+		}
+		else
+			header("Location: gradundergrad.php");
+	}
+?>
+
 <!DOCTYPE html>
 <html>
 	<!--ADD ANY USEFUL TIPS, otherwise ... DO NOT FUCK WITH THE COMMENTS. please and thank you.-->
@@ -22,7 +59,7 @@
 		
 	<!-- International/Non-International -->
 	
-	<form action="something.php" method="post">
+	<form action="isinter.php" method="POST">
 		
 		<div class="toppadding5 centerdisplay">
 			<p class="centerpls">
@@ -57,7 +94,7 @@
 			
 			<p class="centerpls" id="testinfo2" style="display:none">
 				<label class="leftlabel" for="test_date">Test date:</label>
-				<input type="date" name="test_date" maxlength="40"></input>
+				<input type="date" name="test_date1" maxlength="40"></input>
 				<br>
 			</p>
 
@@ -97,9 +134,9 @@
 		<div class="centerdisplay">
 			<p class="centerpls" id="onita" style="display:none">
 				<label class="leftlabel">Have you attended the ONITA?</label>
-				<input type="radio" name="answer" value="Yes">Yes</input>
-				<input type="radio" name="answer" value="No"> No</input>
-				<input type="radio" name="answer" value="Will_attend">Will attend in Aug/Jan</input>
+				<input type="radio" name="onita" value="y">Yes</input>
+				<input type="radio" name="onita" value="n"> No</input>
+				<input type="radio" name="onita" value="w">Will attend in Aug/Jan</input>
 			</p>
 		</div>     
 
