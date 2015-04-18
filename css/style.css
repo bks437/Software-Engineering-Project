@@ -92,3 +92,13 @@ body {
 	-webkit-box-shadow: 0px -7px 20px 5px black;
 	box-shadow:         0px -7px 20px 5px black;
 }
+.name{
+	width: 224px;
+	margin-left: 29%;
+	float: left;
+}
+.numb{
+	float:left;
+	width:66px;
+	margin-left: 35px;
+}
