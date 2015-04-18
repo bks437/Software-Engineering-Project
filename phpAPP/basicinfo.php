@@ -113,7 +113,6 @@
 			<h3>
 				<div class="centerpls">
 				<p class="centerdisplay nextbutton" id="click">
-					<!--<label for"nextpage">Click here to go to the next page:</label>-->
 					<input  type="submit" name="submit" value="Proceed to the next step">
 				</p>
 				</div>
