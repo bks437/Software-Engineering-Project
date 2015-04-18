@@ -5,10 +5,10 @@
 	<title>CS4320 - Group G</title>
 	<link rel="stylesheet" type="text/css" href="../css/style.css">		
 	<script src="../js/jquery-1.11.2.min.js"></script>
-	<script type="text/javascript" src="../js/javascript.js"></script>
 </head>
 <body>
-
+	<form method="POST" action="<?= $_SERVER['PHP_SELF'] ?>">
+	
 	<!-- Header/Footer -->
 		
 		<div class="header shadowheader">			
@@ -44,7 +44,7 @@
 			<div class="studentinfo centerpls">
 				<p class="studentid centerdisplay">
 					<label class="leftlabel" for="id">Student ID:</label>
-					<input class="niceinput" type="text" size="22" name="id" id="id" placeholder ="12345678" maxlength = "8" ></input>
+					<input class="niceinput" type="text" size="22" name="id" id="id" placeholder ="12345678" maxlength="8" ></input>
 					<br>
 				</p>
 				<p class="emailaddress centerdisplay">
@@ -89,9 +89,17 @@
 			<div class="centerpls">
 			<p class="centerdisplay nextbutton" id="click">
 				<!--<label for"nextpage">Click here to go to the next page:</label>-->
-				<input  type="submit" name="submit" value="Proceed to the next step">
+				<input  type="submit" name="nextpage" value="Proceed to the next step">
 			</p>
 			</div>
 		</h3>
-		
+	</form>
+	
+<?PHP
+	if (isset($_POST['nextpage']) == "Proceed to the next step"){
+		header("Location: isinter.php");
+	}
+?>
+
 </body>
+</html>

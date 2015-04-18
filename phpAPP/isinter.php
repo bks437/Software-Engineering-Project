@@ -8,7 +8,8 @@
 	<script type="text/javascript" src="../js/isinter.js"></script>
 </head>
 <body>
-
+	<form method="POST" action="<?= $_SERVER['PHP_SELF'] ?>">
+	
 	<!-- Header/Footer -->
 		
 		<div class="header shadowheader">			
@@ -22,7 +23,7 @@
 		
 	<!-- International/Non-International -->
 	
-	<form action="something.php" method="post">
+	
 		
 		<div class="toppadding5 centerdisplay">
 			<p class="centerpls">
@@ -110,7 +111,7 @@
 				<!--<label for="submit">Click here to save your info:</label>
 				<input type="submit" name = "submit" value="Save current info" /><br/><br/>
 				<label for"nextpage">Click here to go to the next page:</label>   -->
-				<input  type="submit" name="submit" value="Proceed to the next step">
+				<input  type="submit" name="nextpage" value="Proceed to the next step">
 			</p>			
 		</div>
 		
@@ -118,10 +119,17 @@
 
 		<div class="centerpls">
 			<p class="centerdisplay nextbutton" id="home" style="display: none">
-				<input  type="submit" name="submit" value="Proceed to the home page">
+				<input  type="submit" name="homepage" value="Proceed to the home page">
 			</p>			
 		</div>	
 	
 	</form>
-		
+	
+<?PHP
+	if (isset($_POST['nextpage']) == "Proceed to the next step"){
+		header("Location: gradundergrad.php");
+	}
+?>	
+
 </body>
+</html>

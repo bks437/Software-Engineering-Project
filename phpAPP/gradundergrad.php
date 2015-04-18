@@ -8,7 +8,8 @@
 	<script type="text/javascript" src="../js/gradundergrad.js"></script>
 </head>
 <body>
-
+	<form method="POST" action="<?= $_SERVER['PHP_SELF'] ?>">
+	
 	<!-- Header/Footer -->
 		
 		<div class="header shadowheader">			
@@ -91,9 +92,17 @@
 
 		<div class="centerpls">
 			<p class="centerdisplay nextbutton" id="click" style="display: none">
-				<input  type="submit" name="submit" value="Proceed to the next step">
+				<input  type="submit" name="nextpage" value="Proceed to the next step">
 			</p>			
 		</div>
 		
+	</form>
+	
+<?PHP
+	if (isset($_POST['nextpage']) == "Proceed to the next step"){
+		header("Location: courses.php");
+	}
+?>
+
 </body>
 </html>
