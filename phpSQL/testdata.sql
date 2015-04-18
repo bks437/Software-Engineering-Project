@@ -35,8 +35,8 @@ INSERT INTO is_an_undergrad values('app5','Information Technology','Senior');
 
 INSERT INTO is_international values('app4',76,'y','4/16/13','y');
 
-INSERT INTO Course values (0,'Software Engineering 1','CS4320','01',6);
-INSERT INTO Course values (1,'Algorithm Design & Programing 2','CS2050','01',7);
+INSERT INTO Course values (0,'Software Engineering 1','CS4320','01','fac1');
+INSERT INTO Course values (1,'Algorithm Design & Programing 2','CS2050','01','fac2');
 
 \echo
 \echo Select all undergrads
@@ -55,4 +55,4 @@ SELECT * FROM Person P JOIN is_an_applicant iaa USING(username) JOIN is_an_under
 SELECT * FROM Person P JOIN is_a_faculty iaf USING(username);
 
 \echo Select classes
-SELECT * FROM Course C JOIN PERSON P ON C.professor = P.sso;
+SELECT * FROM Course C JOIN PERSON P ON C.professor = P.username;
