@@ -88,8 +88,8 @@
 			//display result in tables with link to course info;
 			echo "<table border ='1'>";
 				echo "<tr>";
-					echo "<td>Course ID</td>";
-					echo "<td>Course Info</td>";
+					echo "<td><b>Course ID</b></td>";
+					echo "<td><b>Course Info</b></td>";
 
 				echo "</tr>";
 
