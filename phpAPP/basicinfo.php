@@ -11,14 +11,21 @@
 		//if cannot connect return error
 		$dbconn=pg_connect(HOST." ".DBNAME." ".USERNAME." ".PASSWORD)
 				or die('Could not connect: ' . pg_last_error());
-		pg_prepare($dbconn, 'basicinfo', 'INSERT INTO DDL.is_an_applicant(username,id,gpa,grad_date,email,phone,gato) 
-			VALUES ($1,$2,$3,$4,$5,$6,$7)');
-		$result = pg_execute($dbconn, 'basicinfo', array($_SESSION['username'],$_POST[id],$_POST[gpa],$_POST[agd],$_POST[email],$_POST[phone],$_POST[gato])); 
-		if($result==false){
-			$_SESSION[insert]=false;
+
+		if(date("y-m-d") <= "2015-05-01"）{
+			pg_prepare($dbconn, 'basicinfo', 'INSERT INTO DDL.is_an_applicant(username,id,gpa,grad_date,email,phone,gato) 
+				VALUES ($1,$2,$3,$4,$5,$6,$7)');
+			$result = pg_execute($dbconn, 'basicinfo', array($_SESSION['username'],$_POST['id'],$_POST['gpa'],$_POST['agd'],$_POST['email'],$_POST['phone'],$_POST['gato'])); 
+			if($result==false){
+				$_SESSION['insert']=false;
+			}
+			else
+				header("Location: isinter.php");
 		}
-		else
-			header("Location: isinter.php");
+		else{
+			$_SESSION['insert']=false;
+			header("Location: home.php");	
+		}
 	}
 ?>
 
@@ -58,7 +65,7 @@
 				</p> -->
 				<p class="phonenumber centerdisplay">
 					<label class="leftlabel" for="phone">Phone Number: </label>
-					<input class="niceinput" type="text" size="22" name="phone" id="phone" <?php if($_SESSION[insert]==false) echo "value=\"".$_POST[phone]."\"";?> placeholder="(123)-456-7890"></input>
+					<input class="niceinput" type="text" size="22" name="phone" id="phone" <?php if($_SESSION['insert']==false) echo "value=\"".$_POST[phone]."\"";?> placeholder="(123)-456-7890"></input>
 					<br>
 				</p>
 			</div>
@@ -69,22 +76,22 @@
 				<p class="studentid centerdisplay">
 					<label class="leftlabel" for="id">Student ID:</label>
 					<input class="niceinput" type="text" size="22" name="id" id="id" placeholder ="12345678" maxlength="8" ></input>
-					<input class="niceinput" type="text" size="22" name="id" id="id" <?php if($_SESSION[insert]==false) echo "value=\"".$_POST[id]."\"";?> placeholder ="12345678" maxlength = "8" ></input>
+					<input class="niceinput" type="text" size="22" name="id" id="id" <?php if($_SESSION['insert']==false) echo "value=\"".$_POST['id']."\"";?> placeholder ="12345678" maxlength = "8" ></input>
 					<br>
 				</p>
 				<p class="emailaddress centerdisplay">
 					<label class="leftlabel" for="email">Mizzou Email Address:</label>
-					<input class="niceinput" type="text" size="22" name="email" id="email"  <?php if($_SESSION[insert]==false) echo "value=\"".$_POST[email]."\"";?> placeholder="student123@mail.missouri.edu" colums="50"></input>
+					<input class="niceinput" type="text" size="22" name="email" id="email"  <?php if($_SESSION['insert']==false) echo "value=\"".$_POST['email']."\"";?> placeholder="student123@mail.missouri.edu" colums="50"></input>
 					<br>
 				</p>
 				<p class="thegpa centerdisplay">
 					<label class="leftlabel" for="gpa">GPA:</label>
-					<input class="niceinput" type = "text" size="22" name="gpa" id="gpa" <?php if($_SESSION[insert]==false) echo "value=\"".$_POST[gpa]."\"";?> placeholder="3.00"></input>
+					<input class="niceinput" type = "text" size="22" name="gpa" id="gpa" <?php if($_SESSION['insert']==false) echo "value=\"".$_POST['gpa']."\"";?> placeholder="3.00"></input>
 					<br>
 				</p>
 				<p class="theagd centerdisplay">
 					<label class="leftlabel" for="AGD">Anticipated Graduation Date:</label>
-					<input class="niceinput" type="date" size="22" name="agd" id="agd" <?php if($_SESSION[insert]==false) echo "value=\"".$_POST[agd]."\"";?> placeholder="mm/yyyy"></input>
+					<input class="niceinput" type="date" size="22" name="agd" id="agd" <?php if($_SESSION['insert']==false) echo "value=\"".$_POST['agd']."\"";?> placeholder="mm/yyyy"></input>
 					<br>
 				</p>
 			</div>

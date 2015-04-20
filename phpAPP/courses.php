@@ -9,23 +9,28 @@
 	//if cannot connect return error
 	$dbconn=pg_connect(HOST." ".DBNAME." ".USERNAME." ".PASSWORD)
 			or die('Could not connect: ' . pg_last_error());
+
 	//if data has been submitted
-	// if(isset($_POST['submit'])){
-	// 	if(strcmp($_SESSION[grad],"ta")==0){
-	// 		pg_prepare($dbconn, 'grad', 'INSERT INTO DDL.is_a_grad values($1,$2,$3)');
-	// 		$result = pg_execute($dbconn, 'grad', array($_SESSION['username'],$_POST[gradpro],$_POST[advisor])); 
-	// 	}
-	// 	elseif(strcmp($_SESSION[grad],"pla")==0){
-	// 		pg_prepare($dbconn, 'ungrad', 'INSERT INTO DDL.is_an_undergrad values($1,$2,$3)') or die('Could not connect: ' . pg_last_error());;
-	// 		$result = pg_execute($dbconn, 'ungrad', array($_SESSION['username'],$_POST[program],$_POST[year]))or die('Could not connect: ' . pg_last_error());; 
-	// 	}
-	// 	if($result==false){
-	// 		$_SESSION[insert]=false;
-	// 	}
-	// 	else
-	// 		header("Location: courses.php");
-	// }
+	/*
+	 if(isset($_POST['submit'])){
+	 	if(strcmp($_SESSION['grad'],"ta")==0){
+	 		pg_prepare($dbconn, 'grad', 'INSERT INTO DDL.is_a_grad values($1,$2,$3)');
+	 		$result = pg_execute($dbconn, 'grad', array($_SESSION['username'],$_POST[gradpro],$_POST[advisor])); 
+	 	}
+	 	elseif(strcmp($_SESSION['grad'],"pla")==0){
+	 		pg_prepare($dbconn, 'ungrad', 'INSERT INTO DDL.is_an_undergrad values($1,$2,$3)') or die('Could not connect: ' . pg_last_error());;
+	 		$result = pg_execute($dbconn, 'ungrad', array($_SESSION['username'],$_POST[program],$_POST[year]))or die('Could not connect: ' . pg_last_error());; 
+	 	}
+	 	if($result==false){
+	 		$_SESSION[insert]=false;
+	 	}
+	 	else
+	 		header("Location: courses.php");
+	*/
+	}
 ?>
+
+
 
 <!DOCTYPE html>
 <html>
@@ -178,7 +183,7 @@
 						<option value="cs4830">CS4830</option>
 					</select> -->
 
-										<? $query = 'SELECT c_id,name,numb FROM DDL.Course;';
+					<? $query = 'SELECT c_id,name,numb FROM DDL.Course;';
 
 					$result = pg_query($query) or die('Query failed: '. pg_last_error());
 					$maxfield=pg_num_fields($result);

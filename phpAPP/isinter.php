@@ -5,33 +5,41 @@
 		header("Location: index.php");
 	}	
 	//if data has been submitted
-	if(isset($_POST['submit'])){
+	if(isset($_POST['nextpage'])){
 		//connect to database
-		echo $_POST[test_date];
 		include("test/database.php");
 		//if cannot connect return error
 		$dbconn=pg_connect(HOST." ".DBNAME." ".USERNAME." ".PASSWORD)
 				or die('Could not connect: ' . pg_last_error());
-		if(strcmp($_POST[status],"international")==0){
-			if(strcmp($_POST[speaktest],"passed")==0){
-				$taken='y ';
-				$test_date=$_POST[test_date1];
-			}
-			elseif(strcmp($_POST[speaktest],"scheduled")==0){
-				$taken='n ';
-				$test_date=$_POST[test_date];
-			}
-			pg_prepare($dbconn, 'basicinfo', 'INSERT INTO DDL.is_international (username,speak,speak_taken,test_date,onita) 
-				VALUES ($1,$2,$3,$4,$5)');
-			$result = pg_execute($dbconn, 'basicinfo', array($_SESSION['username'],(int)$_POST[test_score],$taken,$test_date,$_POST[onita]))or die("error: ".pg_last_error()); 
-			if($result==false){
-				$_SESSION[insert]=false;
+		// check if it is submitted before deadline
+		if(date("y-m-d") <= "2015-05-01"）{
+			if(strcmp($_POST['status'],"international")==0){
+				if(strcmp($_POST['speaktest'],"passed")==0){
+					$taken='y ';
+					$test_date=$_POST['test_date'];
+				}
+				elseif(strcmp($_POST['speaktest'],"scheduled")==0){
+					$taken='n ';
+					$test_date=$_POST['test_date'];
+				}
+				pg_prepare($dbconn, 'basicinfo', 'INSERT INTO DDL.is_international (username,speak,speak_taken,test_date,onita) 
+					VALUES ($1,$2,$3,$4,$5)');
+				$result = pg_execute($dbconn, 'basicinfo', array($_SESSION['username'],(int)$_POST['test_score'],$taken,$test_date,$_POST['onita']))or die("error: ".pg_last_error()); 
+				if($result==false){
+					$_SESSION['insert']=false;
+				}
+				else
+					header("Location: gradundergrad.php");
 			}
 			else
 				header("Location: gradundergrad.php");
 		}
-		else
-			header("Location: gradundergrad.php");
+		//after deadline
+		else{
+			$_SESSION['insert']=false;
+			header("Location: home.php");	
+		}
+
 	}
 ?>
 
@@ -134,7 +142,7 @@
 		<div class="centerdisplay">
 			<p class="centerpls" id="onita" style="display:none">
 				<label class="leftlabel">Have you attended the ONITA?</label>
-				<input type="radio" name="onita" value="y">Yes</input>
+				<input type="radio" name="onita" value="y" checked>Yes</input>
 				<input type="radio" name="onita" value="n"> No</input>
 				<input type="radio" name="onita" value="w">Will attend in Aug/Jan</input>
 			</p>
