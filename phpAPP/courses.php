@@ -41,22 +41,6 @@
 	<script src="../js/jquery-1.11.2.min.js"></script>
 	<script type="text/javascript" src="../js/courses.js"></script>
 	<script src="../js/ajax.js"></script>
-
-	<style>
-	.name{
-		width: 224px;
-		margin-left: 29%;
-		float: left;
-	}
-	.numb{
-		float:left;
-		width:66px;
-		margin-left: 35px;
-	}
-	.button{
-		vertical-align: top;
-	}
-	</style>
 </head>
 <body>
 	

@@ -102,3 +102,6 @@ body {
 	width:66px;
 	margin-left: 35px;
 }
+.button{
+	vertical-align: top;
+}
