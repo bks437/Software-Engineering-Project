@@ -33,9 +33,11 @@
 			//display results in tables with link to student info and to add comments;
 			echo "<table border ='1'>";
 				echo "<tr>";
-					echo "<td><b>Student Name</b></td>";
+					echo "<td><b>Student UserName</b></td>";
 					echo "<td><b>Student Info</b></td>";
 					echo "<td><b>Add Comments</b></td>";
+					echo "<td><b>View Resume</b></td>";
+					echo "<td><b>Request this applicant as TA</b></td>";
 					
 				echo "</tr>";
 
@@ -46,6 +48,9 @@
 					echo "<td>$student</td>";
 					echo "<td><a href=\"#\">Student Info</td>";
 					echo "<td><a href=\"#\">Add Comments</td>";
+					echo "<td><a href=\"#\">View Resume</td>";
+					echo "<td><a href=\"#\">Request as TA</td>";
+
 				echo "</tr>";	
 
 			$i++; 								
