@@ -6,20 +6,26 @@
 	}	
 	//if data has been submitted
 	if(isset($_POST['submit'])){
-		$_SESSION[grad]=$_POST[selection];
-		//connect to database
-		include("test/database.php");
-		//if cannot connect return error
-		$dbconn=pg_connect(HOST." ".DBNAME." ".USERNAME." ".PASSWORD)
-				or die('Could not connect: ' . pg_last_error());
-		pg_prepare($dbconn, 'basicinfo', 'INSERT INTO DDL.is_an_applicant(username,id,gpa,grad_date,email,phone,gato) 
-			VALUES ($1,$2,$3,$4,$5,$6,$7)');
-		$result = pg_execute($dbconn, 'basicinfo', array($_SESSION['username'],$_POST[id],$_POST[gpa],$_POST[agd],$_POST[email],$_POST[phone],$_POST[gato])); 
-		if($result==false){
-			$_SESSION[insert]=false;
+		if(date("y-m-d") <= "2015-05-01"）{
+			$_SESSION[grad]=$_POST[selection];
+			//connect to database
+			include("test/database.php");
+			//if cannot connect return error
+			$dbconn=pg_connect(HOST." ".DBNAME." ".USERNAME." ".PASSWORD)
+					or die('Could not connect: ' . pg_last_error());
+			pg_prepare($dbconn, 'basicinfo', 'INSERT INTO DDL.is_an_applicant(username,id,gpa,grad_date,email,phone,gato) 
+				VALUES ($1,$2,$3,$4,$5,$6,$7)');
+			$result = pg_execute($dbconn, 'basicinfo', array($_SESSION['username'],$_POST[id],$_POST[gpa],$_POST[agd],$_POST[email],$_POST[phone],$_POST[gato])); 
+			if($result==false){
+				$_SESSION[insert]=false;
+			}
+			else
+				header("Location: courses.php");
 		}
-		else
-			header("Location: courses.php");
+		else{
+			$_SESSION[insert]=false;
+			header("Location: home.php");	
+		}
 	}
 ?>
 
