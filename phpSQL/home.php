@@ -1,26 +1,72 @@
+<?php
+			session_start();
+			if(!isset($_SESSION['username'])){
+				header("Location: index.php");
+			}
+?>
 <!DOCTYPE html>
 <html>
 	<head>
 		<title>Registration</title>
 	</head>
 <body>	
-	<?php
-			session_start();
 
-			//Redirect if user is not logged in to login page
-			if(!isset($_SESSION['username'])){
-				header("Location: index.php");
-			}
+	<? //Redirect if user is not logged in to login page
 			
 			//connect to database
-			include("test/database.php");
-			//if cannot connect return error
-			$dbconn=pg_connect(HOST." ".DBNAME." ".USERNAME." ".PASSWORD)
-					or die('Could not connect: ' . pg_last_error());
+		include("../connect/database.php");
+		//if cannot connect return error
+		$dbconn=pg_connect(HOST." ".DBNAME." ".USERNAME." ".PASSWORD)
+				or die('Could not connect: ' . pg_last_error());
+
 			//prepare and execute query
-			$result = pg_prepare($dbconn, "display", 'SELECT DDL.user_info.username, DDL.user_info.registration_date, DDL.log.ip_address, DDL.user_info.description 
-								 FROM DDL.user_info INNER JOIN DDL.log USING (username) WHERE action = $1 AND username = $2');
-			$result = pg_execute($dbconn, "display", array( "register", $_SESSION['username'])); 
+			$result = pg_prepare($dbconn, "name", 'SELECT P.fname, P.lname FROM DDL.Person P WHERE P.username=$1');
+			$result = pg_execute($dbconn, "name", array($_SESSION['username'])); 
+			while( $name = pg_fetch_array($result, null, PGSQL_ASSOC)){
+				foreach( $name as $col_value ){
+						echo "\t\t$col_value &nbsp\n";
+				}
+				echo "\t<br>\n";
+			}
+			
+			$result = pg_prepare($dbconn, "basicinfo", 'SELECT iaa.id, iaa.gpa, iaa.grad_date, iaa.email, iaa.phone FROM DDL.is_an_applicant iaa WHERE iaa.username=$1');
+			$result = pg_execute($dbconn, "basicinfo", array($_SESSION['username'])); 
+			while( $basicinfo = pg_fetch_array($result, null, PGSQL_ASSOC)){
+				foreach( $basicinfo as $col_value ){
+						echo "\t\t$col_value &nbsp\n";
+				}
+				echo "\t<br>\n";
+			}
+
+			$result = pg_prepare($dbconn, "isinter", 'SELECT ii.speak, ii.test_date, ii.onita FROM DDL.is_international ii WHERE ii.username=$1');
+			$result = pg_execute($dbconn, "isinter", array($_SESSION['username'])); 
+			while( $isinter = pg_fetch_array($result, null, PGSQL_ASSOC)){
+				foreach( $isinter as $col_value ){
+						echo "\t\t$col_value &nbsp\n";
+				}
+				echo "\t<br>\n";
+			}
+
+			$result = pg_prepare($dbconn, "grad", 'SELECT iag.degree, iag.advisor FROM DDL.is_a_grad iag WHERE iag.username=$1');
+			$result = pg_execute($dbconn, "grad", array($_SESSION['username'])); 
+			while( $grad = pg_fetch_array($result, null, PGSQL_ASSOC)){
+				foreach( $grad as $col_value ){
+						echo "\t\t$col_value &nbsp\n";
+				}
+				echo "\t<br>\n";
+			}
+
+			$result = pg_prepare($dbconn, "undergrad", 'SELECT iau.degree_program, iau.level FROM DDL.is_an_undergrad iau WHERE iau.username=$1');
+			$result = pg_execute($dbconn, "undergrad", array($_SESSION['username'])); 
+			while( $undergrad = pg_fetch_array($result, null, PGSQL_ASSOC)){
+				foreach( $undergrad as $col_value ){
+						echo "\t\t$col_value &nbsp\n";
+				}
+				echo "\t<br>\n";
+			}
+
+
+
 
 			echo '<div align="center">';
 			echo '<p>History for registered user</p>';
