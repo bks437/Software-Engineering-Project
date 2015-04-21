@@ -134,6 +134,8 @@
 				<input type="text" name="applicantName" id="applicantSearch" placeholder = "John Doe"></input><br>
 				<button type="submit" name="ASearch" value="search by applicant">Applicant Search</button>
 		</div>
+		
+		
 		<!--comment on applicants of their choosing
 					button in generated table to add to comment of person-->
 	</body>
