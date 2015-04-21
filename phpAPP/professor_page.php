@@ -9,9 +9,6 @@
 	//if searching using course number
 	if(isset($_POST['CSearch'] )){
 
-
-	if(isset($_POST['CSearch'] )){
-
 		//connect to database
 		include("../phpSQL/test/database.php");
 		//if cannot connect return error
