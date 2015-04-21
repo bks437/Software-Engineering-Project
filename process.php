@@ -30,20 +30,15 @@
 
 	//set session to username		
                	$_SESSION['username'] = $username;
-               	$query="SELECT P.sso FROM DDL.Person P WHERE P.username = '".$username."';";
-               	// echo $query;
-               	$user = pg_query($query)or die('Query failed: '. pg_last_error());
-               	$line=pg_fetch_assoc($user);
-               	// echo "user: ".$line['sso']."<br>";
                	//check if user is not a faculty
-               	pg_prepare($dbconn,"applicant",'SELECT iaf.sso, iaf.admin FROM DDL.is_a_faculty iaf WHERE iaf.sso = $1')or die('Query failed: '. pg_last_error());
-               	$result = pg_execute($dbconn,"applicant",array($line['sso']));
+               	pg_prepare($dbconn,"applicant",'SELECT iaf.username, iaf.admin FROM DDL.is_a_faculty iaf WHERE iaf.username = $1')or die('Query failed: '. pg_last_error());
+               	$result = pg_execute($dbconn,"applicant",array($username));
                	$line=pg_fetch_assoc($result);
                	// echo $line['iaf.sso'];
                	//user was found in faculty table
        			pg_close($dbconn);
 
-               	if($line["sso"]>=0){
+               	if(isset($line["username"])){
                		//if faculty is the admin
                		if($line["admin"]=='y')
                			header("Location: adminpage.php");
