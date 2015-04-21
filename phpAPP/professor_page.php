@@ -107,8 +107,6 @@
 			if(pg_num_rows($result)!=0) {
 
 				$search_result = pg_fetch_array($result)[0];
-					echo "username is:".$search_result.'<br/>';
-					echo "arrar size is:".(pg_num_rows($result)).'<br/>';
 
 				//find courseIDs wanted by the TA searched for;
 				$query = "SELECT wtt.c_id FROM DDL.wants_to_teach wtt  where wtt.ta_username = '$search_result' ORDER by c_id;";
