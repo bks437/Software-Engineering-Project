@@ -1,5 +1,5 @@
 <?php
-
+############################DO NOT TOUCH THIS FILE!!!!!########################################
 	session_start();
 	//connect to database
 	include("../connect/database.php");
