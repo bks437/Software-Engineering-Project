@@ -1,4 +1,6 @@
 <?php
+############################DO NOT TOUCH THIS FILE!!!!!########################################
+
 	session_start();
 	//Redirect if user is not logged in to login page
 	if(!isset($_SESSION['username'])){
@@ -222,7 +224,7 @@
 		<div class="centerpls">
 			<br><br>
 			<p class="centerdisplay nextbutton" id="click">
-				<input  type="submit" name="submit" value="Proceed to the next step">
+				<input  type="button" name="submit" value="Proceed to the next step" onclick="window.location.href='../phpSQL/home.php'">
 			</p>			
 		</div>
 	
