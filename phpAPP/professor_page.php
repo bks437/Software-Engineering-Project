@@ -65,39 +65,16 @@
 				or die('Could not connect: ' . pg_last_error());
 
 		//find applicant userID based on provided first name and/or last name;
-		if($_POST['applicant_fName']) {
-
-			//if both first name and last name are searched
-			if($_POST['applicant_lName']) {
-
-				$applicant_fName = $_POST['applicant_fName'];
-				$applicant_lName = $_POST['applicant_lName'];
-				$username_find = "SELECT P.username from DDL.person P where lower(P.fname) = lower('$applicant_fName') AND lower(P.lname) = lower('$applicant_lName');";
-				$result= pg_query($dbconn, $username_find)or die('error! ' . pg_last_error());
-			
-			}
-
-			//if only first name is searched
-			else {
-
-				$applicant_fName = $_POST['applicant_fName'];
-				$username_find = "SELECT P.username from DDL.person P where lower(P.fname) = lower('$applicant_fName');";
-				$result= pg_query($dbconn, $username_find)or die('error! ' . pg_last_error());
-			}
-		}
-
-		//if only last name is searched
-		elseif ($_POST['applicant_lName']){
-				$applicant_lName = $_POST['applicant_lName'];
-				$username_find = "SELECT P.username from DDL.person P where lower(P.lname) = lower('$applicant_lName');";
-				$result= pg_query($dbconn, $username_find)or die('error! ' . pg_last_error());
-				
-		}	
-		else{
+		if(!$_POST['applicant_lName'] and !$_POST['applicant_fName'] ){
 			$result = false;
 			echo "Wrong! Both first name and last name can not be empty!".'<br/><br/><br/>';
 		}
-
+		else {
+			$applicant_fName = $_POST['applicant_fName'];
+			$applicant_lName = $_POST['applicant_lName'];
+			$username_find = "SELECT P.username from public.person P where lower(P.fname) = lower('$applicant_fName') OR lower(P.lname) = lower('$applicant_lName');";
+			$result= pg_query($dbconn, $username_find)or die('error! ' . pg_last_error());
+		}
 
 		if ($result == false) {
 			$_SESSION['form_search']=false;
@@ -121,7 +98,7 @@
 					echo "</tr>";
 
 				$num_rows = pg_num_rows($result);
-				echo "number of rows:".$num_rows;
+
 				$i=1;
 				while($row = pg_fetch_array($result)) {
 					$course = $row['c_id'];
@@ -162,13 +139,13 @@
 		<div>
 				<label for="courseNumb" > Enter the course number you would like to see TA applicants: </label>
 				<input type="text" name="courseNumb" id="courseSearch" placeholder = "CS1050"></input><br>
-				<button type="submit" name="CSearch" value="search by course">Course Search</button>
+				<button type="submit" name="CSearch" value="search by course">Course Search</button><br><br>
 		</div>
 		<div>
 				<label for="applicantName" > Enter the name of applicant you would like to search: </label>
-				<input type="text" name="applicant_fName" id="applicantSearch" placeholder = "John"></input><br>
-				<input type="text" name="applicant_lName" id="applicantSearch" placeholder = "Doe"></input><br>
-				<button type="submit" name="ASearch" value="search by applicant">Applicant Search</button>
+				<input type="text" name="applicant_fName" id="applicantSearch" placeholder = "first name"></input>
+				<input type="text" name="applicant_lName" id="applicantSearch" placeholder = "last name"></input><br>
+				<button type="submit" name="ASearch" value="search by applicant">Applicant Search</button><br><br>
 		</div>
 		<!--comment on applicants of their choosing
 					button in generated table to add to comment of person-->
@@ -178,7 +155,7 @@
 		<div >
 				<label for="homepage">Go to home page</label><br>
 
-				<input type="submit" name="homepage" value="Go to home page"></input>
+				<input type="submit" name="homepage" value="Go to home page"><br><br></input>
 		
 		</div>	
 
