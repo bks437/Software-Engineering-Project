@@ -73,7 +73,7 @@
 		$applicantName = $_POST['applicantName'];
 
 		// need to work this out using a full name
-		$username_find = "SELECT P.username from DLL.person P where P.fname = '$applicantName';"; 
+		$username_find = "SELECT P.username from DLL.person P where P.fname = '$applicantName' AND P.lname = '$applicantName';"; 
 		$result= pg_query($dbconn, $username_find)or die('error! ' . pg_last_error());
 
 		//find courseIDs wanted by the TA searched for;
