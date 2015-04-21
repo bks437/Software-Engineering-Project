@@ -72,7 +72,7 @@
 		else {
 			$applicant_fName = $_POST['applicant_fName'];
 			$applicant_lName = $_POST['applicant_lName'];
-			$username_find = "SELECT P.username from public.person P where lower(P.fname) = lower('$applicant_fName') OR lower(P.lname) = lower('$applicant_lName');";
+			$username_find = "SELECT P.username from DDL.person P where lower(P.fname) = lower('$applicant_fName') OR lower(P.lname) = lower('$applicant_lName');";
 			$result= pg_query($dbconn, $username_find)or die('error! ' . pg_last_error());
 		}
 
