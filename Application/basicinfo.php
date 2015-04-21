@@ -8,7 +8,7 @@
 	if(isset($_POST['submit'])){
 		$_SESSION[grad]=$_POST[selection];
 		//connect to database
-		include("test/database.php");
+		include("../connect/database.php");
 		//if cannot connect return error
 		$dbconn=pg_connect(HOST." ".DBNAME." ".USERNAME." ".PASSWORD)
 				or die('Could not connect: ' . pg_last_error());
