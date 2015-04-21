@@ -1,8 +1,8 @@
 <?php
 
 	session_start();
-		//connect to database
-	include("test/database.php");
+	//connect to database
+	include("../connect/database.php");
 	//if cannot connect return error
 	$dbconn=pg_connect(HOST." ".DBNAME." ".USERNAME." ".PASSWORD)
 			or die('Could not connect: ' . pg_last_error());
