@@ -19,7 +19,7 @@
 		$courseNumb = $_POST['courseNumb'];
 
 		//find applicants who want to teach this course
-		$query = "SELECT wtt.ta_username FROM DLL.wants_to_teach wtt where wtt.c_id =$courseNumb ORDER by ta_username;";
+		$query = "SELECT wtt.ta_username FROM DDL.wants_to_teach wtt where wtt.c_id =(SELECT C.c_id FROM DDL.course C where C.numb= '$courseNumb') ORDER by ta_username;";
 		$result = pg_query($dbconn, $query)or die('error! ' . pg_last_error());
 
 		if ($result == false) {
