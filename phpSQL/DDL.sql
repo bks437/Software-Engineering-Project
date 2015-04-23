@@ -212,14 +212,18 @@ CREATE TABLE professor_wants_ta(
 DROP TABLE IF EXISTS Semester;
 
 CREATE TABLE Semester(
-	name char(6),
+	name char(4),
+	studentstart date,
+	studentend date,
+	facultystart date,
+	facultyend date,
 	PRIMARY KEY (name)
 );
 
 DROP TABLE IF EXISTS semester_has_class;
 
 CREATE TABLE semester_has_class(
-	semester char(6),
+	semester char(4),
 	c_id integer,
 	FOREIGN KEY(semester) REFERENCES Semester(name),
 	FOREIGN KEY(c_id) REFERENCES Course(c_id),
@@ -230,7 +234,7 @@ DROP TABLE IF EXISTS assigned_to;
 
 CREATE TABLE assigned_to(
 	ta_username varchar(32),
-	semester char(6),
+	semester char(4),
 	c_id integer,
 	PRIMARY KEY(ta_username,semester),
 	FOREIGN KEY(ta_username) REFERENCES is_an_applicant(username) ON DELETE CASCADE,
