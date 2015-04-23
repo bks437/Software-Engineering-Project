@@ -33,54 +33,36 @@ body {
 	padding-bottom: 5px;
 	/*z-index: 1;*/
 }
-.personal {
-	background-color: white;
-	padding: 5px;  			
-}
-.studentinfo {
-	background-color: white;
-	padding: 5px;  			
-}
-.gato {
-	background-color: white;
-	padding: 5px;  			
-}
-.displaynone {
-	display: none;
-}
-.onemp {
-	margin: 1px;
-	padding: 1px;
-}
-.leftlabel {
-	display: inline-block;
-    float: left;
-	margin: 0 0 0 10px;
-    width: 350px;
-    text-align: left;
-}
-.centerdisplay {
-	margin-left: 29%;
+.centerbuttons {
+	margin-left: auto;
+	margin-right: auto;
+	width: 126.5px;
+	left: 300px;
 }
 .centerpls {
-	width: auto;
-	margin-left: auto ;
-	margin-right: auto ;
+	margin: auto;
+	width: 600px;
 }
-.toppadding5 {
-	padding: 5px 0 0 0;
+.centerimage {
+	margin: auto;
+	width: 500px;
 }
-.nextbutton {
-	margin-left: 57.5%;
+.centertext {
+	margin-left: auto;
+	margin-right: auto;
+	width: 376px;
 }
-.niceinput {
-	display: inline-block;
+.floatright {
+	float: right;
 }
-.niceradio {	
-	display: inline-block;
+.floatleft {
+	float: left;
 }
-.tempradiofix {
-	margin: 0 0 0 365px; /* temp fix until I can properly align the radio buttons */
+.smallgato {
+	font-size: 12px;
+}
+.tapla {
+	display: inline;
 }
 .shadowfooter {
 	-moz-box-shadow:    0px 7px 20px 5px black;
