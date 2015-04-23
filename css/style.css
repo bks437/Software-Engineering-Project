@@ -52,6 +52,16 @@ body {
 	margin-right: auto;
 	width: 376px;
 }
+.centertextint {
+	margin-left: auto;
+	margin-right: auto;
+	width: 487px;
+}
+.centertextint2 {
+	margin-left: auto;
+	margin-right: auto;
+	width: 348px;
+}
 .floatright {
 	float: right;
 }
@@ -61,7 +71,16 @@ body {
 .smallgato {
 	font-size: 12px;
 }
+.smallspeak {
+	font-size: 12px;
+}
+.bigspeak {
+	font-size: 22px;
+}
 .tapla {
+	display: inline;
+}
+.onesemester {
 	display: inline;
 }
 .shadowfooter {

@@ -67,108 +67,96 @@
 		</div>			
 
 		
-	<!-- International/Non-International -->
-	
-		
-		<div class="toppadding5 centerdisplay">
-			<p class="centerpls">
-				<label class="leftlabel">What type of student are you?</label>
-				<select id="status" name="status">
+	<!-- Int/SPEAK/ONITA -->
+			
+		<div class="centerpls">
+			<p>
+				<label class="floatleft">What type of student are you?</label>
+				<select class="floatright" id="status" name="status">
 					<option value="status">Select</option>
 					<option value="international">International</option>
 					<option value="noninternational">Non-International</option>
 				</select>
+				<br>
 			</p>
-		</div>
-
-	 <!-- Language Test part -->
-
-		<div class="centerdisplay">
-			<p class="centerpls" id="interinfo" style="display:none"> 
-				<label class="leftlabel">Have you passed the SPEAK Test?</label>
-				<select id="speaktest" name="speaktest">
-						<option value="select">Select</option>
-						<option value="passed">Speak test passed</option>
-						<option value="scheduled">Speak test scheduled</option>
-						<option value="notscheduled">Speak test not scheduled</option>
+			<p id="interinfo" style="display:none"> 
+				<label class="floatleft">Have you passed the SPEAK Test?</label>
+				<select class="floatright" id="speaktest" name="speaktest">
+					<option value="select">Select</option>
+					<option value="passed">Speak test passed</option>
+					<option value="scheduled">Speak test scheduled</option>
+					<option value="notscheduled">Speak test not scheduled</option>
 				</select>
-				<label>(English proficiency Test)</label>
+				<br>
+				<label class="smallspeak">(English proficiency Test)</label>
+				<br>
 			</p>
 
-			<p class="centerpls" id="testinfo" style="display:none">
-				<label class="leftlabel" for="test_score">Test score:</label>
-				<input type="text" name="test_score" maxlength="5" placeholder="100"></input>
+			<p id="testinfo" style="display:none">
+				<label class="floatleft" for="test_score">Test score:</label>
+				<input class="floatright" type="text" name="test_score" maxlength="5" placeholder="100"></input>
 				<br>
 			</p>
 			
-			<p class="centerpls" id="testinfo2" style="display:none">
-				<label class="leftlabel" for="test_date">Test date:</label>
-				<input type="date" name="test_date1" maxlength="40"></input>
+			<p id="testinfo2" style="display:none">
+				<label class="floatleft" for="test_date">Test date:</label>
+				<input class="floatright" type="date" name="test_date" maxlength="40"></input>
 				<br>
 			</p>
 
-			<p class="centerpls" id="test_schedule" style="display:none">
-				<label class="leftlabel">Please provide the scheduled test date:</label>
-				<input type="date" name="test_date" size="20" maxlength="40"></input>
+			<p id="test_schedule" style="display:none">
+				<label class="floatleft">Please provide the scheduled test date:</label>
+				<input class="floatright" type="date" name="test_date" size="20" maxlength="40"></input>
 				<br>
 			</p>
 
-			<p class="centerpls" id="disqualified" style="display:none">
-				<br><br><br><br>
+			<p class="centertextint bigspeak" id="disqualified" style="display:none">
+				<br><br>
 				<b> Sorry, you do not qualify for a TA/PLA position!</b><br/><br/>
-				<br><br><br><br><br><br><br>
+				<br><br>
 			</p>
 
-			<p class="centerpls" id="autoqualified" style="display:none">
-				<br><br><br><br>
-				<b>Your language automatically qualifies you for a TA/PLA position!</b>
-				<br><br><br><br><br><br><br>
+			<p class="centertextint2 bigspeak" id="autoqualified" style="display:none">
+				<br><br>
+				<b>You qualify for a TA/PLA position!</b>
+				<br><br>
 			</p>
-		</div>
-
-
-	 <!-- At least one semester part -->
-
-		<div class="centerdisplay">
-			<p class="centerpls" id="newstudent" style="display:none">
-				<label class="leftlabel">Have you finished at least one semester?</label>
-				<input type="radio" name="answer" value="Yes" checked>Yes</input>
-				<input type="radio" name="answer" value="No"> No</input>
+		
+			<p id="newstudent" style="display:none">
+				<label class="floatleft">Have you finished at least one semester?</label>
+				<div class="onesemester floatright" id="newstudentradio" style="display:none">
+					<input type="radio" name="answer" value="Yes" checked>Yes</input>
+					<input type="radio" name="answer" value="No"> No</input>
+				</div>
+				<br>
 			</p>
-		</div>       
-
-
-	 <!-- Onita part -->
-
-		<div class="centerdisplay">
-			<p class="centerpls" id="onita" style="display:none">
-				<label class="leftlabel">Have you attended the ONITA?</label>
-				<input type="radio" name="onita" value="y" checked>Yes</input>
-				<input type="radio" name="onita" value="n"> No</input>
-				<input type="radio" name="onita" value="w">Will attend in Aug/Jan</input>
+		
+			<p id="onita" style="display:none">
+				<label class="floatleft">Have you attended the ONITA?</label>
+				<div class="onesemester floatright" id="onitaradio" style="display:none">
+					<input type="radio" name="answer" value="Yes">Yes</input>
+					<input type="radio" name="answer" value="No"> No</input>
+					<input type="radio" name="answer" value="Will_attend">Will attend in Aug/Jan</input>
+				</div>
+				<br>
 			</p>
 		</div>     
 
-	 <!-- Go to nextpage or save data part -->
+	<!-- Go to nextpage or save data part -->
 
 		<div class="centerpls">
-			<p class="centerdisplay nextbutton" id="click" style="display: none">
-				<!--<label for="submit">Click here to save your info:</label>
-				<input type="submit" name = "submit" value="Save current info" /><br/><br/>
-				<label for"nextpage">Click here to go to the next page:</label>   -->
-				<input  type="submit" name="nextpage" value="Proceed to the next step">
+			<p class="floatright" id="click" style="display: none">
+				<input type="submit" name="submit" value="Proceed to the next step">
 			</p>			
 		</div>
 		
-	 <!-- Go to homepage -->
+	<!-- Go to homepage -->
 
 		<div class="centerpls">
-			<p class="centerdisplay nextbutton" id="home" style="display: none">
-				<input  type="submit" name="homepage" value="Proceed to the home page">
+			<p class="floatright" id="home" style="display: none">
+				<input type="submit" name="submit" value="Proceed to the home page">
 			</p>			
-		</div>	
-	
-	</form>
-
+		</div>		
+	</form>	
 </body>
 </html>

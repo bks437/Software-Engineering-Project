@@ -3,22 +3,28 @@ $(document).ready(function () {
         if ($(this).val() == "international") {
             $("#interinfo").show();
             $("#testinfo").hide();
+			$("#testinfo2").hide();
             $("#test_schedule").hide();
             $("#disqualified").hide();
             $("#autoqualified").hide();
             $("#newstudent").hide();
+			$("#newstudentradio").hide();
             $("#onita").hide();
+			$("#onitaradio").hide();
             $("#click").hide();
 			$("#home").hide();
 		}
 		else if ($(this).val() == "noninternational")  {
 			$("#interinfo").hide();
 			$("#testinfo").hide();
+			$("#testinfo2").hide();
 			$("#test_schedule").hide();
 			$("#disqualified").hide();
 			$("#autoqualified").show();
 			$("#newstudent").hide();
+			$("#newstudentradio").hide();
 			$("#onita").hide();
+			$("#onitaradio").hide();
 			$("#click").show();
 			$("#home").hide();
 		}
@@ -30,7 +36,9 @@ $(document).ready(function () {
 			$("#disqualified").hide();
 			$("#autoqualified").hide();
 			$("#newstudent").hide();
+			$("#newstudentradio").hide();
 			$("#onita").hide();
+			$("#onitaradio").hide();
 			$("#click").hide();
 			$("#home").hide();
 		} 
@@ -46,7 +54,9 @@ $(document).ready(function () {
             $("#disqualified").hide();
             $("#autoqualified").hide();
             $("#newstudent").show();
+			$("#newstudentradio").show();
             $("#onita").show();
+			$("#onitaradio").show();
             $("#click").show();
 			$("#home").hide();
         }
@@ -58,7 +68,9 @@ $(document).ready(function () {
 			$("#disqualified").hide();
 			$("#autoqualified").hide();
 			$("#newstudent").show();
+			$("#newstudentradio").show();
 			$("#onita").show();
+			$("#onitaradio").show();
 			$("#click").show();
 			$("#home").hide();
         }
@@ -70,7 +82,9 @@ $(document).ready(function () {
             $("#disqualified").show();
             $("#autoqualified").hide();
             $("#newstudent").hide();
+			$("#newstudentradio").hide();
             $("#onita").hide();
+			$("#onitaradio").hide();
             $("#click").hide();
 			$("#home").show();
         }
@@ -82,7 +96,9 @@ $(document).ready(function () {
             $("#disqualified").hide();
             $("#autoqualified").hide();
             $("#newstudent").hide();
+			$("#newstudentradio").hide();
             $("#onita").hide();
+			$("#onitaradio").hide();
             $("#click").hide();
 			$("#home").hide();
         } 
