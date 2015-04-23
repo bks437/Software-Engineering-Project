@@ -50,80 +50,61 @@
 			<h4>Copyright &copy; Group G - Computer Science Department</h4>		
 		</div>		
 	
-	<!-- Personal -->
+	<!-- Personal / Student Information / GATO -->
+	
 		<form name="basicinfo" action="basicinfo.php" method="POST">
-			<div class="personal centerpls">
-<!-- 				<p class="firstname centerdisplay">
-					<label class="leftlabel" for="fname" >First name: </label> 
-					<input class="niceinput" type="text" size="22" name="fname" id="fname" placeholder="John"></input>
+			<div class="centerpls">
+				<p>
+					<label class="floatleft" for="phone">Phone Number: </label>
+					<input class="floatright" type="text" size="22" name="phone" id="phone" <?php if($_SESSION['insert']==false) echo "value=\"".$_POST[phone]."\"";?> placeholder="(123)-456-7890"></input>
+					<br>
+				</p>			
+				<p>
+					<label class="floatleft" for="id">Student ID:</label>
+					<input class="floatright" type="text" size="22" name="id" id="id" <?php if($_SESSION['insert']==false) echo "value=\"".$_POST['id']."\"";?> placeholder ="12345678" maxlength = "8" ></input>
 					<br>
 				</p>
-				<p class="lastname centerdisplay">
-					<label class="leftlabel" for="lname">Last name: </label>
-					<input class="niceinput" type="text" size="22" name="lname" id="lname" placeholder="Doe"></input>
-					<br>
-				</p> -->
-				<p class="phonenumber centerdisplay">
-					<label class="leftlabel" for="phone">Phone Number: </label>
-					<input class="niceinput" type="text" size="22" name="phone" id="phone" <?php if($_SESSION['insert']==false) echo "value=\"".$_POST[phone]."\"";?> placeholder="(123)-456-7890"></input>
+				<p>
+					<label class="floatleft" for="email">Mizzou Email Address:</label>
+					<input class="floatright" type="text" size="22" name="email" id="email" <?php if($_SESSION['insert']==false) echo "value=\"".$_POST['email']."\"";?> placeholder="student123@mail.missouri.edu" colums="50"></input>
 					<br>
 				</p>
-			</div>
-			
-	<!-- Student Information -->
-			
-			<div class="studentinfo centerpls">
-				<p class="studentid centerdisplay">
-					<label class="leftlabel" for="id">Student ID:</label>
-					<input class="niceinput" type="text" size="22" name="id" id="id" placeholder ="12345678" maxlength="8" ></input>
-					<input class="niceinput" type="text" size="22" name="id" id="id" <?php if($_SESSION['insert']==false) echo "value=\"".$_POST['id']."\"";?> placeholder ="12345678" maxlength = "8" ></input>
+				<p>
+					<label class="floatleft" for="gpa">GPA:</label>
+					<input class="floatright" type = "text" size="22" name="gpa" id="gpa" <?php if($_SESSION['insert']==false) echo "value=\"".$_POST['gpa']."\"";?> placeholder="3.00"></input>
 					<br>
 				</p>
-				<p class="emailaddress centerdisplay">
-					<label class="leftlabel" for="email">Mizzou Email Address:</label>
-					<input class="niceinput" type="text" size="22" name="email" id="email"  <?php if($_SESSION['insert']==false) echo "value=\"".$_POST['email']."\"";?> placeholder="student123@mail.missouri.edu" colums="50"></input>
+				<p>
+					<label class="floatleft" for="AGD">Anticipated Graduation Date:</label>
+					<input class="floatright" type="date" size="22" name="agd" id="agd" <?php if($_SESSION['insert']==false) echo "value=\"".$_POST['agd']."\"";?> placeholder="mm/yyyy"></input>
 					<br>
 				</p>
-				<p class="thegpa centerdisplay">
-					<label class="leftlabel" for="gpa">GPA:</label>
-					<input class="niceinput" type = "text" size="22" name="gpa" id="gpa" <?php if($_SESSION['insert']==false) echo "value=\"".$_POST['gpa']."\"";?> placeholder="3.00"></input>
-					<br>
-				</p>
-				<p class="theagd centerdisplay">
-					<label class="leftlabel" for="AGD">Anticipated Graduation Date:</label>
-					<input class="niceinput" type="date" size="22" name="agd" id="agd" <?php if($_SESSION['insert']==false) echo "value=\"".$_POST['agd']."\"";?> placeholder="mm/yyyy"></input>
-					<br>
-				</p>
-			</div>
-
-	<!-- GATO -->	
-		
-			<div class="gato centerpls">
-				<p class="thegato centerdisplay">
-					<label class="leftlabel" for="gato">Have you attended the GATO?</label>
-					<select name="gato">
-						<option value="y"<? if($_POST['gato']=='y') echo "selected";?>>Yes</option>
-						<option value="n" <? if($_POST['gato']!='y') echo "selected";?>>No</option>						
+				<p>
+					<label class="floatleft" for="gato">Have you attended the GATO?</label>
+					<select class="floatright" name="gato">
+						<option value="y" <? if($_POST['gato']=='y') echo "selected";?> >Yes</option>
 					</select>
-					<label for="gato">(Graduate Assistant Teaching Orientation)</label>
+						<br>
+					<label class="smallgato" for="gato">(Graduate Assistant Teaching Orientation)</label>
 						<br>
 				</p>
-				<p class="theposition centerdisplay">
-					<label class="leftlabel">What position are you applying for?</label>
-					<input type="radio" name="selection" value="ta" id="ta" checked>TA</input>
-					<input type="radio" name="selection" value="pla" id="pla">PLA</input>
+				<p>
+					<label class="floatleft">What position are you applying for?</label>
+					<div class="tapla floatright">
+						<input type="radio" name="selection" value="ta" id="ta" checked>TA</input>
+						<input type="radio" name="selection" value="pla" id="pla">PLA</input>
+					</div>
+						<br>
 				</p>
 			</div>
 			
-		<!-- Next page/step -->
-			
-			<h3>
-				<div class="centerpls">
-				<p class="centerdisplay nextbutton" id="click">
+	<!-- Next page/step -->		
+		
+			<div class="centerpls">
+				<p class="floatright" id="click">
 					<input  type="submit" name="submit" value="Proceed to the next step">
 				</p>
-				</div>
-			</h3>
+			</div>
 		</form>
 		
 
