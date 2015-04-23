@@ -83,6 +83,7 @@
 					<label class="floatleft" for="gato">Have you attended the GATO?</label>
 					<select class="floatright" name="gato">
 						<option value="y" <? if($_POST['gato']=='y') echo "selected";?> >Yes</option>
+						<option value="n" <? if($_POST['gato']=='n') echo "selected";?> selected>No</option>						
 					</select>
 						<br>
 					<label class="smallgato" for="gato">(Graduate Assistant Teaching Orientation)</label>
