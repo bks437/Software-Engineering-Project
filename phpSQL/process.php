@@ -46,9 +46,9 @@
                	if($line["sso"]>=0){
                		//if faculty is the admin
                		if($line["admin"]=='y')
-               			header("Location: adminpage.php");
+               			header("Location: ..\phpAPP\admin_page.php");
                		else
-               			header("Location: facultypage.php");
+               			header("Location: ..\phpAPP\professor_page.php");
                	}
                	//if logined in user is not a faculty
                	else
