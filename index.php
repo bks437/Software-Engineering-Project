@@ -16,10 +16,10 @@
 			}
 		?>
 		<title>CS4320 - Group G</title>
-		<link rel="stylesheet" type="text/css" href="../css/style.css">	
-		<script src="../js/jquery-1.11.2.min.js"></script>
-		<script type="text/javascript" src="../js/courses.js"></script>
-		<script src="../js/ajax.js"></script>
+		<link rel="stylesheet" type="text/css" href="/css/style.css">	
+		<script src="/js/jquery-1.11.2.min.js"></script>
+		<script type="text/javascript" src="/js/courses.js"></script>
+		<script src="/js/ajax.js"></script>
 	</head>
 <body>
 	<!-- Header/Footer -->
