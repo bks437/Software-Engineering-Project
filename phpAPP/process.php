@@ -41,9 +41,9 @@
                	if(isset($line["username"])){
                		//if faculty is the admin
                		if($line["admin"]=='y')
-               			header("Location: adminpage.php");
+               			header("Location: admin_page.php");
                		else
-               			header("Location: facultypage.php");
+               			header("Location: professor_page.php");
                	}
                	//if logined in user is not a faculty
                	else
