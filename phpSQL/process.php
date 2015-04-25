@@ -3,7 +3,7 @@
 	
 		if(isset($_POST['submit'])){
 	//connect to database
-		include("test/database.php");
+		include("../connect/database.php");
 		//if cannot connect return error
 		$dbconn=pg_connect(HOST." ".DBNAME." ".USERNAME." ".PASSWORD)
 				or die('Could not connect: ' . pg_last_error());
@@ -46,9 +46,9 @@
                	if($line["sso"]>=0){
                		//if faculty is the admin
                		if($line["admin"]=='y')
-               			header("Location: ..\phpAPP\admin_page.php");
+               			header("Location: ../phpAPP/admin_page.php");
                		else
-               			header("Location: ..\phpAPP\professor_page.php");
+               			header("Location: ../phpAPP/professor_page.php");
                	}
                	//if logined in user is not a faculty
                	else
