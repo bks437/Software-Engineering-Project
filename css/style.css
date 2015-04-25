@@ -46,11 +46,32 @@ body {
 	width: 126.5px;
 	left: 300px;
 }
+.centerbuttonscourses {
+	background: #eee;
+	margin-left: auto;
+	margin-right: auto;
+	width: 126.5px;
+	left: 300px;
+}
+.centerbuttonsindex {
+	margin-left: auto;
+	margin-right: auto;
+	width: 204.5px;
+	left: 300px;
+}
 .centerpls {
 	margin: auto;
 	width: 600px;
 }
 .centerplsgrad {
+	margin: auto;
+	width: 600px;
+}
+.centerplscourses {
+	margin: auto;
+	width: 600px;
+}
+.centerplsindex {
 	margin: auto;
 	width: 600px;
 }
