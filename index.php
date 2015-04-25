@@ -32,7 +32,7 @@
 			<h4>Copyright &copy; Group G - Computer Science Department</h4>		
 		</div>	
 			
-		<form name="Login" action="process.php" method="POST">	
+		<form name="Login" action="phpSQL/process.php" method="POST">	
 			<div class="centerplsindex">
 				<p>				
 					<input type="hidden" name="action" value="do_login">					
