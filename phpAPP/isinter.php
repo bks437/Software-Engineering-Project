@@ -3,7 +3,7 @@
 	//Redirect if user is not logged in to login page
 	if(!isset($_SESSION['username'])){
 		header("Location: index.php");
-	}	
+	}
 	//if data has been submitted
 	if(isset($_POST['nextpage'])){
 		//connect to database
@@ -22,9 +22,9 @@
 					$taken='n ';
 					$test_date=$_POST['test_date'];
 				}
-				pg_prepare($dbconn, 'basicinfo', 'INSERT INTO DDL.is_international (username,speak,speak_taken,test_date,onita) 
+				pg_prepare($dbconn, 'basicinfo', 'INSERT INTO DDL.is_international (username,speak,speak_taken,test_date,onita)
 					VALUES ($1,$2,$3,$4,$5)');
-				$result = pg_execute($dbconn, 'basicinfo', array($_SESSION['username'],(int)$_POST['test_score'],$taken,$test_date,$_POST['onita']))or die("error: ".pg_last_error()); 
+				$result = pg_execute($dbconn, 'basicinfo', array($_SESSION['username'],(int)$_POST['test_score'],$taken,$test_date,$_POST['onita']))or die("error: ".pg_last_error());
 				if($result==false){
 					$_SESSION['insert']=false;
 				}
@@ -34,11 +34,11 @@
 			else
 				header("Location: gradundergrad.php");
 		}
-		
+
 		//after deadline
 		else{
 			$_SESSION['insert']=false;
-			header("Location: home.php");	
+			header("Location: home.php");
 		}
 
 	}
@@ -49,37 +49,37 @@
 	<!--ADD ANY USEFUL TIPS, otherwise ... DO NOT FUCK WITH THE COMMENTS. please and thank you.-->
 <head>
 	<title>CS4320 - Group G</title>
-	<link rel="stylesheet" type="text/css" href="../css/style.css">	
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
 	<script src="../js/jquery-1.11.2.min.js"></script>
 	<script type="text/javascript" src="../js/isinter.js"></script>
 </head>
 <body>
 	<form method="POST" action="<?= $_SERVER['PHP_SELF'] ?>">
-	
-	<!-- Header/Footer -->
-		
-		<div class="header shadowheader">			
-			<h1>Step 2: International</h1>		
-		</div>			
-		
-		<div class="footer shadowfooter">			
-			<h4>Copyright &copy; Group G - Computer Science Department</h4>		
-		</div>			
 
-		
+	<!-- Header/Footer -->
+
+		<div class="header shadowheader">
+			<h1>Step 2: International</h1>
+		</div>
+
+		<div class="footer shadowfooter">
+			<h4>Copyright &copy; Group G - Computer Science Department</h4>
+		</div>
+
+
 	<!-- Int/SPEAK/ONITA -->
-			
+
 		<div class="centerpls">
 			<p>
 				<label class="floatleft">What type of student are you?</label>
-				<select class="floatright" id="status" name="status">
+				<select class="floatright" id="status" name="status" required>
 					<option value="status">Select</option>
 					<option value="international">International</option>
 					<option value="noninternational">Non-International</option>
 				</select>
 				<br>
 			</p>
-			<p id="interinfo" style="display:none"> 
+			<p id="interinfo" style="display:none">
 				<label class="floatleft">Have you passed the SPEAK Test?</label>
 				<select class="floatright" id="speaktest" name="speaktest">
 					<option value="select">Select</option>
@@ -97,7 +97,7 @@
 				<input class="floatright" type="text" name="test_score" maxlength="5" placeholder="100"></input>
 				<br>
 			</p>
-			
+
 			<p id="testinfo2" style="display:none">
 				<label class="floatleft" for="test_date">Test date:</label>
 				<input class="floatright" type="date" name="test_date" maxlength="40"></input>
@@ -121,7 +121,7 @@
 				<b>You qualify for a TA/PLA position!</b>
 				<br><br>
 			</p>
-		
+
 			<p id="newstudent" style="display:none">
 				<label class="floatleft">Have you finished at least one semester?</label>
 				<div class="onesemester floatright" id="newstudentradio" style="display:none">
@@ -130,7 +130,7 @@
 				</div>
 				<br>
 			</p>
-		
+
 			<p id="onita" style="display:none">
 				<label class="floatleft">Have you attended the ONITA?</label>
 				<div class="onesemester floatright" id="onitaradio" style="display:none">
@@ -140,23 +140,23 @@
 				</div>
 				<br>
 			</p>
-		</div>     
+		</div>
 
 	<!-- Go to nextpage or save data part -->
 
 		<div class="centerpls">
 			<p class="floatright" id="click" style="display: none">
 				<input type="submit" name="submit" value="Proceed to the next step">
-			</p>			
+			</p>
 		</div>
-		
+
 	<!-- Go to homepage -->
 
 		<div class="centerpls">
 			<p class="floatright" id="home" style="display: none">
 				<input type="submit" name="submit" value="Proceed to the home page">
-			</p>			
-		</div>		
-	</form>	
+			</p>
+		</div>
+	</form>
 </body>
 </html>
