@@ -39,7 +39,18 @@ body {
 	width: 126.5px;
 	left: 300px;
 }
+.centerbuttonsgrad {
+	background: #eee;
+	margin-left: auto;
+	margin-right: auto;
+	width: 126.5px;
+	left: 300px;
+}
 .centerpls {
+	margin: auto;
+	width: 600px;
+}
+.centerplsgrad {
 	margin: auto;
 	width: 600px;
 }
