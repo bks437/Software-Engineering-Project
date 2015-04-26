@@ -5,7 +5,7 @@
 	// 	header("Location: index.php");
 	// }	
 	//connect to database
-		include("../connect/database.php");
+		include("../../connect/database.php");
 	//if cannot connect return error
 	if(isset($_POST[create])){
 		//echo $_POST[semester].$_POST[year];
