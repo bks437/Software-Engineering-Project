@@ -89,7 +89,7 @@ CREATE TABLE is_an_applicant(
 	gato char,
 	employer varchar(255),
 	ta_rank char(2),
-	resume BINARY(max),
+	--resume BINARY(max),
 	PRIMARY KEY(username),
 	FOREIGN KEY(username) REFERENCES Person(username) ON DELETE CASCADE
 
