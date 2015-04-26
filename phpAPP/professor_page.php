@@ -2,7 +2,7 @@
 	session_start();
 	//Redirect if user is not logged in to login page
 	if(!isset($_SESSION['username'])){
-		header("Location: index.php");
+		header("Location: ..\index.php");
 	}	
 	//if data has been submitted
 
@@ -10,7 +10,7 @@
 	if(isset($_POST['CSearch'] )){
 
 		//connect to database
-		include("../phpSQL/test/database.php");
+		include("../connect/database.php");
 		//if cannot connect return error
 		$dbconn=pg_connect(HOST." ".DBNAME." ".USERNAME." ".PASSWORD)
 				or die('Could not connect: ' . pg_last_error());
@@ -80,7 +80,7 @@
 	if (isset($_POST['ASearch'])) {
 
 		//connect to database
-		include("../phpSQL/test/database.php");
+		include("../connect/database.php");
 		//if cannot connect return error
 		$dbconn=pg_connect(HOST." ".DBNAME." ".USERNAME." ".PASSWORD)
 				or die('Could not connect: ' . pg_last_error());
