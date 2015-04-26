@@ -30,13 +30,13 @@
 
 	//set session to username		
                	$_SESSION['username'] = $username;
-               	$query="SELECT P.sso FROM DDL.Person P WHERE P.username = '".$username."';";
+               	//$query="SELECT P.sso FROM DDL.Person P WHERE P.username = '".$username."';";
                	// echo $query;
-               	$user = pg_query($query)or die('Query failed: '. pg_last_error());
-               	$line=pg_fetch_assoc($user);
+               	// $user = pg_query($query)or die('Query failed: '. pg_last_error());
+               	// $line=pg_fetch_assoc($user);
                	// echo "user: ".$line['sso']."<br>";
                	//check if user is not a faculty
-		pg_prepare($dbconn,"applicant",'SELECT iaf.username, iaf.admin FROM DDL.is_a_faculty iaf WHERE iaf.username = $1')or die('Query failed: '. pg_last_error());
+				pg_prepare($dbconn,"applicant",'SELECT iaf.username, iaf.admin FROM DDL.is_a_faculty iaf WHERE iaf.username = $1')or die('Query failed: '. pg_last_error());
                	$result = pg_execute($dbconn,"applicant",array($username));
                	$line=pg_fetch_assoc($result);
                	// echo $line['iaf.sso'];
