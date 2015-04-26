@@ -37,7 +37,7 @@
                	// echo "user: ".$line['sso']."<br>";
                	//check if user is not a faculty
 				pg_prepare($dbconn,"applicant",'SELECT iaf.username, iaf.admin FROM DDL.is_a_faculty iaf WHERE iaf.username = $1')or die('Query failed: '. pg_last_error());
-               	$result = pg_execute($dbconn,"applicant",array($username));
+               	$result = pg_execute($dbconn,"applicant",array($username))or die('Query failed: '. pg_last_error());
                	$line=pg_fetch_assoc($result);
                	// echo $line['iaf.sso'];
                	//user was found in faculty table
