@@ -49,7 +49,7 @@
 						//links to actions
 						while($row = pg_fetch_array($result)) {
 							$username1 = $row[0];
-							$person = pg_query($dbconn, "SELECT P.fname, P.lname FROM DLL.person P where P.username='$username1'");
+							$person = pg_query($dbconn, "SELECT P.fname, P.lname FROM DDL.person P where P.username='$username1'");
 							$actions ="<a href=\"professorActions\stu_info.php?username2=$username1\">Student info</a> | 
 									   <a href=\"professorActions\add_comments.php?username2=$username1\">Add Comments</a> |
 									   <a href=\"professorActions\view_resume.php?username2=$username1\">View Resume</a> | 
