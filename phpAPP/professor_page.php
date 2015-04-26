@@ -23,7 +23,7 @@
 			$courseNumb = $_POST['courseNumb'];
 
 			//find usernames who want to teach this course	
-			$search_username = "SELECT wtt.ta_username FROM DDL.wants_to_teach wtt where wtt.c_id =(SELECT C.c_id FROM DLL.course C where C.numb= $1)";
+			$search_username = "SELECT wtt.ta_username FROM DDL.wants_to_teach wtt where wtt.c_id IN (SELECT C.c_id FROM DDL.course C where C.numb= $1)";
 			pg_prepare($dbconn, 'namesearch', $search_username)or die('error! ' . pg_last_error());
 			$result = pg_execute($dbconn, 'namesearch', array($courseNumb));
 
