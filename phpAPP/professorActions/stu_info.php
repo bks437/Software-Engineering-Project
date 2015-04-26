@@ -5,6 +5,7 @@
 		header("Location: ..\index.php");
 	}
 
+		$username = $_SESSION['username'];	
 		$username3 = $_GET['username2'];
 
 	//connect to database

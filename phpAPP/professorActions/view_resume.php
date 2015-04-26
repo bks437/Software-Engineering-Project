@@ -5,7 +5,7 @@
 		header("Location: ..\index.php");
 	}
 
-
+	$username = $_SESSION['username'];	
 	//get student username		
 	$username3 = $_GET['username2'];
 	//echo "username is: ".$username3;

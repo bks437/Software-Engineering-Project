@@ -5,6 +5,7 @@
 		header("Location: ..\index.php");
 	}
 
+	$username = $_SESSION['username'];	
 	//get student username		
 	$username3 = $_GET['username2'];
 
@@ -15,7 +16,7 @@
 
 	//search for the applicant to request    
 	pg_prepare($dbconn,"search_TA", "SELECT ta_username from DDL.professor_wants_ta where ta_username=$1 and professor=$2")or die('error! ' . pg_last_error());
-	$result1 = pg_execute($dbconn,"search_TA",array($username3, "fac1"));
+	$result1 = pg_execute($dbconn,"search_TA",array($username3, $username));
 	$result2= pg_fetch_array($result1)[0];
 
 	//retrieve first and last names of the applicant	
@@ -27,7 +28,7 @@
 	//if has not request this applicant
 	if($result2 != $username3) {
 		pg_prepare($dbconn,"insert_requestTA",'INSERT INTO DDL.professor_wants_ta values ($1,$2)')or die('error! ' . pg_last_error());
-		$result3 = pg_execute($dbconn,"insert_requestTA",array($username3, 'fac1'));
+		$result3 = pg_execute($dbconn,"insert_requestTA",array($username3, $username));
 		echo "You have successfully requested "."<b>".$whole_name."</b>"." as your TA."."<br/>"."<br/>";
 	}
 

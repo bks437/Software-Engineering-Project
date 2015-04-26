@@ -6,7 +6,8 @@
 	}
 
 	if(isset($_POST['add_comments'] )){
-					  
+		
+		$username = $_SESSION['username'];			  
 		//connect to database
 		include("../../connect/database.php");
 		//if cannot connect return error
@@ -30,14 +31,14 @@
 		//if no comments found for this applicant, insert comments
 		if($result2 != $username3) {
 			pg_prepare($dbconn,"insertComm",'INSERT INTO DDL.comments values ($1,$2,$3)')or die('error! ' . pg_last_error());
-			$result3 = pg_execute($dbconn,"insertComm",array('fac1', $username3, $comments));
+			$result3 = pg_execute($dbconn,"insertComm",array($username, $username3, $comments));
 			echo "You have successfully added comments to "."<b>".$whole_name."<b>"."<br/>"."<br/>";
 		}
 
 		//if there are already comments for this applicant, update comments
 		elseif ($result2 == $username3){
 			pg_prepare($dbconn,"updateComm",'UPDATE DDL.comments SET comment=$1 where professor=$2 and ta_username=$3')or die('error! ' . pg_last_error());
-			$result3 = pg_execute($dbconn,"updateComm",array($comments, 'fac1', $username3));
+			$result3 = pg_execute($dbconn,"updateComm",array($comments, $username, $username3));
 			echo "You have successfully updated comments to "."<b>".$whole_name."<b>"."<br/>"."<br/>";
 		}
 	}
