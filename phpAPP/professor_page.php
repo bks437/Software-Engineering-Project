@@ -160,7 +160,7 @@
 
 	//go to home page
 	if (isset($_POST['homepage'])) {
-		header("Location: ../phpSQL/homepage.php");
+		header("Location: ../phpSQL/home.php");
 	}
 
 ?>
