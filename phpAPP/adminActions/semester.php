@@ -30,7 +30,7 @@
 		<title>Add Semester</title>
 		<link rel="stylesheet" type="text/css" href="../css/style.css">		
 		<script src="../js/jquery-1.11.2.min.js"></script>
-		<script type="text/javascript" src="../js/javascript.js"></script>
+		<script type="text/javascript" src="../../js/javascript.js"></script>
 	</head>
 	<body>
 		<form action="#" method="POST">

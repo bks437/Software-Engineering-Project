@@ -13,7 +13,7 @@
 <html>
 	<head>
 		<title>Add Courses</title>
-		<script type="text/javascript" src="../js/ajax.js"></script>
+		<script type="text/javascript" src="../../js/ajax.js"></script>
 		<script type="text/javascript">
 			function addcourse(course,action){
 		if(action=="Wants"){
