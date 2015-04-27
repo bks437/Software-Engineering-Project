@@ -52,7 +52,7 @@
 	<!-- Header/Footer -->
 		
 		<div class="header shadowheader">			
-			<h1>Step 3: <? if(strcmp($_SESSION[grad],"ta")==0) echo "Graduate"; else "Undergraduate";?></h1>		
+			<h1>Step 3: <? if(strcmp($_SESSION[grad],"ta")==0) echo "Graduate"; else echo "Undergraduate";?></h1>		
 		</div>			
 		
 		<div class="footer shadowfooter">			
