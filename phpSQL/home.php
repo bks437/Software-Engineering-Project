@@ -20,11 +20,12 @@
 				or die('Could not connect: ' . pg_last_error());
 
 			//prepare and execute query
-			$result = pg_prepare($dbconn, "name", 'SELECT P.fname, P.lname FROM DDL.Person P WHERE P.username=$1');
+			$user = pg_prepare($dbconn, "name", 'SELECT P.fname, P.lname FROM DDL.Person P WHERE P.username=$1');
+			echo "<div align = 'center'><p>Username: ".$user."</p>\n";
 			$result = pg_execute($dbconn, "name", array($_SESSION['username'])); 
 			while( $name = pg_fetch_array($result, null, PGSQL_ASSOC)){
 				foreach( $name as $col_value ){
-						echo "\t\t$col_value &nbsp\n";
+						echo "<\t\t$col_value &nbsp\n";
 				}
 				echo "\t<br>\n";
 			}
@@ -38,7 +39,7 @@
 				echo "\t<br>\n";
 			}
 
-			$result = pg_prepare($dbconn, "isinter", 'SELECT ii.speak, ii.test_date, ii.onita FROM DDL.is_international ii WHERE ii.username=$1');
+			$result = pg_prepare($dbconn, "isinter",  'SELECT ii.speak, ii.test_date, ii.onita FROM DDL.is_international ii WHERE ii.username=$1');
 			$result = pg_execute($dbconn, "isinter", array($_SESSION['username'])); 
 			while( $isinter = pg_fetch_array($result, null, PGSQL_ASSOC)){
 				foreach( $isinter as $col_value ){
@@ -69,9 +70,37 @@
 
 
 			echo '<div align="center">';
-			echo '<p>History for registered user</p>';
+			$query1="SELECT log_date,ip_address FROM DDL.log WHERE (username=$1) AND (action='registered') GROUP BY log_id ";
+			pg_prepare($dbconn, 'ip', $query1);
+			$result1 = pg_execute($dbconn, 'ip', array($user)) or die ('wrong: ' . pg_last_error());
+			$info=pg_fetch_array($result1, null, PGSQL_ASSOC);
+			echo "<p>Ip Address:: ".$info['ip_address']."</p>\n";
+			echo "<p>Registration date: ".$info['log_date']."</p>\n";
+	
+			$query = "select action, ip_address, log_date from DDL.log WHERE (username=$1) GROUP BY log_ig ORDER BY log_date DESC";
 			
-			//print number of results
+			pg_prepare($dbconn, 'auth', $query);
+			$result = pg_execute($dbconn, 'auth', array($user)) or die ('wrong typing: ' . pg_last_error());
+	
+			echo "\nThere were ".pg_num_rows($result)." rows returned";
+	
+			echo"<table border='1'><tr>";
+			for($a=0;$a<pg_num_fields($result);$a++){
+				echo "<th>" . pg_field_name($result,$a) . "</th>";
+			}
+			echo"\t</tr>\n";
+
+			while ($row = pg_fetch_array($result, null, PGSQL_ASSOC)) {
+				echo "\t<tr>\n";
+				foreach($row as $col_value){
+					echo "\t\t<td>$col_value</td>\n";
+				}
+			}
+			echo "\t</tr>\n";
+	
+			echo "</table>\n";
+			
+/*			//print number of results
 				echo "<em>There were " . pg_num_rows($result) . " results returned</em>\n";
 				echo '<br>';
 				echo '<br>';
@@ -120,13 +149,14 @@
 					
 			echo "</table>";
 			echo '</div>';
-
+*/
 			pg_close($dbconn);
 	?>
 
 	<br>
 	<div align="center">
-        <a href="logout.php">Click here to Logout</a><br>
+		<p><a href="update.php">Click</a> to update page.</p>
+        <p><a href="logout.php">Click here to Logout</a></p>
 	</div>
 
 </body>
