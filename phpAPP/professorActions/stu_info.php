@@ -2,7 +2,7 @@
 	session_start();
 	//Redirect if user is not logged in to login page
 	if(!isset($_SESSION['username']) || $_SESSION["authority"] != "prof"){
-		header("Location: ..\index.php");
+		header("Location: ../../index.php");
 	}
 
 		$username = $_SESSION['username'];	
@@ -85,7 +85,7 @@
 			while($course=pg_fetch_array($courses)){
 				$courseNumb = $course['numb'];
 			}
-		$info_table .= "<tr align='center'><td>".$courseNumb."</td><td>".$at['grade']."</td></tr>";
+		$info_table .= "<tr align='center'><td>".$courseNumb."</td>";//<td>".$at['grade']."</td></tr>";
 	}
 	$info_table .= "</table><br/><br/>";
 
@@ -98,7 +98,7 @@
 			while($course=pg_fetch_array($courses)){
 				$courseNumb = $course['numb'];
 			}
-		$info_table .= "<tr align='center'><td>".$courseNumb."</td><td>".$ht['grade']."</td></tr>";
+		$info_table .= "<tr align='center'><td>".$courseNumb."</td>";//<td>".$ht['grade']."</td></tr>";
 	}
 	$info_table .= "</table><br/><br/>";
 
