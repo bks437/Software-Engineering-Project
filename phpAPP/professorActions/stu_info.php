@@ -81,7 +81,7 @@
 	$info_table .= "<tr align='center'><td><b>Course</b></td><td><b>grade</b></td></tr>";
 	while ($at = pg_fetch_array($result5)) {
 		$cId = $wtt['c_id'];
-		$courses = pg_query($dbconn, "SELECT * FROM DDL.course where c_id=$cId") or die('error5 ' . pg_last_error());
+		$courses = pg_query($dbconn, "SELECT * FROM DDL.course where c_id=$cId") or die('error5 '.$cId . pg_last_error());
 			while($course=pg_fetch_array($courses)){
 				$courseNumb = $course['numb'];
 			}
@@ -94,7 +94,7 @@
 	$info_table .= "<tr align='center'><td><b>Course</b></td><td><b>grade</b></td></tr>";
 	while ($ht = pg_fetch_array($result6)) {
 		$cId = $wtt['c_id'];
-		$courses = pg_query($dbconn, "SELECT * FROM DDL.course where c_id=$cId") or die('error6 ' . pg_last_error());
+		$courses = pg_query($dbconn, "SELECT * FROM DDL.course where c_id=$cId") or die('error6 '.$cId . pg_last_error());
 			while($course=pg_fetch_array($courses)){
 				$courseNumb = $course['numb'];
 			}
