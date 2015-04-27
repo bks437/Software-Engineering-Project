@@ -51,7 +51,7 @@
                	}
                	//if logined in user is not a faculty
                	else{
-               		$_SESSION["authority"] = "applicant"
+               		$_SESSION["authority"] = "applicant";
                		header("Location: ../phpSQL/home.php");
                	}
 			}
