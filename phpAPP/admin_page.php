@@ -1,3 +1,10 @@
+<?php
+	session_start();
+	if(!isset($_SESSION['username']) || $_SESSION["authority"] != "admin"){
+		header("Location: index.php");
+	}	
+?>
+
 <!DOCTYPE html>
 <html>
 	<head>

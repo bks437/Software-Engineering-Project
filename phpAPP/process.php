@@ -41,12 +41,15 @@
                	if(isset($line["username"])){
                		//if faculty is the admin
                		if($line["admin"]=='y')
+               			$_SESSION["authority"] = "admin";
                			header("Location: admin_page.php");
                		else
+               			$_SESSION["authority"] = "prof";
                			header("Location: professor_page.php");
                	}
                	//if logined in user is not a faculty
                	else
+               		$_SESSION["authority"] = "applicant"
                		header("Location: phpSQL/home.php");
 			}
 	

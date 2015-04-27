@@ -1,5 +1,8 @@
 <?php
 	session_start();
+	if(!isset($_SESSION['username']) || $_SESSION["authority"] != "admin"){
+		header("Location: index.php");
+	}	
 	//Redirect if user is not logged in to login page
 	// if(!isset($_SESSION['username'])){
 	// 	header("Location: index.php");

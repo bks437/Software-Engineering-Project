@@ -1,6 +1,9 @@
 <?php
 
 	session_start();
+	if(!isset($_SESSION['username']) || $_SESSION["authority"] != "admin"){
+		header("Location: index.php");
+	}	
 		//connect to database
 	include("../../connect/database.php");
 	//if cannot connect return error
