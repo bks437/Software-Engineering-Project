@@ -1,31 +1,33 @@
 <?php
-
 	session_start();
 	//Redirect if user is not logged in to login page
-	if(!isset($_SESSION['username'])){
-		header("Location: index.php");
+	if(!isset($_SESSION['username']) || $_SESSION["authority"] != "applicant"){
+		header("Location: ../index.php");
 	}	
 	//connect to database
 		include("../connect/database.php");
 	//if cannot connect return error
 	$dbconn=pg_connect(HOST." ".DBNAME." ".USERNAME." ".PASSWORD)
 			or die('Could not connect: ' . pg_last_error());
+
 	//if data has been submitted
-	// if(isset($_POST['submit'])){
-	// 	if(strcmp($_SESSION[grad],"ta")==0){
-	// 		pg_prepare($dbconn, 'grad', 'INSERT INTO DDL.is_a_grad values($1,$2,$3)');
-	// 		$result = pg_execute($dbconn, 'grad', array($_SESSION['username'],$_POST[gradpro],$_POST[advisor])); 
-	// 	}
-	// 	elseif(strcmp($_SESSION[grad],"pla")==0){
-	// 		pg_prepare($dbconn, 'ungrad', 'INSERT INTO DDL.is_an_undergrad values($1,$2,$3)') or die('Could not connect: ' . pg_last_error());;
-	// 		$result = pg_execute($dbconn, 'ungrad', array($_SESSION['username'],$_POST[program],$_POST[year]))or die('Could not connect: ' . pg_last_error());; 
-	// 	}
-	// 	if($result==false){
-	// 		$_SESSION[insert]=false;
-	// 	}
-	// 	else
-	// 		header("Location: courses.php");
-	// }
+	/*
+	 if(isset($_POST['submit'])){
+	 	if(strcmp($_SESSION['grad'],"ta")==0){
+	 		pg_prepare($dbconn, 'grad', 'INSERT INTO DDL.is_a_grad values($1,$2,$3)');
+	 		$result = pg_execute($dbconn, 'grad', array($_SESSION['username'],$_POST[gradpro],$_POST[advisor])); 
+	 	}
+	 	elseif(strcmp($_SESSION['grad'],"pla")==0){
+	 		pg_prepare($dbconn, 'ungrad', 'INSERT INTO DDL.is_an_undergrad values($1,$2,$3)') or die('Could not connect: ' . pg_last_error());;
+	 		$result = pg_execute($dbconn, 'ungrad', array($_SESSION['username'],$_POST[program],$_POST[year]))or die('Could not connect: ' . pg_last_error());; 
+	 	}
+	 	if($result==false){
+	 		$_SESSION[insert]=false;
+	 	}
+	 	else
+	 		header("Location: courses.php");
+	
+	}*/
 ?>
 
 <!DOCTYPE html>
@@ -37,22 +39,6 @@
 	<script src="../js/jquery-1.11.2.min.js"></script>
 	<script type="text/javascript" src="../js/courses.js"></script>
 	<script src="../js/ajax.js"></script>
-
-	<style>
-	.name{
-		width: 224px;
-		margin-left: 29%;
-		float: left;
-	}
-	.numb{
-		float:left;
-		width:66px;
-		margin-left: 35px;
-	}
-	.button{
-		vertical-align: top;
-	}
-	</style>
 </head>
 <body>
 	
@@ -179,7 +165,7 @@
 						<option value="cs4830">CS4830</option>
 					</select> -->
 
-										<? $query = 'SELECT c_id,name,numb FROM DDL.Course;';
+					<? $query = 'SELECT c_id,name,numb FROM DDL.Course;';
 
 					$result = pg_query($query) or die('Query failed: '. pg_last_error());
 					$maxfield=pg_num_fields($result);
@@ -223,7 +209,7 @@
 		<div class="centerpls">
 			<br><br>
 			<p class="centerdisplay nextbutton" id="click">
-				<input  type="button" name="submit" value="Proceed to the next step" onclick="window.location.href='../phpSQL/home.php'">
+				<input  type="submit" name="submit" value="Proceed to the next step">
 			</p>			
 		</div>
 	

@@ -40,6 +40,7 @@
 				if($result){
 					//setting session to username and redirecting to home page
 					$_SESSION['username']=$username;
+					$_SESSION["authority"] = "applicant";
 					header("Location: basicinfo.php");
 				}
 				else{

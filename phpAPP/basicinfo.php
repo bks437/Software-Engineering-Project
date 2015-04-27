@@ -7,12 +7,12 @@
 	//if data has been submitted
 	if(isset($_POST['submit'])){
 		//connect to database
-		include("../phpSQL/test/database.php");
+		include("../connect/database.php");
 		//if cannot connect return error
 		$dbconn=pg_connect(HOST." ".DBNAME." ".USERNAME." ".PASSWORD)
 				or die('Could not connect: ' . pg_last_error());
 
-		if(date("y-m-d") <= "2015-05-01"）{
+		//if(date("y-m-d") <= "2015-05-01"）{
 			pg_prepare($dbconn, 'basicinfo', 'INSERT INTO DDL.is_an_applicant(username,id,gpa,grad_date,email,phone,gato)
 				VALUES ($1,$2,$3,$4,$5,$6,$7)');
 			$result = pg_execute($dbconn, 'basicinfo', array($_SESSION['username'],$_POST['id'],$_POST['gpa'],$_POST['agd'],$_POST['email'],$_POST['phone'],$_POST['gato']));
@@ -21,11 +21,11 @@
 			}
 			else
 				header("Location: isinter.php");
-		}
-		else{
-			$_SESSION['insert']=false;
-			header("Location: home.php");
-		}
+		//}
+		//else{
+		// 	$_SESSION['insert']=false;
+		// 	header("Location: home.php");
+		// }
 	}
 ?>
 
@@ -52,7 +52,6 @@
 
 	<!-- Personal / Student Information / GATO -->
 
-		<form name="basicinfo" action="basicinfo.php" method="POST">
 			<div class="centerpls">
 				<p>
 					<label class="floatleft" for="phone">Phone Number: </label>

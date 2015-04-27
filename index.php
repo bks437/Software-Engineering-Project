@@ -12,7 +12,15 @@
 
 		//checks to see if the user is logged in
 			if(isset($_SESSION['username'])){
-					header("Location: phpSQL/home.php");
+				if($_SESSION["authority"] == "admin"){
+					header("Location: phpAPP/admin_page.php");
+				}
+				elseif($_SESSION["authority"] == "prof"){
+					header("Location: phpAPP/professor_page.php");
+				}
+				elseif($_SESSION["authority"] == "applicant"){
+					header("Location: phpSQL/home.php");			
+				}
 			}
 		?>
 		<title>CS4320 - Group G</title>
@@ -32,7 +40,7 @@
 			<h4>Copyright &copy; Group G - Computer Science Department</h4>		
 		</div>	
 			
-		<form name="Login" action="phpSQL/process.php" method="POST">	
+		<form name="Login" action="phpAPP/process.php" method="POST">	
 			<div class="centerplsindex">
 				<p>				
 					<input type="hidden" name="action" value="do_login">					
