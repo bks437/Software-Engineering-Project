@@ -3,7 +3,7 @@
 	
 		if(isset($_POST['submit'])){
 	//connect to database
-		include("connect/database.php");
+		include("../connect/database.php");
 		//if cannot connect return error
 		$dbconn=pg_connect(HOST." ".DBNAME." ".USERNAME." ".PASSWORD)
 				or die('Could not connect: ' . pg_last_error());
@@ -40,17 +40,20 @@
 
                	if(isset($line["username"])){
                		//if faculty is the admin
-               		if($line["admin"]=='y')
+               		if($line["admin"]=='y'){
                			$_SESSION["authority"] = "admin";
                			header("Location: admin_page.php");
-               		else
+               		}
+               		else{
                			$_SESSION["authority"] = "prof";
                			header("Location: professor_page.php");
+               		}
                	}
                	//if logined in user is not a faculty
-               	else
+               	else{
                		$_SESSION["authority"] = "applicant"
-               		header("Location: phpSQL/home.php");
+               		header("Location: ../phpSQL/home.php");
+               	}
 			}
 	
 	//checks statement
