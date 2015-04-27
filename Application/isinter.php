@@ -1,5 +1,4 @@
 <?php
-############################DO NOT TOUCH THIS FILE!!!!!########################################
 
 	session_start();
 	//Redirect if user is not logged in to login page
