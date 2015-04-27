@@ -2,7 +2,7 @@
 	session_start();
 	//Redirect if user is not logged in to login page
 	if(!isset($_SESSION['username']) || $_SESSION["authority"] != "applicant"){
-		header("Location: index.php");
+		header("Location: ../index.php");
 	}	
 	//connect to database
 		include("../connect/database.php");
