@@ -9,7 +9,7 @@
 	<!--Assign TA to course-->
 	<button type="button">Assign TA(s) to course(s)</button><br>
 	<!--insert course-->
-	<button type="button" onclick="window.location.href='adminAction/semester.php'">Add a new semester</button><br>
-	<button type="button" onclick="window.location.href='adminAction/addprofessor.php'">Add a new professor</button><br>
+	<button type="button" onclick="window.location.href='adminActions/semester.php'">Add a new semester</button><br>
+	<button type="button" onclick="window.location.href='adminActions/addprofessor.php'">Add a new professor</button><br>
 	</body>
 </html>
