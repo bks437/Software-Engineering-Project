@@ -21,7 +21,7 @@
 
 			//prepare and execute query
 			$user = pg_prepare($dbconn, "name", 'SELECT P.fname, P.lname FROM DDL.Person P WHERE P.username=$1');
-			echo "<div align = 'center'><p>Username: ".$user."</p>\n";
+			echo "<div align = 'center'>";
 			$result = pg_execute($dbconn, "name", array($_SESSION['username'])); 
 			while( $name = pg_fetch_array($result, null, PGSQL_ASSOC)){
 				foreach( $name as $col_value ){
@@ -70,18 +70,16 @@
 
 
 			echo '<div align="center">';
-			$query1="SELECT log_date,ip_address FROM DDL.log WHERE (username=$1) AND (action='registered') GROUP BY log_id ";
+			$query1="SELECT wj.log_date, wj.ip_address FROM DDL.log wj WHERE wj.username=$1 AND (action='registered') GROUP BY log_id ";
 			pg_prepare($dbconn, 'ip', $query1);
 			$result1 = pg_execute($dbconn, 'ip', array($user)) or die ('wrong: ' . pg_last_error());
 			$info=pg_fetch_array($result1, null, PGSQL_ASSOC);
 			echo "<p>Ip Address:: ".$info['ip_address']."</p>\n";
 			echo "<p>Registration date: ".$info['log_date']."</p>\n";
 	
-			$query = "select action, ip_address, log_date from DDL.log WHERE (username=$1) GROUP BY log_ig ORDER BY log_date DESC";
+			$query = "select action, jw.ip_address, jw.log_date from DDL.log jw WHERE jw.username=$1 GROUP BY log_ig ORDER BY log_date DESC";
 			
-			pg_prepare($dbconn, 'auth', $query);
-			$result = pg_execute($dbconn, 'auth', array($user)) or die ('wrong typing: ' . pg_last_error());
-	
+			
 			echo "\nThere were ".pg_num_rows($result)." rows returned";
 	
 			echo"<table border='1'><tr>";
