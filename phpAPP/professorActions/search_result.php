@@ -92,18 +92,36 @@
 				or die('Could not connect: ' . pg_last_error());
 
 		//if no names are provided
-		if(!$_POST['applicant_lName'] and !$_POST['applicant_fName'] ){
-			$result = false;
-			echo "Wrong! Both first name and last name can not be empty!".'<br/><br/><br/>';
+		if(!$_POST['applicant_lName']) {
+
+			if(!$_POST['applicant_fName'] ) {
+				$result = false;
+				echo "Wrong! Both first name and last name can not be empty!".'<br/><br/><br/>';
+			}
+			else {
+				//search applicant username using only first name
+				$applicant_fName = $_POST['applicant_fName'];
+				$username_find = "SELECT P.username from DDL.person P where lower(P.fname) = lower($1)";
+				pg_prepare($dbconn, 'fnamefind',$username_find);
+				$result= pg_execute($dbconn, 'fnamefind',array($applicant_fName))or die('error! ' . pg_last_error());
+			}	
 		}
-		
 		else {
-			//search applicant username
+			if(!$_POST['applicant_fName'] ) {
+				//search applicant username using only last name
+				$applicant_lName = $_POST['applicant_lName'];
+				$username_find = "SELECT P.username from DDL.person P where lower(P.lname) = lower($1)";
+				pg_prepare($dbconn, 'lnamefind',$username_find);
+				$result= pg_execute($dbconn, 'lnamefind',array($applicant_lName))or die('error! ' . pg_last_error());
+			}	
+			else{
+			//search applicant username using both first name and last name
 			$applicant_fName = $_POST['applicant_fName'];
 			$applicant_lName = $_POST['applicant_lName'];
-			$username_find = "SELECT P.username from DDL.person P where lower(P.fname) = lower($1) OR lower(P.lname) = lower($2);";
+			$username_find = "SELECT P.username from DDL.person P where lower(P.fname) = lower($1) AND lower(P.lname) = lower($2);";
 			pg_prepare($dbconn, 'userfind',$username_find);
 			$result= pg_execute($dbconn, 'userfind',array($applicant_fName,$applicant_lName))or die('error! ' . pg_last_error());
+			}
 		}
 
 		//if no username found
