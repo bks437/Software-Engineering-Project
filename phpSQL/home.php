@@ -25,7 +25,7 @@
 			$result = pg_execute($dbconn, "name", array($_SESSION['username'])); 
 			while( $name = pg_fetch_array($result, null, PGSQL_ASSOC)){
 				foreach( $name as $col_value ){
-						echo "<\t\t$col_value &nbsp\n";
+						echo "\t\t$col_value &nbsp\n";
 				}
 				echo "\t<br>\n";
 			}
@@ -74,7 +74,7 @@
 			pg_prepare($dbconn, 'ip', $query1);
 			$result1 = pg_execute($dbconn, 'ip', array($user)) or die ('wrong: ' . pg_last_error());
 			$info=pg_fetch_array($result1, null, PGSQL_ASSOC);
-			echo "<p>Ip Address:: ".$info['ip_address']."</p>\n";
+			echo "<p>Ip Address: ".$info['ip_address']."</p>\n";
 			echo "<p>Registration date: ".$info['log_date']."</p>\n";
 	
 			$query = "select action, jw.ip_address, jw.log_date from DDL.log jw WHERE jw.username=$1 GROUP BY log_ig ORDER BY log_date DESC";
