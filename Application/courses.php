@@ -94,6 +94,7 @@
 								echo "\t\t<div class=\"numb\">$line[numb]</div>\n";		
 							//}
 								echo "<button class=\"button\" onclick=\"addclass('$line[c_id]','Teaching')\">Add</button>";
+								echo "<button class=\"button\" onclick=\"removeclass('$line[c_id]','Teaching')\">Remove</button>";
 							echo "\t<br>\n";
 						}
 						//free the result
@@ -140,6 +141,7 @@
 								echo "\t\t<div class=\"numb\">$line[numb]</div>\n";		
 							//}
 								echo "<button class=\"button\" onclick=\"addclass('$line[c_id]','Taught')\">Add</button>";
+								echo "<button class=\"button\" onclick=\"removeclass('$line[c_id]','Teaching')\">Remove</button>";
 							echo "\t<br>\n";
 						}
 						//free the result
@@ -195,6 +197,7 @@
 									<option value=\"F\">F</option>
 								</select>";
 							echo "<button class=\"button\" onclick=\"addclass('$line[c_id]','Wants')\">Add</button>";
+							echo "<button class=\"button\" onclick=\"removeclass('$line[c_id]','Teaching')\">Remove</button>";
 							echo "\t<br>\n";
 						}
 						//free the result
