@@ -2,7 +2,7 @@
 	session_start();
 	//Redirect if user is not logged in to login page
 	if(!isset($_SESSION['username']) || $_SESSION["authority"] != "prof"){
-		header("Location: ..\..\index.php");
+		header("Location: ../../index.php");
 	}
 
 	//get student username
@@ -19,7 +19,9 @@
 		<label for="comments">Add/Update comments here:</label>
 		<input type="text" name="comments" id="comments" ></input>
 		<input type="submit" name="add_comments" value="submit" ></input>
-		
+		</br/></br/>
+	    <input type="button" value="Close this window" onclick="self.close()">
+
 	</form>
 </body>
 </html>

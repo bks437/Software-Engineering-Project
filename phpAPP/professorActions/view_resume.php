@@ -2,7 +2,7 @@
 	session_start();
 	//Redirect if user is not logged in to login page
 	if(!isset($_SESSION['username']) || $_SESSION["authority"] != "prof"){
-		header("Location: ..\index.php");
+		header("Location: ../../index.php");
 	}
 
 	$username = $_SESSION['username'];	
@@ -45,11 +45,7 @@
 
 <html>
 <body>
-	<form method="POST" action="..\professor_page.php">
-				
-		<input type="submit" name="professor_page" value="Go back to homepage" ></input>
-		
-	</form>
+	<input type="button" value="Close this window" onclick="self.close()">
 
 </body>
 </html>

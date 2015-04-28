@@ -45,22 +45,32 @@
 	$info_table .= "<tr align='center'><td>user name</td><td>".$username3."</td>";
 	$info_table .= "<tr align='center'><td>name</td><td>".$name['fname']." ".$name['lname']."</td></tr>";
 	$info_table .= "<tr align='center'><td>id</td><td>".$basic['id']."</td></tr>";
-	$info_table .= "<tr align='center'><td>gpa</td><td>".$basic['gpa']."</td>";
-	$info_table .= "<tr align='center'><td>grad date</td><td>".$basic['grad_date']."</td></tr>";
 	$info_table .= "<tr align='center'><td>email</td><td>".$basic['email']."</td></tr>";
 	$info_table .= "<tr align='center'><td>phone</td><td>".$basic['phone']."</td></tr>";
+	$info_table .= "<tr align='center'><td>gpa</td><td>".$basic['gpa']."</td>";
+	$info_table .= "<tr align='center'><td>grad date</td><td>".$basic['grad_date']."</td></tr>";
 	$info_table .= "<tr align='center'><td>gato status</td><td>".$basic['gato']."</td></tr>";
 	$info_table .= "<tr align='center'><td>employer</td><td>".$basic['employer']."</td></tr>";
 	$info_table .= "<tr align='center'><td>ta_rank</td><td>".$basic['ta_rank']."</td></tr>";
-	$info_table .= "</table><br/>";
+	
+	if($inter['username'] !=""){
+		$info_table .= "<tr align='center'><td>international</td><td>"."y"."</td></tr>";
+		$info_table .= "</table><br/>";	
 
-	$info_table .= "<b>International Information</b></br>"; 	
-	$info_table .= "<table  border='1px' width='400px'>";
-	$info_table .= "<tr align='center'><td>speak taken</td><td>".$inter['speak_taken']."</td></tr>";
-	$info_table .= "<tr align='center'><td>test score</td><td>".$inter['speak']."</td></tr>";
-	$info_table .= "<tr align='center'><td>test date</td><td>".$inter['test_date']."</td></tr>";
-	$info_table .= "<tr align='center'><td>onita</td><td>".$inter['onita']."</td></tr>";
-	$info_table .= "</table><br/><br/>";
+		$info_table .= "<b>International Information</b></br>"; 	
+		$info_table .= "<table  border='1px' width='400px'>";
+		$info_table .= "<tr align='center'><td>speak taken</td><td>".$inter['speak_taken']."</td></tr>";
+		$info_table .= "<tr align='center'><td>test score</td><td>".$inter['speak']."</td></tr>";
+		$info_table .= "<tr align='center'><td>test date</td><td>".$inter['test_date']."</td></tr>";
+		$info_table .= "<tr align='center'><td>onita</td><td>".$inter['onita']."</td></tr>";
+		$info_table .= "</table><br/><br/>";
+	}
+
+	else {
+		$info_table .= "<tr align='center'><td>international</td><td>"."n"."</td></tr>";
+		$info_table .= "</table><br/>";		
+	}	
+
 
 	$info_table .= "<b>Wants To Teach</b></br>"; 
 	$info_table .= "<table border='1px' width='400px'>";
@@ -78,7 +88,7 @@
 
 	$info_table .= "<b>Is Teaching</b></br>"; 
 	$info_table .= "<table border='1px' width='400px'>";
-	$info_table .= "<tr align='center'><td><b>Course</b></td><td><b>grade</b></td></tr>";
+	$info_table .= "<tr align='center'><td><b>Course</b></td></tr>";
 	while ($at = pg_fetch_array($result5)) {
 		$cId = $at['c_id'];
 		$courses = pg_query($dbconn, "SELECT * FROM DDL.course where c_id=$cId") or die('error5 '.$cId . pg_last_error());
@@ -91,7 +101,7 @@
 
 	$info_table .= "<b>Has Taught</b></br>"; 
 	$info_table .= "<table border='1px' width='400px'>";
-	$info_table .= "<tr align='center'><td><b>Course</b></td><td><b>grade</b></td></tr>";
+	$info_table .= "<tr align='center'><td><b>Course</b></td></tr>";
 	while ($ht = pg_fetch_array($result6)) {
 		$cId = $ht['c_id'];
 		$courses = pg_query($dbconn, "SELECT * FROM DDL.course where c_id=$cId") or die('error6 '.$cId . pg_last_error());
@@ -109,11 +119,7 @@
 
 <html>
 <body>
-	<form method="POST" action="..\professor_page.php">
-				
-		<input type="submit" name="professor_page" value="Go back to homepage" ></input>
-		
-	</form>
+	 <input type="button" value="Close this window" onclick="self.close()">
 
 </body>
 </html>
