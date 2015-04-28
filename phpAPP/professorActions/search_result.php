@@ -177,7 +177,7 @@
 	//go to home page
 	if (isset($_POST['homepage'])) {
 		pg_close($dbconn);
-		header("Location: ../phpSQL/home.php");
+		header("Location: ../../phpSQL/home.php");
 	}
 
 ?>
