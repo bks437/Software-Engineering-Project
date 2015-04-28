@@ -36,7 +36,7 @@ function removeclass(course,action){
 
 		xmlHttp.onload = function(){
 			var response = xmlHttp.responseText;
-			var isnert = document.getElementById('selected');
+			var remove = document.getElementById('selected');
 			console.dir(response);
 			document.getElementById('selected').innerHTML = JSON.parse(response);
 		}
