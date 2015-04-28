@@ -2,7 +2,7 @@
 	session_start();
 	//Redirect if user is not logged in to login page
 	if(!isset($_SESSION['username']) || $_SESSION["authority"] != "prof"){
-		header("Location: ..\index.php");
+		header("Location: ../../index.php");
 	}
 
 		$username = $_SESSION['username'];	
@@ -67,7 +67,7 @@
 	$info_table .= "<tr align='center'><td><b>Course</b></td><td><b>grade</b></td></tr>";
 	while ($wtt = pg_fetch_array($result4)) {
 		$cId = $wtt['c_id'];
-		$courses = pg_query($dbconn, "SELECT * FROM DDL.course where c_id=$cId") or die('error! ' . pg_last_error());
+		$courses = pg_query($dbconn, "SELECT * FROM DDL.course where c_id=$cId") or die('error4 ' . pg_last_error());
 				
 			while($course=pg_fetch_array($courses)){
 				$courseNumb = $course['numb'];
@@ -80,12 +80,12 @@
 	$info_table .= "<table border='1px' width='400px'>";
 	$info_table .= "<tr align='center'><td><b>Course</b></td><td><b>grade</b></td></tr>";
 	while ($at = pg_fetch_array($result5)) {
-		$cId = $wtt['c_id'];
-		$courses = pg_query($dbconn, "SELECT * FROM DDL.course where c_id=$cId") or die('error! ' . pg_last_error());
+		$cId = $at['c_id'];
+		$courses = pg_query($dbconn, "SELECT * FROM DDL.course where c_id=$cId") or die('error5 '.$cId . pg_last_error());
 			while($course=pg_fetch_array($courses)){
 				$courseNumb = $course['numb'];
 			}
-		$info_table .= "<tr align='center'><td>".$courseNumb."</td><td>".$at['grade']."</td></tr>";
+		$info_table .= "<tr align='center'><td>".$courseNumb."</td>";//<td>".$at['grade']."</td></tr>";
 	}
 	$info_table .= "</table><br/><br/>";
 
@@ -93,12 +93,12 @@
 	$info_table .= "<table border='1px' width='400px'>";
 	$info_table .= "<tr align='center'><td><b>Course</b></td><td><b>grade</b></td></tr>";
 	while ($ht = pg_fetch_array($result6)) {
-		$cId = $wtt['c_id'];
-		$courses = pg_query($dbconn, "SELECT * FROM DDL.course where c_id=$cId") or die('error! ' . pg_last_error());
+		$cId = $ht['c_id'];
+		$courses = pg_query($dbconn, "SELECT * FROM DDL.course where c_id=$cId") or die('error6 '.$cId . pg_last_error());
 			while($course=pg_fetch_array($courses)){
 				$courseNumb = $course['numb'];
 			}
-		$info_table .= "<tr align='center'><td>".$courseNumb."</td><td>".$ht['grade']."</td></tr>";
+		$info_table .= "<tr align='center'><td>".$courseNumb."</td>";//<td>".$ht['grade']."</td></tr>";
 	}
 	$info_table .= "</table><br/><br/>";
 
