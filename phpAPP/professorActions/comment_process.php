@@ -1,7 +1,7 @@
 <?php
 	session_start();
 	//Redirect if user is not logged in to login page
-	if(!isset($_SESSION['username']) || $_SESSION["authority"] != "aprof"){
+	if(!isset($_SESSION['username']) || $_SESSION["authority"] != "prof"){
 		header("Location: ..\index.php");
 	}
 
