@@ -70,7 +70,7 @@
 
 
 			echo '<div align="center">';
-			$query1="SELECT wj.log_date, wj.ip_address FROM DDL.log wj WHERE wj.username=$1 AND (action='registered') GROUP BY log_id ";
+			$query1="SELECT wj.log_date, wj.ip_address FROM DDL.log wj WHERE wj.username=$1 GROUP BY log_id ";
 			pg_prepare($dbconn, 'ip', $query1);
 			$result1 = pg_execute($dbconn, 'ip', array($user)) or die ('wrong: ' . pg_last_error());
 			$info=pg_fetch_array($result1, null, PGSQL_ASSOC);
@@ -81,6 +81,10 @@
 			
 			
 			echo "\nThere were ".pg_num_rows($result)." rows returned";
+	
+			$result = pg_prepare($dbconn, "log_data", 'SELECT izz.username, izz.ip_address, izz.log_date FROM DDL.log izz WHERE izz.username=$1');
+			$result = pg_execute($dbconn, "log_data", array($_SESSION['username'])); 
+	
 	
 			echo"<table border='1'><tr>";
 			for($a=0;$a<pg_num_fields($result);$a++){
