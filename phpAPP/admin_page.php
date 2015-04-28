@@ -44,5 +44,6 @@
 			<br>
 			<br>
 			<br>
+		<button type="button" onclick="window.location.href='../../phpSQL/home.php'">Add a new professor</button>
 	</body>
 </html>
