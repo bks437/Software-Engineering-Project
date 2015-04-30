@@ -58,32 +58,54 @@
 	}	
 ?>	
 <html>
-	<head>		
-		<title>CS 3380 Lab 8</title>
-	</head>
-	<body>
-	<div align="center">
-		<div id="login">
-			<p>Please Register
-				<form name="RegistrationProcess" action= "registration.php" method="POST">
-				<label for="fname">First name:</label>
-				<input type="text" name="fname">
-				<label for="lname">Last name: </label>
-				<input type="text" name="lname">
-				<br>
-				<label for="username">Username:</label>
-				<input type="text" name ="username">
-				<label for="password">Password:</label>
-				<input type="password" name="password">
+<head>		
+	<title>CS4320 - Group G</title>
+	<link rel="stylesheet" type="text/css" href="../css/style.css">	
+	<script src="../js/jquery-1.11.2.min.js"></script>
+	<script type="text/javascript" src="../js/courses.js"></script>
+	<script src="../js/ajax.js"></script>
+</head>
+<body>
+		<!-- Header/Footer -->
+			
+			<div class="header shadowheader">			
+				<h1>Please Register</h1>		
+			</div>			
+			
+			<div class="footer shadowfooter">			
+				<h4>Copyright &copy; Group G - Computer Science Department</h4>		
+			</div>	
+	<form name="RegistrationProcess" action= "registration.php" method="POST">	
+		<div class="centerplsreg">
+			<div id="login"> <!-- do we need this id?? -->
+				<p>				
+					<label class="floatleft" for="fname">First name:</label>
+					<input class="floatright" type="text" name="fname">
+				</p>
 					<br>
+				<p>
+					<label class="floatleft" for="lname">Last name: </label>
+					<input class="floatright" type="text" name="lname">							
+				</p>		
 					<br>
-				<input type="submit" name="submit" value="Register">
+				<p>				
+					<label class="floatleft" for="username">Username:</label>
+					<input class="floatright" type="text" name ="username">
+				</p>
 					<br>
-					<br>
-				<input type="button" name="cancel" value="Click here to return to Login page" onclick="window.location.href ='index.php'">
-				</form>
-			</p>
+				<p>
+					<label class="floatleft" for="password">Password:</label>
+					<input class="floatright" type="password" name="password">
+				</p>		
+			</div>
 		</div>
-	</div>	
-	</body>
+			<br>
+			<br>
+			<br>
+		<div style="text-align: center">
+			<input type="submit" name="submit" value="Register">
+			<input type="button" name="cancel" value="Click here to return to Login page" onclick="window.location.href ='index.php'">
+		</div>				
+	</form>	
+</body>
 </html>
