@@ -147,7 +147,6 @@
 	<br>
 	<div align="center">
 		<p><a href="update.php">Click</a> to update page.</p>
-		<p><a href="view_status.php">Click</a> to view your application status.</p>		
         <p><a href="logout.php">Click here to Logout</a></p>
 	</div>
 
