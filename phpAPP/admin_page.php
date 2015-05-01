@@ -5,26 +5,39 @@
 	}	
 ?>
 
+
 <!DOCTYPE html>
 <html>
 	<head>
 		<title>Administrator Page</title>
 	</head>
-	<body>
-		<!--Add ranking score-->
-		<form method="POST" action="adminActions/add_rank.php">	
-			<button type="submit" name="addrank" value="add rank scores">Add ranking scores</button>
-			<br>
-			<br>
-			<br>
-		</form>
-
-		<!--Assign TA to course-->
-		<form method="POST" action="adminActions/assign_ta.php">	
-			<button type="submit" name="assignTA" value="assign TA">Assign TA(s) to course(s)</button>
-			<br>
-			<br>
-			<br>
+	<body align='center'>
+		
+		<form method="POST" action="adminActions/search.php">	
+				<br/>
+				<br/>
+				<br/>
+			<div align='center'> 
+				
+			 	<button type="submit" name="view_all" value="view all">View all applicants/courses</button><br>
+			</div>
+				<br/>
+				<br/>
+			<div align='center'>
+				
+				<input type="text" name="courseNumb" id="courseSearch" placeholder = "CS1050"></input><br>
+				<button type="submit" name="CSearch" value="search by course">Course Search</button><br>
+			</div>
+				<br/>
+				<br/>
+			<div align='center'>
+				
+				<input type="text" name="applicant_fName" id="applicantSearch" placeholder = "first name"></input><br>
+				<input type="text" name="applicant_lName" id="applicantSearch" placeholder = "last name"></input><br>
+				<button type="submit" name="ASearch" value="search by applicant">Applicant Search</button><br>
+			</div>
+				<br/>
+				<br/>
 		</form>
 
 		<!--insert course-->
