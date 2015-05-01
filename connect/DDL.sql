@@ -88,8 +88,8 @@ CREATE TABLE is_an_applicant(
 	phone char(10),
 	gato char,
 	employer varchar(255),
-	ta_rank char(2),
-	--resume BINARY(max),
+	--ta_rank char(2),
+	resume bytea,
 	PRIMARY KEY(username),
 	FOREIGN KEY(username) REFERENCES Person(username) ON DELETE CASCADE
 
@@ -140,15 +140,29 @@ CREATE TABLE is_a_faculty(
 
 );
 
+DROP TABLE IF EXISTS Semester;
+
+CREATE TABLE Semester(
+	name char(4),
+	studentstart date,
+	studentend date,
+	facultystart date,
+	facultyend date,
+	PRIMARY KEY (name)
+);
+
 DROP TABLE IF EXISTS Comments;
 
 CREATE TABLE Comments(
 	professor varchar(32),
 	ta_username varchar(32),
 	comment varchar(1024),
+	semester char(4),
 	PRIMARY KEY(professor,ta_username),
 	FOREIGN KEY(professor) REFERENCES is_a_faculty(username),
-	FOREIGN KEY(ta_username) REFERENCES is_an_applicant(username) ON DELETE CASCADE
+	FOREIGN KEY(ta_username) REFERENCES is_an_applicant(username) ON DELETE CASCADE,
+	FOREIGN KEY(semester) REFERENCES Semester(name) ON DELETE CASCADE
+
 
 );
 
@@ -204,20 +218,25 @@ DROP TABLE IF EXISTS professor_wants_ta;
 CREATE TABLE professor_wants_ta(
 	ta_username varchar(32),
 	professor varchar(32),
+	c_id integer,
 	PRIMARY KEY (ta_username,professor),
 	FOREIGN KEY(ta_username) REFERENCES is_an_applicant(username) ON DELETE CASCADE,
-	FOREIGN KEY(professor) REFERENCES is_a_faculty(username) ON DELETE CASCADE
+	FOREIGN KEY(professor) REFERENCES is_a_faculty(username) ON DELETE CASCADE,
+	FOREIGN KEY(c_id) REFERENCES Course(c_id) ON DELETE CASCADE
+
 );
 
-DROP TABLE IF EXISTS Semester;
 
-CREATE TABLE Semester(
-	name char(4),
-	studentstart date,
-	studentend date,
-	facultystart date,
-	facultyend date,
-	PRIMARY KEY (name)
+DROP TABLE IF EXISTS applicant_applies_for_semester;
+
+CREATE TABLE applicant_applies_for_semester(
+	username varchar(32),
+	semester char(4),
+	ta_rank integer,
+	PRIMARY KEY(username,semester),
+	FOREIGN KEY(semester) REFERENCES Semester(name),
+	FOREIGN KEY(username) REFERENCES is_an_applicant(username) ON DELETE CASCADE
+
 );
 
 DROP TABLE IF EXISTS semester_has_class;
