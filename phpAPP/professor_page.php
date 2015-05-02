@@ -29,7 +29,7 @@
 		<div >
 				<label for="homepage">Go to home page</label><br>
 				<input type="submit" name="homepage" value="Go to home page"><br><br></input>
-		</div>	
-		
+		</div>
+	</form>
 	</body>
 </html>

@@ -1,8 +1,8 @@
-<?PHP 
+<?PHP
 	session_start();
 	if(!isset($_SESSION['username']) || $_SESSION["authority"] != "admin"){
 		header("Location: index.php");
-	}	
+	}
 	if(!isset($_SERVER['HTTPS']) || !$_SERVER['HTTPS']){
 		header("Location: https://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
 	}
@@ -24,14 +24,14 @@
 		$password_hash = sha1($pass);
 		$action = "register";
 		//inserting username into user_info
-		
-					
-			
+
+
+
 			//if($result){
 			//inserting username, password_hash, and salt into authentication table
 			$result = pg_prepare($dbconn, "insert", 'INSERT INTO DDL.Login(username, password_hash, salt) VALUES ($1,$2,$3)') or die(pg_last_error());
 			$result = pg_execute($dbconn, "insert", array($username, $password_hash, $salt)) or die("Username alread taken ". pg_last_error());
-			
+
 			$result = pg_prepare($dbconn, "register", "INSERT INTO DDL.Person (username,fname,lname) VALUES ($1,$2,$3)");
 			$result = pg_execute($dbconn, "register", array($username,$_POST['fname'],$_POST['lname'])) or die (pg_last_error());
 
@@ -46,7 +46,7 @@
 				}
 				else{
 					echo "Please try again";
-				}	
+				}
 			}
 			else{
 				echo "Please try again";
@@ -55,11 +55,11 @@
 		// else{
 		// 	echo"Please try again1";
 		// }
-	pg_close($dbconn);	
-	}	
-?>	
+	pg_close($dbconn);
+	}
+?>
 <html>
-	<head>		
+	<head>
 		<title>Add Professor</title>
 	</head>
 	<body>
@@ -81,11 +81,11 @@
 				<input type="submit" name="submit" value="Register">
 					<br>
 					<br>
-				<input type="button" name="cancel" value="Click here to return to Login page" onclick="window.location.href ='index.php'">
+				<input type="button" name="cancel" value="Click here to return to Login page" onclick="window.location.href ='../../index.php'">
 				</form>
 			</p>
 			<? if($added) echo "Professor added!";?>
 		</div>
-	</div>	
+	</div>
 	</body>
 </html>

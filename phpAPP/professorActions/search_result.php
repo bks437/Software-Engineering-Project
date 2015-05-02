@@ -3,7 +3,7 @@
 	//Redirect if user is not logged in to login page or not professor
 	if(!isset($_SESSION['username']) || $_SESSION["authority"] != "prof"){
 		header("Location: ../../index.php");
-	}	
+	}
 
 	//if data has been submitted and if searching using course number
 	if(isset($_POST['CSearch'] )){
@@ -17,12 +17,12 @@
 			$result = false;
 			echo "Wrong! Course number can not be empty!".'<br/><br/><br/>';
 		}
-		
+
 		else{
 
 			$courseNumb = $_POST['courseNumb'];
 
-			//find usernames who want to teach this course	
+			//find usernames who want to teach this course
 			$search_username = "SELECT wtt.ta_username FROM DDL.wants_to_teach wtt where wtt.c_id IN (SELECT C.c_id FROM DDL.course C where C.numb= $1)";
 			pg_prepare($dbconn, 'namesearch', $search_username)or die('error! ' . pg_last_error());
 			$result = pg_execute($dbconn, 'namesearch', array($courseNumb));
@@ -31,13 +31,13 @@
 			if ($result == false) {
 				$_SESSION['form_search']=false;
 			}
-			
+
 			else {
 				//if usernames found
 				if(pg_num_rows($result)>0) {
 
 					//display results in tables with links to actions:
-					//table headers 
+					//table headers
 					$result_table = "<table align='center' border ='1'>";
 						$result_table .= "<tr align='center'>";
 						$result_table .= "<th width='150px'><b>First Name</b></a></th>";//<a href=\"".$_SERVER['PHP_SELF']."?sort=Student First Name\">
@@ -50,33 +50,33 @@
 						while($row = pg_fetch_array($result)) {
 							$username1 = $row[0];
 							$person = pg_query($dbconn, "SELECT P.fname, P.lname FROM DDL.person P where P.username='$username1'");
-							$actions ="<a href=\"stu_info.php?username2=$username1\" target=\"_blank\">Student info</a> | 
+							$actions ="<a href=\"stu_info.php?username2=$username1\" target=\"_blank\">Student info</a> |
 									   <a href=\"add_comments.php?username2=$username1\" target=\"_blank\">Add Comments</a> |
-									   <a href=\"view_resume.php?username2=$username1\" target=\"_blank\">View Resume</a> | 
+									   <a href=\"view_resume.php?username2=$username1\" target=\"_blank\">View Resume</a> |
 									   <a href=\"request_TA.php?username2=$username1\" target=\"_blank\"> Request as TA</a> ";
 
 							//add each row
 							while($name=pg_fetch_array($person)){
 								$fname = $name['fname'];
-								$lname = $name['lname'];			
-								
+								$lname = $name['lname'];
+
 								$result_table .= "<tr align='center'>";
 								$result_table .= "<td>$fname</td>";
 								$result_table .= "<td>$lname</td>";
 								$result_table .= "<td>$username1</td>";
 								$result_table .= "<td>&nbsp;$actions</td>";
-								$result_table .= "</tr>";	
-							}				
-						}	
+								$result_table .= "</tr>";
+							}
+						}
 					$result_table .= "</table><br/><br/><br/>";
 				}
-				
+
 				else{
 					$result_table = "<p>No matching data found!</p><br/><br/><br/>";
 				}
-			
+
 				echo $result_table;
-			}	
+			}
 		}
 		pg_close($dbconn);
 	}
@@ -104,7 +104,7 @@
 				$username_find = "SELECT P.username from DDL.person P where lower(P.fname) = lower($1)";
 				pg_prepare($dbconn, 'fnamefind',$username_find);
 				$result= pg_execute($dbconn, 'fnamefind',array($applicant_fName))or die('error! ' . pg_last_error());
-			}	
+			}
 		}
 		else {
 			if(!$_POST['applicant_fName'] ) {
@@ -113,7 +113,7 @@
 				$username_find = "SELECT P.username from DDL.person P where lower(P.lname) = lower($1)";
 				pg_prepare($dbconn, 'lnamefind',$username_find);
 				$result= pg_execute($dbconn, 'lnamefind',array($applicant_lName))or die('error! ' . pg_last_error());
-			}	
+			}
 			else{
 			//search applicant username using both first name and last name
 			$applicant_fName = $_POST['applicant_fName'];
@@ -127,12 +127,12 @@
 		//if no username found
 		if ($result == false) {
 			$_SESSION['form_search']=false;
-		}	
+		}
 
 		//if username found
 		elseif(pg_num_rows($result)==1) {
 
-			//get the applicant username	
+			//get the applicant username
 			$search_result = pg_fetch_array($result)[0];
 
 			//find courseIDs wanted by the applicant;
@@ -143,7 +143,7 @@
 			if ($result == false) {
 			$_SESSION['form_search']=false;
 			}
-			
+
 			else {
 				//if course found
 				if(pg_num_rows($result)>0) {
@@ -166,21 +166,21 @@
 							$result_table .= "<tr align='center'>";
 								$result_table .= "<td>$courseNumb</td>";
 								$result_table .= "<td>$courseName</td>";
-							$result_table .= "</tr>";	
+							$result_table .= "</tr>";
 						}
-					}			
+					}
 					$result_table .= "</table><br/><br/><br/>";
-				}		
-				
+				}
+
 				//if no course found
 				else{
 					$result_table = "<p>No matching data found!</p><br/><br/><br/>";
 				}
-			}	
-			echo $result_table;						
+			}
+			echo $result_table;
 		}
-		
-		//if username not found	
+
+		//if username not found
 		elseif(pg_num_rows($result)==0){
 			echo "No record found!";
 		}
@@ -195,7 +195,7 @@
 	//go to home page
 	if (isset($_POST['homepage'])) {
 		pg_close($dbconn);
-		header("Location: ../../phpSQL/home.php");
+		header("Location: ../../phpSQL/logout.php");
 	}
 
 ?>
@@ -203,9 +203,9 @@
 <html>
 <body>
 	<form method="POST" action="../professor_page.php">
-				
+
 		<input type="submit" name="professor_page" value="Go back to search page" ></input>
-		
+
 	</form>
 
 </body>
