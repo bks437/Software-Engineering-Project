@@ -1,11 +1,13 @@
 <?php
 	session_start();
 	//Redirect if user is not logged in to login page
-	if(!isset($_SESSION['username']) || $_SESSION["authority"] != "applicant"){
-		header("Location: ../index.php");
-	}	
+	// if(!isset($_SESSION['username']) || $_SESSION["authority"] != "applicant"){
+	// 	header("Location: ../index.php");
+	// }	
 	//connect to database
-		include("../connect/database.php");
+	//	include("../connect/database.php");
+			include("test/database.php");
+
 	//if cannot connect return error
 	$dbconn=pg_connect(HOST." ".DBNAME." ".USERNAME." ".PASSWORD)
 			or die('Could not connect: ' . pg_last_error());
@@ -39,6 +41,17 @@
 	<script src="../js/jquery-1.11.2.min.js"></script>
 	<script type="text/javascript" src="../js/courses.js"></script>
 	<script src="../js/ajax.js"></script>
+	<style>
+	.added{
+		background: green;
+	}
+	.adding{
+		background: yellow;
+	}
+	.remove{
+		background: red;
+	}
+	</style>
 </head>
 <body>
 	
@@ -90,11 +103,12 @@
 					//displays the results from the database into the table
 					while($line=pg_fetch_array($result,null, PGSQL_ASSOC)){
 						//foreach ($line as $col_value){
+								echo "<div id=\"Teaching".$line[c_id]."\">";
 								echo "\t\t<div class=\"name\">$line[name]</div>\n";	
 								echo "\t\t<div class=\"numb\">$line[numb]</div>\n";		
 							//}
-								echo "<button class=\"button\" onclick=\"addclass('$line[c_id]','Teaching')\">Add</button>";
-								echo "<button class=\"button\" onclick=\"removeclass('$line[c_id]','TeachingRemove')\">Remove</button>";
+								echo "<button class=\"button\" onclick=\"addcourse('$line[c_id]','Teaching')\">Add</button>";
+								echo "<button class=\"button\" onclick=\"removecourse('$line[c_id]','Teaching')\">Remove</button></div>";
 							echo "\t<br>\n";
 						}
 						//free the result
@@ -137,11 +151,12 @@
 					//displays the results from the database into the table
 					while($line=pg_fetch_array($result,null, PGSQL_ASSOC)){
 						//foreach ($line as $col_value){
+								echo "<div id=\"Taught".$line[c_id]."\">";
 								echo "\t\t<div class=\"name\">$line[name]</div>\n";	
 								echo "\t\t<div class=\"numb\">$line[numb]</div>\n";		
 							//}
-								echo "<button class=\"button\" onclick=\"addclass('$line[c_id]','Taught')\">Add</button>";
-								echo "<button class=\"button\" onclick=\"removeclass('$line[c_id]','TaughtRemove')\">Remove</button>";
+								echo "<button class=\"button\" onclick=\"addcourse('$line[c_id]','Taught')\">Add</button>";
+								echo "<button class=\"button\" onclick=\"removecourse('$line[c_id]','Taught')\">Remove</button></div>";
 							echo "\t<br>\n";
 						}
 						//free the result
@@ -186,6 +201,7 @@
 					//displays the results from the database into the table
 					while($line=pg_fetch_array($result,null, PGSQL_ASSOC)){
 						//foreach ($line as $col_value){
+								echo "<div id=\"Wants".$line[c_id]."\">";
 								echo "\t\t<div class=\"name\">$line[name]</div>\n";	
 								echo "\t\t<div class=\"numb\">$line[numb]</div>\n";		
 							//}
@@ -196,8 +212,8 @@
 									<option value=\"D\">D</option>
 									<option value=\"F\">F</option>
 								</select>";
-							echo "<button class=\"button\" onclick=\"addclass('$line[c_id]','Wants')\">Add</button>";
-							echo "<button class=\"button\" onclick=\"removeclass('$line[c_id]','WantsRemove')\">Remove</button>";
+							echo "<button class=\"button\" onclick=\"addcourse('$line[c_id]','Wants')\">Add</button>";
+							echo "<button class=\"button\" onclick=\"removecourse('$line[c_id]','Wants')\">Remove</button></div>";
 							echo "\t<br>\n";
 						}
 						//free the result

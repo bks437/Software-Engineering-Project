@@ -68,6 +68,7 @@
 		</select><br>
 		<input type="submit" name="submit" value="Create">
 	</form>
+	<button>Go back to Course selection page</button>
 	<? 
 	if(isset($insert)){
 		if(!$insert){

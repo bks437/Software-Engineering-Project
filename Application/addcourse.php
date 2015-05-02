@@ -1,7 +1,10 @@
 <?php
+	sleep(3);
 	session_start();
 	//connect to database
-	include("../connect/database.php");
+	//include("../connect/database.php");
+	include("test/database.php");
+	$_SESSION[username]="app4";
 	//if cannot connect return error
 	$dbconn=pg_connect(HOST." ".DBNAME." ".USERNAME." ".PASSWORD)
 			or die('Could not connect: ' . pg_last_error());
@@ -19,8 +22,10 @@
 		$result = pg_execute($dbconn,"Wants",array($_SESSION[username], $_GET[grade],$_GET[course]));
 	}
 	if(!$result)
-		echo json_encode($_GET[action]." Insert failed ".pg_last_error());
+		if (strpos(pg_last_error(), 'exists') !== FALSE)
+			echo 0;
+		else echo 1;
 	else
-		echo json_encode("Added class.");
+		echo 0;
 	pg_close($dbconn);
 ?>

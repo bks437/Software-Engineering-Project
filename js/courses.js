@@ -1,4 +1,4 @@
-function addclass(course,action){
+function addcourse(course,action){
 		if(action=="Wants"){
 			var e = document.getElementById(course);
 			var grade = e.options[e.selectedIndex].value;
@@ -12,17 +12,24 @@ function addclass(course,action){
 
 		xmlHttp.onload = function(){
 			var response = xmlHttp.responseText;
-			var isnert = document.getElementById('selected');
+			var change = document.getElementById(action+course);
 			console.dir(response);
-			document.getElementById('selected').innerHTML = JSON.parse(response);
+			// document.getElementById('selected').innerHTML = JSON.parse(response);
+			$('#'+action+course).removeClass("adding");
+			if(response==0){
+				console.dir("added");
+				console.dir($('#'+action+course).addClass("added"));
+			}
+			else
+				$('#'+action+course).addClass("remove");
 		}
-		document.getElementById('selected').innerHTML = 'adding...';
+		$('#'+action+course).addClass("adding");
 		var reqURL = "addcourse.php?action="+action+"&course="+course+"&grade="+grade;
 	    xmlHttp.open("GET", reqURL, true);
 	    xmlHttp.send();
 
 	}
-function removeclass(course,action){
+function removecourse(course,action){
 		if(action=="WantsRemove"){
 			var e = document.getElementById(course);
 			var grade = e.options[e.selectedIndex].value;
@@ -36,11 +43,18 @@ function removeclass(course,action){
 
 		xmlHttp.onload = function(){
 			var response = xmlHttp.responseText;
-			var remove = document.getElementById('selected');
+			var change = document.getElementById(action+course);
 			console.dir(response);
-			document.getElementById('selected').innerHTML = JSON.parse(response);
+			// document.getElementById('selected').innerHTML = JSON.parse(response);
+			$('#'+action+course).removeClass("adding");
+			if(response==0){
+				console.dir("removed");
+				console.dir($('#'+action+course).addClass("remove"));
+			}
+			else
+				$('#'+action+course).addClass("adding");
 		}
-		document.getElementById('selected').innerHTML = 'removing...';
+		$('#'+action+course).addClass("adding");
 		var reqURL = "removecourse.php?action="+action+"&course="+course+"&grade="+grade;
 	    xmlHttp.open("GET", reqURL, true);
 	    xmlHttp.send();
