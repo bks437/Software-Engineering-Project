@@ -1,12 +1,12 @@
 <?php
 	session_start();
 	//Redirect if user is not logged in to login page
-	// if(!isset($_SESSION['username']) || $_SESSION["authority"] != "applicant"){
-	// 	header("Location: ../index.php");
-	// }	
+	if(!isset($_SESSION['username']) || $_SESSION["authority"] != "applicant"){
+		header("Location: ../index.php");
+	}	
 	//connect to database
-	//	include("../connect/database.php");
-			include("test/database.php");
+	include("../connect/database.php");
+			//include("test/database.php");
 
 	//if cannot connect return error
 	$dbconn=pg_connect(HOST." ".DBNAME." ".USERNAME." ".PASSWORD)
