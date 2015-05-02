@@ -232,7 +232,7 @@ DROP TABLE IF EXISTS applicant_applies_for_semester;
 CREATE TABLE applicant_applies_for_semester(
 	username varchar(32) NOT NULL,
 	semester char(4) NOT NULL,
-	ta_rank integer NOT NULL,
+	ta_rank integer,
 	PRIMARY KEY(username,semester),
 	FOREIGN KEY(semester) REFERENCES Semester(name),
 	FOREIGN KEY(username) REFERENCES is_an_applicant(username) ON DELETE CASCADE
