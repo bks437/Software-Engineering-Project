@@ -224,11 +224,12 @@
 
 		<div class="centerpls">
 			<br><br>
-			<p class="centerdisplay nextbutton" id="click">
-				<input  type="submit" name="submit" value="Proceed to the next step">
+			<p class="floatright" id="click">
+				<input type="submit" name="submit" value="Finish Application" onclick="window.location.href ='../phpSQL/home.php'">
 			</p>			
 		</div>
-	
+			<br>
+			<br>
 	</body>
 </html>
 <? pg_close($dbconn);?>
