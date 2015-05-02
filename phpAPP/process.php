@@ -58,8 +58,8 @@
 
 	//checks statement
 		else{
-			header("../index.php");
 			echo "<br><div id='invalid'><b>Wrong username or password<b></div>";
+			header("../index.php");
 		}
 		pg_close($dbconn);
 	}
