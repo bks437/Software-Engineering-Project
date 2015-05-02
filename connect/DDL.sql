@@ -182,8 +182,8 @@ CREATE TABLE Course(
 DROP TABLE IF EXISTS has_taught;
 
 CREATE TABLE has_taught(
-	ta_username varchar(32)  NOT NULLNOT NULL,
-	c_id integer  NOT NULLNOT NULL,
+	ta_username varchar(32)  NOT NULL,
+	c_id integer  NOT NULL,
 	PRIMARY KEY(ta_username,c_id),
 	FOREIGN KEY(ta_username) REFERENCES is_an_applicant(username) ON DELETE CASCADE,
 	FOREIGN KEY(c_id) REFERENCES Course(c_id) ON DELETE CASCADE
