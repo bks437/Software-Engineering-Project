@@ -3,8 +3,8 @@
 	session_start();
 
 	//connect to database
-	//include("../connect/database.php");
-	include("test/database.php");
+	include("../connect/database.php");
+	//include("test/database.php");
 
 	//if cannot connect return error
 	$dbconn=pg_connect(HOST." ".DBNAME." ".USERNAME." ".PASSWORD)
