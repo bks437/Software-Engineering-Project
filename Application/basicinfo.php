@@ -19,11 +19,9 @@
 				VALUES ($1,$2,$3,$4,$5,$6,$7)');
 			$result = pg_execute($dbconn, 'basicinfo', array($_SESSION['username'],$_POST['id'],$_POST['gpa'],$_POST['agd'],$_POST['email'],$_POST['phone'],$_POST['gato']));
 			if($result==false){
-				echo "insert failed";
 				$_SESSION['insert']=false;
 			}
 			else
-				echo "redirecting to isinter.php";
 				header("Location: isinter.php");
 		//}
 		//else{
@@ -53,10 +51,18 @@
 		<div class="footer shadowfooter">
 			<h4>Copyright &copy; Group G - Computer Science Department</h4>
 		</div>
-
+	
+	<!-- Home/Logout -->
+	
+			<div class="centerhomelogout">
+				<br>
+				<input class="home" type="submit" name="submit" value="Home">
+				<input class="logout" type="submit" name="submit" value="Logout">
+			</div>
+			
 	<!-- Personal / Student Information / GATO -->
 
-
+		
 			<div class="centerpls">
 				<p>
 					<label class="floatleft" for="phone">Phone Number: </label>
@@ -111,7 +117,6 @@
 				</p>
 			</div>
 		</form>
-
 
 </body>
 </html>
