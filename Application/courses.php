@@ -228,7 +228,7 @@
 		<div class="centerpls">
 			<br><br>
 			<p class="centerdisplay nextbutton" id="click">
-				<input  type="submit" name="submit" value="Finish Application" onclick="window.location.href ='../phpSQL/home.php'>
+				<input  type="submit" name="submit" value="Finish Application" onclick="window.location.href ='../phpSQL/home.php'">
 			</p>
 		</div>
 
