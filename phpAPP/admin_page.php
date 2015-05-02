@@ -1,9 +1,10 @@
 <?php
 	session_start();
 	if(!isset($_SESSION['username']) || $_SESSION["authority"] != "admin"){
-		header("Location: ../../index.php");
+		header("Location: ../index.php");
 	}	
 ?>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -104,34 +105,38 @@
 			}
 			</script>
 	</head>
-	<body onload="init()">
+
+	<body align='center' onload="init()">
 
 <div id="rank">
 
 </div>
-
-	<!-- <div id="app2test">
-	<input type="number" id="app2rank" placeholder="rank">
-	<button onclick="updateranking('app2','FS15')">Add Rank</button>
-	</div>
-	<div id="app3test">
-	<input type="number" id="app3rank">
-	<button onclick="updateranking('app3','FS15')">Add Rank</button>
-	</div> -->
-		<!--Add ranking score-->
-		<form method="POST" action="adminActions/add_rank.php">	
-			<button type="submit" name="addrank" value="add rank scores">Add ranking scores</button>
-			<br>
-			<br>
-			<br>
-		</form>
-
-		<!--Assign TA to course-->
-		<form method="POST" action="adminActions/assign_ta.php">	
-			<button type="submit" name="assignTA" value="assign TA">Assign TA(s) to course(s)</button>
-			<br>
-			<br>
-			<br>
+		
+		<form method="POST" action="adminActions/search.php">	
+				<br/>
+				<br/>
+				<br/>
+			<div align='center'> 
+				
+			 	<button type="submit" name="view_all" value="view all">View all applicants/courses</button><br>
+			</div>
+				<br/>
+				<br/>
+			<div align='center'>
+				
+				<input type="text" name="courseNumb" id="courseSearch" placeholder = "CS1050"></input><br>
+				<button type="submit" name="CSearch" value="search by course">Course Search</button><br>
+			</div>
+				<br/>
+				<br/>
+			<div align='center'>
+				
+				<input type="text" name="applicant_fName" id="applicantSearch" placeholder = "first name"></input><br>
+				<input type="text" name="applicant_lName" id="applicantSearch" placeholder = "last name"></input><br>
+				<button type="submit" name="ASearch" value="search by applicant">Applicant Search</button><br>
+			</div>
+				<br/>
+				<br/>
 		</form>
 
 		<!--insert course-->
@@ -151,6 +156,6 @@
 			<br>
 			<br>
 			<br>
-		<button type="button" onclick="window.location.href='../../phpSQL/home.php'">Add a new professor</button>
+		<button type="button" onclick="window.location.href='../../phpSQL/logout.php'">Log out</button>
 	</body>
 </html>
