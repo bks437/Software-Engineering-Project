@@ -19,9 +19,11 @@
 				VALUES ($1,$2,$3,$4,$5,$6,$7)');
 			$result = pg_execute($dbconn, 'basicinfo', array($_SESSION['username'],$_POST['id'],$_POST['gpa'],$_POST['agd'],$_POST['email'],$_POST['phone'],$_POST['gato']));
 			if($result==false){
+				echo "insert failed";
 				$_SESSION['insert']=false;
 			}
 			else
+				echo "redirecting to isinter.php";
 				header("Location: isinter.php");
 		//}
 		//else{
@@ -54,7 +56,7 @@
 
 	<!-- Personal / Student Information / GATO -->
 
-		
+
 			<div class="centerpls">
 				<p>
 					<label class="floatleft" for="phone">Phone Number: </label>
