@@ -100,7 +100,7 @@
 					//displays the results from the database into the table
 					while($line=pg_fetch_array($result,null, PGSQL_ASSOC)){
 						//foreach ($line as $col_value){
-								echo "<div class=\"coursewidth\" id=\"Teaching".$line[c_id]."\">";
+								echo "<div class=\"coursewidth1\" id=\"Teaching".$line[c_id]."\">";
 								echo "\t\t<div class=\"name\">$line[name]</div>\n";	
 								echo "\t\t<div class=\"numb\">$line[numb]</div>\n";		
 							//}
@@ -148,7 +148,7 @@
 					//displays the results from the database into the table
 					while($line=pg_fetch_array($result,null, PGSQL_ASSOC)){
 						//foreach ($line as $col_value){
-								echo "<div class=\"coursewidth\" id=\"Taught".$line[c_id]."\">";
+								echo "<div class=\"coursewidth2\" id=\"Taught".$line[c_id]."\">";
 								echo "\t\t<div class=\"name\">$line[name]</div>\n";	
 								echo "\t\t<div class=\"numb\">$line[numb]</div>\n";		
 							//}
@@ -186,7 +186,7 @@
 					//gets number of rows returned by the result
 					$rows=pg_num_rows($result);
 					//displays the header for the table
-					echo "</p><br><br>";
+					echo "</p><br>";
 					//for($field=0;$field<$maxfield;$field++) {
 						$header=pg_field_name($result, 0);
 						echo "\t\t<div class=\"name\"><b> Course Name</b></div>\n";
@@ -198,11 +198,11 @@
 					//displays the results from the database into the table
 					while($line=pg_fetch_array($result,null, PGSQL_ASSOC)){
 						//foreach ($line as $col_value){
-								echo "<div class=\"coursewidth\" id=\"Wants".$line[c_id]."\">";
+								echo "<div class=\"coursewidth3\" id=\"Wants".$line[c_id]."\">";
 								echo "\t\t<div class=\"name\">$line[name]</div>\n";	
 								echo "\t\t<div class=\"numb\">$line[numb]</div>\n";		
 							//}
-								echo "<select multiple id=$line[c_id] name=\"lgrade\">
+								echo "<select class=\"courseml\" multiple id=$line[c_id] name=\"lgrade\">
 									<option value=\"A\" selected>A</option>
 									<option value=\"B\">B</option>
 									<option value=\"C\">C</option>

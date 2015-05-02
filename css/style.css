@@ -167,6 +167,15 @@ body {
 .remove{
 	background: #FF4D4D;
 }
-.coursewidth {
+.coursewidth1 {
 	width: 605px;
+}
+.coursewidth2 {
+	width: 605px;
+}
+.coursewidth3 {
+	width: 665px;
+}
+.courseml {
+	margin-left: 5px;
 }
