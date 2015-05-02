@@ -100,7 +100,7 @@
 					//displays the results from the database into the table
 					while($line=pg_fetch_array($result,null, PGSQL_ASSOC)){
 						//foreach ($line as $col_value){
-								echo "<div id=\"Teaching".$line[c_id]."\">";
+								echo "<div class=\"coursewidth\" id=\"Teaching".$line[c_id]."\">";
 								echo "\t\t<div class=\"name\">$line[name]</div>\n";	
 								echo "\t\t<div class=\"numb\">$line[numb]</div>\n";		
 							//}
@@ -148,7 +148,7 @@
 					//displays the results from the database into the table
 					while($line=pg_fetch_array($result,null, PGSQL_ASSOC)){
 						//foreach ($line as $col_value){
-								echo "<div id=\"Taught".$line[c_id]."\">";
+								echo "<div class=\"coursewidth\" id=\"Taught".$line[c_id]."\">";
 								echo "\t\t<div class=\"name\">$line[name]</div>\n";	
 								echo "\t\t<div class=\"numb\">$line[numb]</div>\n";		
 							//}
@@ -198,11 +198,11 @@
 					//displays the results from the database into the table
 					while($line=pg_fetch_array($result,null, PGSQL_ASSOC)){
 						//foreach ($line as $col_value){
-								echo "<div id=\"Wants".$line[c_id]."\">";
+								echo "<div class=\"coursewidth\" id=\"Wants".$line[c_id]."\">";
 								echo "\t\t<div class=\"name\">$line[name]</div>\n";	
 								echo "\t\t<div class=\"numb\">$line[numb]</div>\n";		
 							//}
-								echo "<select multiple class=\"niceinput\" id=$line[c_id] name=\"lgrade\">
+								echo "<select multiple id=$line[c_id] name=\"lgrade\">
 									<option value=\"A\" selected>A</option>
 									<option value=\"B\">B</option>
 									<option value=\"C\">C</option>
