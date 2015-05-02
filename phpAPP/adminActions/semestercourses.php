@@ -102,6 +102,8 @@
 				echo "\t<br>\n";
 			}
 			?>
+
+			<button onclick="window.href('createcourse.php')">Create a new course</button>
 		<div id="selected"></div>
 
 	</body>
