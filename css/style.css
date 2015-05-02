@@ -158,3 +158,12 @@ body {
 .button{
 	vertical-align: top;
 }
+.added{
+	background: #66FF66;
+}
+.adding{
+	background: #FFFF5C;
+}
+.remove{
+	background: #FF4D4D;
+}
