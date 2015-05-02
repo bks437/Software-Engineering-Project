@@ -81,7 +81,7 @@
 				<input type="submit" name="submit" value="Register">
 					<br>
 					<br>
-				<input type="button" name="cancel" value="Click here to return to Login page" onclick="window.location.href ='../../index.php'">
+				<input type="button" name="cancel" value="Click here to return to Main page" onclick="window.location.href ='../../index.php'">
 				</form>
 			</p>
 			<? if($added) echo "Professor added!";?>

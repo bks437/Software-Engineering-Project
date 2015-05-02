@@ -2,7 +2,7 @@
 	session_start();
 	if(!isset($_SESSION['username']) || $_SESSION["authority"] != "admin"){
 		header("Location: ../index.php");
-	}	
+	}
 ?>
 
 <!DOCTYPE html>
@@ -28,16 +28,16 @@
 					var response = xmlHttp.responseText;
 					var isnert = document.getElementById("rank");
 					console.dir(response);
-				
+
 				// Get div object
 					var divObj = document.getElementById('rank');
-				
+
 				// We used JSON.parse to turn the JSON string into an object
 					var responseObject = JSON.parse(response);
-				
+
 				// This is our object
 				console.dir(responseObject);
-				
+
 				// We can use that object like so:
 				var i=0;
 				divObj.innerHTML= "<div id=\""+responseObject[i].username+"\">"+responseObject[i].fname +" "+ responseObject[i].lname+" <input type=\"number\" id=\""+responseObject[i].username+"rank\" placeholder=\"rank\"><button onclick=\"updateranking('"+responseObject[i].username+"','FS15')\">Add Rank</button></div><br>";
@@ -80,16 +80,16 @@
 					var response = xmlHttp.responseText;
 					var isnert = document.getElementById('rank');
 					console.dir(response);
-				
+
 				// Get div object
 					var divObj = document.getElementById('rank');
-				
+
 				// We used JSON.parse to turn the JSON string into an object
 					var responseObject = JSON.parse(response);
-				
+
 				// This is our object
 				console.dir(responseObject);
-				
+
 				// We can use that object like so:
 				var i=0;
 				divObj.innerHTML= "<div id=\""+responseObject[i].username+"\">"+responseObject[i].fname +" "+ responseObject[i].lname+" <input type=\"number\" id=\""+responseObject[i].username+"rank\" placeholder=\"rank\"><button onclick=\"updateranking('"+responseObject[i].username+"','FS15')\">Add Rank</button></div><br>";
@@ -111,26 +111,26 @@
 <div id="rank">
 
 </div>
-		
-		<form method="POST" action="adminActions/search.php">	
+
+		<form method="POST" action="adminActions/search.php">
 				<br/>
 				<br/>
 				<br/>
-			<div align='center'> 
-				
+			<div align='center'>
+
 			 	<button type="submit" name="view_all" value="view all">View all applicants/courses</button><br>
 			</div>
 				<br/>
 				<br/>
 			<div align='center'>
-				
+
 				<input type="text" name="courseNumb" id="courseSearch" placeholder = "CS1050"></input><br>
 				<button type="submit" name="CSearch" value="search by course">Course Search</button><br>
 			</div>
 				<br/>
 				<br/>
 			<div align='center'>
-				
+
 				<input type="text" name="applicant_fName" id="applicantSearch" placeholder = "first name"></input><br>
 				<input type="text" name="applicant_lName" id="applicantSearch" placeholder = "last name"></input><br>
 				<button type="submit" name="ASearch" value="search by applicant">Applicant Search</button><br>
@@ -140,7 +140,7 @@
 		</form>
 
 		<!--insert course-->
-		<form method="POST" action="adminActions/addcourses.php">	
+		<form method="POST" action="adminActions/addcourses.php">
 			<button type="submit" name="addCourse" value="add new course">Add new course</button>
 			<br>
 			<br>
