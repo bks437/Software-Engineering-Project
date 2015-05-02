@@ -53,6 +53,14 @@
 		<div class="footer shadowfooter">			
 			<h4>Copyright &copy; Group G - Computer Science Department</h4>		
 		</div>		
+		
+	<!-- Home/Logout -->
+	
+		<div class="centerhomelogout">
+			<br>
+			<input class="home" type="submit" name="submit" value="Home">
+			<input class="logout" type="submit" name="submit" value="Logout">
+		</div>
 	
 	<!-- Courses -->
 		

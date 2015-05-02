@@ -51,15 +51,25 @@
 	
 	<!-- Header/Footer -->
 		
-		<div class="header shadowheader">			
+		<!--<div class="header shadowheader">			
 			<h1>Step 3: <? if(strcmp($_SESSION[grad],"ta")==0) echo "Graduate"; else echo "Undergraduate";?></h1>		
-		</div>			
+		</div>-->	
+		<div class="header shadowheader">			
+			<h1>Step 3: Graduate/Undergraduate</h1>		
+		</div>
 		
 		<div class="footer shadowfooter">			
 			<h4>Copyright &copy; Group G - Computer Science Department</h4>		
 		</div>		
 	
+	<!-- Home/Logout -->
 	
+		<div class="centerhomelogout">
+			<br>
+			<input class="home" type="submit" name="submit" value="Home">
+			<input class="logout" type="submit" name="submit" value="Logout">
+		</div>
+			
 	<!-- Graduate/Undergraduate -->
 			
 		<div class="centerplsgrad">

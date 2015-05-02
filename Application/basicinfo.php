@@ -54,11 +54,11 @@
 	
 	<!-- Home/Logout -->
 	
-			<div class="centerhomelogout">
-				<br>
-				<input class="home" type="submit" name="submit" value="Home">
-				<input class="logout" type="submit" name="submit" value="Logout">
-			</div>
+		<div class="centerhomelogout">
+			<br>
+			<input class="home" type="submit" name="submit" value="Home">
+			<input class="logout" type="submit" name="submit" value="Logout">
+		</div>
 			
 	<!-- Personal / Student Information / GATO -->
 
