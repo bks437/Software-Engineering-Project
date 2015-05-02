@@ -110,7 +110,7 @@ DROP TABLE IF EXISTS is_an_undergrad;
 
 CREATE TABLE is_an_undergrad(
 	username varchar(32) NOT NULL,
-	degree_program varchar(32 NOT NULL,
+	degree_program varchar(32) NOT NULL,
 	level varchar(10) NOT NULL,
 	PRIMARY KEY(username),
 	FOREIGN KEY(username) REFERENCES is_an_applicant(username) ON DELETE CASCADE
