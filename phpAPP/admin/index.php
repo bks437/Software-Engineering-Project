@@ -149,23 +149,15 @@
 
 		<!--insert course-->
 		<form method="POST" action="adminActions/addcourses.php">
-			<div class="centerplsadmin">
+			<div class="centerbuttonsadmin">
 				<br><br><br>
-				<button type="submit" name="addCourse" value="add new course">Add new course</button>
-				<br>
-				<br>
-				<br>
-		</form>
-
-			<button type="button" onclick="window.location.href='adminActions/semester.php'">Add a new semester</button>
-				<br>
-				<br>
-				<br>
-
-			<button type="button" onclick="window.location.href='adminActions/addprofessor.php'">Add a new professor</button>
-				<br>
-				<br>
-				<br>
+				<label class="floatleft">Add a new:</label>
+					<div class="floatright">
+						<button type="submit" name="addCourse" value="add new course">Course</button>
+		</form>		
+						<button type="button" onclick="window.location.href='adminActions/semester.php'">Semester</button>
+						<button type="button" onclick="window.location.href='adminActions/addprofessor.php'">Professor</button>
+					</div>
 			</div>
 	</body>
 </html>
