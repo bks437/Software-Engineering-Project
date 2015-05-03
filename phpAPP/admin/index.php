@@ -93,7 +93,7 @@
 
 				// We can use that object like so:
 				var i=0;
-				divObj.innerHTML= "<div id=\""+responseObject[i].username+"\">"+responseObject[i].fname +" "+ responseObject[i].lname+" <input type=\"number\" id=\""+responseObject[i].username+"rank\" placeholder=\"rank\"><button onclick=\"updateranking('"+responseObject[i].username+"','FS15')\">Add Rank</button></div><br>";
+				divObj.innerHTML= "<div id=\""+responseObject[i].username+"\">"+responseObject[i].fname +" "+ responseObject[i].lname+" <div class=\"floatright\" <input type=\"number\" id=\""+responseObject[i].username+"rank\" placeholder=\"rank\"><button onclick=\"updateranking('"+responseObject[i].username+"','FS15')\">Add Rank</button></div></div><br>";
 				for(i=1;i<responseObject.length;i++){
 					divObj.innerHTML= divObj.innerHTML+"<div id=\""+responseObject[i].username+"\">"+responseObject[i].fname +" "+ responseObject[i].lname+" <input type=\"number\" id=\""+responseObject[i].username+"rank\" placeholder=\"rank\"><button onclick=\"updateranking('"+responseObject[i].username+"','FS15')\">Add Rank</button></div><br>";
 				}
@@ -126,7 +126,7 @@
 			<input class="logout" type="submit" name="submit" value="Logout" onclick="window.location.href ='../../phpSQL/logout.php'">
 		</div>
 			<br>
-				<div id="rank"></div>
+				<div class="centerplsadmin" id="rank"></div>
 			<br>
 		<form method="POST" action="search.php">
 			<div class="centerplsadmin">	
@@ -150,7 +150,7 @@
 		<!--insert course-->
 		<form method="POST" action="adminActions/addcourses.php">
 			<div class="centerplsadmin">
-				<br><br><br>
+				<br><br>
 				<label class="floatleft">Add a new:</label>
 					<div class="floatright">
 						<button type="submit" name="addCourse" value="add new course">Course</button>
