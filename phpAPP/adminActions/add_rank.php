@@ -2,7 +2,7 @@
 <?php
 	session_start();
 	//Redirect if user is not logged in to login page
-	if(!isset($_SESSION['username']) || $_SESSION["authority"] != "prof"){
+	if(!isset($_SESSION['username']) || $_SESSION["authority"] != "admin"){
 		header("Location: ../../index.php");
 	}
 
@@ -13,7 +13,7 @@
 
 
 <html>
-	<head>		
+	<head>
 		<title>Add Ranking</title>
 	</head>
 	<body>
@@ -25,7 +25,7 @@
 				<input type='hidden' name="username3" value="<?php echo $username3;?>" />
 				<label for="rankscore" value="ranking score">Ranking Score</label>
 				<input type="text" name ="rankscore" placeholder="100">
-					</br>						
+					</br>
 					</br>
 				<input type="submit" name="submit" value="Add/Update score">
 					</br>
@@ -34,7 +34,7 @@
 					</br>
 					</br>
 					<input type="button" value="Close this window" onclick="self.close()">
-			</form>			
-		</div>	
+			</form>
+		</div>
 	</body>
 </html>

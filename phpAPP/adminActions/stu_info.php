@@ -1,15 +1,15 @@
 <?php
 	session_start();
 	//Redirect if user is not logged in to login page
-	if(!isset($_SESSION['username']) || $_SESSION["authority"] != "prof"){
+	if(!isset($_SESSION['username']) || $_SESSION["authority"] != "admin"){
 		header("Location: ../../index.php");
 	}
 
-	//$username = $_SESSION['username'];	
+	//$username = $_SESSION['username'];
 	$username3 = $_GET['username2'];
 
 	//connect to database
-	$username = $_SESSION['username'];			  
+	$username = $_SESSION['username'];
 	//connect to database
 	include("../../connect/database.php");
 	//if cannot connect return error
@@ -40,7 +40,7 @@
 	pg_prepare($dbconn, "it", 'SELECT * from DDL.has_taught where ta_username=$1')or die(pg_last_error($dbconn));
 	$result6 =pg_execute($dbconn, "it", array($username3));
 
-		$info_table = "<p align='center'><b>Basic Information</b></p></br>"; 
+		$info_table = "<p align='center'><b>Basic Information</b></p></br>";
 		$info_table .= "<table align='center' border='1px' width='400px'>";
 		$info_table .= "<tr align='center'><td>user name</td><td>".$username3."</td>";
 		$info_table .= "<tr align='center'><td>name</td><td>".$name['fname']." ".$name['lname']."</td></tr>";
@@ -52,12 +52,12 @@
 		$info_table .= "<tr align='center'><td>gato status</td><td>".$basic['gato']."</td></tr>";
 		$info_table .= "<tr align='center'><td>employer</td><td>".$basic['employer']."</td></tr>";
 		$info_table .= "<tr align='center'><td>ta_rank</td><td>".$basic['ta_rank']."</td></tr>";
-	
+
 	if($inter['username'] !=""){
 		$info_table .= "<tr align='center'><td>international</td><td>"."y"."</td></tr>";
-		$info_table .= "</table><br/>";	
+		$info_table .= "</table><br/>";
 
-		$info_table .= "<p color='orange'align='center'><b>International Information</b></p></br>"; 	
+		$info_table .= "<p color='orange'align='center'><b>International Information</b></p></br>";
 		$info_table .= "<table  align='center' border='1px' width='400px' >";
 		$info_table .= "<tr align='center'><td>speak taken</td><td>".$inter['speak_taken']."</td></tr>";
 		$info_table .= "<tr align='center'><td>test score</td><td>".$inter['speak']."</td></tr>";
@@ -68,25 +68,25 @@
 
 	else {
 		$info_table .= "<tr align='center'><td>international</td><td>"."n"."</td></tr>";
-		$info_table .= "</table><br/>";		
-	}	
+		$info_table .= "</table><br/>";
+	}
 
 
-		$info_table .= "<p  align='center'><b>Wants To Teach</b></p></br>"; 
+		$info_table .= "<p  align='center'><b>Wants To Teach</b></p></br>";
 		$info_table .= "<table  align='center' border='1px' width='400px'>";
 		$info_table .= "<tr align='center'><td><b>Course</b></td><td><b>grade</b></td></tr>";
 	while ($wtt = pg_fetch_array($result4)) {
 		$cId = $wtt['c_id'];
 		$courses = pg_query($dbconn, "SELECT * FROM DDL.course where c_id=$cId") or die('error4 ' . pg_last_error());
-				
+
 			while($course=pg_fetch_array($courses)){
 				$courseNumb = $course['numb'];
-			}	
+			}
 		$info_table .= "<tr align='center'><td>".$courseNumb."</td><td>".$wtt['grade']."</td></tr>";
 	}
 		$info_table .= "</table><br/><br/>";
 
-		$info_table .= "<p  align='center'><b>Is Teaching</b></p></br>"; 
+		$info_table .= "<p  align='center'><b>Is Teaching</b></p></br>";
 		$info_table .= "<table  align='center' border='1px' width='400px'>";
 		$info_table .= "<tr align='center'><td><b>Course</b></td></tr>";
 	while ($at = pg_fetch_array($result5)) {
@@ -99,7 +99,7 @@
 	}
 		$info_table .= "</table><br/><br/>";
 
-		$info_table .= "<p  align='center'><b>Has Taught</b></p></br>"; 
+		$info_table .= "<p  align='center'><b>Has Taught</b></p></br>";
 		$info_table .= "<table  align='center' border='1px' width='400px'>";
 		$info_table .= "<tr align='center'><td><b>Course</b></td></tr>";
 	while ($ht = pg_fetch_array($result6)) {
@@ -121,7 +121,6 @@
 <body>
 	<div align='center'>
 		<input type="button" value="Close this window" onclick="self.close()">
-	</div>	
+	</div>
 </body>
 </html>
-

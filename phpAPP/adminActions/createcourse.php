@@ -1,9 +1,9 @@
 <?php
 	session_start();
 	//Redirect if user is not logged in to login page
-	if(!isset($_SESSION['username']) || $_SESSION["authority"] != "applicant"){
+	if(!isset($_SESSION['username']) || $_SESSION["authority"] != "admin"){
 		header("Location: ../../index.php");
-	}	
+	}
 	//connect to database
 		include("../../connect/database.php");
 	//if cannot connect return error
@@ -41,7 +41,7 @@
 	<!--ADD ANY USEFUL TIPS, otherwise ... DO NOT FUCK WITH THE COMMENTS. please and thank you.-->
 <head>
 	<title>CS4320 - Group G</title>
-	<link rel="stylesheet" type="text/css" href="../css/style.css">	
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
 	<script src="../js/jquery-1.11.2.min.js"></script>
 	<script type="text/javascript" src="../js/courses.js"></script>
 	<script src="../js/ajax.js"></script>
@@ -54,7 +54,7 @@
 		<input type="text" name="name" placeholder="Advance Algorithm and Design 1" required><br>
 		<select multiple class="niceinput" id="professor" name="professor" required>
 			<option selected>Select</option>
-		<? 
+		<?
 			$query = 'SELECT P.username,P.fname,P.lname FROM DDL.Person P JOIN DDL.is_a_faculty iaf USING(username) WHERE iaf.admin<>\'y\';';
 
 					$result = pg_query($query) or die('Query failed: '. pg_last_error());
@@ -69,7 +69,7 @@
 		<input type="submit" name="submit" value="Create">
 	</form>
 	<button>Go back to Course selection page</button>
-	<? 
+	<?
 	if(isset($insert)){
 		if(!$insert){
 			echo "Entry failed ".$error;

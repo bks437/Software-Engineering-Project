@@ -1,11 +1,11 @@
 <?php
 	session_start();
 	//Redirect if user is not logged in to login page
-	if(!isset($_SESSION['username']) || $_SESSION["authority"] != "prof"){
+	if(!isset($_SESSION['username']) || $_SESSION["authority"] != "admin"){
 		header("Location: ../../index.php");
 	}
 
-	$username = $_SESSION['username'];			  
+	$username = $_SESSION['username'];
 	//connect to database
 	include("../../connect/database.php");
 	//if cannot connect return error
@@ -18,9 +18,9 @@
 	$full_name = pg_execute($dbconn, 'name', array($username3));
 	while($name=pg_fetch_array($full_name)){
 		$fname = $name['fname'];
-		$lname = $name['lname'];		
-	}	
-	
+		$lname = $name['lname'];
+	}
+
 	pg_prepare($dbconn, 'comments', "SELECT * FROM DDL.comments where comments.ta_username=$1")or die('error! ' . pg_last_error());
 	$result = pg_execute($dbconn, 'comments', array($username3));
 
@@ -28,8 +28,8 @@
 
 		echo "Some error has occured!<br><br>";
 
-	}	
-	
+	}
+
 
 	elseif (pg_num_rows($result) ==0) {
 		echo "<b>".$fname." ".$lname."</b> has no comments yet!<br><br>";
@@ -43,7 +43,7 @@
 			echo "<b>".$fname." ".$lname."</b> has a comment given by <b>".$professor."</b>: ".$comments.".<br><br>";
 		}
 	}
-	pg_close($dbconn);	
+	pg_close($dbconn);
 ?>
 
 <html>
