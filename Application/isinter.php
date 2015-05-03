@@ -20,7 +20,7 @@
 				}
 				elseif(strcmp($_POST['speaktest'],"scheduled")==0){
 					$taken='n ';
-					$test_date=$_POST['test_date'];
+					$test_date=$_POST['test_dates'];
 				}
 				pg_prepare($dbconn, 'basicinfo', 'INSERT INTO DDL.is_international (username,speak,speak_taken,test_date,onita)
 					VALUES ($1,$2,$3,$4,$5)');
@@ -112,7 +112,7 @@
 
 			<p id="test_schedule" style="display:none">
 				<label class="floatleft">Please provide the scheduled test date:</label>
-				<input class="floatright" type="date" name="test_date" size="20" maxlength="40"></input>
+				<input class="floatright" type="date" name="test_dates" size="20" maxlength="40"></input>
 				<br>
 			</p>
 
