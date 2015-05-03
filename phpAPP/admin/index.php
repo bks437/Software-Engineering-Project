@@ -130,21 +130,24 @@
 
 		<form method="POST" action="search.php">
 			<div class="centerplsadmin">				
-					<br>
-					<br>
-
-					<input type="text" name="courseNumb" id="courseSearch" placeholder = "CS1050"></input><br>
-					<button type="submit" name="CSearch" value="search by course">Course Search</button><br>
-				
-					<br/>
-					<br/>
-
-					<input type="text" name="applicant_fName" id="applicantSearch" placeholder = "first name"></input><br>
-					<input type="text" name="applicant_lName" id="applicantSearch" placeholder = "last name"></input><br>
-					<button type="submit" name="ASearch" value="search by applicant">Applicant Search</button><br>
-				
-					<br/>
-					<br/>
+				<br>
+				<p>
+					<label class="floatleft">Search by Course Number: </label>
+					<div class="floatright">
+						<input type="text" name="courseNumb" id="courseSearch" placeholder = "CS1050"></input>
+						<button type="submit" name="CSearch" value="search by course">Search</button>
+						<br>
+					</div>
+				</p>
+				<p>
+					<label class="floatleft">Search by Applicant: </label>
+					<div class="floatright">
+						<input type="text" name="applicant_fName" id="applicantSearch" placeholder = "First Name"></input>
+						<input type="text" name="applicant_lName" id="applicantSearch" placeholder = "Last Name"></input>
+						<button type="submit" name="ASearch" value="search by applicant">Search</button>
+						<br>
+					</div>
+				</p>				
 			</div>
 		</form>
 
