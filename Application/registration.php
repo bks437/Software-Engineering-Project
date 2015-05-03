@@ -113,9 +113,8 @@
 			<br>
 			<br>
 			<br>
-		<div style="text-align: center">
+		<div style="text-align: center">			
 			<input type="submit" name="submit" value="Register">
-			<input type="button" name="cancel" value="Click here to return to Login page" onclick="window.location.href ='index.php'">
 		</div>				
 	</form>	
 </body>
