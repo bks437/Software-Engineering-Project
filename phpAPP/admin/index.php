@@ -164,12 +164,12 @@
 				<br>
 			</form>
 
-			<button type="button" onclick="window.location.href='adminActions/semester.php'">Add a new semester</button>
+			<button type="button" onclick="window.location.href='semester.php'">Add a new semester</button>
 				<br>
 				<br>
 				<br>
 
-			<button type="button" onclick="window.location.href='adminActions/addprofessor.php'">Add a new professor</button>
+			<button type="button" onclick="window.location.href='addprofessor.php'">Add a new professor</button>
 				<br>
 				<br>
 				<br>
