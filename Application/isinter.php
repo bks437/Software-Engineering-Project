@@ -155,7 +155,12 @@
 				<input type="submit" name="submit" value="Proceed to the next step">
 			</p>
 		</div>
-
+	</form>
+		<div class="centerpls">
+			<p class="floatright" id="not" style="display: none">
+				<button onclick="window.location.href ='gradundergrad.php'">Proceed to the next step</button>
+			</p>
+		</div>
 	<!-- Go to homepage -->
 
 		<div class="centerpls">
@@ -163,6 +168,5 @@
 				<input type="submit" name="submit" value="Proceed to the home page" onclick="window.location.href ='../phpSQL/index.php'">
 			</p>
 		</div>
-	</form>
 </body>
 </html>
