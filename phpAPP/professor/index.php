@@ -35,7 +35,7 @@
 		<div class="centerplsprof">
 			<label class="floatleft" for="courseNumb">View TA/PLA applicants by course number:</label>
 			<div class="floatright">
-				<select type="text" name="courseNumb" id="courseSearch" size="15">
+				<select type="text" name="courseNumb" id="courseSearch">
 					<option value="courseNumb">Select</option>
 					<option value="cs1050">CS1050</option>
 					<option value="cs2050">CS2050</option>
