@@ -149,7 +149,7 @@
 
 		<!--insert course-->
 		<form method="POST" action="adminActions/addcourses.php">
-			<div class="centerbuttonsadmin">
+			<div class="centerplsadmin">
 				<br><br><br>
 				<label class="floatleft">Add a new:</label>
 					<div class="floatright">
