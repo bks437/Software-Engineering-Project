@@ -6,7 +6,7 @@
 </head>
 <body>
 
-	<form method="POST" action="professorActions/search_result.php">
+	<form method="POST" action="search_result.php">
 		<!--request TA for course
 				button in generated table to enter entry into request table-->
 		<!--view all TA applicants base on selected parameters
