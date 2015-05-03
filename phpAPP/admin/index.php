@@ -129,8 +129,7 @@
 			<div id="rank"></div>
 
 		<form method="POST" action="search.php">
-			<div class="centerplsadmin">				
-				<br>
+			<div class="centerplsadmin">	
 				<p>
 					<label class="floatleft">Search by Course Number: </label>
 					<div class="floatright">
@@ -153,7 +152,7 @@
 
 		<!--insert course-->
 		<form method="POST" action="adminActions/addcourses.php">
-			<div class="centerbuttonsadmin>
+			<div class="">
 				<button type="submit" name="addCourse" value="add new course">Add new course</button>
 				<br>
 				<br>
