@@ -273,7 +273,7 @@
 		<div align='center'>
 			<br>
 			<br>
-			<input type="submit" name="admin_page" value="Go back to admin page" ></input>
+			<button  name="admin_page" value="Go back to admin page" onclick="window.location.href='index.php'"> Go back to admin page</button>
 		</div>
 	</form>
 
