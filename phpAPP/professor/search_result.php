@@ -202,7 +202,7 @@
 
 <html>
 <body>
-	<form method="POST" action="../professor_page.php">
+	<form method="POST" action="index.php">
 
 		<input type="submit" name="professor_page" value="Go back to search page" ></input>
 
