@@ -34,6 +34,8 @@
 
 			$result = pg_prepare($dbconn, "register", "INSERT INTO DDL.Person (username,fname,lname) VALUES ($1,$2,$3)");
 			$result = pg_execute($dbconn, "register", array($username,$_POST['fname'],$_POST['lname'])) or die (pg_last_error());
+			$result = pg_prepare($dbconn, "faculty", "INSERT INTO DDL.is_a_faculty (username) VALUES ($1)");
+			$result = pg_execute($dbconn, "faculty", array($username)) or die (pg_last_error());
 
 			if ($result){
 				//inserting data into log table
