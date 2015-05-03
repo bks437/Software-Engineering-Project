@@ -116,9 +116,9 @@
 		<div class="footer shadowfooter">
 			<h4>Copyright &copy; Group G - Computer Science Department</h4>
 		</div>
-	
+
 	<!-- View Apps/Home/Logout -->
-	
+
 		<div class="centeradminlogout">
 			<br>
 			<button type="submit" name="view_all" value="view all">View All Applicants/Courses</button>
@@ -129,13 +129,13 @@
 				<div class="centerplsadmin" id="rank"></div>
 			<br>
 		<form method="POST" action="search.php">
-			<div class="centerplsadmin">	
+			<div class="centerplsadmin">
 				<label class="floatleft">Search by Course Number: </label>
 				<div class="floatright">
 					<input type="text" name="courseNumb" id="courseSearch" placeholder = "CS1050"></input>
 					<button type="submit" name="CSearch" value="search by course">Search</button>
 						<br>
-				</div>					
+				</div>
 					<br><br>
 				<label class="floatleft">Search by Applicant: </label>
 				<div class="floatright">
@@ -143,20 +143,20 @@
 					<input type="text" name="applicant_lName" id="applicantSearch" placeholder = "Last Name"></input>
 					<button type="submit" name="ASearch" value="search by applicant">Search</button>
 						<br>
-				</div>						
+				</div>
 			</div>
 		</form>
 
 		<!--insert course-->
-		<form method="POST" action="adminActions/addcourses.php">
+		<form method="POST" action="addcourses.php">
 			<div class="centerplsadmin">
 				<br><br>
 				<label class="floatleft">Add a new:</label>
 					<div class="floatright">
 						<button type="submit" name="addCourse" value="add new course">Course</button>
-		</form>		
-						<button type="button" onclick="window.location.href='adminActions/semester.php'">Semester</button>
-						<button type="button" onclick="window.location.href='adminActions/addprofessor.php'">Professor</button>
+		</form>
+						<button type="button" onclick="window.location.href='semester.php'">Semester</button>
+						<button type="button" onclick="window.location.href='addprofessor.php'">Professor</button>
 					</div>
 			</div>
 	</body>
