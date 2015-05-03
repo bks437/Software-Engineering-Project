@@ -165,6 +165,7 @@
 			<p>
 				<label class="floatleft" for="lteach">Course(s) You Would Like to Teach; include grades received: </label>
 				<label class="floatleft" for="lteach">(Must have taken previously)</label>
+					<br>
 					<!-- <select multiple class="niceinput" id="lteach" name="lteach">
 						<option value="lteach" selected>Select</option>
 						<option value="cs1050">CS1050</option>
