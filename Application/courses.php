@@ -65,8 +65,8 @@
 	<!-- Courses -->
 		
 		<div class="centerpls">
-				<p class="centerdisplay">
-					<label class="leftlabel" for="courseteaching" >Course(s) You Are Currently Teaching: </label>
+			<p>
+				<label class="floatleft" for="courseteaching" >Course(s) You Are Currently Teaching: </label>
 				<!-- 	<select multiple class="niceinput" id="cteach" name="cteach">
 						<option value="cteach" selected>Select</option>
 						<option value="cs1050">CS1050</option>
@@ -112,9 +112,9 @@
 					pg_free_result($result);
 					?>		
 					<br>
-				</p>
-				<p class="centerdisplay">
-					<label class="leftlabel" for="prevtaught">Course(s) You Have Previously Taught: </label>
+			</p>
+			<p>
+				<label class="floatleft" for="prevtaught">Course(s) You Have Previously Taught: </label>
 					<!-- <select multiple class="niceinput" id="prevtaught" name="prevtaught">
 						<option value="prevtaught" selected>Select</option>
 						<option value="cs1050">CS1050</option>
@@ -160,11 +160,11 @@
 					pg_free_result($result);
 					?>
 					<div id="selected"></div>
-					<br>
-				</p>
-				<p class="centerdisplay">
-					<label class="leftlabel" for="lteach">Course(s) You Would Like to Teach (must have taken previously), include grades received: </label>
-	<!-- 				<select multiple class="niceinput" id="lteach" name="lteach">
+				<br>
+			</p>
+			<p>
+				<label class="floatleft" for="lteach">Course(s) You Would Like to Teach (must have taken previously), include grades received: </label>
+					<!-- <select multiple class="niceinput" id="lteach" name="lteach">
 						<option value="lteach" selected>Select</option>
 						<option value="cs1050">CS1050</option>
 						<option value="cs2050">CS2050</option>
@@ -216,7 +216,7 @@
 						//free the result
 					pg_free_result($result);
 					?>
-					<br>
+				<br>
 				<!--</p>-->
 			</div>	
 	
