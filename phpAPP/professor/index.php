@@ -7,14 +7,6 @@
 	<script src="../../js/jquery-1.11.2.min.js"></script>
 </head>
 <body>
-	<!-- Home/Logout -->
-			<div class="centerlogout">
-				<br>
-				<!--<input class="home" type="submit" name="submit" value="Home" onclick="window.location.href ='../phpSQL/index.php'">-->
-				<button class="logout" name="submit" value="Logout" onclick="window.location.href ='../../phpSQL/logout.php'">Logout</button>
-				<br><br>
-			</div>
-	<form method="POST" action="search_result.php">
 
 	<!-- Header/Footer -->
 
@@ -26,10 +18,20 @@
 			<h4>Copyright &copy; Group G - Computer Science Department</h4>
 		</div>
 
+	<!-- Home/Logout -->
+
+		<div class="centerlogout">
+			<br>
+			<!--<input class="home" type="submit" name="submit" value="Home" onclick="window.location.href ='../phpSQL/index.php'">-->
+			<button class="logout" name="submit" value="Logout" onclick="window.location.href ='../../phpSQL/logout.php'">Logout</button>
+			<br><br>
+		</div>
+
 		<!--request TA for course
 				button in generated table to enter entry into request table-->
 		<!--view all TA applicants base on selected parameters
 				code below-->
+	<form method="POST" action="search_result.php">
 
 		<div class="centerplsprof">
 			<label class="floatleft" for="courseNumb">View TA/PLA applicants by course number:</label>
