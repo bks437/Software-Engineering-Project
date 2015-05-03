@@ -64,7 +64,7 @@
 	
 	<!-- Courses -->
 		
-		<div class="centerpls">
+		<div class="centerplscourses">
 			<p>
 				<label class="floatleft" for="courseteaching" >Course(s) You Are Currently Teaching: </label>
 				<!-- 	<select multiple class="niceinput" id="cteach" name="cteach">
@@ -216,9 +216,7 @@
 						//free the result
 					pg_free_result($result);
 					?>
-				<br>
-				<!--</p>-->
-			</div>	
+		</div>	
 	
 	<!-- Next Page -->
 
