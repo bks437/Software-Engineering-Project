@@ -123,7 +123,7 @@
 			<br>
 			<button type="submit" name="view_all" value="view all">View All Applicants/Courses</button>
 			<!--<input class="home" type="submit" name="submit" value="Home" onclick="window.location.href ='../index.php'">-->
-			<input class="centeradminlogout logout" type="submit" name="submit" value="Logout" onclick="window.location.href ='../../phpSQL/logout.php'">
+			<input class="fixadminlogout logout" type="submit" name="submit" value="Logout" onclick="window.location.href ='../../phpSQL/logout.php'">
 		</div>
 			<br>
 				<div class="centerplsadmin" id="rank"></div>

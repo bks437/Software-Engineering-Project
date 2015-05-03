@@ -71,7 +71,10 @@ body {
 	left: 300px;
 }
 .centeradminlogout {
-	display: inline-block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 243px;
+	left: 300px;
 }
 .centerbuttonsgrad {
 	margin-left: auto;
@@ -102,6 +105,9 @@ body {
 	margin-right: auto;
 	width: 204.5px;
 	left: 300px;
+}
+.fixadminlogout {
+	display: inline-block;
 }
 .centerpls {
 	margin: auto;
