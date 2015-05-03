@@ -125,35 +125,32 @@
 			<!--<input class="home" type="submit" name="submit" value="Home" onclick="window.location.href ='../index.php'">-->
 			<input class="logout" type="submit" name="submit" value="Logout" onclick="window.location.href ='../../phpSQL/logout.php'">
 		</div>
-		
-			<div id="rank"></div>
-
+			<br>
+				<div id="rank"></div>
+			<br>
 		<form method="POST" action="search.php">
 			<div class="centerplsadmin">	
-				<p>
-					<label class="floatleft">Search by Course Number: </label>
-					<div class="floatright">
-						<input type="text" name="courseNumb" id="courseSearch" placeholder = "CS1050"></input>
-						<button type="submit" name="CSearch" value="search by course">Search</button>
+				<label class="floatleft">Search by Course Number: </label>
+				<div class="floatright">
+					<input type="text" name="courseNumb" id="courseSearch" placeholder = "CS1050"></input>
+					<button type="submit" name="CSearch" value="search by course">Search</button>
 						<br>
-					</div>
-				</p>
-				<p>
-					<br>
-					<label class="floatleft">Search by Applicant: </label>
-					<div class="floatright">
-						<input type="text" name="applicant_fName" id="applicantSearch" placeholder = "First Name"></input>
-						<input type="text" name="applicant_lName" id="applicantSearch" placeholder = "Last Name"></input>
-						<button type="submit" name="ASearch" value="search by applicant">Search</button>
+				</div>					
+					<br><br>
+				<label class="floatleft">Search by Applicant: </label>
+				<div class="floatright">
+					<input type="text" name="applicant_fName" id="applicantSearch" placeholder = "First Name"></input>
+					<input type="text" name="applicant_lName" id="applicantSearch" placeholder = "Last Name"></input>
+					<button type="submit" name="ASearch" value="search by applicant">Search</button>
 						<br>
-					</div>
-				</p>				
+				</div>						
 			</div>
 		</form>
 
 		<!--insert course-->
 		<form method="POST" action="adminActions/addcourses.php">
-			<div class="">
+			<div class="centerplsadmin">
+				<br><br><br>
 				<button type="submit" name="addCourse" value="add new course">Add new course</button>
 				<br>
 				<br>
