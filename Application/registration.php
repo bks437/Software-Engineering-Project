@@ -91,22 +91,22 @@
 			<div id="login"> <!-- do we need this id?? -->
 				<p>				
 					<label class="floatleft" for="fname">First name:</label>
-					<input class="floatright" type="text" name="fname">
+					<input class="floatright" type="text" name="fname" required>
 				</p>
 					<br>
 				<p>
 					<label class="floatleft" for="lname">Last name: </label>
-					<input class="floatright" type="text" name="lname">							
+					<input class="floatright" type="text" name="lname" required>							
 				</p>		
 					<br>
 				<p>				
 					<label class="floatleft" for="username">Username:</label>
-					<input class="floatright" type="text" name ="username">
+					<input class="floatright" type="text" name ="username" required>
 				</p>
 					<br>
 				<p>
 					<label class="floatleft" for="password">Password:</label>
-					<input class="floatright" type="password" name="password">
+					<input class="floatright" type="password" name="password" required>
 				</p>		
 			</div>
 		</div>
