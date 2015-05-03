@@ -7,7 +7,7 @@
 	<script src="../../js/jquery-1.11.2.min.js"></script>
 </head>
 <body>
-	<form method="POST" action="professorActions/search_result.php">
+	<form method="POST" action="search_result.php">
 
 	<!-- Header/Footer -->
 
