@@ -1,7 +1,7 @@
 <?php
 	session_start();
 	if(!isset($_SESSION['username']) || $_SESSION["authority"] != "admin"){
-		header("Location: ../index.php");
+		header("Location: ../../index.php");
 	}
 ?>
 
@@ -9,7 +9,7 @@
 <html>
 	<head>
 	<title>CS4320 - Group G</title>
-	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<link rel="stylesheet" type="text/css" href="../../css/style.css">
 			<script src="../js/jquery-1.11.2.min.js"></script>
 			<script src="../js/ajax.js"></script>
 			<script>
@@ -116,20 +116,20 @@
 		<div class="footer shadowfooter">
 			<h4>Copyright &copy; Group G - Computer Science Department</h4>
 		</div>
-	
+
 	<!-- Home/Logout -->
-	
+
 		<div class="centerlogout">
 			<br>
 			<!--<input class="home" type="submit" name="submit" value="Home" onclick="window.location.href ='../index.php'">-->
-			<input class="logout" type="submit" name="submit" value="Logout" onclick="window.location.href ='../phpSQL/logout.php'">
+			<input class="logout" type="submit" name="submit" value="Logout" onclick="window.location.href ='../../phpSQL/logout.php'">
 		</div>
-		
+
 			<div id="rank"></div>
 
 		<form method="POST" action="search.php">
 			<div class="centerplsadmin">
-				
+
 					<br/>
 					<br/>
 					<br/>
@@ -157,19 +157,19 @@
 			</form>
 
 			<!--insert course-->
-			<form method="POST" action="adminActions/addcourses.php">
+			<form method="POST" action="createcourses.php">
 				<button type="submit" name="addCourse" value="add new course">Add new course</button>
 				<br>
 				<br>
 				<br>
 			</form>
 
-			<button type="button" onclick="window.location.href='adminActions/semester.php'">Add a new semester</button>
+			<button type="button" onclick="window.location.href='semester.php'">Add a new semester</button>
 				<br>
 				<br>
 				<br>
 
-			<button type="button" onclick="window.location.href='adminActions/addprofessor.php'">Add a new professor</button>
+			<button type="button" onclick="window.location.href='addprofessor.php'">Add a new professor</button>
 				<br>
 				<br>
 				<br>
