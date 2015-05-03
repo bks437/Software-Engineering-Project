@@ -36,15 +36,15 @@
 		<div class="centerplsprof">
 			<label class="floatleft" for="courseNumb">View TA/PLA applicants by course number:</label>
 			<div class="floatright">
-				<input type="text" name="courseNumb" id="courseSearch" placeholder="CS1050"></input>
+				<input type="text" name="courseNumb" id="courseSearch" size="15" placeholder="CS1050"></input>
 				<button type="submit" name="CSearch" value="search by course">Search</button>
 					<br><br>
 			</div>
 				<br><br>
 			<label class="floatleft" for="applicantName">View applicant by name: </label>
 			<div class="floatright">
-				<input type="text" name="applicant_fName" id="applicantSearch" placeholder="First Name"></input>
-				<input type="text" name="applicant_lName" id="applicantSearch" placeholder="Last Name"></input>
+				<input type="text" name="applicant_fName" id="applicantSearch" size="15" placeholder="First Name"></input>
+				<input type="text" name="applicant_lName" id="applicantSearch" size="15" placeholder="Last Name"></input>
 				<button type="submit" name="ASearch" value="search by applicant">Search</button>
 					<br><br>
 			</div>
