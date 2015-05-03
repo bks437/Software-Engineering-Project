@@ -48,12 +48,12 @@
 				<p>				
 					<input type="hidden" name="action" value="do_login">					
 					<label class="floatleft" for="username">Username:</label>
-					<input class="floatright" type="text" name="username" id="username" value="<?php echo $username; ?>">		
+					<input class="floatright" type="text" name="username" id="username" value="<?php echo $username; ?>" required>		
 				</p>
 					<br>
 				<p>
 					<label class="floatleft" for="password" >Password:   </label>
-					<input class="floatright" type="password" name="password" id="password">							
+					<input class="floatright" type="password" name="password" id="password" required>							
 				</p>		
 					<br>
 			</div>
