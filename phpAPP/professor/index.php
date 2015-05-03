@@ -1,3 +1,20 @@
+<?php
+	session_start();
+	//Redirect if user is not logged in to login page
+	if(!isset($_SESSION['username']) || $_SESSION["authority"] != "prof"){
+		header("Location: ../../index.php");
+	}
+		include("../../connect/database.php");
+
+		$dbconn=pg_connect(HOST." ".DBNAME." ".USERNAME." ".PASSWORD)or die('Could not connect: ' . pg_last_error());
+
+		pg_prepare($dbconn,"course", "SELECT c_id from DDL.Course where professor=$1")or die('error! ' . pg_last_error());
+		$courses=pg_execute($dbconn,"course",array($_SESSION[username]));
+
+		pg_close($dbconn);
+?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -36,8 +53,8 @@
 			<label class="floatleft" for="courseNumb">View TA/PLA applicants by course number:</label>
 			<div class="floatright">
 				<select type="text" name="courseNumb" id="courseSearch">
-					<option value="courseNumb">Select</option>
-					<option value="cs1050">CS1050</option>
+ 					<option value="courseNumb">Select</option>
+					<!--<option value="cs1050">CS1050</option>
 					<option value="cs2050">CS2050</option>
 					<option value="cs2830">CS2830</option>
 					<option value="cs3050">CS3050</option>
@@ -47,7 +64,14 @@
 					<option value="cs4320">CS4320</option>
 					<option value="cs4380">CS4380</option>
 					<option value="cs4610">CS4610</option>
-					<option value="cs4830">CS4830</option>
+					<option value="cs4830">CS4830</option> -->
+
+					<?php
+					while( $course = pg_fetch_array($courses, null, PGSQL_ASSOC)){
+						echo "<option value=\"$course[c_id]\">$course[c_id]</option>"
+					}
+
+					?>
 				</select>
 				<button type="submit" name="CSearch" value="search by course">Search</button>
 					<br><br>
