@@ -9,7 +9,7 @@
 <html>
 	<head>
 	<title>CS4320 - Group G</title>
-	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<link rel="stylesheet" type="text/css" href="../../css/style.css">
 			<script src="../js/jquery-1.11.2.min.js"></script>
 			<script src="../js/ajax.js"></script>
 			<script>
