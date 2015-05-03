@@ -140,9 +140,9 @@
 			<p id="onita" style="display:none">
 				<label class="floatleft">Have you attended the ONITA?</label>
 				<div class="onesemester floatright" id="onitaradio" style="display:none">
-					<input type="radio" name="onita" value="Yes">Yes</input>
-					<input type="radio" name="onita" value="No"> No</input>
-					<input type="radio" name="onita" value="Will_attend">Will attend in Aug/Jan</input>
+					<input type="radio" name="onita" value="Y">Yes</input>
+					<input type="radio" name="onita" value="N"> No</input>
+					<input type="radio" name="onita" value="W">Will attend in Aug/Jan</input>
 				</div>
 				<br>
 			</p>
