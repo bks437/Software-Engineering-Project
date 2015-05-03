@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -36,7 +35,20 @@
 		<div class="centerplsprof">
 			<label class="floatleft" for="courseNumb">View TA/PLA applicants by course number:</label>
 			<div class="floatright">
-				<input type="text" name="courseNumb" id="courseSearch" size="15" placeholder="CS1050"></input>
+				<select type="text" name="courseNumb" id="courseSearch">
+					<option value="courseNumb">Select</option>
+					<option value="cs1050">CS1050</option>
+					<option value="cs2050">CS2050</option>
+					<option value="cs2830">CS2830</option>
+					<option value="cs3050">CS3050</option>
+					<option value="cs3330">CS3330</option>
+					<option value="cs3380">CS3380</option>
+					<option value="cs3530">CS3530</option>
+					<option value="cs4320">CS4320</option>
+					<option value="cs4380">CS4380</option>
+					<option value="cs4610">CS4610</option>
+					<option value="cs4830">CS4830</option>
+				</select>
 				<button type="submit" name="CSearch" value="search by course">Search</button>
 					<br><br>
 			</div>
