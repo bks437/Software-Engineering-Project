@@ -120,6 +120,10 @@ body {
 	width: 600px;
 }
 .centerplsadmin {
+	margin: auto;
+	width: 600px;
+}
+.centerplsprof {
 	background: oldlace;
 	margin: auto;
 	width: 600px;
