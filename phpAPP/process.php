@@ -42,11 +42,11 @@
                		//if faculty is the admin
                		if($line["admin"]=='y'){
                			$_SESSION["authority"] = "admin";
-               			header("Location: admin_page.php");
+               			header("Location: admin");
                		}
                		else{
                			$_SESSION["authority"] = "prof";
-               			header("Location: professor_page.php");
+               			header("Location: professor");
                		}
                	}
                	//if logined in user is not a faculty
