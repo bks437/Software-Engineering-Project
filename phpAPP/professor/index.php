@@ -7,6 +7,13 @@
 	<script src="../../js/jquery-1.11.2.min.js"></script>
 </head>
 <body>
+	<!-- Home/Logout -->
+			<div class="centerlogout">
+				<br>
+				<!--<input class="home" type="submit" name="submit" value="Home" onclick="window.location.href ='../phpSQL/index.php'">-->
+				<button class="logout" name="submit" value="Logout" onclick="window.location.href ='../../phpSQL/logout.php'">Logout</button>
+				<br><br>
+			</div>
 	<form method="POST" action="search_result.php">
 
 	<!-- Header/Footer -->
@@ -17,15 +24,6 @@
 
 		<div class="footer shadowfooter">
 			<h4>Copyright &copy; Group G - Computer Science Department</h4>
-		</div>
-
-	<!-- Home/Logout -->
-
-		<div class="centerlogout">
-			<br>
-			<!--<input class="home" type="submit" name="submit" value="Home" onclick="window.location.href ='../phpSQL/index.php'">-->
-			<button class="logout" name="submit" value="Logout" onclick="window.location.href ='../../phpSQL/logout.php'">Logout</button>
-			<br><br>
 		</div>
 
 		<!--request TA for course
