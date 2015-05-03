@@ -8,7 +8,7 @@
 
 		$dbconn=pg_connect(HOST." ".DBNAME." ".USERNAME." ".PASSWORD)or die('Could not connect: ' . pg_last_error());
 
-		pg_prepare($dbconn,"course", "SELECT c_id from DDL.Course where professor=$1")or die('error! ' . pg_last_error());
+		pg_prepare($dbconn,"course", "SELECT c_id,numb from DDL.Course where professor=$1")or die('error! ' . pg_last_error());
 		$courses=pg_execute($dbconn,"course",array($_SESSION[username]));
 
 		pg_close($dbconn);
@@ -68,7 +68,7 @@
 
 					<?php
 					while( $course = pg_fetch_array($courses, null, PGSQL_ASSOC)){
-						echo "<option value=\"$course[c_id]\">$course[c_id]</option>";
+						echo "<option value=\"$course[c_id]\">$course[numb]</option>";
 					}
 
 					?>
