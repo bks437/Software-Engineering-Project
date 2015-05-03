@@ -16,8 +16,7 @@
 		$username4 = $_POST['username3'];
 		$score = $_POST['rankscore'];
 
-		$score_find = "SELECT iaa.ta_rank from DDL.is_an_applicant iaa where iaa.username = $1;";
-		echo $score_find ;
+		$score_find = 'SELECT iaa.ta_rank from DDL.is_an_applicant iaa where iaa.username = $1';
 		pg_prepare($dbconn, 'scorefind',$score_find);
 		$result= pg_execute($dbconn, 'scorefind',array($username4))or die('error! ' . pg_last_error());
 
