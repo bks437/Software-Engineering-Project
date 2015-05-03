@@ -139,6 +139,7 @@
 					</div>
 				</p>
 				<p>
+					<br>
 					<label class="floatleft">Search by Applicant: </label>
 					<div class="floatright">
 						<input type="text" name="applicant_fName" id="applicantSearch" placeholder = "First Name"></input>
