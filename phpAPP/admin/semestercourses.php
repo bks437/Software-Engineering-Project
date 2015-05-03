@@ -2,7 +2,7 @@
 	session_start();
 	if(!isset($_SESSION['username']) || $_SESSION["authority"] != "admin"){
 		header("Location: index.php");
-	}	
+	}
 	include("../../connect/database.php");
 	$dbconn=pg_connect(HOST." ".DBNAME." ".USERNAME." ".PASSWORD)
 				or die('Could not connect: ' . pg_last_error());
@@ -104,6 +104,7 @@
 			?>
 
 			<button onclick="window.location.href='createcourse.php'">Create a new course</button>
+			<button onclick="window.location.href='index.php'">Finish</button>
 		<div id="selected"></div>
 
 	</body>
