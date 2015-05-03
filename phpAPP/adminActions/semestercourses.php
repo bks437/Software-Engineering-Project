@@ -103,7 +103,7 @@
 			}
 			?>
 
-			<button onclick="window.href('createcourse.php')">Create a new course</button>
+			<button onclick="window.location.href='createcourse.php'">Create a new course</button>
 		<div id="selected"></div>
 
 	</body>
