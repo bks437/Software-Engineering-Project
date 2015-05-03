@@ -1,7 +1,7 @@
 <?php
 	session_start();
 	if(!isset($_SESSION['username']) || $_SESSION["authority"] != "admin"){
-		header("Location: ../../index.php");
+		header("Location: ../index.php");
 	}
 ?>
 
@@ -110,70 +110,62 @@
 	<!-- Header/Footer -->
 
 		<div class="header shadowheader">
-			<h1>Step 1: Basic Information</h1>
+			<h1>Admin Page</h1>
 		</div>
 
 		<div class="footer shadowfooter">
 			<h4>Copyright &copy; Group G - Computer Science Department</h4>
 		</div>
-
-	<!-- Home/Logout -->
-
-		<div class="centerlogout">
+	
+	<!-- View Apps/Home/Logout -->
+	
+		<div class="centeradminlogout">
 			<br>
+			<button type="submit" name="view_all" value="view all">View All Applicants/Courses</button>
 			<!--<input class="home" type="submit" name="submit" value="Home" onclick="window.location.href ='../index.php'">-->
 			<input class="logout" type="submit" name="submit" value="Logout" onclick="window.location.href ='../../phpSQL/logout.php'">
 		</div>
-
+		
 			<div id="rank"></div>
 
 		<form method="POST" action="search.php">
-			<div class="centerplsadmin">
-
-					<br/>
-					<br/>
-					<br/>
-				<div align='center'>
-
-					<button type="submit" name="view_all" value="view all">View all applicants/courses</button><br>
-				</div>
-					<br/>
-					<br/>
-				<div align='center'>
+			<div class="centerplsadmin">				
+					<br>
+					<br>
 
 					<input type="text" name="courseNumb" id="courseSearch" placeholder = "CS1050"></input><br>
 					<button type="submit" name="CSearch" value="search by course">Course Search</button><br>
-				</div>
+				
 					<br/>
 					<br/>
-				<div align='center'>
 
 					<input type="text" name="applicant_fName" id="applicantSearch" placeholder = "first name"></input><br>
 					<input type="text" name="applicant_lName" id="applicantSearch" placeholder = "last name"></input><br>
 					<button type="submit" name="ASearch" value="search by applicant">Applicant Search</button><br>
-				</div>
+				
 					<br/>
 					<br/>
-			</form>
+			</div>
+		</form>
 
-			<!--insert course-->
-			<form method="POST" action="createcourses.php">
+		<!--insert course-->
+		<form method="POST" action="adminActions/addcourses.php">
+			<div class="centerbuttonsadmin>
 				<button type="submit" name="addCourse" value="add new course">Add new course</button>
 				<br>
 				<br>
 				<br>
-			</form>
+		</form>
 
-			<button type="button" onclick="window.location.href='semester.php'">Add a new semester</button>
+			<button type="button" onclick="window.location.href='adminActions/semester.php'">Add a new semester</button>
 				<br>
 				<br>
 				<br>
 
-			<button type="button" onclick="window.location.href='addprofessor.php'">Add a new professor</button>
+			<button type="button" onclick="window.location.href='adminActions/addprofessor.php'">Add a new professor</button>
 				<br>
 				<br>
 				<br>
-			<button type="button" onclick="window.location.href='../../phpSQL/logout.php'">Log out</button>
-		</div>
+			</div>
 	</body>
 </html>

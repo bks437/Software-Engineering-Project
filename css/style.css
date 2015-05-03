@@ -63,6 +63,12 @@ body {
 	width: 126.5px;
 	left: 300px;
 }
+.centeradminlogout {
+	margin-left: auto;
+	margin-right: auto;
+	width: 126.5px;
+	left: 300px;
+}
 .centerbuttonsgrad {
 	margin-left: auto;
 	margin-right: auto;
@@ -87,6 +93,12 @@ body {
 	width: 204.5px;
 	left: 300px;
 }
+.centerbuttonsadmin {
+	margin-left: auto;
+	margin-right: auto;
+	width: 204.5px;
+	left: 300px;
+}
 .centerpls {
 	margin: auto;
 	width: 600px;
@@ -104,6 +116,11 @@ body {
 	width: 600px;
 }
 .centerplsreg {
+	margin: auto;
+	width: 600px;
+}
+.centerplsadmin {
+	background: oldlace;
 	margin: auto;
 	width: 600px;
 }

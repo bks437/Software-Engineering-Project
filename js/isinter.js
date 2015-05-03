@@ -25,7 +25,8 @@ $(document).ready(function () {
 			$("#newstudentradio").hide();
 			$("#onita").hide();
 			$("#onitaradio").hide();
-			$("#click").show();
+			$("#click").hide();
+			$("#not").show();
 			$("#home").hide();
 		}
 		else{
