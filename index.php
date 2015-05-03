@@ -41,8 +41,10 @@
 		</div>	
 			<br>
 			
+	<!-- Login -->	
+	
 		<form name="Login" action="phpAPP/process.php" method="POST">	
-			<div class="centerplsindex">
+			<div class="centerplsindex shadowbox">
 				<p>				
 					<input type="hidden" name="action" value="do_login">					
 					<label class="floatleft" for="username">Username:</label>
