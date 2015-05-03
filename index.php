@@ -39,6 +39,7 @@
 		<div class="footer shadowfooter">			
 			<h4>Copyright &copy; Group G - Computer Science Department</h4>		
 		</div>	
+			<br>
 			
 		<form name="Login" action="phpAPP/process.php" method="POST">	
 			<div class="centerplsindex">
