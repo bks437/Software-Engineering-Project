@@ -58,8 +58,8 @@
 	
 		<div class="centerhomelogout">
 			<br>
-			<input class="home" type="submit" name="submit" value="Home">
-			<input class="logout" type="submit" name="submit" value="Logout">
+			<input class="home" type="submit" name="submit" value="Home" onclick="window.location.href ='../phpSQL/home.php'">
+			<input class="logout" type="submit" name="submit" value="Logout" onclick="window.location.href ='../phpSQL/logout.php'">
 		</div>
 	
 	<!-- Courses -->
@@ -104,8 +104,8 @@
 								echo "\t\t<div class=\"name\">$line[name]</div>\n";	
 								echo "\t\t<div class=\"numb\">$line[numb]</div>\n";		
 							//}
-								echo "<button class=\"button\" onclick=\"addcourse('$line[c_id]','Teaching')\">Add</button>";
-								echo "<button class=\"button\" onclick=\"removecourse('$line[c_id]','Teaching')\">Remove</button></div>";
+								echo "<button class=\"button courseml\" onclick=\"addcourse('$line[c_id]','Teaching')\">Add</button>";
+								echo "<button class=\"button courseml\" onclick=\"removecourse('$line[c_id]','Teaching')\">Remove</button></div>";
 							echo "\t<br>\n";
 						}
 						//free the result
@@ -152,8 +152,8 @@
 								echo "\t\t<div class=\"name\">$line[name]</div>\n";	
 								echo "\t\t<div class=\"numb\">$line[numb]</div>\n";		
 							//}
-								echo "<button class=\"button\" onclick=\"addcourse('$line[c_id]','Taught')\">Add</button>";
-								echo "<button class=\"button\" onclick=\"removecourse('$line[c_id]','Taught')\">Remove</button></div>";
+								echo "<button class=\"button courseml\" onclick=\"addcourse('$line[c_id]','Taught')\">Add</button>";
+								echo "<button class=\"button courseml\" onclick=\"removecourse('$line[c_id]','Taught')\">Remove</button></div>";
 							echo "\t<br>\n";
 						}
 						//free the result
@@ -163,7 +163,8 @@
 				<br>
 			</p>
 			<p>
-				<label class="floatleft" for="lteach">Course(s) You Would Like to Teach (must have taken previously), include grades received: </label>
+				<label class="floatleft" for="lteach">Course(s) You Would Like to Teach; include grades received: </label>
+				<label class="floatleft" for="lteach">(Must have taken previously)</label>
 					<!-- <select multiple class="niceinput" id="lteach" name="lteach">
 						<option value="lteach" selected>Select</option>
 						<option value="cs1050">CS1050</option>
@@ -209,8 +210,8 @@
 									<option value=\"D\">D</option>
 									<option value=\"F\">F</option>
 								</select>";
-							echo "<button class=\"button\" onclick=\"addcourse('$line[c_id]','Wants')\">Add</button>";
-							echo "<button class=\"button\" onclick=\"removecourse('$line[c_id]','Wants')\">Remove</button></div>";
+							echo "<button class=\"button courseml\" onclick=\"addcourse('$line[c_id]','Wants')\">Add</button>";
+							echo "<button class=\"button courseml\" onclick=\"removecourse('$line[c_id]','Wants')\">Remove</button></div>";
 							echo "\t<br>\n";
 						}
 						//free the result
@@ -221,13 +222,13 @@
 	<!-- Next Page -->
 
 		<div class="centerpls">
-			<br><br>
+			<br>
 			<p class="floatright" id="click">
 				<input type="submit" name="submit" value="Finish Application" onclick="window.location.href ='../phpSQL/home.php'">
+				<br>
+				<br>
 			</p>			
-		</div>
-			<br>
-			<br>
+		</div>			
 	</body>
 </html>
 <? pg_close($dbconn);?>

@@ -66,8 +66,8 @@
 	
 		<div class="centerhomelogout">
 			<br>
-			<input class="home" type="submit" name="submit" value="Home">
-			<input class="logout" type="submit" name="submit" value="Logout">
+			<input class="home" type="submit" name="submit" value="Home" onclick="window.location.href ='../phpSQL/home.php'">
+			<input class="logout" type="submit" name="submit" value="Logout" onclick="window.location.href ='../phpSQL/logout.php'">
 		</div>
 			
 	<!-- Graduate/Undergraduate -->
