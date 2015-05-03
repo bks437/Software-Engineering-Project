@@ -58,7 +58,7 @@
 	
 		<div class="centerhomelogout">
 			<br>
-			<input class="home" type="submit" name="submit" value="Home" onclick="window.location.href ='../phpSQL/home.php'">
+			<!--<input class="home" type="submit" name="submit" value="Home" onclick="window.location.href ='../phpSQL/home.php'">-->
 			<input class="logout" type="submit" name="submit" value="Logout" onclick="window.location.href ='../phpSQL/logout.php'">
 		</div>
 	
@@ -229,7 +229,11 @@
 				<br>
 				<br>
 			</p>			
-		</div>			
+		</div>
+			<br>
+			<br>
+			<br>
+			<br>
 	</body>
 </html>
 <? pg_close($dbconn);?>
