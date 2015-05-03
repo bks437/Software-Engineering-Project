@@ -1,22 +1,23 @@
-<?php 
+<?php
 	session_start();
 	if(!isset($_SESSION['username']) || $_SESSION["authority"] != "admin"){
 		header("Location: ../../index.php");
-	}	
+	}
 
 	if (isset($_POST['submit'])){
 
-		$username = $_SESSION['username'];			  
+		$username = $_SESSION['username'];
 		//connect to database
 		include("../../connect/database.php");
 		//if cannot connect return error
 		$dbconn=pg_connect(HOST." ".DBNAME." ".USERNAME." ".PASSWORD)or die('Could not connect: ' . pg_last_error());
 
-		//search applicant username 
+		//search applicant username
 		$username4 = $_POST['username3'];
 		$score = $_POST['rankscore'];
-		
+
 		$score_find = "SELECT iaa.ta_rank from DDL.is_an_applicant iaa where iaa.username = $1;";
+		echo $score_find ;
 		pg_prepare($dbconn, 'scorefind',$score_find);
 		$result= pg_execute($dbconn, 'scorefind',array($username4))or die('error! ' . pg_last_error());
 
@@ -24,7 +25,7 @@
 			echo "No record found!";
 		}
 
-		else {	
+		else {
 
 			//if no score found for this applicant, insert score
 			if ($score_find == "") {
@@ -36,7 +37,7 @@
 				else{
 					echo "Some error occured!";
 				}
-			}		
+			}
 
 			//if there are already score for this applicant, update score
 			else {
@@ -54,8 +55,8 @@
 	else {
 
 		header("Location: ../admin_page.php");
-	}			
-			
+	}
+
 		pg_close($dbconn);
 ?>
 
