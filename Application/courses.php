@@ -58,7 +58,7 @@
 	
 		<div class="centerlogout">
 			<br>
-			<!--<input class="home" type="submit" name="submit" value="Home" onclick="window.location.href ='../phpSQL/home.php'">-->
+			<!--<input class="home" type="submit" name="submit" value="Home" onclick="window.location.href ='../phpSQL/index.php'">-->
 			<input class="logout" type="submit" name="submit" value="Logout" onclick="window.location.href ='../phpSQL/logout.php'">
 		</div>
 	
@@ -225,7 +225,7 @@
 		<div class="centerpls">
 			<br>
 			<p class="floatright" id="click">
-				<input type="submit" name="submit" value="Finish Application" onclick="window.location.href ='../phpSQL/home.php'">
+				<input type="submit" name="submit" value="Finish Application" onclick="window.location.href ='../phpSQL/index.php'">
 				<br>
 				<br>
 			</p>			

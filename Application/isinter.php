@@ -160,7 +160,7 @@
 
 		<div class="centerpls">
 			<p class="floatright" id="home" style="display: none">
-				<input type="submit" name="submit" value="Proceed to the home page">
+				<input type="submit" name="submit" value="Proceed to the home page" onclick="window.location.href ='../phpSQL/index.php'">
 			</p>
 		</div>
 	</form>
