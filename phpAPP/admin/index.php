@@ -1,7 +1,7 @@
 <?php
 	session_start();
 	if(!isset($_SESSION['username']) || $_SESSION["authority"] != "admin"){
-		header("Location: ../index.php");
+		header("Location: ../../index.php");
 	}
 ?>
 
@@ -116,20 +116,20 @@
 		<div class="footer shadowfooter">
 			<h4>Copyright &copy; Group G - Computer Science Department</h4>
 		</div>
-	
+
 	<!-- Home/Logout -->
-	
+
 		<div class="centerlogout">
 			<br>
 			<!--<input class="home" type="submit" name="submit" value="Home" onclick="window.location.href ='../index.php'">-->
-			<input class="logout" type="submit" name="submit" value="Logout" onclick="window.location.href ='../phpSQL/logout.php'">
+			<input class="logout" type="submit" name="submit" value="Logout" onclick="window.location.href ='../../phpSQL/logout.php'">
 		</div>
-		
+
 			<div id="rank"></div>
 
 		<form method="POST" action="search.php">
 			<div class="centerplsadmin">
-				
+
 					<br/>
 					<br/>
 					<br/>
@@ -157,7 +157,7 @@
 			</form>
 
 			<!--insert course-->
-			<form method="POST" action="adminActions/addcourses.php">
+			<form method="POST" action="createcourses.php">
 				<button type="submit" name="addCourse" value="add new course">Add new course</button>
 				<br>
 				<br>
