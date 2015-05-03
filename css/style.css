@@ -39,6 +39,12 @@ body {
 .logout {
 	margin: auto;
 }
+.centerhome{
+	margin-left: auto;
+	margin-right: auto;
+	width: 51.5px;
+	left: 300px;
+}
 .centerlogout{
 	margin-left: auto;
 	margin-right: auto;
