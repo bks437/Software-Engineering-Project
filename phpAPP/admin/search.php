@@ -269,11 +269,11 @@
 
 <html>
 <body>
-	<form method="POST" action="../admin_page.php">
+	<form method="POST" action="index.php">
 		<div align='center'>
 			<br>
 			<br>
-			<button  name="admin_page" value="Go back to admin page" onclick="window.location.href='index.php'"> Go back to admin page</button>
+			<input type="submit"  name="admin_page" value="Go back to admin page"> </input>
 		</div>
 	</form>
 
