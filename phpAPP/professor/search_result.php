@@ -13,7 +13,7 @@
 		//if cannot connect return error
 		$dbconn=pg_connect(HOST." ".DBNAME." ".USERNAME." ".PASSWORD)or die('Could not connect: ' . pg_last_error());
 
-		if(!$_POST['courseNumb']){
+		if(!isset($_POST['courseNumb'])){
 			$result = false;
 			echo "Wrong! Course number can not be empty!".'<br/><br/><br/>';
 		}
