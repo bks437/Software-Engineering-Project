@@ -25,7 +25,7 @@
 			//find usernames who want to teach this course
 			$search_username = "SELECT wtt.ta_username FROM DDL.wants_to_teach wtt where wtt.c_id=$1"; #IN (SELECT C.c_id FROM DDL.course C where C.numb= $1)";
 			pg_prepare($dbconn, 'namesearch', $search_username)or die('error! ' . pg_last_error());
-			$result = pg_execute($dbconn, 'namesearch', array($courseNumb));
+			$result = pg_execute($dbconn, 'namesearch', array($courseNumb))or die('error! ' . pg_last_error());
 
 			//if no username is found
 			if ($result == false) {
