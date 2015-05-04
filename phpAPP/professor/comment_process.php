@@ -30,7 +30,7 @@
 
 		//if no comments found for this applicant, insert comments
 		if($result2 != $username3) {
-			pg_prepare($dbconn,"insertComm",'INSERT INTO DDL.comments values ($1,$2,$3)')or die('error! ' . pg_last_error());
+			pg_prepare($dbconn,"insertComm",'INSERT INTO DDL.comments values ($1,$2,$3,$4)')or die('error! ' . pg_last_error());
 			$result3 = pg_execute($dbconn,"insertComm",array($username, $username3, $comments,$semester))or die('error! ' . pg_last_error());
 			echo "You have successfully added comments to "."<b>".$whole_name."<b>"."<br/>"."<br/>";
 		}
