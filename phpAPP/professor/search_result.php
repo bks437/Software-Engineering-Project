@@ -20,7 +20,7 @@
 
 		else{
 
-			$courseNumb = $_POST['c_id'];
+			$courseNumb = $_POST['courseNumb'];
 
 			//find usernames who want to teach this course
 			$search_username = "SELECT wtt.ta_username FROM DDL.wants_to_teach wtt where wtt.c_id=$1"; #IN (SELECT C.c_id FROM DDL.course C where C.numb= $1)";
