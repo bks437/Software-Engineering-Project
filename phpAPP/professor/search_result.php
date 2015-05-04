@@ -53,7 +53,7 @@
 							$actions ="<a href=\"stu_info.php?username2=$username1\" target=\"_blank\">Student info</a> |
 									   <a href=\"add_comments.php?username2=$username1\" target=\"_blank\">Add Comments</a> |
 									   <a href=\"view_resume.php?username2=$username1\" target=\"_blank\">View Resume</a> |
-									   <a href=\"request_TA.php?username2=$username1&course=$_POST[c_id]\" target=\"_blank\"> Request as TA</a> ";
+									   <a href=\"request_TA.php?username2=$username1&course=$_POST[courseNumb]\" target=\"_blank\"> Request as TA</a> ";
 
 							//add each row
 							while($name=pg_fetch_array($person)){
