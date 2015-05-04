@@ -35,6 +35,7 @@
 <html>
 	<!--ADD ANY USEFUL TIPS, otherwise ... DO NOT FUCK WITH THE COMMENTS. please and thank you.-->
 <head>
+	<meta charset="UTF-8">
 	<title>CS4320 - Group G</title>
 	<link rel="stylesheet" type="text/css" href="../css/style.css">
 	<script src="../js/jquery-1.11.2.min.js"></script>

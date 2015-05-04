@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
+	<meta charset="UTF-8">
 		<?php
 			if(!isset($_SERVER['HTTPS']) || !$_SERVER['HTTPS']){
 				header("Location: https://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
@@ -13,10 +14,10 @@
 		//checks to see if the user is logged in
 			if(isset($_SESSION['username'])){
 				if($_SESSION["authority"] == "admin"){
-					header("Location: phpAPP/admin");
+					header("Location: phpAPP/admin_page.php");
 				}
 				elseif($_SESSION["authority"] == "prof"){
-					header("Location: phpAPP/professor");
+					header("Location: phpAPP/professor_page.php");
 				}
 				elseif($_SESSION["authority"] == "applicant"){
 					header("Location: phpSQL/home.php");			
