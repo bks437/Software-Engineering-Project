@@ -20,10 +20,10 @@
 
 		else{
 
-			$courseNumb = $_POST['courseNumb'];
+			$courseNumb = $_POST['c_id'];
 
 			//find usernames who want to teach this course
-			$search_username = "SELECT wtt.ta_username FROM DDL.wants_to_teach wtt where wtt.c_id IN (SELECT C.c_id FROM DDL.course C where C.numb= $1)";
+			$search_username = "SELECT wtt.ta_username FROM DDL.wants_to_teach wtt where wtt.c_id=$1"; #IN (SELECT C.c_id FROM DDL.course C where C.numb= $1)";
 			pg_prepare($dbconn, 'namesearch', $search_username)or die('error! ' . pg_last_error());
 			$result = pg_execute($dbconn, 'namesearch', array($courseNumb));
 
@@ -53,7 +53,7 @@
 							$actions ="<a href=\"stu_info.php?username2=$username1\" target=\"_blank\">Student info</a> |
 									   <a href=\"add_comments.php?username2=$username1\" target=\"_blank\">Add Comments</a> |
 									   <a href=\"view_resume.php?username2=$username1\" target=\"_blank\">View Resume</a> |
-									   <a href=\"request_TA.php?username2=$username1\" target=\"_blank\"> Request as TA</a> ";
+									   <a href=\"request_TA.php?username2=$username1&course=$_POST[c_id]\" target=\"_blank\"> Request as TA</a> ";
 
 							//add each row
 							while($name=pg_fetch_array($person)){

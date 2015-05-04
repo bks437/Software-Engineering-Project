@@ -68,7 +68,7 @@
 
 					<?php
 					while( $course = pg_fetch_array($courses, null, PGSQL_ASSOC)){
-						echo "<option value=\"$course[numb]\">$course[numb]</option>";
+						echo "<option value=\"$course[c_id]\">$course[numb]</option>";
 					}
 
 					?>

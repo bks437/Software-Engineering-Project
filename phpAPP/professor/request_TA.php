@@ -27,8 +27,8 @@
 
 	//if has not request this applicant
 	if($result2[ta_username] != $username3) {
-		pg_prepare($dbconn,"insert_requestTA",'INSERT INTO DDL.professor_wants_ta values ($1,$2)')or die('error! ' . pg_last_error());
-		$result3 = pg_execute($dbconn,"insert_requestTA",array($username3, $username));
+		pg_prepare($dbconn,"insert_requestTA",'INSERT INTO DDL.professor_wants_ta values ($1,$2,$3)')or die('error! ' . pg_last_error());
+		$result3 = pg_execute($dbconn,"insert_requestTA",array($username3, $username,$_GET[course]));
 		echo "You have successfully requested "."<b>".$whole_name."</b>"." as your TA."."<br/>"."<br/>";
 	}
 
