@@ -1,8 +1,9 @@
 <?php
 			session_start();
-			if(!isset($_SESSION['username'])){
-				header("Location: ../index.php");
-			}
+	// if(!isset($_SESSION['username']) || $_SESSION["authority"] != "applicant"){
+	// 	header("Location: ../index.php");
+	// }
+			$_SESSION[username]="app2";
 ?>
 <!DOCTYPE html>
 <html>
@@ -12,9 +13,16 @@
 <body>	
 
 	<? //Redirect if user is not logged in to login page
-			
+	// 		$info_table .= "<tr align='center'><td>name</td><td>".$name['fname']." ".$name['lname']."</td></tr>";
+	// $info_table .= "<tr align='center'><td>id</td><td>".$basic['id']."</td></tr>";
+	// $info_table .= "<tr align='center'><td>email</td><td>".$basic['email']."</td></tr>";
+	// $info_table .= "<tr align='center'><td>phone</td><td>".$basic['phone']."</td></tr>";
+	// $info_table .= "<tr align='center'><td>gpa</td><td>".$basic['gpa']."</td>";
+	// $info_table .= "<tr align='center'><td>grad date</td><td>".$basic['grad_date']."</td></tr>";
+	// $info_table .= "<tr align='center'><td>gato status</td><td>".$basic['gato']."</td></tr>";
+	// $info_table .= "<tr align='center'><td>employer</td><td>".$basic['employer']."</td></tr>";
 			//connect to database
-		include("../connect/database.php");
+		include("test/database.php");
 		//if cannot connect return error
 		$dbconn=pg_connect(HOST." ".DBNAME." ".USERNAME." ".PASSWORD)
 				or die('Could not connect: ' . pg_last_error());
@@ -24,72 +32,73 @@
 			echo "<div align = 'center'>";
 			$result = pg_execute($dbconn, "name", array($_SESSION['username'])); 
 			while( $name = pg_fetch_array($result, null, PGSQL_ASSOC)){
+				echo "<div>Name: ";
 				foreach( $name as $col_value ){
 						echo "\t\t$col_value &nbsp\n";
 				}
-				echo "\t<br>\n";
+				echo "\t</div>\n";
 			}
 			
 			$result = pg_prepare($dbconn, "basicinfo", 'SELECT iaa.id, iaa.gpa, iaa.grad_date, iaa.email, iaa.phone FROM DDL.is_an_applicant iaa WHERE iaa.username=$1');
 			$result = pg_execute($dbconn, "basicinfo", array($_SESSION['username'])); 
 			while( $basicinfo = pg_fetch_array($result, null, PGSQL_ASSOC)){
-				foreach( $basicinfo as $col_value ){
-						echo "\t\t$col_value &nbsp\n";
+				foreach( $basicinfo as $i=>$col_value ){
+						echo "\t\t $i: $col_value &nbsp\n";
+					echo "\t<br>\n";
 				}
-				echo "\t<br>\n";
 			}
 
 			$result = pg_prepare($dbconn, "isinter",  'SELECT ii.speak, ii.test_date, ii.onita FROM DDL.is_international ii WHERE ii.username=$1');
 			$result = pg_execute($dbconn, "isinter", array($_SESSION['username'])); 
 			while( $isinter = pg_fetch_array($result, null, PGSQL_ASSOC)){
-				foreach( $isinter as $col_value ){
-						echo "\t\t$col_value &nbsp\n";
+				foreach( $isinter as $i=>$col_value ){
+						echo "\t\t $i: $col_value &nbsp\n";
+					echo "\t<br>\n";
 				}
-				echo "\t<br>\n";
 			}
 
 			$result = pg_prepare($dbconn, "grad", 'SELECT iag.degree, iag.advisor FROM DDL.is_a_grad iag WHERE iag.username=$1');
 			$result = pg_execute($dbconn, "grad", array($_SESSION['username'])); 
 			while( $grad = pg_fetch_array($result, null, PGSQL_ASSOC)){
-				foreach( $grad as $col_value ){
-						echo "\t\t$col_value &nbsp\n";
+				foreach( $grad as $i=>$col_value ){
+						echo "\t\t $i: $col_value &nbsp\n";
+					echo "\t<br>\n";
 				}
-				echo "\t<br>\n";
 			}
 
 			$result = pg_prepare($dbconn, "undergrad", 'SELECT iau.degree_program, iau.level FROM DDL.is_an_undergrad iau WHERE iau.username=$1');
 			$result = pg_execute($dbconn, "undergrad", array($_SESSION['username'])); 
 			while( $undergrad = pg_fetch_array($result, null, PGSQL_ASSOC)){
-				foreach( $undergrad as $col_value ){
-						echo "\t\t$col_value &nbsp\n";
+				foreach( $undergrad as $i=>$col_value ){
+						echo "\t\t $i: $col_value &nbsp\n";
+					echo "\t<br>\n";
 				}
-				echo "\t<br>\n";
 			}
 
 
 	
 			//$query = "select action, jw.ip_address, jw.log_date from DDL.log jw WHERE jw.username=$1 GROUP BY log_ig ORDER BY log_date DESC";
 	
-			$result = pg_prepare($dbconn, "log_data", 'SELECT izz.username, izz.ip_address, izz.log_date FROM DDL.log izz WHERE izz.username=$1');
-			$result = pg_execute($dbconn, "log_data", array($_SESSION['username'])); 
+			// $result = pg_prepare($dbconn, "log_data", 'SELECT izz.username, izz.ip_address, izz.log_date FROM DDL.log izz WHERE izz.username=$1');
+			// $result = pg_execute($dbconn, "log_data", array($_SESSION['username'])); 
 	
-			echo "\nThere were ".pg_num_rows($result)." rows returned";
+			// echo "\nThere were ".pg_num_rows($result)." rows returned";
 	
-			echo"<table border='1'><tr>";
-			for($a=0;$a<pg_num_fields($result);$a++){
-				echo "<th>" . pg_field_name($result,$a) . "</th>";
-			}
-			echo"\t</tr>\n";
+			// echo"<table border='1'><tr>";
+			// for($a=0;$a<pg_num_fields($result);$a++){
+			// 	echo "<th>" . pg_field_name($result,$a) . "</th>";
+			// }
+			// echo"\t</tr>\n";
 
-			while ($row = pg_fetch_array($result, null, PGSQL_ASSOC)) {
-				echo "\t<tr>\n";
-				foreach($row as $col_value){
-					echo "\t\t<td>$col_value</td>\n";
-				}
-			}
-			echo "\t</tr>\n";
+			// while ($row = pg_fetch_array($result, null, PGSQL_ASSOC)) {
+			// 	echo "\t<tr>\n";
+			// 	foreach($row as $col_value){
+			// 		echo "\t\t<td>$col_value</td>\n";
+			// 	}
+			// }
+			// echo "\t</tr>\n";
 	
-			echo "</table>\n";
+			// echo "</table>\n";
 			
 /*			//print number of results
 				echo "<em>There were " . pg_num_rows($result) . " results returned</em>\n";
