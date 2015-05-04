@@ -22,7 +22,7 @@
 	// $info_table .= "<tr align='center'><td>gato status</td><td>".$basic['gato']."</td></tr>";
 	// $info_table .= "<tr align='center'><td>employer</td><td>".$basic['employer']."</td></tr>";
 			//connect to database
-		include("test/database.php");
+		include("../connect/database.php");
 		//if cannot connect return error
 		$dbconn=pg_connect(HOST." ".DBNAME." ".USERNAME." ".PASSWORD)
 				or die('Could not connect: ' . pg_last_error());
