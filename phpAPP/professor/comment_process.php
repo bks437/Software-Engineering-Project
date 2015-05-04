@@ -16,7 +16,7 @@
 		//get username and comments
 		$username3=$_POST['username3'];
 		$comments=$_POST['comments'];
-
+		$semester='FS15';
 		//search for username in table
 		pg_prepare($dbconn,"search_comment", "SELECT ta_username from DDL.comments where ta_username=$1")or die('error! ' . pg_last_error());
 		$result1 = pg_execute($dbconn,"search_comment",array($username3));
@@ -38,7 +38,7 @@
 		//if there are already comments for this applicant, update comments
 		elseif ($result2 == $username3){
 			pg_prepare($dbconn,"updateComm",'UPDATE DDL.comments SET comment=$1 where professor=$2 and ta_username=$3')or die('error! ' . pg_last_error());
-			$result3 = pg_execute($dbconn,"updateComm",array($comments, $username, $username3));
+			$result3 = pg_execute($dbconn,"updateComm",array($comments, $username, $username3,$semester));
 			echo "You have successfully updated comments to "."<b>".$whole_name."<b>"."<br/>"."<br/>";
 		}
 	}
