@@ -19,6 +19,7 @@
 				echo "You failed to apply.";
 			}
 		}
+	}
 	pg_prepare($dbconn,"applied",'SELECT username FROM DDL.applicant_applies_for_semester WHERE username=$1');
 	$result=pg_execute($dbconn,"applied",array($_SESSION[username]));
 	$applied=pg_fetch_array($result, null, PGSQL_ASSOC);
