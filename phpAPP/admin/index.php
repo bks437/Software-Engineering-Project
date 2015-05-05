@@ -163,6 +163,7 @@
 		
 		<div class="centeradminapps">
 			<br>
+			<br>
 			<form method="POST" action="search.php">
 				<button type="submit" name="view_all" value="view all">View All Applicants/Courses</button>
 			</form>	
