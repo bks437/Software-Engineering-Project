@@ -44,10 +44,10 @@
 			$result = pg_execute($dbconn, "basicinfo", array($_SESSION['username'])); 
 			while( $basicinfo = pg_fetch_array($result, null, PGSQL_ASSOC)){
 				foreach( $basicinfo as $i=>$col_value ){
-						echo "\t\t <td>$i: </td><td>$col_value &nbsp\n</td>";
-					echo "\t<br>\n";
+						echo "\t\t<tr> <td>$i: </td><td>$col_value &nbsp\n</td>";
+					//echo "\t<br>\n";
+					echo "</tr>";
 				}
-				echo "<tr>";
 			}
 
 			echo "</table>";
