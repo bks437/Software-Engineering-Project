@@ -5,7 +5,7 @@
 		header("Location: ../../index.php");
 	}
 
-	echo "<div class=\"header shadowheader\"><h1>Search Results</h1></div>";
+	echo "<div class=\"header shadowheader\"><h1>Search Results</h1></div><br><br><br>";
 	//if data has been submitted and if searching using course number
 	$username = $_SESSION['username'];
 	
