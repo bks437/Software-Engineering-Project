@@ -42,7 +42,7 @@
 		elseif (pg_num_rows($result) ==0) {
 
 			pg_prepare($dbconn,"assign_TA", "INSERT INTO DDL.assigned_to values ($1,$2,$3)") or die('error! ' . pg_last_error());
-			$assigned = pg_execute($dbconn,"assign_TA",array($username3,'FS15', $courseId));
+			$assigned = pg_execute($dbconn,"assign_TA",array($username3,'FS15', $courseId)) or die('error! ' . pg_last_error());
 
 			if($assigned == false) {
 				echo "<b>".$fname." ".$lname."</b> has already been assigned to a class for this semester!<br><br>";
