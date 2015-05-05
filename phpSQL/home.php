@@ -13,14 +13,6 @@
 <body>	
 
 	<? //Redirect if user is not logged in to login page
-	// 		$info_table .= "<tr align='center'><td>name</td><td>".$name['fname']." ".$name['lname']."</td></tr>";
-	// $info_table .= "<tr align='center'><td>id</td><td>".$basic['id']."</td></tr>";
-	// $info_table .= "<tr align='center'><td>email</td><td>".$basic['email']."</td></tr>";
-	// $info_table .= "<tr align='center'><td>phone</td><td>".$basic['phone']."</td></tr>";
-	// $info_table .= "<tr align='center'><td>gpa</td><td>".$basic['gpa']."</td>";
-	// $info_table .= "<tr align='center'><td>grad date</td><td>".$basic['grad_date']."</td></tr>";
-	// $info_table .= "<tr align='center'><td>gato status</td><td>".$basic['gato']."</td></tr>";
-	// $info_table .= "<tr align='center'><td>employer</td><td>".$basic['employer']."</td></tr>";
 			//connect to database
 		include("../connect/database.php");
 		//if cannot connect return error
@@ -29,7 +21,6 @@
 				pg_prepare($dbconn,"assign",'SELECT * FROM DDL.assigned_to where ta_username=$1')or die('error4 ' . pg_last_error());
 				$assign=pg_execute($dbconn,"assign",array($_SESSION[username]))or die('error4 ' . pg_last_error());
 				$line=pg_fetch_array($assign, null, PGSQL_ASSOC);
-				if(isset($line[ta_username])){
 					echo "You have been selected!";
 				}
 				else{

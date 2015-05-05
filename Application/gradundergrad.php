@@ -116,8 +116,8 @@
 				<label class="floatleft">What degree program are you in?</label>
 				<select class="floatright" id="gradpro" name="gradpro">
 					<option value="gradpro">Select</option>
-					<option value="ms">MS</option>
-					<option value="phd">PhD</option>
+					<option value="MS">MS</option>
+					<option value="PHD">PhD</option>
 				</select>
 			</p>
 				<br>
