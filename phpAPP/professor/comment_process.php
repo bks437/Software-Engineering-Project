@@ -16,7 +16,6 @@
 		//get username and comments
 		$username3=$_POST['username3'];
 		$comments=$_POST['comments'];
-		$semester='FS15';
 		//search for username in table
 		pg_prepare($dbconn,"search_comment", "SELECT ta_username from DDL.comments where ta_username=$1")or die('error! ' . pg_last_error());
 		$result1 = pg_execute($dbconn,"search_comment",array($username3));
@@ -31,7 +30,7 @@
 		//if no comments found for this applicant, insert comments
 		if($result2 != $username3) {
 			pg_prepare($dbconn,"insertComm",'INSERT INTO DDL.comments values ($1,$2,$3,$4)')or die('error! ' . pg_last_error());
-			$result3 = pg_execute($dbconn,"insertComm",array($username, $username3, $comments,$semester))or die('error! ' . pg_last_error());
+			$result3 = pg_execute($dbconn,"insertComm",array($username, $username3, $comments,$_SESSION[Semester]))or die('error! ' . pg_last_error());
 			echo "You have successfully added comments to "."<b>".$whole_name."<b>"."<br/>"."<br/>";
 		}
 

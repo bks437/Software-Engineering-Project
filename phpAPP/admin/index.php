@@ -3,6 +3,18 @@
 	if(!isset($_SESSION['username']) || $_SESSION["authority"] != "admin"){
 		header("Location: ../index.php");
 	}
+			include("../../connect/database.php");
+
+		$dbconn=pg_connect(HOST." ".DBNAME." ".USERNAME." ".PASSWORD)or die('Could not connect: ' . pg_last_error());
+		$semeterresult=pg_query($dbconn,'SELECT name FROM DDL.Semester WHERE studentstart<current_date AND facultyend>current_date')or die('error4 ' . pg_last_error());
+	$semester = pg_fetch_array($semeterresult, null, PGSQL_ASSOC);
+	if(isset($semester[name]))
+		$_SESSION[Semester]=$semester[name];
+	
+		pg_prepare($dbconn,"course", "SELECT c_id,numb from DDL.Course")or die('error! ' . pg_last_error());
+		$courses=pg_execute($dbconn,"course",array());
+
+		pg_close($dbconn);
 ?>
 
 <!DOCTYPE html>
@@ -131,7 +143,27 @@
 			<div class="centerplsadmin">	
 				<label class="floatleft">Search by Course Number: </label>
 				<div class="floatright">
-					<input type="text" name="courseNumb" id="courseSearch" placeholder = "CS1050"></input>
+					<select type="text" name="courseNumb" id="courseSearch">
+ 					<option value="courseNumb">Select</option>
+					<!--<option value="cs1050">CS1050</option>
+					<option value="cs2050">CS2050</option>
+					<option value="cs2830">CS2830</option>
+					<option value="cs3050">CS3050</option>
+					<option value="cs3330">CS3330</option>
+					<option value="cs3380">CS3380</option>
+					<option value="cs3530">CS3530</option>
+					<option value="cs4320">CS4320</option>
+					<option value="cs4380">CS4380</option>
+					<option value="cs4610">CS4610</option>
+					<option value="cs4830">CS4830</option> -->
+
+					<?php
+					while( $course = pg_fetch_array($courses, null, PGSQL_ASSOC)){
+						echo "<option value=\"$course[c_id]\">$course[numb]</option>";
+					}
+
+					?>
+				</select>
 					<button type="submit" name="CSearch" value="search by course">Search</button>
 						<br>
 				</div>					
