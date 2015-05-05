@@ -4,7 +4,8 @@
 	if(!isset($_SESSION['username']) || $_SESSION["authority"] != "prof"){
 		header("Location: ../../index.php");
 	}
-
+	
+	echo "<div class=\"header shadowheader\"><h1>Search Results</h1></div><br><br><br>";
 	//if data has been submitted and if searching using course number
 	if(isset($_POST['CSearch'] )){
 
@@ -197,7 +198,6 @@
 		pg_close($dbconn);
 		header("Location: ../../phpSQL/logout.php");
 	}
-
 ?>
 
 <html>
@@ -209,16 +209,18 @@
 <body>
 	<!-- Header/Footer -->
 
-		<div class="header shadowheader">
-			<h1>Search Results</h1>
-		</div>
+		<!--<div class="header shadowheader"><h1>Search Results</h1></div>-->
 
 		<div class="footer shadowfooter">
 			<h4>Copyright &copy; Group G - Computer Science Department</h4>
 		</div>
 		
 	<form method="POST" action="index.php">
-		<input type="submit" name="professor_page" value="Go back to search page" ></input>
+		<div align='center'>
+			<br>
+			<br>
+			<input type="submit" name="professor_page" value="Go back to search page" ></input>'
+		</div>
 	</form>
 </body>
 </html>
