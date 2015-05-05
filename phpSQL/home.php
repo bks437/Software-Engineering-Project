@@ -26,8 +26,8 @@
 		//if cannot connect return error
 		$dbconn=pg_connect(HOST." ".DBNAME." ".USERNAME." ".PASSWORD)
 				or die('Could not connect: ' . pg_last_error());
-				pg_prepare($dbconn,"assign",'SELECT * FROM DDL.assigned_to where DDL.ta_username=$1');
-				$assign=pg_execute($dbconn,"assign",array($_SESSION[username]));
+				pg_prepare($dbconn,"assign",'SELECT * FROM DDL.assigned_to where DDL.ta_username=$1')or die('error4 ' . pg_last_error());
+				$assign=pg_execute($dbconn,"assign",array($_SESSION[username]))or die('error4 ' . pg_last_error());
 				$line=pg_fetch_array($result, null, PGSQL_ASSOC);
 				echo $line[ta_username];
 				if(isset($line[ta_username])){
