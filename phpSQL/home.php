@@ -83,7 +83,7 @@
 			echo "</table>";
 	
 
-			pg_prepare($dbconn, "wtt", 'SELECT * from DDL.wants_to_teach where ta_username=$1')or die(pg_last_error($dbconn));
+			pg_prepare($dbconn, "wtt", 'SELECT * FROM DDL.wants_to_teach where ta_username=$1')or die(pg_last_error($dbconn));
 			pg_prepare($dbconn,"courses",'SELECT numb, name FROM DDL.Course where c_id=$1')or die('error4 ' . pg_last_error());
 			$result =pg_execute($dbconn, "wtt", array($_SESSION[username]));
 			echo "<table  border='0px' width='400px'>";
@@ -96,9 +96,10 @@
 					echo "</tr>";
 				}
 
-				echo "</table>"
+				echo "</table>";
 
-			pg_prepare($dbconn, "at", 'SELECT C.numb,C.name from DDL.are_teaching at JOIN Course C USING(c_id) where ta_username=$1')or die(pg_last_error($dbconn));
+			pg_prepare($dbconn, "at", 'SELECT C.numb, C.name FROM DDL.are_teaching at JOIN Course C USING(c_id) where ta_username=$1')or die(pg_last_error($dbconn));
+			
 			$result =pg_execute($dbconn, "at", array($_SESSION[username]));
 
 			echo "<table  border='0px' width='400px'>";
@@ -109,7 +110,7 @@
 					echo "</tr>";
 				}
 
-				echo "</table>"
+				echo "</table>";
 
 
 			//$query = "select action, jw.ip_address, jw.log_date from DDL.log jw WHERE jw.username=$1 GROUP BY log_ig ORDER BY log_date DESC";
