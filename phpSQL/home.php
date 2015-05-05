@@ -3,7 +3,7 @@
 	// if(!isset($_SESSION['username']) || $_SESSION["authority"] != "applicant"){
 	// 	header("Location: ../index.php");
 	// }
-			$_SESSION[username]="app2";
+			$_SESSION[username]="app4";
 ?>
 <!DOCTYPE html>
 <html>
