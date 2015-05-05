@@ -35,6 +35,7 @@
 			or die('Could not connect: ' . pg_last_error());
 	$semeterresult=pg_query($dbconn,'SELECT name FROM DDL.Semester WHERE studentstart<current_date AND studentend>current_date')or die('error4 ' . pg_last_error());
 	$semester = pg_fetch_array($semeterresult, null, PGSQL_ASSOC);
+	echo "<div align=\"center\">";
 	echo $semester[name];
 	if(isset($semester[name])){
 		$_SESSION[Semester]=$semester[name];
@@ -50,7 +51,7 @@
 	// 	header("Location: ../index.php");
 	// }
 			$_SESSION[username]="app2";
-	?>	
+	?>
 	<?	//TWO SEPERATE PHP TAGS CAUSE I CAN!!!!!!!!!!
 		//Redirect if user is not logged in to login page
 			//connect to database
@@ -67,6 +68,7 @@
 				else{
 					echo "selection in process come back soon";
 				}
+				echo "</div><br>";
 			//prepare and execute query
 			$user = pg_prepare($dbconn, "name", 'SELECT P.fname, P.lname FROM DDL.Person P WHERE P.username=$1');
 			echo "<div align = 'center'>";
@@ -120,28 +122,30 @@
 				}
 			}
 			echo "</table>";
-	
+			echo"<br>";
+			
 			pg_prepare($dbconn, "wtt", 'SELECT * FROM DDL.wants_to_teach where ta_username=$1')or die(pg_last_error($dbconn));
 			pg_prepare($dbconn,"courses",'SELECT numb, name FROM DDL.Course where c_id=$1')or die('error4 ' . pg_last_error());
 			$result =pg_execute($dbconn, "wtt", array($_SESSION[username]));
 			echo "<table  border='0px' width='400px'>";
-			echo "<tr><th colspan=\"3\">Courses you want to teach</th></tr>";
-			echo "<tr><th colspan=\"2\">Course</th><th>Grade</th>";
+			echo "<tr><th colspan=\"3\"><i><h3>Courses you want to teach</h3></i></th></tr>";
+			echo "<tr><th colspan=\"2\"><u>Course</u></th><th><u>Grade</u></th>";
 			while ($wtt = pg_fetch_array($result)) {
 				$courses = pg_execute($dbconn,"courses",array($wtt[c_id])) or die('error4 ' . pg_last_error());	
 				 $course = pg_fetch_array($courses, null, PGSQL_ASSOC);
 						echo "\t\t<tr> <td>$course[numb] </td><td>$course[name]</td><td>$wtt[grade]</td>";
 					echo "</tr>";
 				}
-				echo "</table>";
-
+			echo "</table>";
+			echo"<br>";
+			
 			pg_prepare($dbconn, "at", 'SELECT C.numb, C.name FROM DDL.are_teaching at JOIN DDL.Course C USING(c_id) where ta_username=$1')or die(pg_last_error($dbconn));
 			
 			$result =pg_execute($dbconn, "at", array($_SESSION[username]));
 
 			echo "<table  border='0px' width='400px'>";
-			echo "<tr><th colspan=\"2\">Courses you are teaching</th></tr>";
-			echo "<tr><th colspan=\"2\">Course</th>";
+			echo "<tr><th colspan=\"2\"><i><h3>Courses you are teaching</h3></i></th></tr>";
+			echo "<tr><th colspan=\"2\"><u>Course</u></th>";
 			while ($at = pg_fetch_array($result)) {
 					echo "\t\t<tr> <td>$at[numb] </td><td>$at[name]</td>";
 					echo "</tr>";
