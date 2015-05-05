@@ -1,4 +1,22 @@
-<?php
+<!DOCTYPE html>
+<html>
+<head>	
+	<title>CS4320 - Group G</title>
+	<link rel="stylesheet" type="text/css" href="../../css/style.css">
+	<script src="../../js/jquery-1.11.2.min.js"></script>
+</head>
+<body>
+	<!-- Header/Footer -->
+
+		<div class="header shadowheader">
+			<h1>Search Results?</h1>
+		</div>
+
+		<div class="footer shadowfooter">
+			<h4>Copyright &copy; Group G - Computer Science Department</h4>
+		</div>
+		
+	<?php
 	session_start();
 	//Redirect if user is not logged in to login page
 	if(!isset($_SESSION['username']) || $_SESSION["authority"] != "admin"){
@@ -264,25 +282,7 @@
 	if (isset($_POST['homepage'])) {
 		header("Location: ../../phpSQL/home.php");
 	}
-
-?>
-
-<html>
-<head>	
-	<title>CS4320 - Group G</title>
-	<link rel="stylesheet" type="text/css" href="../../css/style.css">
-	<script src="../../js/jquery-1.11.2.min.js"></script>
-</head>
-<body>
-	<!-- Header/Footer -->
-
-		<div class="header shadowheader">
-			<h1>Search Results?</h1>
-		</div>
-
-		<div class="footer shadowfooter">
-			<h4>Copyright &copy; Group G - Computer Science Department</h4>
-		</div>
+?>	
 		
 	<form method="POST" action="index.php">
 		<div align='center'>
