@@ -16,7 +16,7 @@
 		$username4 = $_POST['username3'];
 		$score = $_POST['rankscore'];
 
-		$score_find = 'SELECT iaa.ta_rank from DDL.is_an_applicant iaa where iaa.username = $1';
+		$score_find = 'SELECT aafs.ta_rank from DDL.applicant_applies_for_semester aafs where aafs.username = $1';
 		pg_prepare($dbconn, 'scorefind',$score_find);
 		$result= pg_execute($dbconn, 'scorefind',array($username4))or die('error! ' . pg_last_error());
 
@@ -25,11 +25,11 @@
 		}
 
 		else {
-
+			$currentsemester='FS15';
 			//if no score found for this applicant, insert score
 			if ($score_find == "") {
-				pg_prepare($dbconn,"insertScore",'INSERT INTO DDL.is_an_applicant values ($1) where username=$2')or die('error! ' . pg_last_error());
-				$newscore = pg_execute($dbconn,"insertScore",array($score, $username4));
+				pg_prepare($dbconn,"insertScore",'INSERT INTO DDL.applicant_applies_for_semester values ($1) where username=$2 AND semester=$3')or die('error! ' . pg_last_error());
+				$newscore = pg_execute($dbconn,"insertScore",array($score, $username4,$currentsemester));
 				if($newscore){
 					echo "You have successfully added ranking score to "."<b>".$applicant_fName." ".$applicant_fName."<b>"."<br/>"."<br/>";
 				}
@@ -40,7 +40,7 @@
 
 			//if there are already score for this applicant, update score
 			else {
-				pg_prepare($dbconn,"updateScore",'UPDATE DDL.is_an_applicant SET ta_rank=$1 where username=$2')or die('error! ' . pg_last_error());
+				pg_prepare($dbconn,"updateScore",'UPDATE DDL.applicant_applies_for_semester SET ta_rank=$1 where username=$2')or die('error! ' . pg_last_error());
 				$updatescore = pg_execute($dbconn,"updateScore",array($score, $username4));
 				if($updatescore){
 					echo "You have successfully updated ranking score to "."<b>".$username4."."."<b>"."<br/>"."<br/>";
