@@ -201,12 +201,24 @@
 ?>
 
 <html>
+<head>	
+	<title>CS4320 - Group G</title>
+	<link rel="stylesheet" type="text/css" href="../../css/style.css">
+	<script src="../../js/jquery-1.11.2.min.js"></script>
+</head>
 <body>
+	<!-- Header/Footer -->
+
+		<div class="header shadowheader">
+			<h1>Search Results</h1>
+		</div>
+
+		<div class="footer shadowfooter">
+			<h4>Copyright &copy; Group G - Computer Science Department</h4>
+		</div>
+		
 	<form method="POST" action="index.php">
-
 		<input type="submit" name="professor_page" value="Go back to search page" ></input>
-
 	</form>
-
 </body>
 </html>

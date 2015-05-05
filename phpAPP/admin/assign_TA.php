@@ -40,10 +40,21 @@
 
 
 <html>
-	<head>
-		<title>Assign/Remove TA/PLA</title>
-	</head>
-	<body>
+	<head>	
+	<title>CS4320 - Group G</title>
+	<link rel="stylesheet" type="text/css" href="../../css/style.css">
+	<script src="../../js/jquery-1.11.2.min.js"></script>
+</head>
+<body>
+	<!-- Header/Footer -->
+
+		<div class="header shadowheader">
+			<h1>Assign/Remove TA/PLA</h1>
+		</div>
+
+		<div class="footer shadowfooter">
+			<h4>Copyright &copy; Group G - Computer Science Department</h4>
+		</div>
 		<div align="center">
 			</br>
 			</br>
@@ -69,8 +80,6 @@
 				echo $display;
 				pg_close($dbconn);
 			?>
-
-
 					</br>
 					</br>
 			<button type="button" value="Close this window" onclick="self.close()">Close this window</button>

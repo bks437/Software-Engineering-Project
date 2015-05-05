@@ -118,8 +118,23 @@
 ?>
 
 <html>
+<head>	
+	<title>CS4320 - Group G</title>
+	<link rel="stylesheet" type="text/css" href="../../css/style.css">
+	<script src="../../js/jquery-1.11.2.min.js"></script>
+</head>
 <body>
-	 <input type="button" value="Close this window" onclick="self.close()">
+	<!-- Header/Footer -->
+
+		<div class="header shadowheader">
+			<h1>Student Info</h1>
+		</div>
+
+		<div class="footer shadowfooter">
+			<h4>Copyright &copy; Group G - Computer Science Department</h4>
+		</div>
+		
+	<input type="button" value="Close this window" onclick="self.close()">
 
 </body>
 </html>
