@@ -121,7 +121,9 @@
 	
 		<div class="centeradminlogout">
 			<br>
-			<button type="submit" name="view_all" value="view all">View All Applicants/Courses</button>
+			<form method="POST" action="search.php">
+				<button type="submit" name="view_all" value="view all">View All Applicants/Courses</button>
+			</form>
 			<!--<input class="home" type="submit" name="submit" value="Home" onclick="window.location.href ='../index.php'">-->
 			<input class="fixadminlogout logout" type="submit" name="submit" value="Logout" onclick="window.location.href ='../../phpSQL/logout.php'">
 		</div>
@@ -148,15 +150,15 @@
 		</form>
 
 		<!--insert course-->
-		<form method="POST" action="adminActions/addcourses.php">
+		<form method="POST" action="createcourses.php">
 			<div class="centerplsadmin">
 				<br><br>
 				<label class="floatleft">Add a new:</label>
 					<div class="floatright">
 						<button type="submit" name="addCourse" value="add new course">Course</button>
 		</form>		
-						<button type="button" onclick="window.location.href='adminActions/semester.php'">Semester</button>
-						<button type="button" onclick="window.location.href='adminActions/addprofessor.php'">Professor</button>
+						<button type="button" onclick="window.location.href='semester.php'">Semester</button>
+						<button type="button" onclick="window.location.href='addprofessor.php'">Professor</button>
 					</div>
 			</div>
 	</body>
