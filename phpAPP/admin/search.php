@@ -40,7 +40,7 @@
 					while($row = pg_fetch_array($result)) {
 						$username1 = $row['ta_username'];
 						$courseId=$row['c_id'];
-						$person = pg_query($dbconn, "SELECT P.fname, P.lname FROM DDL.person P where P.username='$username1'");
+						$person = pg_query($dbconn, "SELECT P.fname, P.lname FROM DDL.person P JOIN DDL.applicant_applies_for_semester aafs USING(username) where P.username='$username1' AND aafs.semester='$_SESSION[Semester]'")or die('error! ' . pg_last_error());
 						$course = pg_query($dbconn, "SELECT course.numb from DDL.course where course.c_id =$courseId");
 
 						//add each row
@@ -92,9 +92,9 @@
 			$courseNumb = $_POST['courseNumb'];
 
 			//find usernames who want to teach this course
-			$search_username = "SELECT wtt.ta_username FROM DDL.wants_to_teach wtt where wtt.c_id IN (SELECT C.c_id FROM DDL.course C where C.numb= $1)";
+			$search_username = "SELECT wtt.ta_username FROM DDL.wants_to_teach wtt where wtt.c_id=$1"; #IN (SELECT C.c_id FROM DDL.course C where C.numb= $1)";
 			pg_prepare($dbconn, 'namesearch', $search_username)or die('error! ' . pg_last_error());
-			$result = pg_execute($dbconn, 'namesearch', array($courseNumb));
+			$result = pg_execute($dbconn, 'namesearch', array($courseNumb))or die('error! ' . pg_last_error());
 
 			//if no username is found
 			if ($result == false) {
@@ -118,7 +118,7 @@
 						//links to actions
 						while($row = pg_fetch_array($result)) {
 							$username1 = $row[0];
-							$person = pg_query($dbconn, "SELECT P.fname, P.lname FROM DDL.person P where P.username='$username1'");
+							$person = pg_query($dbconn, "SELECT P.fname, P.lname FROM DDL.person P JOIN DDL.applicant_applies_for_semester aafs USING(username) where P.username='$username1'AND aafs.semester='$_SESSION[Semester]'")or die('error! ' . pg_last_error());
 							$actions ="<a href=\"stu_info.php?username2=$username1\" target=\"_blank\">Student info</a> |
 											   <a href=\"view_comments.php?username2=$username1\" target=\"_blank\">View comments</a> |
 											   <a href=\"add_rank.php?username2=$username1\" target=\"_blank\">Add/Change ranking score</a> |
