@@ -29,8 +29,8 @@
 				pg_prepare($dbconn,"assign",'SELECT * FROM DDL.assigned_to where DDL.ta_username=$1');
 				$assign=pg_execute($dbconn,"assign",array($_SESSION[username]));
 				$line=pg_fetch_array($result, null, PGSQL_ASSOC);
-				echo $line[c_id];
-				if(isset($line[c_id])){
+				echo $line[ta_username];
+				if(isset($line[ta_username])){
 					echo "You have been selected!";
 				}
 				else{
