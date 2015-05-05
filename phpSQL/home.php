@@ -30,7 +30,7 @@
 			//prepare and execute query
 			$user = pg_prepare($dbconn, "name", 'SELECT P.fname, P.lname FROM DDL.Person P WHERE P.username=$1');
 			echo "<div align = 'center'>";
-			echo "<table  border='1px' width='400px'><tr>";
+			echo "<table  border='0px' width='400px'><tr>";
 			$result = pg_execute($dbconn, "name", array($_SESSION['username'])); 
 			while( $name = pg_fetch_array($result, null, PGSQL_ASSOC)){
 				echo "<td>Name: </td><td>";
@@ -82,6 +82,19 @@
 
 			echo "</table>";
 	
+
+			pg_prepare($dbconn, "wtt", 'SELECT * from DDL.wants_to_teach where ta_username=$1')or die(pg_last_error($dbconn));
+			$result =pg_execute($dbconn, "wtt", array($_SESSION[username]));
+			echo "<table  border='0px' width='400px'>";
+			while ($wtt = pg_fetch_array($result4)) {
+				echo "<tr>";
+				foreach( $wtt as $i=>$col_value ){
+						echo "\t\t<tr> <td>$i: </td><td>$col_value &nbsp\n</td>";
+					//echo "\t<br>\n";
+					echo "</tr>";
+				}
+
+			}
 			//$query = "select action, jw.ip_address, jw.log_date from DDL.log jw WHERE jw.username=$1 GROUP BY log_ig ORDER BY log_date DESC";
 	
 			// $result = pg_prepare($dbconn, "log_data", 'SELECT izz.username, izz.ip_address, izz.log_date FROM DDL.log izz WHERE izz.username=$1');
