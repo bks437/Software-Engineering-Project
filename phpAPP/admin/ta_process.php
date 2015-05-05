@@ -23,10 +23,10 @@
 		$lname = $name['lname'];
 	}
 
-	pg_prepare($dbconn, 'course_name', "SELECT C.c_id FROM DDL.course C where C.numb=$1")or die('error! ' . pg_last_error());
+	pg_prepare($dbconn, 'course_name', "SELECT C.c_id FROM DDL.Course C where C.numb=$1")or die('error! ' . pg_last_error());
 	$course_info = pg_execute($dbconn, 'course_name', array($courseNumb));
 	$info=pg_fetch_array($course_info);
-	$courseId = $info[0];
+	$courseId = $info[c_id];
 
 
 	if(isset($_POST['assign_ta'])){
