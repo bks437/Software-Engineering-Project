@@ -1,3 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CS4320 - Group G</title>
+	<link rel="stylesheet" type="text/css" href="../../css/style.css">
+	<script src="../../js/jquery-1.11.2.min.js"></script>
+</head>
+<body>
+	<!-- Header/Footer -->
+
+		<div class="header shadowheader">
+			<h1>Please Try Again</h1>
+		</div>
+
+		<div class="footer shadowfooter">
+			<h4>Copyright &copy; Group G - Computer Science Department</h4>
+		</div>
+		
+	<!-- Home/Logout -->
+
+		<div class="centerlogout">
+			<br>
+			<input class="home" type="submit" name="submit" value="Home" onclick="window.location.href ='../index.php'">
+			<!--<button class="logout" name="submit" value="Logout" onclick="window.location.href ='../../phpSQL/logout.php'">Logout</button>-->
+			<br><br>
+		</div>	
 <?PHP
 		session_start();
 
@@ -55,7 +81,6 @@
                		header("Location: ../phpSQL/home.php");
                	}
 			}
-
 	//checks statement
 		else{
 			echo "<br><div id='invalid'><b>Wrong username or password<b></div>";
@@ -63,6 +88,6 @@
 		}
 		pg_close($dbconn);
 	}
-
-
 ?>
+</body>
+</html>
