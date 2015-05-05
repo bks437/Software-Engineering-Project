@@ -8,11 +8,17 @@
 	$username = $_SESSION['username'];	
 	//get student username		
 	$username3 = $_GET['username2'];
+			//connect to database
 
-	//connect to database
 	include("../../connect/database.php");
-	//if cannot connect return error
-	$dbconn=pg_connect(HOST." ".DBNAME." ".USERNAME." ".PASSWORD) or die('Could not connect: ' . pg_last_error());	
+		//if cannot connect return error
+	$dbconn=pg_connect(HOST." ".DBNAME." ".USERNAME." ".PASSWORD)or die('Could not connect: ' . pg_last_error());
+	$semeterresult=pg_query($dbconn,'SELECT name FROM DDL.Semester WHERE facultystart<current_date AND facultyend>current_date')or die('error4 ' . pg_last_error());
+	$semester = pg_fetch_array($semeterresult, null, PGSQL_ASSOC);
+
+	if(!isset($semester[name])){
+		header("Location: ../../index.php");
+	}
 
 	//search for the applicant to request    
 	pg_prepare($dbconn,"search_TA", "SELECT ta_username from DDL.professor_wants_ta where ta_username=$1 and professor=$2")or die('error! ' . pg_last_error());
