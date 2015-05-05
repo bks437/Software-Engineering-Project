@@ -151,6 +151,7 @@
 					echo "</tr>";
 				}
 				echo "</table>";
+				echo "<br><br><br>";
 /*
 			//$query = "select action, jw.ip_address, jw.log_date from DDL.log jw WHERE jw.username=$1 GROUP BY log_ig ORDER BY log_date DESC";
 	
