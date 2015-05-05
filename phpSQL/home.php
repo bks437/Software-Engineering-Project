@@ -28,7 +28,7 @@
 				or die('Could not connect: ' . pg_last_error());
 				pg_prepare($dbconn,"assign",'SELECT * FROM DDL.assigned_to where ta_username=$1')or die('error4 ' . pg_last_error());
 				$assign=pg_execute($dbconn,"assign",array($_SESSION[username]))or die('error4 ' . pg_last_error());
-				$line=pg_fetch_array($result, null, PGSQL_ASSOC);
+				$line=pg_fetch_array($assign, null, PGSQL_ASSOC);
 				echo $line[ta_username];
 				if(isset($line[ta_username])){
 					echo "You have been selected!";
