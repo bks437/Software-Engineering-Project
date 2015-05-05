@@ -1,5 +1,5 @@
 INSERT INTO Login values ('admin','9125eacc8ca11b06ec8f285a765ed3523dee033e','2985d19a820626e05198d0f475abc17e0762a41b');
-INSERT INTO Login values ('app1','password','salt');
+INSERT INTO Login values ('app1','9125eacc8ca11b06ec8f285a765ed3523dee033e','2985d19a820626e05198d0f475abc17e0762a41b');
 INSERT INTO Login values ('app2','password','salt');
 INSERT INTO Login values ('app3','password','salt');
 INSERT INTO Login values ('app4','password','salt');
