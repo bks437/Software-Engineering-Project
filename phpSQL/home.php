@@ -3,7 +3,7 @@
 	// if(!isset($_SESSION['username']) || $_SESSION["authority"] != "applicant"){
 	// 	header("Location: ../index.php");
 	// }
-			$_SESSION[username]="app4";
+			$_SESSION[username]="app2";
 ?>
 <!DOCTYPE html>
 <html>
@@ -86,7 +86,7 @@
 			pg_prepare($dbconn, "wtt", 'SELECT * from DDL.wants_to_teach where ta_username=$1')or die(pg_last_error($dbconn));
 			$result =pg_execute($dbconn, "wtt", array($_SESSION[username]));
 			echo "<table  border='0px' width='400px'>";
-			while ($wtt = pg_fetch_array($result4)) {
+			while ($wtt = pg_fetch_array($result)) {
 				echo "<tr>";
 				foreach( $wtt as $i=>$col_value ){
 						echo "\t\t<tr> <td>$i: </td><td>$col_value &nbsp\n</td>";
