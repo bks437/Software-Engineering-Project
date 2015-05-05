@@ -1,3 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<!--ADD ANY USEFUL TIPS, otherwise ... DO NOT FUCK WITH THE COMMENTS. please and thank you.-->
+<head>
+	<title>CS4320 - Group G</title>
+	<link rel="stylesheet" type="text/css" href="../../css/style.css">
+	<script src="../../js/jquery-1.11.2.min.js"></script>
+	<script type="text/javascript" src="../../js/courses.js"></script>
+	<script src="../../js/ajax.js"></script>
+</head>
+<body>
+	<!-- Header/Footer -->
+
+		<div class="header shadowheader">
+			<h1>Create Course</h1>
+		</div>
+
+		<div class="footer shadowfooter">
+			<h4>Copyright &copy; Group G - Computer Science Department</h4>
+		</div>
 <?php
 	session_start();
 	//Redirect if user is not logged in to login page
@@ -33,20 +53,7 @@
 			$insert=false;
 		}
 	}
-?>
-
-
-<!DOCTYPE html>
-<html>
-	<!--ADD ANY USEFUL TIPS, otherwise ... DO NOT FUCK WITH THE COMMENTS. please and thank you.-->
-<head>
-	<title>CS4320 - Group G</title>
-	<link rel="stylesheet" type="text/css" href="../css/style.css">
-	<script src="../js/jquery-1.11.2.min.js"></script>
-	<script type="text/javascript" src="../js/courses.js"></script>
-	<script src="../js/ajax.js"></script>
-</head>
-<body>
+?>	
 	<form action="createcourse.php" method="POST">
 		<label for="numb">Course Number</label>
 		<input type="text" name="numb" placeholder="CS1050" required><br>
@@ -54,22 +61,22 @@
 		<input type="text" name="name" placeholder="Advance Algorithm and Design 1" required><br>
 		<select class="niceinput" id="professor" name="professor" required>
 			<option selected>Select</option>
-		<?
-			$query = 'SELECT P.username,P.fname,P.lname FROM DDL.Person P JOIN DDL.is_a_faculty iaf USING(username) WHERE iaf.admin<>\'y\';';
+<?
+	$query = 'SELECT P.username,P.fname,P.lname FROM DDL.Person P JOIN DDL.is_a_faculty iaf USING(username) WHERE iaf.admin<>\'y\';';
 
-					$result = pg_query($query) or die('Query failed: '. pg_last_error());
-					//displays the results from the database into the table
-					while($line=pg_fetch_array($result,null, PGSQL_ASSOC)){
-						echo "<option value=\"".$line[username]."\">".$line[fname]." ".$line[lname]."</option>";
-						}
-						//free the result
-					pg_free_result($result);
-					?>
+	$result = pg_query($query) or die('Query failed: '. pg_last_error());
+		//displays the results from the database into the table
+		while($line=pg_fetch_array($result,null, PGSQL_ASSOC)){
+			echo "<option value=\"".$line[username]."\">".$line[fname]." ".$line[lname]."</option>";
+		}
+		//free the result
+		pg_free_result($result);
+?>
 		</select><br>
 		<input type="submit" name="submit" value="Create">
 	</form>
 	<button onclick="window.history.back()">Go back</button>
-	<?
+<?
 	if(isset($insert)){
 		if(!$insert){
 			echo "Entry failed ".$error;
@@ -77,10 +84,9 @@
 		else
 			echo "Successfully added class";
 	}
-	?>
+?>
 </body>
 </html>
-
 <?
 pg_close($dbconn);
 ?>

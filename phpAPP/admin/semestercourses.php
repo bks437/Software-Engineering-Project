@@ -1,22 +1,10 @@
-<?php
-	session_start();
-	if(!isset($_SESSION['username']) || $_SESSION["authority"] != "admin"){
-		header("Location: index.php");
-	}
-	include("../../connect/database.php");
-	$dbconn=pg_connect(HOST." ".DBNAME." ".USERNAME." ".PASSWORD)
-				or die('Could not connect: ' . pg_last_error());
-		$result=pg_query('SELECT c_id,numb,name,section,professor FROM DDL.Course');
-		//=pg_execute($dbconn,"courses",array($_POST[semester].$_POST[year],$_POST[studentstart],$_POST[studentend],$_POST[facultystart],$_POST[facultyend]));
-		$addall=pg_query('SELECT c_id FROM DDL.Course');
-?>
-
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>Add Courses</title>
-		<script type="text/javascript" src="../../js/ajax.js"></script>
-		<script type="text/javascript">
+<head>
+	<title>CS4320 - Group G</title>
+	<link rel="stylesheet" type="text/css" href="../../css/style.css">
+	<script type="text/javascript" src="../../js/ajax.js"></script>
+	<script type="text/javascript">
 			function addcourse(course,action){
 		if(action=="Wants"){
 			var e = document.getElementById(course);
@@ -84,28 +72,47 @@
 		}
 
 		</script>
+</head>
+<body>
+	<!-- Header/Footer -->
 
-	</head>
-	<body>
+		<div class="header shadowheader">
+			<h1>Add Professor</h1>
+		</div>
+
+		<div class="footer shadowfooter">
+			<h4>Copyright &copy; Group G - Computer Science Department</h4>
+		</div>
+<?php
+	session_start();
+	if(!isset($_SESSION['username']) || $_SESSION["authority"] != "admin"){
+		header("Location: index.php");
+	}
+	include("../../connect/database.php");
+	$dbconn=pg_connect(HOST." ".DBNAME." ".USERNAME." ".PASSWORD)
+				or die('Could not connect: ' . pg_last_error());
+		$result=pg_query('SELECT c_id,numb,name,section,professor FROM DDL.Course');
+		//=pg_execute($dbconn,"courses",array($_POST[semester].$_POST[year],$_POST[studentstart],$_POST[studentend],$_POST[facultystart],$_POST[facultyend]));
+		$addall=pg_query('SELECT c_id FROM DDL.Course');
+?>
 		<button onclick="addall()">Add all</button> &nbsp<button onclick="removeall()">REMOVE</button><br>
-		<?
-			while( $basicinfo = pg_fetch_array($result, null, PGSQL_ASSOC)){
-				$i=0;
-				foreach( $basicinfo as $col_value ){
-					if($i==0){
-						$i++;
-						continue;
-					}
-						echo "\t\t$col_value &nbsp\n";
-					}
-				echo "<button onclick=\"addcourse('$basicinfo[c_id]','add')\">ADD</button>&nbsp<button onclick=\"addcourse('$basicinfo[c_id]','remove')\">REMOVE</button>";
-				echo "\t<br>\n";
+<?
+	while( $basicinfo = pg_fetch_array($result, null, PGSQL_ASSOC)){
+		$i=0;
+		foreach( $basicinfo as $col_value ){
+			if($i==0){
+				$i++;
+				continue;
 			}
-			?>
+				echo "\t\t$col_value &nbsp\n";
+			}
+		echo "<button onclick=\"addcourse('$basicinfo[c_id]','add')\">ADD</button>&nbsp<button onclick=\"addcourse('$basicinfo[c_id]','remove')\">REMOVE</button>";
+		echo "\t<br>\n";
+	}
+?>
 
 			<button onclick="window.location.href='createcourse.php'">Create a new course</button>
 			<button onclick="window.location.href='index.php'">Finish</button>
 		<div id="selected"></div>
-
 	</body>
 </html>

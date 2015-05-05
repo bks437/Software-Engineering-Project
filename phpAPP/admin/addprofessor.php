@@ -1,3 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CS4320 - Group G</title>
+	<link rel="stylesheet" type="text/css" href="../../css/style.css">
+	<script src="../../js/jquery-1.11.2.min.js"></script>
+	<script type="text/javascript" src="../../js/courses.js"></script>
+	<script src="../../js/ajax.js"></script>
+</head>
+<body>
+	<!-- Header/Footer -->
+
+		<div class="header shadowheader">
+			<h1>Add Professor</h1>
+		</div>
+
+		<div class="footer shadowfooter">
+			<h4>Copyright &copy; Group G - Computer Science Department</h4>
+		</div>
 <?PHP
 	session_start();
 	if(!isset($_SESSION['username']) || $_SESSION["authority"] != "admin"){
@@ -60,11 +79,6 @@
 	pg_close($dbconn);
 	}
 ?>
-<html>
-	<head>
-		<title>Add Professor</title>
-	</head>
-	<body>
 	<div align="center">
 		<div id="login">
 			<p>Please add a professor
@@ -89,5 +103,5 @@
 			<? if($added) echo "Professor added!";?>
 		</div>
 	</div>
-	</body>
+</body>
 </html>
