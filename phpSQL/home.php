@@ -1,29 +1,3 @@
-<?php
-			session_start();
-	if(!isset($_SESSION['username']) || $_SESSION["authority"] != "applicant"){
-		header("Location: ../index.php");
-	}
-	include("../connect/database.php");
-	//if cannot connect return error
-	$dbconn=pg_connect(HOST." ".DBNAME." ".USERNAME." ".PASSWORD)
-			or die('Could not connect: ' . pg_last_error());
-	$semeterresult=pg_query($dbconn,'SELECT name FROM DDL.Semester WHERE studentstart<current_date AND studentend>current_date')or die('error4 ' . pg_last_error());
-	$semester = pg_fetch_array($semeterresult, null, PGSQL_ASSOC);
-	echo $semester[name];
-	if(isset($semester[name])){
-		$_SESSION[Semester]=$semester[name];
-		if(isset($_POST[submit])){
-			pg_prepare($dbconn,"apply",'INSERT INTO DDL.applicant_applies_for_semester(username,semester) VALUES ($1,$2)')or die('error4 ' . pg_last_error());
-			$apply=pg_execute($dbconn,"apply",array($_SESSION[username],$_SESSION[Semester]))or die('error4 ' . pg_last_error());
-			if($apply==false){
-				echo "You failed to apply.";
-			}
-		}
-	}
-	pg_prepare($dbconn,"applied",'SELECT username FROM DDL.applicant_applies_for_semester WHERE username=$1');
-	$result=pg_execute($dbconn,"applied",array($_SESSION[username]));
-	$applied=pg_fetch_array($result, null, PGSQL_ASSOC);
-?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -50,7 +24,34 @@
 			<button class="logout" name="submit" value="Logout" onclick="window.location.href ='../../phpSQL/logout.php'">Logout</button>
 			<br><br>
 		</div>	
-	<?	
+	<?php
+			session_start();
+	if(!isset($_SESSION['username']) || $_SESSION["authority"] != "applicant"){
+		header("Location: ../index.php");
+	}
+	include("../connect/database.php");
+	//if cannot connect return error
+	$dbconn=pg_connect(HOST." ".DBNAME." ".USERNAME." ".PASSWORD)
+			or die('Could not connect: ' . pg_last_error());
+	$semeterresult=pg_query($dbconn,'SELECT name FROM DDL.Semester WHERE studentstart<current_date AND studentend>current_date')or die('error4 ' . pg_last_error());
+	$semester = pg_fetch_array($semeterresult, null, PGSQL_ASSOC);
+	echo $semester[name];
+	if(isset($semester[name])){
+		$_SESSION[Semester]=$semester[name];
+		if(isset($_POST[submit])){
+			pg_prepare($dbconn,"apply",'INSERT INTO applicant_applies_for_semester(username,semester) VALUES ($1,$2)')or die('error4 ' . pg_last_error());
+			$apply=pg_execute($dbconn,"apply",array($_SESSION[username],$_SESSION[Semester]))or die('error4 ' . pg_last_error());
+			if($apply==false){
+				echo "You failed to apply.";
+			}
+		}
+	}		
+	// if(!isset($_SESSION['username']) || $_SESSION["authority"] != "applicant"){
+	// 	header("Location: ../index.php");
+	// }
+			$_SESSION[username]="app2";
+	?>	
+	<?	//TWO SEPERATE PHP TAGS CAUSE I CAN!!!!!!!!!!
 		//Redirect if user is not logged in to login page
 			//connect to database
 		include("../connect/database.php");
@@ -146,11 +147,6 @@
 					echo "</tr>";
 				}
 				echo "</table>";
-
-				if(!isset($applied[username])){
-					echo "<button>Click here to apply</button>";
-				}
-
 /*
 			//$query = "select action, jw.ip_address, jw.log_date from DDL.log jw WHERE jw.username=$1 GROUP BY log_ig ORDER BY log_date DESC";
 	
