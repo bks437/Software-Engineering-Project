@@ -30,15 +30,16 @@
 			//prepare and execute query
 			$user = pg_prepare($dbconn, "name", 'SELECT P.fname, P.lname FROM DDL.Person P WHERE P.username=$1');
 			echo "<div align = 'center'>";
+			echo "<table><tr>";
 			$result = pg_execute($dbconn, "name", array($_SESSION['username'])); 
 			while( $name = pg_fetch_array($result, null, PGSQL_ASSOC)){
-				echo "<div>Name: ";
+				echo "<td>Name: </td><td>";
 				foreach( $name as $col_value ){
 						echo "\t\t$col_value &nbsp\n";
 				}
-				echo "\t</div>\n";
+				echo "\t</td>\n";
 			}
-			
+			echo "</tr>";
 			$result = pg_prepare($dbconn, "basicinfo", 'SELECT iaa.id, iaa.gpa, iaa.grad_date, iaa.email, iaa.phone FROM DDL.is_an_applicant iaa WHERE iaa.username=$1');
 			$result = pg_execute($dbconn, "basicinfo", array($_SESSION['username'])); 
 			while( $basicinfo = pg_fetch_array($result, null, PGSQL_ASSOC)){
@@ -74,7 +75,7 @@
 					echo "\t<br>\n";
 				}
 			}
-
+			echo "</table>";
 
 	
 			//$query = "select action, jw.ip_address, jw.log_date from DDL.log jw WHERE jw.username=$1 GROUP BY log_ig ORDER BY log_date DESC";
