@@ -54,13 +54,22 @@
 		}
 	}
 ?>	
+	<div class="centerplscc">
+		<br><br>
 	<form action="createcourse.php" method="POST">
-		<label for="numb">Course Number</label>
-		<input type="text" name="numb" placeholder="CS1050" required><br>
-		<label for="name">Course Name</label>
-		<input type="text" name="name" placeholder="Advance Algorithm and Design 1" required><br>
+	<div align="center">		
+		<button onclick="window.history.back()">Go back</button>
+	</div>
+		<br><br>
+		<label class="floatleft" for="numb">Course Number</label>
+		<input class="floatright" type="text" name="numb" placeholder="CS1050" required>	
+			<br><br>
+		<label class="floatleft" for="name">Course Name</label>
+		<input class="floatright" type="text" name="name" placeholder="Advance Algorithm and Design 1" required>
+			<br><br>
 		<select class="niceinput" id="professor" name="professor" required>
 			<option selected>Select</option>
+		<br><br>
 <?
 	$query = 'SELECT P.username,P.fname,P.lname FROM DDL.Person P JOIN DDL.is_a_faculty iaf USING(username) WHERE iaf.admin<>\'y\';';
 
@@ -72,10 +81,13 @@
 		//free the result
 		pg_free_result($result);
 ?>
-		</select><br>
-		<input type="submit" name="submit" value="Create">
+		</select>
+			<br>
+		<div align="center">
+			<input type="submit" name="submit" value="Create">
+		</div>
+	</div>
 	</form>
-	<button onclick="window.history.back()">Go back</button>
 <?
 	if(isset($insert)){
 		if(!$insert){

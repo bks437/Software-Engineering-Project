@@ -53,9 +53,9 @@
 
 				// We can use that object like so:
 				var i=0;
-				divObj.innerHTML= "<div id=\""+responseObject[i].username+"\">"+responseObject[i].fname +" "+ responseObject[i].lname+" <div class=\"floatright\"> <input type=\"number\" id=\""+responseObject[i].username+"rank\" placeholder=\"rank\"><button onclick=\"updateranking('"+responseObject[i].username+"','FS15')\">Add Rank</button></div></div><br>";
+				divObj.innerHTML= "<div id=\""+responseObject[i].username+"\">"+responseObject[i].fname +" "+ responseObject[i].lname+" <input type=\"number\" id=\""+responseObject[i].username+"rank\" placeholder=\"rank\"><button onclick=\"updateranking('"+responseObject[i].username+"','FS15')\">Add Rank</button></div><br>";
 				for(i=1;i<responseObject.length;i++){
-					divObj.innerHTML= divObj.innerHTML+"<div id=\""+responseObject[i].username+"\">"+responseObject[i].fname +" "+ responseObject[i].lname+" <div class=\"floatright\"> <input type=\"number\" id=\""+responseObject[i].username+"rank\" placeholder=\"rank\"><button onclick=\"updateranking('"+responseObject[i].username+"','FS15')\">Add Rank</button></div></div><br>";
+					divObj.innerHTML= divObj.innerHTML+"<div id=\""+responseObject[i].username+"\">"+responseObject[i].fname +" "+ responseObject[i].lname+" <input type=\"number\" id=\""+responseObject[i].username+"rank\" placeholder=\"rank\"><button onclick=\"updateranking('"+responseObject[i].username+"','FS15')\">Add Rank</button></div><br>";
 				}
 				}
 				var reqURL = "assign.php?action=add&rank="+rank+"&semester="+semester+"&applicant="+user;
@@ -144,7 +144,7 @@
 				<label class="floatleft">Search by Course Number: </label>
 				<div class="floatright">
 					<select type="text" name="courseNumb" id="courseSearch">
- 					<option disabled  selected hidden>Select</option>
+ 					<option value="courseNumb">Select</option>
 					<!--<option value="cs1050">CS1050</option>
 					<option value="cs2050">CS2050</option>
 					<option value="cs2830">CS2830</option>
@@ -179,12 +179,12 @@
 		</form>
 
 		<!--insert course-->
-			<div class="centerplsadmin">
-				<button type="button" onclick="window.location.href='addprofessor.php'">Professor</button>
+			<div class="centerplsadmin">				
 			<form method="POST" action="createcourse.php">
 				<br><br>
 				<label class="floatleft">Add a new:</label>
-					<div class="floatright">						
+					<div class="floatright">		
+						<button type="button" onclick="window.location.href='addprofessor.php'">Professor</button>
 						<button type="submit" name="addCourse" value="add new course">Course</button>
 			</form>		
 						<button type="button" onclick="window.location.href='semester.php'">Semester</button>

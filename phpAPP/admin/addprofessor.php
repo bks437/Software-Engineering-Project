@@ -82,23 +82,27 @@
 	<div class="centerplsaddprof">
 		<div id="login">
 			<br><br>
-		<input type="button" name="cancel" value="Click here to return to Main page" onclick="window.location.href ='index.php'">	
+		<div align="center">
+			<input type="button" name="cancel" value="Click here to return to Main page" onclick="window.location.href ='index.php'">
+		</div>
 			<br><br>
 			<form name="RegistrationProcess" action= "addprofessor.php" method="POST">
 				<label class="floatleft" for="fname">First name:</label>
 				<input class="floatright" type="text" name="fname" required>
-					<br>
+					<br><br>
 				<label class="floatleft" for="lname">Last name: </label>
 				<input class="floatright" type="text" name="lname" required>
-					<br>
+					<br><br>
 				<label class="floatleft" for="username">Username:</label>
 				<input class="floatright" type="text" name ="username" required>
-					<br>
+					<br><br>
 				<label class="floatleft" for="password">Password:</label>
 				<input class="floatright" type="password" name="password" required>
 					<br>
 					<br>
-				<input type="submit" name="submit" value="Register">
+				<div align="center">
+					<input type="submit" name="submit" value="Register">
+				</div>
 					<br>
 					<br>				
 				</form>

@@ -52,30 +52,31 @@
 				<input type="radio" name="semester" value="fs" id="fall" checked>Fall</input>
 				<input type="radio" name="semester" value="sp" id = "spring">Spring</input>
 				<input type="radio" name="semester" value="su" id="summer">Summer</input>
-				<br>
 			</div>
+				<br>
 			<label class="floatleft">Which year?</label>
 			<div class="floatright">
 				<input type="radio" name="year" value=<? echo "\"".date("y")."\"";?> id="thisyear" checked><? echo date("y");?></input>
 				<input type="radio" name="year" value=<? echo "\"".(date("y")+1)."\"";?> id="nextyear"><? echo date("y")+1;?></input>
-				<br>
 			</div>
-			
+				<br><br>
 			<label class="floatleft">When can students start to apply for this semester?</label>
 			<input class="floatright" type="date" name="studentstart">
-				<br>
+				<br><br>
 			<label class="floatleft">When is the last day for students to apply?</label>
 			<input class="floatright" type="date" name="studentend">
-				<br>
+				<br><br>
 			<label class="floatleft">When can faculty view applications for this semester?</label>
 			<input class="floatright" type="date" name="facultystart" required>
-				<br>
+				<br><br>
 			<label class="floatleft">When is the last day for faculty to view applications?</label>
 			<input type="date" name="facultyend">
+				<br><br>
+			<div align="center">
+				<input type="submit" name="create" value="Create Semester">
+			</div>
 				<br>
-			<input type="submit" name="create" value="Create Semester">
-			<br>
-			<br>
+				<br>
 		</form>
 	</div>
 </body>
