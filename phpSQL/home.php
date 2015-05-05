@@ -20,7 +20,10 @@
 				echo "You failed to apply.";
 			}
 		}
-	}		
+	}	
+	pg_prepare($dbconn,"applied",'SELECT username FROM DDL.applicant_applies_for_semester WHERE username=$1');
+ 	$result=pg_execute($dbconn,"applied",array($_SESSION[username]));
+ 	$applied=pg_fetch_array($result, null, PGSQL_ASSOC);	
 	?>
 
 <!DOCTYPE html>
@@ -144,6 +147,10 @@
 				}
 				echo "</table>";
 				echo "<br><br><br>";
+				if(!isset($applied[username])){
+					echo "<form action=\"home.php\" method=\"POST\">"
+ 					echo "<input type=\"submit\" name=\"submit\" value=\"Click here to apply\">";
+ 				}
 /*
 			//$query = "select action, jw.ip_address, jw.log_date from DDL.log jw WHERE jw.username=$1 GROUP BY log_ig ORDER BY log_date DESC";
 	
