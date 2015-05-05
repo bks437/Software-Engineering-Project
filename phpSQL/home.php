@@ -87,10 +87,10 @@
 			pg_prepare($dbconn,"courses",'SELECT numb, name FROM DDL.Course where c_id=$1');
 			$result =pg_execute($dbconn, "wtt", array($_SESSION[username]));
 			echo "<table  border='0px' width='400px'>";
-			echo "<tr><th>Course</th><th>Grade</th>";
+			echo "<tr><th colspan=2>Course</th><th>Grade</th>";
 			while ($wtt = pg_fetch_array($result)) {
 				$courses = pg_execute($dbconn,"courses",array($wtt[c_id])) or die('error4 ' . pg_last_error());	
-				 $course = pg_fetch_array($result, null, PGSQL_ASSOC);
+				 $course = pg_fetch_array($courses, null, PGSQL_ASSOC);
 						echo "\t\t<tr> <td>$course[numb] </td><td>$course[name]</td><td>$wtt[grade]</td>";
 					echo "</tr>";
 				}
