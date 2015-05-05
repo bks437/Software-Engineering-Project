@@ -4,6 +4,11 @@
 	if(!isset($_SESSION['username']) || $_SESSION["authority"] != "prof"){
 		header("Location: ../../index.php");
 	}
+			//connect to database
+
+	include("../../connect/database.php");
+		//if cannot connect return error
+	$dbconn=pg_connect(HOST." ".DBNAME." ".USERNAME." ".PASSWORD)or die('Could not connect: ' . pg_last_error());
 	$semeterresult=pg_query($dbconn,'SELECT name FROM DDL.Semester WHERE facultystart<current_date AND facultyend>current_date')or die('error4 ' . pg_last_error());
 	$semester = pg_fetch_array($semeterresult, null, PGSQL_ASSOC);
 
@@ -14,12 +19,6 @@
 	echo "<div class=\"header shadowheader\"><h1>Search Results</h1></div><br><br><br>";
 
 	if(isset($_POST['view_all'] )){
-
-		//connect to database
-		include("../../connect/database.php");
-		//if cannot connect return error
-		$dbconn=pg_connect(HOST." ".DBNAME." ".USERNAME." ".PASSWORD)or die('Could not connect: ' . pg_last_error());
-
 		pg_prepare($dbconn, 'searchall', "SELECT * FROM DDL.wants_to_teach order by wants_to_teach.ta_username")or die('error! ' . pg_last_error());
 		$result = pg_execute($dbconn, 'searchall', array());
 		if ($result == false) {
