@@ -5,10 +5,10 @@
 		header("Location: ../../index.php");
 	}
 
-
+	echo "<div class=\"header shadowheader\"><h1>Search Results</h1></div>";
 	//if data has been submitted and if searching using course number
 	$username = $_SESSION['username'];
-	echo "<div class=\"move\">";
+	
 	if(isset($_POST['view_all'] )){
 
 		//connect to database
@@ -264,7 +264,6 @@
 	if (isset($_POST['homepage'])) {
 		header("Location: ../../phpSQL/home.php");
 	}
-	echo "</div>";
 ?>	
 <html>
 <head>	
@@ -275,9 +274,7 @@
 <body>
 	<!-- Header/Footer -->
 
-		<div class="header shadowheader">
-			<h1>Search Results</h1>
-		</div>
+		<!--<div class="header shadowheader"><h1>Search Results</h1></div>-->
 
 		<div class="footer shadowfooter">
 			<h4>Copyright &copy; Group G - Computer Science Department</h4>
