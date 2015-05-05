@@ -38,7 +38,7 @@
 			<br>
 			<br>
 			<br>
-			<h3><? echo $line[fname]." ".$line[lname]?></h3>
+			<h3><? echo $name[fname]." ".$name[lname]?></h3>
 			<form name="add_rank" action= "rank_process.php" method="POST">
 				<input type='hidden' name="username3" value="<?php echo $_GET[username];?>" />
 				<label for="rankscore" value="ranking score">Ranking Score</label>
