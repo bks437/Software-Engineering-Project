@@ -6,8 +6,9 @@
 		header("Location: ../../index.php");
 	}
 
-	//get student username
-	$username3 = $_GET['username2'];
+	pg_prepare($dbconn,"user",'SELECT fname,lname FROM Person WHERE username=$1');
+	$result=pg_execute($dbconn,"user",array($_GET[username]));
+	$name=pg_fetch_array($result, null, PGSQL_ASSOC);
 
 ?>
 
@@ -30,11 +31,12 @@
 		</div>
 		
 		<div align="center">
-			</br>
-			</br>
-			</br>
+			<br>
+			<br>
+			<br>
+			<h3><? echo $line[fname]." ".$line[lname]?></h3>
 			<form name="add_rank" action= "rank_process.php" method="POST">
-				<input type='hidden' name="username3" value="<?php echo $username3;?>" />
+				<input type='hidden' name="username3" value="<?php echo $_GET[username];?>" />
 				<label for="rankscore" value="ranking score">Ranking Score</label>
 				<input type="text" name ="rankscore" placeholder="100">
 					</br>
