@@ -63,11 +63,17 @@ body {
 	width: 126.5px;
 	left: 300px;
 }
-.centeradminlogout {
+.centeradminlogout1 {
 	margin-left: auto;
 	margin-right: auto;
 	width: 243px;
 	left: 300px;
+}
+.centeradminlogout2 {
+	margin-left: auto;
+	margin-right: auto;
+	width: 243px;
+	right: 300px;
 }
 .centerbuttonsgrad {
 	margin-left: auto;

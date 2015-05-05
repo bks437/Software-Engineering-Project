@@ -119,11 +119,13 @@
 	
 	<!-- View Apps/Home/Logout -->
 	
-		<div class="centeradminlogout">
+		<div class="centeradminlogout1">
 			<br>
 			<form method="POST" action="search.php">
 				<button type="submit" name="view_all" value="view all">View All Applicants/Courses</button>
 			</form>
+		</div>
+		<div class="centeradminlogout2">
 			<!--<input class="home" type="submit" name="submit" value="Home" onclick="window.location.href ='../index.php'">-->
 			<input class="fixadminlogout logout" type="submit" name="submit" value="Logout" onclick="window.location.href ='../../phpSQL/logout.php'">
 		</div>
