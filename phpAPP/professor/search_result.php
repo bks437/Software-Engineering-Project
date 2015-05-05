@@ -42,7 +42,7 @@
 					while($row = pg_fetch_array($result)) {
 						$username1 = $row['ta_username'];
 						$courseId=$row['c_id'];
-						$person = pg_query($dbconn, "SELECT P.fname, P.lname FROM DDL.person P where P.username='$username1'");
+						$person = pg_query($dbconn, "SELECT P.fname, P.lname FROM DDL.person P JOIN DDL.applicant_applies_for_semester aafs USING(username) where P.username='$username1' AND aafs.semester=$_SESSION[Semester]");
 						$course = pg_query($dbconn, "SELECT course.numb from DDL.course where course.c_id =$courseId");
 
 						//add each row
@@ -121,7 +121,7 @@
 						//links to actions
 						while($row = pg_fetch_array($result)) {
 							$username1 = $row[0];
-							$person = pg_query($dbconn, "SELECT P.fname, P.lname FROM DDL.person P where P.username='$username1'");
+							$person = pg_query($dbconn, "SELECT P.fname, P.lname FROM DDL.person P JOIN DDL.applicant_applies_for_semester aafs USING(username) where P.username='$username1'AND aafs.semester=$_SESSION[Semester]");
 							$actions ="<a href=\"stu_info.php?username2=$username1\" target=\"_blank\">Student info</a> |
 									   <a href=\"add_comments.php?username2=$username1\" target=\"_blank\">Add Comments</a> |
 									   <a href=\"view_resume.php?username2=$username1\" target=\"_blank\">View Resume</a> |
