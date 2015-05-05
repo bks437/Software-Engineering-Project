@@ -83,7 +83,7 @@
 			}
 	//checks statement
 		else{
-			echo "<br><div id='invalid'><b>Wrong username or password<b></div>";
+			echo "<br><div align=\"center\"><div id='invalid'><b>Wrong username or password<b></div></div>";
 			header("../index.php");
 		}
 		pg_close($dbconn);
