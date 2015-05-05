@@ -84,13 +84,13 @@
 	
 
 			pg_prepare($dbconn, "wtt", 'SELECT * from DDL.wants_to_teach where ta_username=$1')or die(pg_last_error($dbconn));
+			pg_prepare($dbconn,"courses",'SELECT numb, name FROM DDL.Course where c_id=$1');
 			$result =pg_execute($dbconn, "wtt", array($_SESSION[username]));
 			echo "<table  border='0px' width='400px'>";
+			echo "<tr><th>Course</th><th>Grade</th>";
 			while ($wtt = pg_fetch_array($result)) {
-				//echo "<tr>";
-				foreach( $wtt as $i=>$col_value ){
-						echo "\t\t<tr> <td>$i: </td><td>$col_value &nbsp\n</td>";
-					//echo "\t<br>\n";
+				$courses = pg_execute($dbconn,"courses",array($wtt[c_id])) or die('error4 ' . pg_last_error());	
+						echo "\t\t<tr> <td>$course[numb] </td><td>$$course[name]</td><td>$wtt['grade']</td>"</td>;
 					echo "</tr>";
 				}
 
