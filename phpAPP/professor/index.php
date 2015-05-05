@@ -7,7 +7,11 @@
 		include("../../connect/database.php");
 
 		$dbconn=pg_connect(HOST." ".DBNAME." ".USERNAME." ".PASSWORD)or die('Could not connect: ' . pg_last_error());
-
+		$semeterresult=pg_query($dbconn,'SELECT name FROM DDL.Semester WHERE facultystart<current_date AND facultyend>current_date')or die('error4 ' . pg_last_error());
+	$semester = pg_fetch_array($semeterresult, null, PGSQL_ASSOC);
+	if(isset($semester[name]))
+		$_SESSION[Semester]=$semester[name];
+	
 		pg_prepare($dbconn,"course", "SELECT c_id,numb from DDL.Course where professor=$1")or die('error! ' . pg_last_error());
 		$courses=pg_execute($dbconn,"course",array($_SESSION[username]));
 
