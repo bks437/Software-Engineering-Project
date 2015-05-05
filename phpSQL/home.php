@@ -3,6 +3,22 @@
 	if(!isset($_SESSION['username']) || $_SESSION["authority"] != "applicant"){
 		header("Location: ../index.php");
 	}
+	include("../connect/database.php");
+	//if cannot connect return error
+	$dbconn=pg_connect(HOST." ".DBNAME." ".USERNAME." ".PASSWORD)
+			or die('Could not connect: ' . pg_last_error());
+	$semeterresult=pg_query($dbconn,'SELECT name FROM DDL.Semester WHERE studentstart<CURDATE() AND CURDATE()<studentend');
+	$semester = pg_fetch_array($semeterresult, null, PGSQL_ASSOC);
+	if(isset($semester[name])){
+		$_SESSION[Semester]=$semester[name];
+		if(isset($_POST[submit])){
+			pg_prepare($dbconn,"apply",'INSERT INTO applicant_applies_for_semester(username,semester) VALUES ($1,$2)');
+			$apply=pg_execute($dbconn,"apply",array($_SESSION[username],$_SESSION[Semester]));
+			if($apply==false){
+				echo "You failed to apply.";
+			}
+		}
+	}
 ?>
 <!DOCTYPE html>
 <html>
@@ -13,10 +29,6 @@
 
 	<? //Redirect if user is not logged in to login page
 			//connect to database
-		include("../connect/database.php");
-		//if cannot connect return error
-		$dbconn=pg_connect(HOST." ".DBNAME." ".USERNAME." ".PASSWORD)
-				or die('Could not connect: ' . pg_last_error());
 				pg_prepare($dbconn,"assign",'SELECT * FROM DDL.assigned_to where ta_username=$1')or die('error4 ' . pg_last_error());
 				$assign=pg_execute($dbconn,"assign",array($_SESSION[username]))or die('error4 ' . pg_last_error());
 				$line=pg_fetch_array($assign, null, PGSQL_ASSOC);
