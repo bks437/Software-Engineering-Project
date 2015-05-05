@@ -9,6 +9,7 @@
 			or die('Could not connect: ' . pg_last_error());
 	$semeterresult=pg_query($dbconn,'SELECT name FROM DDL.Semester WHERE studentstart<current_date AND studentend>current_date')or die('error4 ' . pg_last_error());
 	$semester = pg_fetch_array($semeterresult, null, PGSQL_ASSOC);
+	echo $semester[name];
 	if(isset($semester[name])){
 		$_SESSION[Semester]=$semester[name];
 		if(isset($_POST[submit])){
