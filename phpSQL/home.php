@@ -19,17 +19,45 @@
 				echo "You failed to apply.";
 			}
 		}
-	}
+	}		
+	// if(!isset($_SESSION['username']) || $_SESSION["authority"] != "applicant"){
+	// 	header("Location: ../index.php");
+	// }
+			$_SESSION[username]="app2";
 ?>
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>Registration</title>
-	</head>
-<body>	
+<head>
+	<title>CS4320 - Group G</title>
+	<link rel="stylesheet" type="text/css" href="../../css/style.css">
+	<script src="../../js/jquery-1.11.2.min.js"></script>
+</head>
+<body>
+	<!-- Header/Footer -->
 
-	<? //Redirect if user is not logged in to login page
+		<div class="header shadowheader">
+			<h1>Applicant Information</h1>
+		</div>
+
+		<div class="footer shadowfooter">
+			<h4>Copyright &copy; Group G - Computer Science Department</h4>
+		</div>
+		
+	<!-- Home/Logout -->
+
+		<div class="centerlogout">
+			<br>
+			<!--<input class="home" type="submit" name="submit" value="Home" onclick="window.location.href ='../index.php'">-->
+			<button class="logout" name="submit" value="Logout" onclick="window.location.href ='../../phpSQL/logout.php'">Logout</button>
+			<br><br>
+		</div>	
+	<?	
+		//Redirect if user is not logged in to login page
 			//connect to database
+		include("../connect/database.php");
+		//if cannot connect return error
+		$dbconn=pg_connect(HOST." ".DBNAME." ".USERNAME." ".PASSWORD)
+				or die('Could not connect: ' . pg_last_error());
 				pg_prepare($dbconn,"assign",'SELECT * FROM DDL.assigned_to where ta_username=$1')or die('error4 ' . pg_last_error());
 				$assign=pg_execute($dbconn,"assign",array($_SESSION[username]))or die('error4 ' . pg_last_error());
 				$line=pg_fetch_array($assign, null, PGSQL_ASSOC);
@@ -91,10 +119,8 @@
 					echo "</tr>";
 				}
 			}
-
 			echo "</table>";
 	
-
 			pg_prepare($dbconn, "wtt", 'SELECT * FROM DDL.wants_to_teach where ta_username=$1')or die(pg_last_error($dbconn));
 			pg_prepare($dbconn,"courses",'SELECT numb, name FROM DDL.Course where c_id=$1')or die('error4 ' . pg_last_error());
 			$result =pg_execute($dbconn, "wtt", array($_SESSION[username]));
@@ -107,7 +133,6 @@
 						echo "\t\t<tr> <td>$course[numb] </td><td>$course[name]</td><td>$wtt[grade]</td>";
 					echo "</tr>";
 				}
-
 				echo "</table>";
 
 			pg_prepare($dbconn, "at", 'SELECT C.numb, C.name FROM DDL.are_teaching at JOIN DDL.Course C USING(c_id) where ta_username=$1')or die(pg_last_error($dbconn));
@@ -121,10 +146,8 @@
 					echo "\t\t<tr> <td>$at[numb] </td><td>$at[name]</td>";
 					echo "</tr>";
 				}
-
 				echo "</table>";
-
-
+/*
 			//$query = "select action, jw.ip_address, jw.log_date from DDL.log jw WHERE jw.username=$1 GROUP BY log_ig ORDER BY log_date DESC";
 	
 			// $result = pg_prepare($dbconn, "log_data", 'SELECT izz.username, izz.ip_address, izz.log_date FROM DDL.log izz WHERE izz.username=$1');
@@ -148,7 +171,7 @@
 	
 			// echo "</table>\n";
 			
-/*			//print number of results
+			//print number of results
 				echo "<em>There were " . pg_num_rows($result) . " results returned</em>\n";
 				echo '<br>';
 				echo '<br>';
@@ -200,12 +223,5 @@
 */
 			pg_close($dbconn);
 	?>
-
-	<br>
-	<div align="center">
-<!-- 		<p><a href="update.php">Click</a> to update page.</p>-->
-	        <p><a href="logout.php">Click here to Logout</a></p>
-	</div>
-
 </body>
 </html>
