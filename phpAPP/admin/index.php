@@ -158,8 +158,10 @@
 						<button type="button" onclick="window.location.href='addprofessor.php'">Professor</button>
 					</div>
 			</div>
+			
+		<!-- View Apps -->
 		
-		<div class="centeradminlogout">
+		<div class="centeradminapps">
 			<form method="POST" action="search.php">
 				<button type="submit" name="view_all" value="view all">View All Applicants/Courses</button>
 			</form>	
