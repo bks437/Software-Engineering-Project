@@ -155,8 +155,8 @@
 
 	<br>
 	<div align="center">
-		<p><a href="update.php">Click</a> to update page.</p>
-        <p><a href="logout.php">Click here to Logout</a></p>
+<!-- 		<p><a href="update.php">Click</a> to update page.</p>-->
+	        <p><a href="logout.php">Click here to Logout</a></p>
 	</div>
 
 </body>
