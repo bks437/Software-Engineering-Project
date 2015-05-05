@@ -87,7 +87,7 @@
 			pg_prepare($dbconn,"courses",'SELECT numb, name FROM DDL.Course where c_id=$1')or die('error4 ' . pg_last_error());
 			$result =pg_execute($dbconn, "wtt", array($_SESSION[username]));
 			echo "<table  border='0px' width='400px'>";
-			echo "<tr><th colspan=\"3\">Courses you want to teach</th></tr>"
+			echo "<tr><th colspan=\"3\">Courses you want to teach</th></tr>";
 			echo "<tr><th colspan=\"2\">Course</th><th>Grade</th>";
 			while ($wtt = pg_fetch_array($result)) {
 				$courses = pg_execute($dbconn,"courses",array($wtt[c_id])) or die('error4 ' . pg_last_error());	
@@ -102,7 +102,7 @@
 			$result =pg_execute($dbconn, "at", array($_SESSION[username]));
 
 			echo "<table  border='0px' width='400px'>";
-			echo "<tr><th colspan=\"2\">Courses you are teaching</th></tr>"
+			echo "<tr><th colspan=\"2\">Courses you are teaching</th></tr>";
 			echo "<tr><th colspan=\"2\">Course</th>";
 			while ($at = pg_fetch_array($result)) {
 					echo "\t\t<tr> <td>$at[numb] </td><td>$at[name]</td>";
