@@ -87,7 +87,7 @@
 			$result =pg_execute($dbconn, "wtt", array($_SESSION[username]));
 			echo "<table  border='0px' width='400px'>";
 			while ($wtt = pg_fetch_array($result)) {
-				echo "<tr>";
+				//echo "<tr>";
 				foreach( $wtt as $i=>$col_value ){
 						echo "\t\t<tr> <td>$i: </td><td>$col_value &nbsp\n</td>";
 					//echo "\t<br>\n";
