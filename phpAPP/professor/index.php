@@ -51,7 +51,7 @@
 
 		<div class="centerplsprof">			
 			<label class="floatleft" for="view_all">View all applicants/courses:</label>			
-			<button class="floatright" type="submit" name="view_all" value="search all applicant">View</button>
+			<button class="floatright moveleft" type="submit" name="view_all" value="search all applicant">View</button>
 				<br><br>	
 			<label class="floatleft" for="courseNumb">View TA/PLA applicants by course number:</label>
 			<div class="floatright">
