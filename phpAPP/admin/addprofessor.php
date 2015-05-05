@@ -11,7 +11,7 @@
 	<!-- Header/Footer -->
 
 		<div class="header shadowheader">
-			<h1>Add Professor</h1>
+			<h1>Add a Professor</h1>
 		</div>
 
 		<div class="footer shadowfooter">
@@ -79,27 +79,29 @@
 	pg_close($dbconn);
 	}
 ?>
-	<div align="center">
+	<div class="centerplsaddprof">
 		<div id="login">
-			<p>Please add a professor
-				<form name="RegistrationProcess" action= "addprofessor.php" method="POST">
-				<label for="fname">First name:</label>
-				<input type="text" name="fname">
-				<label for="lname">Last name: </label>
-				<input type="text" name="lname">
-				<br>
-				<label for="username">Username:</label>
-				<input type="text" name ="username">
-				<label for="password">Password:</label>
-				<input type="password" name="password">
+			<br><br>
+		<input type="button" name="cancel" value="Click here to return to Main page" onclick="window.location.href ='index.php'">	
+			<br><br>
+			<form name="RegistrationProcess" action= "addprofessor.php" method="POST">
+				<label class="floatleft" for="fname">First name:</label>
+				<input class="floatright" type="text" name="fname" required>
+					<br>
+				<label class="floatleft" for="lname">Last name: </label>
+				<input class="floatright" type="text" name="lname" required>
+					<br>
+				<label class="floatleft" for="username">Username:</label>
+				<input class="floatright" type="text" name ="username" required>
+					<br>
+				<label class="floatleft" for="password">Password:</label>
+				<input class="floatright" type="password" name="password" required>
 					<br>
 					<br>
 				<input type="submit" name="submit" value="Register">
 					<br>
-					<br>
-				<input type="button" name="cancel" value="Click here to return to Main page" onclick="window.location.href ='index.php'">
+					<br>				
 				</form>
-			</p>
 			<? if($added) echo "Professor added!";?>
 		</div>
 	</div>
