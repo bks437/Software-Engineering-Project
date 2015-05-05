@@ -290,7 +290,7 @@
 		<div align='center'>
 			<br>
 			<br>
-			<input type="submit" name="professor_page" value="Go back to search page" ></input>'
+			<input type="submit" name="professor_page" value="Go back to search page" ></input>
 		</div>
 	</form>
 </body>

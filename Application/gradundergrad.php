@@ -125,7 +125,7 @@
 				<label class="floatleft">Select Advisor:</label>
 				<select class="floatright" id="advisor" name="advisor">
 					<option value="advisor">Select</option>
-					<option value="yin">Yin Shang</option>
+					<option value="yin">Yi Shang</option>
 					<option value="jodie">Jodie Lenser</option>
 				</select>
 			</p>
