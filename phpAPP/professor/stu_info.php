@@ -72,7 +72,7 @@
 	pg_prepare($dbconn, "it", 'SELECT * from DDL.has_taught where ta_username=$1')or die(pg_last_error($dbconn));
 	$result6 =pg_execute($dbconn, "it", array($username3));
 
-	$info_table = "<b>Basic Information</b></br>"; 
+	$info_table = "<div align=\"center\"><b>Basic Information</b></br>"; 
 	$info_table .= "<table  border='1px' width='400px'>";
 	$info_table .= "<tr align='center'><td>user name</td><td>".$username3."</td>";
 	$info_table .= "<tr align='center'><td>name</td><td>".$name['fname']." ".$name['lname']."</td></tr>";
@@ -142,7 +142,7 @@
 			}
 		$info_table .= "<tr align='center'><td>".$courseNumb."</td>";//<td>".$ht['grade']."</td></tr>";
 	}
-	$info_table .= "</table><br/><br/>";
+	$info_table .= "</table><br/><br/></div>";
 
 	echo $info_table."<br/>";
 	pg_close($dbconn);

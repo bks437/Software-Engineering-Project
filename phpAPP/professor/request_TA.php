@@ -55,7 +55,8 @@
 	$result = pg_execute($dbconn,"search_name",array($username3));
 	$name=pg_fetch_array($result);
 	$whole_name = $name['fname']." ".$name['lname'];
-
+	
+	echo "<div align=\"center\">";
 	//if has not request this applicant
 	if($result2[ta_username] != $username3) {
 		pg_prepare($dbconn,"insert_requestTA",'INSERT INTO DDL.professor_wants_ta values ($1,$2,$3)')or die('error! ' . pg_last_error());
@@ -67,7 +68,7 @@
 	elseif ($result2 == $username3){
 		echo "You have already requested "."<b>".$whole_name."</b>"." as your TA."."<br/>"."<br/>";
 	}
-
+	echo "</div>";
 	pg_close($dbconn);
 ?>
 </body>
