@@ -189,7 +189,7 @@
 								echo "\t\t<div class=\"name\">$line[name]</div>\n";
 								echo "\t\t<div class=\"numb\">$line[numb]</div>\n";
 							//}
-								echo "<select class=\"courseml\" multiple id=$line[c_id] name=\"lgrade\">
+								echo "<select class=\"courseml\" id=$line[c_id] name=\"lgrade\">
 									<option value=\"A\" selected>A</option>
 									<option value=\"B\">B</option>
 									<option value=\"C\">C</option>
