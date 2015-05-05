@@ -11,7 +11,7 @@
 	$dbconn=pg_connect(HOST." ".DBNAME." ".USERNAME." ".PASSWORD)
 			or die('Could not connect: ' . pg_last_error());
 	pg_prepare($dbconn,"user",'SELECT fname,lname FROM DDL.Person WHERE username=$1');
-	$result=pg_execute($dbconn,"user",array($_GET[username]));
+	$result=pg_execute($dbconn,"user",array($_GET[username2]));
 	$name=pg_fetch_array($result, null, PGSQL_ASSOC);
 
 ?>
