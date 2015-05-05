@@ -112,7 +112,7 @@
 	}
 		$info_table .= "</table><br/><br/>";
 
-	echo $info_table."<br/>";
+	//echo $info_table."<br/>";
 	pg_close($dbconn);
 
 ?>
@@ -134,8 +134,14 @@
 			<h4>Copyright &copy; Group G - Computer Science Department</h4>
 		</div>
 		
+		<?
+			echo $info_table."<br/>";
+		?>
+		
 		<div align='center'>
 			<input type="button" value="Close this window" onclick="self.close()">
+			<br>
+			<br>
 		</div>
 </body>
 </html>
