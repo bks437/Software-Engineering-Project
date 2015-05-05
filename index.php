@@ -14,10 +14,10 @@
 		//checks to see if the user is logged in
 			if(isset($_SESSION['username'])){
 				if($_SESSION["authority"] == "admin"){
-					header("Location: phpAPP/admin_page.php");
+					header("Location: phpAPP/admin/index.php");
 				}
 				elseif($_SESSION["authority"] == "prof"){
-					header("Location: phpAPP/professor_page.php");
+					header("Location: phpAPP/professor/index.php");
 				}
 				elseif($_SESSION["authority"] == "applicant"){
 					header("Location: phpSQL/home.php");			
