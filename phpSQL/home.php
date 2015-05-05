@@ -50,13 +50,13 @@
 				}
 			}
 
-			echo "</table>";
 			$result = pg_prepare($dbconn, "isinter",  'SELECT ii.speak, ii.test_date, ii.onita FROM DDL.is_international ii WHERE ii.username=$1');
 			$result = pg_execute($dbconn, "isinter", array($_SESSION['username'])); 
 			while( $isinter = pg_fetch_array($result, null, PGSQL_ASSOC)){
 				foreach( $isinter as $i=>$col_value ){
-						echo "\t\t $i: $col_value &nbsp\n";
-					echo "\t<br>\n";
+							echo "\t\t<tr> <td>$i: </td><td>$col_value &nbsp\n</td>";
+					//echo "\t<br>\n";
+					echo "</tr>";
 				}
 			}
 
@@ -64,8 +64,9 @@
 			$result = pg_execute($dbconn, "grad", array($_SESSION['username'])); 
 			while( $grad = pg_fetch_array($result, null, PGSQL_ASSOC)){
 				foreach( $grad as $i=>$col_value ){
-						echo "\t\t $i: $col_value &nbsp\n";
-					echo "\t<br>\n";
+						echo "\t\t<tr> <td>$i: </td><td>$col_value &nbsp\n</td>";
+					//echo "\t<br>\n";
+					echo "</tr>";
 				}
 			}
 
@@ -73,11 +74,13 @@
 			$result = pg_execute($dbconn, "undergrad", array($_SESSION['username'])); 
 			while( $undergrad = pg_fetch_array($result, null, PGSQL_ASSOC)){
 				foreach( $undergrad as $i=>$col_value ){
-						echo "\t\t $i: $col_value &nbsp\n";
-					echo "\t<br>\n";
+						echo "\t\t<tr> <td>$i: </td><td>$col_value &nbsp\n</td>";
+					//echo "\t<br>\n";
+					echo "</tr>";
 				}
 			}
 
+			echo "</table>";
 	
 			//$query = "select action, jw.ip_address, jw.log_date from DDL.log jw WHERE jw.username=$1 GROUP BY log_ig ORDER BY log_date DESC";
 	
