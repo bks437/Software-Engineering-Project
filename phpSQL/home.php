@@ -90,7 +90,7 @@
 			echo "<tr><th>Course</th><th>Grade</th>";
 			while ($wtt = pg_fetch_array($result)) {
 				$courses = pg_execute($dbconn,"courses",array($wtt[c_id])) or die('error4 ' . pg_last_error());	
-				 $course = pg_fetch_array($result, null, PGSQL_ASSOC)
+				 $course = pg_fetch_array($result, null, PGSQL_ASSOC);
 						echo "\t\t<tr> <td>$course[numb] </td><td>$course[name]</td><td>$wtt[grade]</td>";
 					echo "</tr>";
 				}
