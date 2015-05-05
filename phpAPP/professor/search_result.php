@@ -4,77 +4,8 @@
 	if(!isset($_SESSION['username']) || $_SESSION["authority"] != "prof"){
 		header("Location: ../../index.php");
 	}
-<<<<<<< HEAD
 	
 	echo "<div class=\"header shadowheader\"><h1>Search Results</h1></div><br><br><br>";
-=======
-
-	if(isset($_POST['view_all'] )){
-		//connect to database
-		include("../../connect/database.php");
-		//if cannot connect return error
-		$dbconn=pg_connect(HOST." ".DBNAME." ".USERNAME." ".PASSWORD)or die('Could not connect: ' . pg_last_error());
-
-		pg_prepare($dbconn, 'searchall', "SELECT * FROM DDL.wants_to_teach order by wants_to_teach.ta_username")or die('error! ' . pg_last_error());
-		$result = pg_execute($dbconn, 'searchall', array());
-		if ($result == false) {
-			$_SESSION['search_all']=false;
-		}
-		else{
-
-			//if usernames found
-			if(pg_num_rows($result)>0) {
-
-				//display results in tables with links to actions:
-				//table headers
-				$result_table = "<table align='center' border ='1'>";
-					$result_table .= "<tr align='center'>";
-					$result_table .= "<th width='150px'><b>Student Name</b></a></th>";
-					$result_table .= "<th width='150px'><b>Course Applied</b></th>";
-					$result_table .= "<th width='450px'><b>Actions</b></th>";
-					$result_table .= "</tr>";
-
-					//links to actions
-					while($row = pg_fetch_array($result)) {
-						$username1 = $row['ta_username'];
-						$courseId=$row['c_id'];
-						$person = pg_query($dbconn, "SELECT P.fname, P.lname FROM DDL.person P where P.username='$username1'");
-						$course = pg_query($dbconn, "SELECT course.numb from DDL.course where course.c_id =$courseId");
-
-						//add each row
-						while($name=pg_fetch_array($person)){
-							$fname = $name['fname'];
-							$lname = $name['lname'];
-							while($courseNumb=pg_fetch_array($course)){
-
-							$actions ="<a href=\"stu_info.php?username2=$username1\" target=\"_blank\">Student info</a> |
-								       <a href=\"add_comments.php?username2=$username1\" target=\"_blank\">Add Comments</a> |
-									   <a href=\"view_resume.php?username2=$username1\" target=\"_blank\">View Resume</a> |
-									   <a href=\"request_TA.php?username2=$username1&course=$_POST[courseNumb]\" target=\"_blank\"> Request as TA</a> ";
-
-							$result_table .= "<tr align='center'>";
-							$result_table .= "<td>$fname $lname</td>";
-							$result_table .= "<td>$courseNumb[0]</td>";
-							$result_table .= "<td>&nbsp;$actions</td>";
-							$result_table .= "</tr>";
-							}
-						}
-					}
-				$result_table .= "</table><br/><br/><br/>";
-			}
-
-			else{
-				$result_table = "<p align='center'>No matching data found!</p><br/><br/><br/>";
-			}
-
-			echo $result_table;
-
-		}
-		pg_close($dbconn);
-	}
-	
-		
->>>>>>> origin/master
 	//if data has been submitted and if searching using course number
 	if(isset($_POST['CSearch'] )){
 
