@@ -1,3 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>	
+	<title>CS4320 - Group G</title>
+	<link rel="stylesheet" type="text/css" href="../../css/style.css">
+	<script src="../../js/jquery-1.11.2.min.js"></script>
+</head>
+<body>
+	<!-- Header/Footer -->
+
+		<div class="header shadowheader">
+			<h1>Student Info</h1>
+		</div>
+
+		<div class="footer shadowfooter">
+			<h4>Copyright &copy; Group G - Computer Science Department</h4>
+		</div>
+		
+	<!-- Close Window -->
+			
+		<div align="center">
+			<br><br>
+			<input type="button" value="Close this window" onclick="self.close()">
+			<br><br>
+		</div>
 <?php
 	session_start();
 	//Redirect if user is not logged in to login page
@@ -121,28 +146,6 @@
 
 	echo $info_table."<br/>";
 	pg_close($dbconn);
-
 ?>
-
-<html>
-<head>	
-	<title>CS4320 - Group G</title>
-	<link rel="stylesheet" type="text/css" href="../../css/style.css">
-	<script src="../../js/jquery-1.11.2.min.js"></script>
-</head>
-<body>
-	<!-- Header/Footer -->
-
-		<div class="header shadowheader">
-			<h1>Student Info</h1>
-		</div>
-
-		<div class="footer shadowfooter">
-			<h4>Copyright &copy; Group G - Computer Science Department</h4>
-		</div>
-		
-	<input type="button" value="Close this window" onclick="self.close()">
-
 </body>
 </html>
-
