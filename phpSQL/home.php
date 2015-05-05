@@ -40,16 +40,17 @@
 				echo "\t</td>\n";
 			}
 			echo "</tr>";
-			echo "</table>";
 			$result = pg_prepare($dbconn, "basicinfo", 'SELECT iaa.id, iaa.gpa, iaa.grad_date, iaa.email, iaa.phone FROM DDL.is_an_applicant iaa WHERE iaa.username=$1');
 			$result = pg_execute($dbconn, "basicinfo", array($_SESSION['username'])); 
 			while( $basicinfo = pg_fetch_array($result, null, PGSQL_ASSOC)){
 				foreach( $basicinfo as $i=>$col_value ){
-						echo "\t\t $i: $col_value &nbsp\n";
+						echo "\t\t <td>$i: </td><td>$col_value &nbsp\n</td>";
 					echo "\t<br>\n";
 				}
+				echo "<tr>";
 			}
 
+			echo "</table>";
 			$result = pg_prepare($dbconn, "isinter",  'SELECT ii.speak, ii.test_date, ii.onita FROM DDL.is_international ii WHERE ii.username=$1');
 			$result = pg_execute($dbconn, "isinter", array($_SESSION['username'])); 
 			while( $isinter = pg_fetch_array($result, null, PGSQL_ASSOC)){
