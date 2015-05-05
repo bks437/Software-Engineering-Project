@@ -225,7 +225,9 @@
 		<div class="centerpls">
 			<br>
 			<p class="floatright" id="click">
+			<form action="../phpSQL/home.php" method="POST">
 				<input type="submit" name="submit" value="Finish Application" onclick="window.location.href ='../phpSQL/home.php'">
+				</form>
 				<br>
 				<br>
 			</p>
