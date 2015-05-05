@@ -50,6 +50,14 @@
 	<form method="POST" action="search_result.php">
 
 		<div class="centerplsprof">
+			
+			<label class="floatleft" for="view_all">View all applicants/courses:</label>
+			<div class="floatright">
+				<button type="submit" name="view_all" value="search all applicant">View</button>
+					<br><br>
+			</div>		
+				<br><br>	
+
 			<label class="floatleft" for="courseNumb">View TA/PLA applicants by course number:</label>
 			<div class="floatright">
 				<select type="text" name="courseNumb" id="courseSearch">
