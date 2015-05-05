@@ -98,7 +98,7 @@
 
 				echo "</table>"
 
-			pg_prepare($dbconn, "at", 'SELECT C.numb,C.name from DDL.are_teaching at JOIN Course C where ta_username=$1')or die(pg_last_error($dbconn));
+			pg_prepare($dbconn, "at", 'SELECT C.numb,C.name from DDL.are_teaching at JOIN Course C USING(c_id) where ta_username=$1')or die(pg_last_error($dbconn));
 			$result =pg_execute($dbconn, "at", array($_SESSION[username]));
 
 			echo "<table  border='0px' width='400px'>";
