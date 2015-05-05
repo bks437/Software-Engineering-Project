@@ -105,8 +105,7 @@
 			echo "<tr><th colspan=\"2\">Courses you are teaching</th></tr>"
 			echo "<tr><th colspan=\"2\">Course</th>";
 			while ($at = pg_fetch_array($result)) {
-				 $course = pg_fetch_array($courses, null, PGSQL_ASSOC);
-						echo "\t\t<tr> <td>$at[numb] </td><td>$at[name]</td>";
+					echo "\t\t<tr> <td>$at[numb] </td><td>$at[name]</td>";
 					echo "</tr>";
 				}
 
