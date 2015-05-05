@@ -12,8 +12,8 @@
 	if(isset($semester[name])){
 		$_SESSION[Semester]=$semester[name];
 		if(isset($_POST[submit])){
-			pg_prepare($dbconn,"apply",'INSERT INTO applicant_applies_for_semester(username,semester) VALUES ($1,$2)');
-			$apply=pg_execute($dbconn,"apply",array($_SESSION[username],$_SESSION[Semester]));
+			pg_prepare($dbconn,"apply",'INSERT INTO applicant_applies_for_semester(username,semester) VALUES ($1,$2)')or die('error4 ' . pg_last_error());
+			$apply=pg_execute($dbconn,"apply",array($_SESSION[username],$_SESSION[Semester]))or die('error4 ' . pg_last_error());
 			if($apply==false){
 				echo "You failed to apply.";
 			}
