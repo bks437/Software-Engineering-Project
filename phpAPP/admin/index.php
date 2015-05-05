@@ -179,15 +179,16 @@
 		</form>
 
 		<!--insert course-->
-		<form method="POST" action="createcourses.php">
 			<div class="centerplsadmin">
+				<button type="button" onclick="window.location.href='addprofessor.php'">Professor</button>
+			<form method="POST" action="createcourse.php">
 				<br><br>
 				<label class="floatleft">Add a new:</label>
-					<div class="floatright">
+					<div class="floatright">						
 						<button type="submit" name="addCourse" value="add new course">Course</button>
-		</form>		
+			</form>		
 						<button type="button" onclick="window.location.href='semester.php'">Semester</button>
-						<button type="button" onclick="window.location.href='addprofessor.php'">Professor</button>
+						<!--<button type="button" onclick="window.location.href='addprofessor.php'">Professor</button>-->
 					</div>
 			</div>
 			
@@ -198,6 +199,7 @@
 			<br>
 			<form method="POST" action="search.php">
 				<button type="submit" name="view_all" value="view all">View All Applicants/Courses</button>
+				<br><br><br>
 			</form>	
 		</div>
 	</body>

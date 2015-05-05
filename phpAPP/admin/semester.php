@@ -44,23 +44,39 @@
 		}
 	}
 ?>	
-	<form action="#" method="POST">
-		<label class="leftlabel">Which semester is this for?</label><br>
-		<input type="radio" name="semester" value="fs" id="fall" checked>Fall</input>
-		<input type="radio" name="semester" value="sp" id = "spring">Spring</input>
-		<input type="radio" name="semester" value="su" id="summer">Summer</input><br>
-		<label class="leftlabel">Which year?</label><br>
-		<input type="radio" name="year" value=<? echo "\"".date("y")."\"";?> id="thisyear" checked><? echo date("y");?></input>
-		<input type="radio" name="year" value=<? echo "\"".(date("y")+1)."\"";?> id="nextyear"><? echo date("y")+1;?></input><br>
-		<label class="leftlabel">When can students start to apply for this semester?</label>
-		<input type="date" name="studentstart"><br>
-		<label class="leftlabel">When is the last day for students to apply?</label>
-		<input type="date" name="studentend"><br>
-		<label class="leftlabel">When can faculty view applications for this semester?</label>
-		<input type="date" name="facultystart" required><br>
-		<label class="leftlabel">When is the last day for faculty to view applications?</label>
-		<input type="date" name="facultyend"><br>
-		<input type="submit" name="create" value="Create Semester">
-	</form>
+	<div class="centerplssemester">
+		<br><br>
+		<form action="#" method="POST">			
+			<label class="floatleft">Which semester is this for?</label>
+			<div class="floatright">
+				<input type="radio" name="semester" value="fs" id="fall" checked>Fall</input>
+				<input type="radio" name="semester" value="sp" id = "spring">Spring</input>
+				<input type="radio" name="semester" value="su" id="summer">Summer</input>
+				<br>
+			</div>
+			<label class="floatleft">Which year?</label>
+			<div class="floatright">
+				<input type="radio" name="year" value=<? echo "\"".date("y")."\"";?> id="thisyear" checked><? echo date("y");?></input>
+				<input type="radio" name="year" value=<? echo "\"".(date("y")+1)."\"";?> id="nextyear"><? echo date("y")+1;?></input>
+				<br>
+			</div>
+			
+			<label class="floatleft">When can students start to apply for this semester?</label>
+			<input class="floatright" type="date" name="studentstart">
+				<br>
+			<label class="floatleft">When is the last day for students to apply?</label>
+			<input class="floatright" type="date" name="studentend">
+				<br>
+			<label class="floatleft">When can faculty view applications for this semester?</label>
+			<input class="floatright" type="date" name="facultystart" required>
+				<br>
+			<label class="floatleft">When is the last day for faculty to view applications?</label>
+			<input type="date" name="facultyend">
+				<br>
+			<input type="submit" name="create" value="Create Semester">
+			<br>
+			<br>
+		</form>
+	</div>
 </body>
 </html>

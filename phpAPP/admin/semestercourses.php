@@ -77,7 +77,7 @@
 	<!-- Header/Footer -->
 
 		<div class="header shadowheader">
-			<h1>Add Professor</h1>
+			<h1>Add Semester Courses</h1>
 		</div>
 
 		<div class="footer shadowfooter">
