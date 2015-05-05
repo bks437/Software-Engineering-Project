@@ -4,7 +4,13 @@
 	if(!isset($_SESSION['username']) || $_SESSION["authority"] != "prof"){
 		header("Location: ../../index.php");
 	}
-	
+	$semeterresult=pg_query($dbconn,'SELECT name FROM DDL.Semester WHERE facultystart<current_date AND facultyend>current_date')or die('error4 ' . pg_last_error());
+	$semester = pg_fetch_array($semeterresult, null, PGSQL_ASSOC);
+
+	if(!isset($semester[name])){
+		header("Location: ../../index.php");
+	}
+
 	echo "<div class=\"header shadowheader\"><h1>Search Results</h1></div><br><br><br>";
 
 	if(isset($_POST['view_all'] )){
