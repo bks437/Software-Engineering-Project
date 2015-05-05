@@ -26,7 +26,15 @@
 		//if cannot connect return error
 		$dbconn=pg_connect(HOST." ".DBNAME." ".USERNAME." ".PASSWORD)
 				or die('Could not connect: ' . pg_last_error());
-
+				pg_prepare($dbconn,"assign",'SELECT * FROM DDL.assigned_to where DDL.ta_username=$1');
+				$assign=pg_execute($dbconn,"assign",array($_SESSION[username]));
+				$line=pg_fetch_array($result, null, PGSQL_ASSOC);
+				if(isset($line[c_id])){
+					echo "You have been selected!";
+				}
+				else{
+					echo "selection in process come back soon";
+				}
 			//prepare and execute query
 			$user = pg_prepare($dbconn, "name", 'SELECT P.fname, P.lname FROM DDL.Person P WHERE P.username=$1');
 			echo "<div align = 'center'>";
