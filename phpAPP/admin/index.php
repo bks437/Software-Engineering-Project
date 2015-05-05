@@ -144,7 +144,7 @@
 				<label class="floatleft">Search by Course Number: </label>
 				<div class="floatright">
 					<select type="text" name="courseNumb" id="courseSearch">
- 					<option disabled value="courseNumb">Select</option>
+ 					<option disabled  selected hidden>Select</option>
 					<!--<option value="cs1050">CS1050</option>
 					<option value="cs2050">CS2050</option>
 					<option value="cs2830">CS2830</option>
