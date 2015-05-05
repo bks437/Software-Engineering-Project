@@ -148,8 +148,9 @@
 				echo "</table>";
 				echo "<br><br><br>";
 				if(!isset($applied[username])){
-					echo "<form action=\"home.php\" method=\"POST\">"
+					echo "<form action=\"home.php\" method=\"POST\">";
  					echo "<input type=\"submit\" name=\"submit\" value=\"Click here to apply\">";
+ 					echo "</form>";
  				}
 /*
 			//$query = "select action, jw.ip_address, jw.log_date from DDL.log jw WHERE jw.username=$1 GROUP BY log_ig ORDER BY log_date DESC";
