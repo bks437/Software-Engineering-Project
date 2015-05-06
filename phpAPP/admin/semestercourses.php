@@ -34,15 +34,15 @@
 			var change = document.getElementById(course);
 			console.dir(response);
 			// document.getElementById('selected').innerHTML = JSON.parse(response);
-			$('#'+action+course).removeClass("adding");
+			$('#'+course).removeClass("adding");
 			if(response==0){
 				console.dir("added");
-				console.dir($('#'course).addClass("added"));
+				console.dir($('#'+course).addClass("added"));
 			}
 			else
-				$('#'course).addClass("remove");
+				$('#'+course).addClass("remove");
 		}
-		$('#'+action+course).addClass("adding");
+		$('#'+course).addClass("adding");
 		var reqURL = "addcoures.php?action="+action+"&course="+course;
 	    xmlHttp.open("GET", reqURL, true);
 	    xmlHttp.send();
