@@ -110,7 +110,11 @@
 		<div class="footer shadowfooter">
 			<h4>Copyright &copy; Group G - Computer Science Department</h4>
 		</div>
-		<button onclick="addall()">Add all</button> &nbsp<button onclick="removeall()">Remove all</button><br>
+			<br><br>
+		<div class="centerpls">
+			<button onclick="addall()">Add All</button> &nbsp<button onclick="removeall()">Remove All</button>
+				<br>
+		</div>
 <?
 	while( $line = pg_fetch_array($result, null, PGSQL_ASSOC)){
 		$i=0;
@@ -134,9 +138,10 @@
 		// echo "\t<br>\n";
 	}
 ?>
-
+		<div align="center">
 			<button onclick="window.location.href='createcourse.php'">Create a new course</button>
 			<button onclick="window.location.href='index.php'">Finish</button>
+		</div>
 		<div id="selected"></div>
 	</body>
 </html>
