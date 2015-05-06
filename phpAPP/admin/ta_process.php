@@ -33,7 +33,7 @@
 
 
 		pg_prepare($dbconn, 'assigned', "SELECT * FROM DDL.assigned_to where assigned_to.ta_username=$1 and (assigned_to.c_id=$2 or assigned_to.semester=$3)")or die('error! ' . pg_last_error());
-		$result = pg_execute($dbconn, 'assigned', array($username3, $courseId, $_SESSION[Semester]);
+		$result = pg_execute($dbconn, 'assigned', array($username3, $courseId, $_SESSION[Semester]));
 
 		if($result == false) {
 			echo "<br/><br/><br/><p align='center'>Some error has occured!</p><br><br>";
