@@ -145,7 +145,7 @@
 					echo "</tr>";
 				}
 				echo "</table>";
-				echo "<br><br><br><button onclick=\"window.href.location='../Application/courses.php'\">Update Courses</button>";
+				echo "<br><br><br><button onclick=\"window.location.href='../Application/courses.php'\">Update Courses</button>";
 				if(!isset($applied[username])){
 					echo "<form action=\"home.php\" method=\"POST\">";
  					echo "<input type=\"submit\" name=\"submit\" value=\"Click here to apply\">";
