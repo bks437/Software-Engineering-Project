@@ -90,7 +90,7 @@
 		function removeall(){
 			<? $addall=pg_query('SELECT c_id FROM DDL.Course');
 			while($add=pg_fetch_array($addall,null,PGSQL_ASSOC)){
-			echo "addcourse(\"$add[c_id]\",\"remove\");";
+			echo "removecourse(\"$add[c_id]\",\"remove\");";
 			}
 
 		?>
@@ -120,7 +120,7 @@
 		echo "<div >$line[professor]</div>";
 		//}
 		echo "<button class=\"button courseml\" onclick=\"addcourse('$line[c_id]','add')\">Add</button>";
-		echo "<button class=\"button courseml\" onclick=\"addcourse('$line[c_id]','remove')\">Remove</button></div>";
+		echo "<button class=\"button courseml\" onclick=\"removecourse('$line[c_id]','remove')\">Remove</button></div>";
 		echo "\t<br>\n";
 		// foreach( $basicinfo as $col_value ){
 		// 	if($i==0){
