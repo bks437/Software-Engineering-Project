@@ -121,23 +121,14 @@
 		//foreach ($line as $col_value){
 		echo "<div class=\"centerplssc\">";
 		echo "<div class=\"coursewidth1\" id=\"".$line[c_id]."\">";
-		echo "<div class=\"name\">$line[name]</div>\n";
+		echo "<div class=\"floatleft name\">$line[name]</div>\n";
 		echo "<div class=\"numb\">$line[numb]</div>\n";
-		echo "<div class=\"\">$line[professor]</div>";
+		echo "<div class=\"floatleft\">$line[professor]</div>";
 		//}
 		echo "<button class=\"button courseml\" onclick=\"addcourse('$line[c_id]','add')\">Add</button>";
 		echo "<button class=\"button courseml\" onclick=\"removecourse('$line[c_id]','remove')\">Remove</button></div>";
 		echo "</div>";
 		echo "\t<br>\n";
-		// foreach( $basicinfo as $col_value ){
-		// 	if($i==0){
-		// 		$i++;
-		// 		continue;
-		// 	}
-		// 		echo "\t\t$col_value &nbsp\n";
-		// 	}
-		// echo "<button onclick=\"addcourse('$basicinfo[c_id]','add')\">ADD</button>&nbsp<button onclick=\"addcourse('$basicinfo[c_id]','remove')\">REMOVE</button>";
-		// echo "\t<br>\n";
 	}
 ?>
 		<div align="center">
