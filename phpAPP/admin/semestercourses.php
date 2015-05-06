@@ -29,7 +29,7 @@
 			alert("This browser doesn't support this action");
 			return
 		}
-
+		$('#'+course).removeClass("remove");
 		xmlHttp.onload = function(){
 			var response = xmlHttp.responseText;
 			var change = document.getElementById(course);
@@ -68,6 +68,7 @@
 		alert("This browser doesn't support this action");
 		return
 	}
+	$('#'+course).removeClass("added");
 		xmlHttp.onload = function(){
 			var response = xmlHttp.responseText;
 			var change = document.getElementById(course);
@@ -75,7 +76,7 @@
 			// document.getElementById('selected').innerHTML = JSON.parse(response);
 			$('#'+course).removeClass("adding");
 			if(response==0){
-				console.dir("added");
+				console.dir("removed");
 				console.dir($('#'+course).addClass("remove"));
 			}
 			else
@@ -109,7 +110,7 @@
 		<div class="footer shadowfooter">
 			<h4>Copyright &copy; Group G - Computer Science Department</h4>
 		</div>
-		<button onclick="addall()">Add all</button> &nbsp<button onclick="removeall()">REMOVE</button><br>
+		<button onclick="addall()">Add all</button> &nbsp<button onclick="removeall()">Remove all</button><br>
 <?
 	while( $line = pg_fetch_array($result, null, PGSQL_ASSOC)){
 		$i=0;
