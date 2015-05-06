@@ -1,3 +1,15 @@
+<?php
+	session_start();
+	if(!isset($_SESSION['username']) || $_SESSION["authority"] != "admin"){
+		header("Location: index.php");
+	}
+	include("../../connect/database.php");
+	$dbconn=pg_connect(HOST." ".DBNAME." ".USERNAME." ".PASSWORD)
+				or die('Could not connect: ' . pg_last_error());
+		$result=pg_query('SELECT c_id,numb,name,section,professor FROM DDL.Course');
+		//=pg_execute($dbconn,"courses",array($_POST[semester].$_POST[year],$_POST[studentstart],$_POST[studentend],$_POST[facultystart],$_POST[facultyend]));
+		$addall=pg_query('SELECT c_id FROM DDL.Course');
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,11 +31,18 @@
 
 		xmlHttp.onload = function(){
 			var response = xmlHttp.responseText;
-			var isnert = document.getElementById('selected');
+			var change = document.getElementById(course);
 			console.dir(response);
-			document.getElementById('selected').innerHTML = JSON.parse(response);
+			// document.getElementById('selected').innerHTML = JSON.parse(response);
+			$('#'+action+course).removeClass("adding");
+			if(response==0){
+				console.dir("added");
+				console.dir($('#'course).addClass("added"));
+			}
+			else
+				$('#'course).addClass("remove");
 		}
-		document.getElementById('selected').innerHTML = 'adding...';
+		$('#'+action+course).addClass("adding");
 		var reqURL = "addcoures.php?action="+action+"&course="+course;
 	    xmlHttp.open("GET", reqURL, true);
 	    xmlHttp.send();
@@ -83,31 +102,28 @@
 		<div class="footer shadowfooter">
 			<h4>Copyright &copy; Group G - Computer Science Department</h4>
 		</div>
-<?php
-	session_start();
-	if(!isset($_SESSION['username']) || $_SESSION["authority"] != "admin"){
-		header("Location: index.php");
-	}
-	include("../../connect/database.php");
-	$dbconn=pg_connect(HOST." ".DBNAME." ".USERNAME." ".PASSWORD)
-				or die('Could not connect: ' . pg_last_error());
-		$result=pg_query('SELECT c_id,numb,name,section,professor FROM DDL.Course');
-		//=pg_execute($dbconn,"courses",array($_POST[semester].$_POST[year],$_POST[studentstart],$_POST[studentend],$_POST[facultystart],$_POST[facultyend]));
-		$addall=pg_query('SELECT c_id FROM DDL.Course');
-?>
 		<button onclick="addall()">Add all</button> &nbsp<button onclick="removeall()">REMOVE</button><br>
 <?
-	while( $basicinfo = pg_fetch_array($result, null, PGSQL_ASSOC)){
+	while( $$line = pg_fetch_array($result, null, PGSQL_ASSOC)){
 		$i=0;
-		foreach( $basicinfo as $col_value ){
-			if($i==0){
-				$i++;
-				continue;
-			}
-				echo "\t\t$col_value &nbsp\n";
-			}
-		echo "<button onclick=\"addcourse('$basicinfo[c_id]','add')\">ADD</button>&nbsp<button onclick=\"addcourse('$basicinfo[c_id]','remove')\">REMOVE</button>";
+		//foreach ($line as $col_value){
+		echo "<div class=\"coursewidth1\" id=\"".$line[c_id]."\">";
+		echo "\t\t<div class=\"name\">$line[name]</div>\n";
+		echo "\t\t<div class=\"numb\">$line[numb]</div>\n";
+		echo "<div >$line[professor]</div>"
+		//}
+		echo "<button class=\"button courseml\" onclick=\"addcourse('$line[c_id]','add')\">Add</button>";
+		echo "<button class=\"button courseml\" onclick=\"removecourse('$line[c_id]','remove')\">Remove</button></div>";
 		echo "\t<br>\n";
+		// foreach( $basicinfo as $col_value ){
+		// 	if($i==0){
+		// 		$i++;
+		// 		continue;
+		// 	}
+		// 		echo "\t\t$col_value &nbsp\n";
+		// 	}
+		// echo "<button onclick=\"addcourse('$basicinfo[c_id]','add')\">ADD</button>&nbsp<button onclick=\"addcourse('$basicinfo[c_id]','remove')\">REMOVE</button>";
+		// echo "\t<br>\n";
 	}
 ?>
 

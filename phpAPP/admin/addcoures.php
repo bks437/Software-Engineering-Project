@@ -14,17 +14,21 @@
 		pg_prepare($dbconn,"Taught",'INSERT INTO DDL.semester_has_class VALUES ($1,$2)');
 		$result = pg_execute($dbconn,"Taught",array($_SESSION[semester],$_GET[course]));
 	if(!$result)
-		echo json_encode($_GET[action]." Insert failed ".pg_last_error());
+		if (strpos(pg_last_error(), 'exists') !== FALSE)
+			echo 0;
+		else echo 1;
 	else
-		echo json_encode("Added class.");
+		echo 0;
 	}
 	elseif(strcmp($_GET[action],"remove")==0){
 		pg_prepare($dbconn,"remove",'DELETE FROM DDL.semester_has_class shc where  shc.semester = $1 AND shc.c_id=$2');
 		$result = pg_execute($dbconn,"remove",array($_SESSION[semester],$_GET[course]));
 		if(!$result)
-			echo json_encode($_GET[course]." Failed ".pg_last_error());
-		else
-			echo json_encode("Removed class.");
+		if (strpos(pg_last_error(), 'exists') !== FALSE)
+			echo 0;
+		else echo 1;
+	else
+		echo 0;
 	}
 
 	pg_close($dbconn);
