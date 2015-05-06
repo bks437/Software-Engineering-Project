@@ -104,7 +104,7 @@
 		</div>
 		<button onclick="addall()">Add all</button> &nbsp<button onclick="removeall()">REMOVE</button><br>
 <?
-	while( $$line = pg_fetch_array($result, null, PGSQL_ASSOC)){
+	while( $line = pg_fetch_array($result, null, PGSQL_ASSOC)){
 		$i=0;
 		//foreach ($line as $col_value){
 		echo "<div class=\"coursewidth1\" id=\"".$line[c_id]."\">";
