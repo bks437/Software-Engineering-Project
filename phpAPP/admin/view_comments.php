@@ -11,7 +11,7 @@
 	<!-- Header/Footer -->
 
 		<div class="header shadowheader">
-			<h1>Add a Professor</h1>
+			<h1>View Comments</h1>
 		</div>
 
 		<div class="footer shadowfooter">

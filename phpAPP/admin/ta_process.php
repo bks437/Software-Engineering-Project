@@ -1,3 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CS4320 - Group G</title>
+	<link rel="stylesheet" type="text/css" href="../../css/style.css">
+	<script src="../../js/jquery-1.11.2.min.js"></script>
+	<script type="text/javascript" src="../../js/courses.js"></script>
+	<script src="../../js/ajax.js"></script>
+</head>
+<body>
+	<!-- Header/Footer -->
+
+		<div class="header shadowheader">
+			<h1>TA Process</h1>
+		</div>
+
+		<div class="footer shadowfooter">
+			<h4>Copyright &copy; Group G - Computer Science Department</h4>
+		</div>
+
 <?php
 	session_start();
 	//Redirect if user is not logged in to login page
@@ -26,14 +46,14 @@
 	pg_prepare($dbconn, 'course_name', "SELECT C.c_id FROM DDL.course C where C.numb=$1")or die('error! ' . pg_last_error());
 	$course_info = pg_execute($dbconn, 'course_name', array($courseNumb));
 	$info=pg_fetch_array($course_info);
-	$courseId = $info[c_id];
+	$courseId = $info[0];
 
 
 	if(isset($_POST['assign_ta'])){
 
 
 		pg_prepare($dbconn, 'assigned', "SELECT * FROM DDL.assigned_to where assigned_to.ta_username=$1 and (assigned_to.c_id=$2 or assigned_to.semester=$3)")or die('error! ' . pg_last_error());
-		$result = pg_execute($dbconn, 'assigned', array($username3, $courseId, $_SESSION[Semester]));
+		$result = pg_execute($dbconn, 'assigned', array($username3, $courseId, 'FS15'));
 
 		if($result == false) {
 			echo "<br/><br/><br/><p align='center'>Some error has occured!</p><br><br>";
@@ -42,7 +62,7 @@
 		elseif (pg_num_rows($result) ==0) {
 
 			pg_prepare($dbconn,"assign_TA", "INSERT INTO DDL.assigned_to values ($1,$2,$3)") or die('error! ' . pg_last_error());
-			$assigned = pg_execute($dbconn,"assign_TA",array($username3,$_SESSION[Semester], $courseId)) or die('error! ' . pg_last_error());
+			$assigned = pg_execute($dbconn,"assign_TA",array($username3,'FS15', $courseNumb)) or die('error! ' . pg_last_error());
 
 			if($assigned == false) {
 				echo "<b>".$fname." ".$lname."</b> has already been assigned to a class for this semester!<br><br>";
@@ -78,9 +98,7 @@
 	}
 	pg_close($dbconn);
 ?>
-
-<html>
-<body>
+	
 	<div align="center">
 		<input type="button" value="Close this window" onclick="self.close()">
 	</div>
