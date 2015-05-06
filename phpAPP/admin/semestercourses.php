@@ -122,12 +122,12 @@
 		echo "<div class=\"centerplssc\">";
 		echo "<div class=\"coursewidth1\" id=\"".$line[c_id]."\">";
 		echo "<div class=\"floatleft name\">$line[name]</div>\n";
-		echo "<div class=\"floatright\"><div class=\"numb\">$line[numb]</div>\n";
+		echo "<div class=\"floatright\">$line[numb]</div>\n";
 		echo "<div class=\"floatleft\">$line[professor]</div>";
 		//}
 		echo "<button class=\"button courseml\" onclick=\"addcourse('$line[c_id]','add')\">Add</button>";
 		echo "<button class=\"button courseml\" onclick=\"removecourse('$line[c_id]','remove')\">Remove</button></div>";
-		echo "</div></div>";
+		echo "</div></div><br>";
 		echo "\t<br>\n";
 	}
 ?>
@@ -136,5 +136,5 @@
 			<button onclick="window.location.href='index.php'">Finish</button>
 		</div>
 		<div id="selected"></div>
-	</body>
+</body>
 </html>
