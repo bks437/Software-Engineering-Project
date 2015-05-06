@@ -52,20 +52,7 @@
 		<div class="centerplscourses">
 			<p>
 				<label class="floatleft" for="courseteaching" >Course(s) You Are Currently Teaching: </label>
-				<!-- 	<select multiple class="niceinput" id="cteach" name="cteach">
-						<option value="cteach" selected>Select</option>
-						<option value="cs1050">CS1050</option>
-						<option value="cs2050">CS2050</option>
-						<option value="cs2830">CS2830</option>
-						<option value="cs3050">CS3050</option>
-						<option value="cs3330">CS3330</option>
-						<option value="cs3380">CS3380</option>
-						<option value="cs3530">CS3530</option>
-						<option value="cs4320">CS4320</option>
-						<option value="cs4380">CS4380</option>
-						<option value="cs4610">CS4610</option>
-						<option value="cs4830">CS4830</option>
-					</select> -->
+
 					<? $query = 'SELECT c_id,name,numb FROM DDL.Course;';
 
 					$result = pg_query($query) or die('Query failed: '. pg_last_error());
@@ -100,20 +87,7 @@
 			</p>
 			<p>
 				<label class="floatleft" for="prevtaught">Course(s) You Have Previously Taught: </label>
-					<!-- <select multiple class="niceinput" id="prevtaught" name="prevtaught">
-						<option value="prevtaught" selected>Select</option>
-						<option value="cs1050">CS1050</option>
-						<option value="cs2050">CS2050</option>
-						<option value="cs2830">CS2830</option>
-						<option value="cs3050">CS3050</option>
-						<option value="cs3330">CS3330</option>
-						<option value="cs3380">CS3380</option>
-						<option value="cs3530">CS3530</option>
-						<option value="cs4320">CS4320</option>
-						<option value="cs4380">CS4380</option>
-						<option value="cs4610">CS4610</option>
-						<option value="cs4830">CS4830</option>
-					</select>	 -->
+
 					<? $query = 'SELECT c_id,name,numb FROM DDL.Course;';
 
 					$result = pg_query($query) or die('Query failed: '. pg_last_error());
@@ -151,20 +125,6 @@
 				<label class="floatleft" for="lteach">Course(s) You Would Like to Teach; include grades received: </label>
 				<label class="floatleft smallcourse" for="lteach">(Must have taken course previously)</label>
 					<br>
-					<!-- <select multiple class="niceinput" id="lteach" name="lteach">
-						<option value="lteach" selected>Select</option>
-						<option value="cs1050">CS1050</option>
-						<option value="cs2050">CS2050</option>
-						<option value="cs2830">CS2830</option>
-						<option value="cs3050">CS3050</option>
-						<option value="cs3330">CS3330</option>
-						<option value="cs3380">CS3380</option>
-						<option value="cs3530">CS3530</option>
-						<option value="cs4320">CS4320</option>
-						<option value="cs4380">CS4380</option>
-						<option value="cs4610">CS4610</option>
-						<option value="cs4830">CS4830</option>
-					</select> -->
 
 					<? $query = 'SELECT c_id,name,numb FROM DDL.Course;';
 

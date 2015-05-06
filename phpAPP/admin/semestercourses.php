@@ -123,20 +123,10 @@
 		echo "<button class=\"button courseml\" onclick=\"addcourse('$line[c_id]','add')\">Add</button>";
 		echo "<button class=\"button courseml\" onclick=\"removecourse('$line[c_id]','remove')\">Remove</button></div>";
 		echo "\t<br>\n";
-		// foreach( $basicinfo as $col_value ){
-		// 	if($i==0){
-		// 		$i++;
-		// 		continue;
-		// 	}
-		// 		echo "\t\t$col_value &nbsp\n";
-		// 	}
-		// echo "<button onclick=\"addcourse('$basicinfo[c_id]','add')\">ADD</button>&nbsp<button onclick=\"addcourse('$basicinfo[c_id]','remove')\">REMOVE</button>";
-		// echo "\t<br>\n";
 	}
 ?>
 
 			<button onclick="window.location.href='createcourse.php'">Create a new course</button>
 			<button onclick="window.location.href='index.php'">Finish</button>
-		<div id="selected"></div>
 	</body>
 </html>

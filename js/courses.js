@@ -21,7 +21,7 @@ function addcourse(course,action){
 				console.dir($('#'+action+course).addClass("added"));
 			}
 			else
-				$('#'+action+course).addClass("remove");
+				$('#'+action+course).addClass("error");
 		}
 		$('#'+action+course).addClass("adding");
 		var reqURL = "addcourse.php?action="+action+"&course="+course+"&grade="+grade;
@@ -52,7 +52,7 @@ function removecourse(course,action){
 				console.dir($('#'+action+course).addClass("remove"));
 			}
 			else
-				$('#'+action+course).addClass("adding");
+				$('#'+action+course).addClass("error");
 		}
 		$('#'+action+course).addClass("adding");
 		var reqURL = "removecourse.php?action="+action+"&course="+course+"&grade="+grade;
