@@ -121,8 +121,8 @@
 		//foreach ($line as $col_value){
 		echo "<div class=\"centerplssc\">";
 		echo "<div class=\"coursewidth1\" id=\"".$line[c_id]."\">";
-		echo "<div class=\"floatleft name\">$line[name]</div>\n";
-		echo "<div class=\"floatright\">$line[numb]</div>\n";
+		echo "<div class=\"floatleft\">$line[name]</div>\n";
+		echo "<div class=\"floatright numb\">$line[numb]</div>\n";
 		echo "<div class=\"floatleft\">$line[professor]</div>";
 		//}
 		echo "<button class=\"button courseml\" onclick=\"addcourse('$line[c_id]','add')\">Add</button>";
