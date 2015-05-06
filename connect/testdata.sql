@@ -53,7 +53,7 @@ INSERT INTO wants_to_teach values ('app1','B-',0);
 INSERT INTO are_teaching values ('app2',1);
 INSERT INTO are_teaching values ('app3',0);
 
-INSERT INTO Semester values ('FS15','04-01-2015','04-25-2015','04-26-2015','05-01-2015');
+INSERT INTO Semester values ('FS15','04-01-2015','05-25-2015','05-052015','05-25-2015');
 
 INSERT INTO applicant_applies_for_semester(username,semester) values ('app2','FS15');
 INSERT INTO applicant_applies_for_semester(username,semester) values ('app1','FS15');
