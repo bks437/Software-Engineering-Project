@@ -127,7 +127,7 @@
 		//}
 		echo "<button class=\"button courseml\" onclick=\"addcourse('$line[c_id]','add')\">Add</button>";
 		echo "<button class=\"button courseml\" onclick=\"removecourse('$line[c_id]','remove')\">Remove</button></div>";
-		echo "</div>":
+		echo "</div>";
 		echo "\t<br>\n";
 	}
 ?>
