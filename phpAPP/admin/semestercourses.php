@@ -41,7 +41,7 @@
 				console.dir($('#'+course).addClass("added"));
 			}
 			else
-				$('#'+course).addClass("remove");
+				$('#'+course).addClass("error");
 		}
 		$('#'+course).addClass("adding");
 		var reqURL = "addcoures.php?action="+action+"&course="+course;
@@ -68,14 +68,20 @@
 		alert("This browser doesn't support this action");
 		return
 	}
-
-	xmlHttp.onload = function(){
-		var response = xmlHttp.responseText;
-		var isnert = document.getElementById('selected');
-		console.dir(response);
-		document.getElementById('selected').innerHTML = JSON.parse(response);
-	}
-	document.getElementById('selected').innerHTML = 'adding...';
+		xmlHttp.onload = function(){
+			var response = xmlHttp.responseText;
+			var change = document.getElementById(course);
+			console.dir(response);
+			// document.getElementById('selected').innerHTML = JSON.parse(response);
+			$('#'+course).removeClass("adding");
+			if(response==0){
+				console.dir("added");
+				console.dir($('#'+course).addClass("remove"));
+			}
+			else
+				$('#'+course).addClass("error");
+		}
+		$('#'+course).addClass("adding");
 	var reqURL = "addcoures.php?action="+action+"&course="+course;
     xmlHttp.open("GET", reqURL, true);
     xmlHttp.send();
