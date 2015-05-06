@@ -16,7 +16,7 @@
 	<title>CS4320 - Group G</title>
 	<link rel="stylesheet" type="text/css" href="../../css/style.css">
 	<script type="text/javascript" src="../../js/ajax.js"></script>
-	<script src="../js/jquery-1.11.2.min.js"></script>
+	<script src="../../js/jquery-1.11.2.min.js"></script>
 	<script type="text/javascript">
 			function addcourse(course,action){
 		if(action=="Wants"){
