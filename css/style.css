@@ -151,6 +151,14 @@ body {
 	margin: auto;
 	width: 600px;
 }
+.centerplssc {
+	margin: auto;
+	width: 600px;
+}
+.centerplsscheader {
+	margin: auto;
+	width: 151px;
+}
 .centerimage {
 	margin: auto;
 	width: 500px;
@@ -231,9 +239,6 @@ body {
 }
 .remove{
 	background: #FF4D4D;
-}
-.error{
-	background: #B84DB8;
 }
 .coursewidth1 {
 	width: 605px;

@@ -111,7 +111,7 @@
 			<h4>Copyright &copy; Group G - Computer Science Department</h4>
 		</div>
 			<br><br>
-		<div class="centerpls">
+		<div class="centerplsscheader">
 			<button onclick="addall()">Add All</button> &nbsp<button onclick="removeall()">Remove All</button>
 				<br>
 		</div>
@@ -119,6 +119,7 @@
 	while( $line = pg_fetch_array($result, null, PGSQL_ASSOC)){
 		$i=0;
 		//foreach ($line as $col_value){
+		echo "<div class=\"centerplssc\">";
 		echo "<div class=\"coursewidth1\" id=\"".$line[c_id]."\">";
 		echo "\t\t<div class=\"name\">$line[name]</div>\n";
 		echo "\t\t<div class=\"numb\">$line[numb]</div>\n";
@@ -126,6 +127,7 @@
 		//}
 		echo "<button class=\"button courseml\" onclick=\"addcourse('$line[c_id]','add')\">Add</button>";
 		echo "<button class=\"button courseml\" onclick=\"removecourse('$line[c_id]','remove')\">Remove</button></div>";
+		echo "</div>":
 		echo "\t<br>\n";
 		// foreach( $basicinfo as $col_value ){
 		// 	if($i==0){
