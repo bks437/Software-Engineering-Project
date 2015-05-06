@@ -38,20 +38,20 @@ INSERT INTO is_international values('app4',76,'y','4/16/13','y');
 INSERT INTO Course(name,numb,section,professor) values ('Software Engineering 1','CS4320','01','fac1');
 INSERT INTO Course(name,numb,section,professor) values ('Algorithm Design & Programing 2','CS2050','01','fac2');
 
-INSERT INTO has_taught values ('app2',0);
 INSERT INTO has_taught values ('app2',1);
-INSERT INTO has_taught values ('app3',0);
-INSERT INTO has_taught values ('app1',1);
-INSERT INTO has_taught values ('app5',0);
+INSERT INTO has_taught values ('app2',2);
+INSERT INTO has_taught values ('app3',1);
+INSERT INTO has_taught values ('app1',2);
+INSERT INTO has_taught values ('app5',1);
 
-INSERT INTO wants_to_teach values ('app2','A+',0);
-INSERT INTO wants_to_teach values ('app3','A-',1);
-INSERT INTO wants_to_teach values ('app4','B',0);
-INSERT INTO wants_to_teach values ('app5','C+',1);
-INSERT INTO wants_to_teach values ('app1','B-',0);
+INSERT INTO wants_to_teach values ('app2','A+',1);
+INSERT INTO wants_to_teach values ('app3','A-',2);
+INSERT INTO wants_to_teach values ('app4','B',1);
+INSERT INTO wants_to_teach values ('app5','C+',2);
+INSERT INTO wants_to_teach values ('app1','B-',1);
 
-INSERT INTO are_teaching values ('app2',1);
-INSERT INTO are_teaching values ('app3',0);
+INSERT INTO are_teaching values ('app2',2);
+INSERT INTO are_teaching values ('app3',1);
 
 INSERT INTO Semester values ('FS15','04-01-2015','05-25-2015','05-05-2015','05-25-2015');
 
@@ -60,13 +60,13 @@ INSERT INTO applicant_applies_for_semester(username,semester) values ('app1','FS
 INSERT INTO applicant_applies_for_semester(username,semester) values ('app3','FS15');
 INSERT INTO applicant_applies_for_semester(username,semester) values ('app5','FS15');
 
-INSERT INTO semester_has_class values ('FS15',0);
 INSERT INTO semester_has_class values ('FS15',1);
+INSERT INTO semester_has_class values ('FS15',2);
 
-INSERT INTO professor_wants_ta values ('app2','fac1',0);
-INSERT INTO professor_wants_ta values ('app3','fac1',0);
-INSERT INTO professor_wants_ta values ('app2','fac2',1);
-INSERT INTO professor_wants_ta values ('app4','fac2',0);
+INSERT INTO professor_wants_ta values ('app2','fac1',1);
+INSERT INTO professor_wants_ta values ('app3','fac1',1);
+INSERT INTO professor_wants_ta values ('app2','fac2',2);
+INSERT INTO professor_wants_ta values ('app4','fac2',2);
 
 INSERT INTO Comments values ('fac1','app2','Test comment','FS15');
 
