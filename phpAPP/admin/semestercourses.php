@@ -113,7 +113,7 @@
 			<br><br>
 		<div class="centerplsscheader">
 			<button onclick="addall()">Add All</button> &nbsp<button onclick="removeall()">Remove All</button>
-				<br>
+				<br><br><br>
 		</div>
 <?
 	while( $line = pg_fetch_array($result, null, PGSQL_ASSOC)){
@@ -121,18 +121,29 @@
 		//foreach ($line as $col_value){
 		echo "<div class=\"centerplssc\">";
 		echo "<div class=\"coursewidth1\" id=\"".$line[c_id]."\">";
-		echo "\t\t<div class=\"name\">$line[name]</div>\n";
-		echo "\t\t<div class=\"numb\">$line[numb]</div>\n";
-		echo "<div >$line[professor]</div>";
+		echo "<div class=\"name\">$line[name]</div>\n";
+		echo "<div class=\"numb\">$line[numb]</div>\n";
+		echo "<div class=\"\">$line[professor]</div>";
 		//}
 		echo "<button class=\"button courseml\" onclick=\"addcourse('$line[c_id]','add')\">Add</button>";
 		echo "<button class=\"button courseml\" onclick=\"removecourse('$line[c_id]','remove')\">Remove</button></div>";
 		echo "</div>";
 		echo "\t<br>\n";
+		// foreach( $basicinfo as $col_value ){
+		// 	if($i==0){
+		// 		$i++;
+		// 		continue;
+		// 	}
+		// 		echo "\t\t$col_value &nbsp\n";
+		// 	}
+		// echo "<button onclick=\"addcourse('$basicinfo[c_id]','add')\">ADD</button>&nbsp<button onclick=\"addcourse('$basicinfo[c_id]','remove')\">REMOVE</button>";
+		// echo "\t<br>\n";
 	}
 ?>
 		<div align="center">
 			<button onclick="window.location.href='createcourse.php'">Create a new course</button>
 			<button onclick="window.location.href='index.php'">Finish</button>
+		</div>
+		<div id="selected"></div>
 	</body>
 </html>
