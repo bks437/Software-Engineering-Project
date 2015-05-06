@@ -1,3 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CS4320 - Group G</title>
+	<link rel="stylesheet" type="text/css" href="../../css/style.css">
+	<script src="../../js/jquery-1.11.2.min.js"></script>
+	<script type="text/javascript" src="../../js/courses.js"></script>
+	<script src="../../js/ajax.js"></script>
+</head>
+<body>
+	<!-- Header/Footer -->
+
+		<div class="header shadowheader">
+			<h1>Add a Professor</h1>
+		</div>
+
+		<div class="footer shadowfooter">
+			<h4>Copyright &copy; Group G - Computer Science Department</h4>
+		</div>
+			
+	<br><br><br>
 <?php
 	session_start();
 	//Redirect if user is not logged in to login page
@@ -26,13 +47,13 @@
 
 	if($result == false) {
 
-		echo "Some error has occured!<br><br>";
+		echo "<div align=\"center\">Some error has occured!</div><br><br>";
 
 	}
 
 
 	elseif (pg_num_rows($result) ==0) {
-		echo "<b>".$fname." ".$lname."</b> has no comments yet!<br><br>";
+		echo "<div align=\"center\"><b>".$fname." ".$lname."</b> has no comments yet!</div><br><br>";
 	}
 
 	else{
@@ -45,10 +66,8 @@
 	}
 	pg_close($dbconn);
 ?>
-
-<html>
-<body>
-	<input type="button" value="Close this window" onclick="self.close()">
-
+	<div align="center">
+		<input type="button" value="Close this window" onclick="self.close()">
+	</div>
 </body>
 </html>

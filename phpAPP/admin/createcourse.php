@@ -65,9 +65,10 @@
 		<input class="floatright" type="text" name="numb" placeholder="CS1050" required>	
 			<br><br>
 		<label class="floatleft" for="name">Course Name</label>
-		<input class="floatright" type="text" name="name" placeholder="Advance Algorithm and Design 1" required>
+		<input class="floatright" type="text" name="name" placeholder="Adv Alg. & Dsgn 1" required>
 			<br><br>
-		<select class="niceinput" id="professor" name="professor" required>
+		<label class="floatleft" for="pname">Professor Name</label>
+		<select class="floatright" id="professor" name="professor" required>
 			<option selected>Select</option>
 		<br><br>
 <?
