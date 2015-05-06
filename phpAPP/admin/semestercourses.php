@@ -110,7 +110,7 @@
 		echo "<div class=\"coursewidth1\" id=\"".$line[c_id]."\">";
 		echo "\t\t<div class=\"name\">$line[name]</div>\n";
 		echo "\t\t<div class=\"numb\">$line[numb]</div>\n";
-		echo "<div >$line[professor]</div>"
+		echo "<div >$line[professor]</div>";
 		//}
 		echo "<button class=\"button courseml\" onclick=\"addcourse('$line[c_id]','add')\">Add</button>";
 		echo "<button class=\"button courseml\" onclick=\"removecourse('$line[c_id]','remove')\">Remove</button></div>";
