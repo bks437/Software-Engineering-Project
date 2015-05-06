@@ -35,8 +35,8 @@ INSERT INTO is_an_undergrad values('app5','Information Technology','Senior');
 
 INSERT INTO is_international values('app4',76,'y','4/16/13','y');
 
-INSERT INTO Course values (0,'Software Engineering 1','CS4320','01','fac1');
-INSERT INTO Course values (1,'Algorithm Design & Programing 2','CS2050','01','fac2');
+INSERT INTO Course(name,numb,section,professor) values ('Software Engineering 1','CS4320','01','fac1');
+INSERT INTO Course(name,numb,section,professor) values ('Algorithm Design & Programing 2','CS2050','01','fac2');
 
 INSERT INTO has_taught values ('app2',0);
 INSERT INTO has_taught values ('app2',1);
