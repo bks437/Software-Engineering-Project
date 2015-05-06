@@ -55,11 +55,11 @@
 		</div>	
 	<?	//TWO SEPERATE PHP TAGS CAUSE I CAN!!!!!!!!!!
 		//Redirect if user is not logged in to login page
-				pg_prepare($dbconn,"assign",'SELECT * FROM DDL.assigned_to where ta_username=$1')or die('error4 ' . pg_last_error());
-				$assign=pg_execute($dbconn,"assign",array($_SESSION[username]))or die('error4 ' . pg_last_error());
+				pg_prepare($dbconn,"assign",'SELECT at.ta_username,C.numb,C.name FROM DDL.assigned_to at JOIN DDL.Course C USING(c_id) where ta_username=$1 AND semester=$2')or die('error4 ' . pg_last_error());
+				$assign=pg_execute($dbconn,"assign",array($_SESSION[username],$_SESSION[Semester]))or die('error4 ' . pg_last_error());
 				$line=pg_fetch_array($assign, null, PGSQL_ASSOC);
 				if(isset($line[ta_username])){
-					echo "You have been selected!";
+					echo "You have been selected for $line[numb] $line[name]";
 				}
 				else{
 					echo "selection in process come back soon";
