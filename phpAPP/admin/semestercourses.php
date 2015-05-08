@@ -120,14 +120,14 @@
 		$i=0;
 		//foreach ($line as $col_value){
 		echo "<div class=\"centerplssc\">";
-		echo "<div class=\"coursewidth1\" id=\"".$line[c_id]."\">";
+		echo "<div class=\"coursewidth1\" id=\"".$line[c_id]."\" style=\"height:21px\">";
 		echo "<div class=\"floatleft\">$line[name]</div>\n";
 		echo "<div class=\"floatright\"><div class=\"numb\">$line[numb]</div>\n";
 		echo "<div class=\"floatleft\">$line[professor]</div>";
 		//}
 		echo "<button class=\"button courseml\" onclick=\"addcourse('$line[c_id]','add')\">Add</button>";
 		echo "<button class=\"button courseml\" onclick=\"removecourse('$line[c_id]','remove')\">Remove</button></div>";
-		echo "</div></div><br><br>";
+		echo "</div></div>";
 		echo "\t<br>\n";
 	}
 ?>
