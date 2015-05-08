@@ -30,6 +30,7 @@
 			return
 		}
 		$('#'+course).removeClass("remove");
+		$('#'+course).removeClass("error");
 		xmlHttp.onload = function(){
 			var response = xmlHttp.responseText;
 			var change = document.getElementById(course);
@@ -69,6 +70,7 @@
 		return
 	}
 	$('#'+course).removeClass("added");
+	$('#'+course).removeClass("error");
 		xmlHttp.onload = function(){
 			var response = xmlHttp.responseText;
 			var change = document.getElementById(course);
