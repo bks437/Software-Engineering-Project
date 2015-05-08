@@ -61,7 +61,7 @@
 			$username = $row['ta_username'];
 			$professor =$row['professor'];
 			$comments = $row['comment'];
-			echo "<b>".$fname." ".$lname."</b> has a comment given by <b>".$professor."</b>: ".$comments.".<br><br>";
+			echo "div align=\"center\"><b>".$fname." ".$lname."</b> has a comment given by <b>".$professor."</b>: ".$comments.".</div><br><br>";
 		}
 	}
 	pg_close($dbconn);
